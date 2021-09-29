@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Escolher Espaço" %}{% endblock %}
+
+{% block content %}
+
+<!--inicio reserva-->
+  <section class="tipoSala">  
+    <h1 class="card-title">{% translate "Escolha o seu espaço" %}</h1>
+    <div class="card-group">
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/imgSala.jpg' %}" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title">{% translate "Mesa compartilhada" %}</h5>
+          <p class="card-text">{% translate "Uma cadeira em uma mesa compartilhada com outros clientes. Para aqueles que querem respirar a inovação do coworking." %}</p>
+          
+          <div class="row">
+            <a href="{% url 'agendamento' 1 %}" class="btn btn-sm btn-primary animate__animated animate__fadeInUp scrollto col-lg-3 col-md-6">{% translate "Reservar" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/imgSala2.jpg' %}" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title">{% translate "Sala privada" %}</h5>
+          <p class="card-text">{% translate "Uma sala privada para comportar sua equipe em um local mais reservado. Salas com tamanhos de até 20 pessoas." %}</p>
+          <div class="row">
+            <a href="{% url 'agendamento' 2 %}" class="btn btn-sm btn-primary animate__animated animate__fadeInUp scrollto col-lg-3 col-md-6">{% translate "Reservar" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img class="card-img-top" src="{% static 'img/imgSala3.jpg' %}" alt="Imagem de capa do card">
+        <div class="card-body">
+          <h5 class="card-title">{% translate "Sala de reuniões" %}</h5>
+          <p class="card-text">{% translate "Uma sala privada especial com recursos extras que ajudam em apresentações ou na reunião do grupo." %}</p>
+          <div class="row">
+            <a href="{% url 'agendamento' 3 %}" class="btn btn-sm btn-primary animate__animated animate__fadeInUp scrollto col-lg-3 col-md-6">{% translate "Reservar" %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="card-text" data-tag="passo1">{% translate "Passo 1 de 3" %}</p>
+  </section>
+<!--fim reserva-->
+{% endblock content %}

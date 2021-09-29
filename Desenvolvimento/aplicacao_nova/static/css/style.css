@@ -1,0 +1,131 @@
+/*Inicio Login*/
+body{
+    background-color: #F1F1F1;
+}
+.topLogin{
+    display: flex;
+    align-items: center;
+    padding-bottom: 1px;
+}
+
+.topLogin h1{
+    margin:15px;
+    font-size: 3.5rem;
+}
+
+.gif{
+    width: 25%;
+    margin-right: 1rem;
+}
+
+#BodyLogin{
+    width: 400px;
+    height: auto;
+    margin:auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-bottom: .5rem;
+}
+
+#title{
+    background-color: #AAAAAA;
+    color: #fff;
+    width: auto;
+    height: 40px;
+    margin:auto;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 8px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+/*Fim Login*/
+/*Inicio de cadastros*/
+.topRegister{
+    text-align: center;
+}
+
+#cadastro{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:20px;
+}
+
+#cadastro input[type=radio]{
+    margin-left: 5px;
+    position: relative;
+
+}
+
+#BodyRegister{
+   margin:auto;
+    width: 600px;
+    text-align: left;   
+}
+
+.bodyHome{
+    font-size: 2rem;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#config{
+    position: sticky;
+    top:0;
+    float: right;
+    z-index: 10;
+    height: 60px;
+    margin-right:3rem;
+    font-size: 2rem;
+}
+
+/*Fim de cadastros*/
+
+/*Iicio Usuarios*/
+
+#BodyLoginUser{
+    display: block;
+    width: 400px;
+    height: auto;
+    margin:auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-bottom: .5rem;
+}
+
+.logo{
+    width: 25%;
+    margin: 1rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    background-color: #4c4d4cfb; 
+    overflow-x: hidden;
+    transition: 0.5s; 
+}
+/*Fim Usuarios*/
+
+
+#box {
+    width: 500px;
+    height: 200px;
+    /* border: 2px solid rgb(245, 220, 225); */
+    padding: 4px 6px;
+    font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+  }
+  
+
+
+
+

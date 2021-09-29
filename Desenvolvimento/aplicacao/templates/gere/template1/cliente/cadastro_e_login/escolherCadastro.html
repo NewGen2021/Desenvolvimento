@@ -1,0 +1,31 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Escolher cadastro" %}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+<section class="bodyHome">
+    <div class="topLogin">
+        <img class="gif" src="{% static 'img/logoGif.gif' %}" alt="NewGen">
+        <h1>{% translate "Escolha o Perfil:" %}</h1> 
+    </div>
+
+    <div class="list-group">
+      <a data-tag="adm" href="registrarAdmin" class="list-group-item list-group-item-action active" aria-current="true">
+        {% translate "Administrador" %}
+      </a>
+      <a data-tag="cliente" href="registrarUsuario" class="list-group-item list-group-item-action">{% translate "Cliente" %}</a>
+      <a data-tag="funcionario" href="registrarFuncionario" class="list-group-item list-group-item-action">{% translate "Funcionários" %}</a>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock js %}

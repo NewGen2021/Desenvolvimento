@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Menu Administrador" %}{% endblock %}
+
+{% block content %}
+  <!-- inicio Escolha do Cadastro -->
+  <section style="margin: 20px">
+
+    <div class="list-group">
+      <a href="emProducao" class="list-group-item list-group-item-action active" aria-current="true">{% translate "Customizações" %}
+      
+      </a>
+      <a href="reserva" class="list-group-item list-group-item-action">{% translate "Acompanhamento de Agendas" %}</a>
+      <a href="emProducao" class="list-group-item list-group-item-action">{% translate "Relatórios Analíticos" %}</a>
+      <a href="emProducao" class="list-group-item list-group-item-action">{% translate "Cadastro de Salas e Equipamentos" %}</a>
+      <a href="registrarFuncionario" class="list-group-item list-group-item-action">{% translate "Cadastro de Funcionários" %}</a>
+    </div>
+  
+</section>
+  <!-- Fim escolha do cadastro -->
+{% endblock content %}
