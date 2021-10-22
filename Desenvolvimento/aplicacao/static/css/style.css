@@ -3,14 +3,14 @@ body{
     background-color: #F1F1F1;
 }
 .topLogin{
-    display: flex;
-    align-items: center;
+   text-align: center;
     padding-bottom: 1px;
 }
 
 .topLogin h1{
     margin:15px;
     font-size: 3.5rem;
+    padding-bottom: 5px;
 }
 
 .gif{
@@ -116,16 +116,82 @@ body{
 }
 /*Fim Usuarios*/
 
+.resetSenha{
+      margin: 20px 20px 50px 20px;
+  }
 
-#box {
-    width: 500px;
-    height: 200px;
-    /* border: 2px solid rgb(245, 220, 225); */
-    padding: 4px 6px;
-    font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+.textReset{
+      font-size: 18px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+  }
+
+#enviarEmail{
+     margin-left: 160px;
+     margin-top: 10px;
   }
   
+.conteudoSenha{
+      height: 300px;
+      padding-top: 40px;
+      padding-bottom: 20px;
+      font-size: 16px;
+  }
+.conteudoSenha p{
+    text-align: center;
+}
 
+.headerResetSenha{
+    height: 80px;
+    background-color: #DBDBDB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerResetSenha h1{
+    margin: 0;
+    font-size: 34px;  
+}
+
+.sectionResetSenha{
+    margin-top: 50px;
+}
+
+.fieldResetSenha{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#form_custom{
+    margin: 20px;
+ }
+
+#box_custom{
+    display: flex;
+    width: 500px;
+    height: 100px;
+   
+    justify-content: space-between;
+    font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+}
+
+#logo_custom{
+    margin-top: 20px;
+    width: 40%;
+}
+
+#logo_custom .invalid-feedback{
+    margin-left: 10px;
+}
+
+#conteudo-box{
+    margin-top: 20px;
+}
+
+#botao_box{
+    margin-top: 20px;
+}
 
 
 

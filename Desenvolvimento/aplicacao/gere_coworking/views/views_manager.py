@@ -32,19 +32,24 @@ def verify_view(request, criaCoworking: bool, needAdm: bool):
         'turl': get_url_without_langcode(request),
         'domain': str(request.domain['domain']),
     }
+
     if request.domain['domain'] is None:
+        print('ERRO 1', file=sys.stderr)
         response['context']['error_message'] = _('O seguinte sistema não existe.')
         response['render']  = render(request, 'erros/erroGenerico.html', response['context'])
         return response
     if request.domain['isActive'] is False:
+        print('ERRO 2', file=sys.stderr)
         response['context']['error_message'] = _('O seguinte sistema atualmente está desativado.')
         response['render']  = render(request, 'erros/erroGenerico.html', response['context'])
         return response
     if request.domain['domain'].domain == MAIN_HOST:
-        if criaCoworking is False:
-            response['context']['error_message'] = _(f'A seguinte página se refere a um sistema cliente, não ao sistema newgen.')
-            response['render']  = render(request, 'erros/erroGenerico.html', response['context'])
-            return response
+        # if criaCoworking is False:
+        #     print('ERRO 3', file=sys.stderr)
+        #     response['context']['error_message'] = _(f'A seguinte página se refere a um sistema cliente, não ao sistema newgen.')
+        #     response['render']  = render(request, 'erros/erroGenerico.html', response['context'])
+        #     return response
+        pass
     return response
 
 def get_template():

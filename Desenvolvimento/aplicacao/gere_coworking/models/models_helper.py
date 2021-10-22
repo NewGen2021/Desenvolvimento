@@ -9,20 +9,11 @@ import datetime, sys
 class GerenciaPessoas(models.Manager):
 
     def is_duplicated(self, cpf_cnpj, tipo_pessoa="cliente"):
-        print('-------------- AZAIJSD' + tipo_pessoa, file=sys.stderr)
         if tipo_pessoa == 'cliente':
             return m.ClienteModel.objects.filter(
                 cpf_cnpj = cpf_cnpj
             ).exists()
         if tipo_pessoa == 'funcionario':
-            print('-------------- A', file=sys.stderr)
-            print(tipo_pessoa, cpf_cnpj, file=sys.stderr)
-            print(m.FuncionariosModel.objects.filter(
-                cpf_cnpj = cpf_cnpj
-            ), file=sys.stderr)
-            print(m.FuncionariosModel.objects.filter(
-                cpf_cnpj = cpf_cnpj
-            ).exists(), file=sys.stderr)
             return m.FuncionariosModel.objects.filter(
                 cpf_cnpj = cpf_cnpj
             ).exists()

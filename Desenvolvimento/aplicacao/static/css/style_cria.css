@@ -1409,7 +1409,6 @@ section {
 --------------------------------------------------------------*/
 #footer {
   background: #fff;
-  padding: 0 0 30px 0;
   color: #444444;
   font-size: 14px;
   background: #f1f6fe;
@@ -1460,7 +1459,7 @@ section {
   background: #0d58ba;
 }
 #footer .footer-top {
-  padding: 60px 0 30px 0;
+  padding: 20px 0 10px 0;
   background: #fff;
 }
 #footer .footer-top .footer-contact {

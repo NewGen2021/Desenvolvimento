@@ -1,13 +1,21 @@
+from django.contrib.auth.backends import UserModel
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django import forms
 
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import authenticate
+from django.contrib.auth.tokens import default_token_generator
+from django.contrib.sites.shortcuts import get_current_site
+from django.core.mail.message import EmailMultiAlternatives
 from django.forms.widgets import Widget
+from django.template import loader
+from django.utils.encoding import force_bytes
+from django.utils.http import urlsafe_base64_encode
 from django.utils.translation import gettext as _
 
 from crispy_forms.helper import FormHelper
+from cria_coworking.forms import _unicode_ci_compare
 
 from gere_coworking.models.models import *
 from gere_coworking.models.models_choice import *
@@ -20,8 +28,12 @@ from gere_coworking.forms.verifiers.cepVerifier import *
 from gere_coworking.forms import forms_helper as h
 from gere_coworking.forms.verifiers.cnpjVerifier import formatCNPJ
 from gere_coworking.forms.verifiers.cpfVerifier import formatCpf
+import gere_coworking.forms.verifiers.cardNumberVerifier as card_verifier
+import gere_coworking.forms.verifiers.dateVerifier as date_verifier
 
 import sys
+
+
 
 class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(
@@ -59,8 +71,6 @@ class LoginForm(AuthenticationForm):
     
     def clean_username(self):
         username = self.cleaned_data['username']
-        print('--------------------- USERNAME 2222222222 ')
-        print(username, file=sys.stderr)
         try:
             user = User.objects.exclude(pk=self.instance.pk).get(username=username)
             return username
@@ -290,9 +300,24 @@ class FuncionariosForm(forms.ModelForm):
 
 
 class TipoespacoForm(forms.ModelForm):
+    descricao = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'maxlength':"200"}), label=_("Obrigatório"))
+    # Nome do tipo de espaço:    
+    nome = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'maxlength':"45"}), label=_("Obrigatório"))
+    preco = forms.DecimalField(widget=forms.NumberInput(
+        attrs={'required': 'true'}), label=_("Obrigatório"))
+    compartilhado = forms.NullBooleanField(widget=forms.CheckboxInput(
+        attrs={'required': 'true'}), label=_("Compartilhado. (Deixe marcado se o espaço for compartilhado)"))
+    tempo_limpeza = forms.TimeField(widget=forms.TimeInput(
+        attrs={'required': 'true'}), label=_("hh:mm:ss | Obrigatório"))
+    # imagem = forms.ImageField(widget=forms.FileInput(
+    #     attrs={'required': 'false'}), label=_("Opcional"), required=False)
+    imagem = forms.ImageField(label=_("Opcional"), required=False)
+    
     class Meta:
         model= TipoespacoModel
-        fields= ["descricao", "nome", "ultima_alteracao", "data_ultima_alteracao", "tempo_limpeza", "preco"]
+        fields= ["nome", "compartilhado", "descricao", "tempo_limpeza", "preco", "imagem", ]
 
 class EquipamentosForm(forms.ModelForm):
     class Meta:
@@ -314,7 +339,7 @@ class ReservaForm(forms.ModelForm):
     
     class Meta:
         model= ReservaModel
-        fields= ["id_cliente", "id_pagamento", "datahora_log", "id_espaco", "id_pacote_horas", "data_reserva", "hora_entrada", "hora_entrada_real", "hora_saida", "hora_saida_real", "hora_limpeza", "hora_limpeza_real", "preco_total"]
+        fields= ["id_cliente", "is_aluguel", "datahora_log", "id_espaco", "id_pacote_horas", "data_reserva", "hora_entrada", "hora_entrada_real", "hora_saida", "hora_saida_real", "hora_limpeza", "hora_limpeza_real", "preco_total"]
 
 class AdvertenciaForm(forms.ModelForm):
     class Meta:
@@ -329,9 +354,202 @@ class ConvidadosForm(forms.ModelForm):
 class PagamentoForm(forms.ModelForm):
     class Meta:
         model= PagamentoModel
-        fields= ["metodo", "cod_mercadopago", "status_pagamento", "datahora_log", "id_reserva", "id_equipamento"]
+        fields= ["metodo", "cod_mercadopago", "status_pagamento", "id_equipamento"]
 
 class EquipamentoreservaForm(forms.ModelForm):
     class Meta:
         model= EquipamentoreservaModel
         fields= ["id_reserva", "id_equipamento", "preco_locacao_equipamento", "id_pagamento"]
+
+class FormTesteForm(forms.ModelForm):
+    status_pagamento = forms.Select(
+        attrs={'required': 'false'})
+    class Meta:
+        model= PagamentoModel
+        fields= ["metodo", "cod_mercadopago", "status_pagamento"]
+
+class FormTeste2Form(forms.Form):
+    nome = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true'}), label=_("Nome Completo"))
+    numero_cartao = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'data-mask':"0000.0000.0000.0000"}), label=_("Número do cartão"))
+    senha = forms.CharField(widget=forms.PasswordInput(
+        attrs={'required': 'true', 'minlength': '6'}))
+    
+    def clean_nome(self, *args, **kwargs):
+        n = self.cleaned_data.get('nome')
+        if n.replace(' ', '').isalpha():
+            return self.cleaned_data.get('nome')
+        else:
+            h.raise_error(_('Não pode ter número no nome'), 'invalidName')
+    # class Meta:
+    #     fields= ["nome"]
+
+
+class FormPagamento(forms.Form):
+    TIPOS_DOCUMENTOS = (('rg', _('RG')), ('cpf', _('CPF')))
+    PARCELAS_CHOICES = ((1, _('À vista')), 
+                        (2, _('2x parcelas')),
+                        (3, _('3x parcelas')),
+                        (4, _('4x parcelas')),
+                        (5, _('5x parcelas')),
+                        (6, _('6x parcelas')) )
+    BANCO_CHOICES = (('bradesco', _('Bradesco')),
+                     ('santander', _('Santander')),
+                     ('bancodobrasil', _('Banco do Brasil')),
+                     ('nubank', _('Nubank')),
+                     ('itau', _('Itaú')),
+                     ('inter', _('Inter')),)
+    BANCO_CHOICES = ((None, _('Insira primeiro o seu cartão')),)
+    # BANCO_CHOICES = ((None, _('Insira primeiro o seu cartão')))
+
+    numero_cartao = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'data-mask':"0000.0000.0000.0000", 'id': 'id_numero_cartao'}), label=_("Número do cartão"))
+    # data_vencimento = forms.CharField(widget=forms.TextInput(
+    #     attrs={'required': 'true', 'data-mask':"00/00"}), label=_("Data vencimento"))
+    mes_vencimento = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_mes_vencimento'}), label=_("Mês vencimento"))
+    ano_vencimento = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_ano_vencimento'}), label=_("Ano vencimento"))
+    nome_cartao = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'id': 'id_nome_cartao'}), label=_("Nome descrito no cartão"))
+    email = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'id': 'id_email'}), label=_("E-mail"))
+    codigo_seguranca = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'data-mask':"000", 'id': 'id_codigo_seguranca'}), label=_("Código de segurança")) 
+    # parcelas = forms.IntegerField(widget=forms.NumberInput(
+    #     attrs={'required': 'true', 'maxlength':"5", 'id': 'id_parcelas'}), label=_("Parcelas: "))
+    parcelas = forms.CharField(widget=forms.Select(choices=PARCELAS_CHOICES,
+        attrs={'required': 'true', 'id': 'id_parcelas'}), label=_("Parcelas"))
+    tipo_documento = forms.CharField(widget=forms.Select(choices=TIPOS_DOCUMENTOS,
+        attrs={'required': 'true', 'id': 'id_tipo_documento'}), label=_("Tipo do documento"))
+    numero_documento = forms.CharField(widget=forms.TextInput(
+        attrs={'required': 'true', 'id': 'id_numero_documento'}), label=_("Número do documento"))
+    banco = forms.CharField(widget=forms.Select(choices=BANCO_CHOICES,
+        attrs={'required': 'true', 'id': 'id_banco'}), label=_("Banco/Bandeira"))
+    # banco = forms.CharField(widget=forms.TextInput(
+    #     attrs={'required': 'true', 'id': 'id_banco'}), label=_("Banco"))
+    
+    
+    
+    
+
+    def clean_numero_cartao(self, *args, **kwargs):
+        numero_cartao = self.cleaned_data.get('numero_cartao')
+        valido = card_verifier.verify_card_number(numero_cartao)
+        if valido:
+            return numero_cartao
+        else:
+            h.raise_error(_('Insira um número de cartão válido'), 'invalidCardNumber')
+    
+    # def clean_data_vencimento(self, *args, **kwargs):
+    #     data = self.cleaned_data.get('data_vencimento')
+    #     erro = date_verifier.validate_expire_date(data)
+    #     if not erro:
+    #         return data
+    #     else:
+    #         h.raise_error(erro, 'invalidDate')
+
+    def clean_mes_vencimento(self, *args, **kwargs):
+        data = self.cleaned_data.get('mes_vencimento')
+        erro = date_verifier.validate_expire_month(data)
+        if not erro:
+            return data
+        else:
+            h.raise_error(erro, 'invalidDate')
+    
+    def clean_ano_vencimento(self, *args, **kwargs):
+        data = self.cleaned_data.get('ano_vencimento')
+        erro = date_verifier.validate_expire_year(data)
+        if not erro:
+            return data
+        else:
+            h.raise_error(erro, 'invalidDate')
+
+    def clean_nome_cartao(self, *args, **kwargs):
+        return h.validate(self.cleaned_data.get("nome_cartao"), "nome")
+        
+        
+    
+
+
+class CustomPasswordResetForm(forms.Form):
+    email = forms.EmailField(
+        label=_("Email"),
+        max_length=254,
+        widget=forms.EmailInput(attrs={'autocomplete': 'email'})
+    )
+
+    def send_mail(self, subject_template_name, email_template_name,
+                  context, from_email, to_email, html_email_template_name=None):
+        """
+        Send a django.core.mail.EmailMultiAlternatives to `to_email`.
+        """
+        subject = loader.render_to_string(subject_template_name, context)
+        # Email subject *must not* contain newlines
+        subject = ''.join(subject.splitlines())
+        body = loader.render_to_string(email_template_name, context)
+
+        email_message = EmailMultiAlternatives(subject, body, from_email, [to_email])
+        if html_email_template_name is not None:
+            html_email = loader.render_to_string(html_email_template_name, context)
+            email_message.attach_alternative(html_email, 'text/html')
+
+        email_message.send()
+
+    def get_users(self, email):
+        """Given an email, return matching user(s) who should receive a reset.
+
+        This allows subclasses to more easily customize the default policies
+        that prevent inactive users and users with unusable passwords from
+        resetting their password.
+        """
+        email_field_name = UserModel.get_email_field_name()
+        active_users = UserModel._default_manager.filter(**{
+            '%s__iexact' % email_field_name: email,
+            'is_active': True,
+        })
+        return (
+            u for u in active_users
+            if u.has_usable_password() and
+            _unicode_ci_compare(email, getattr(u, email_field_name))
+        )
+
+    def save(self, domain_override=None,
+             subject_template_name='registration/password_reset_subject.txt',
+             email_template_name='registration/password_reset_email.html',
+             use_https=False, token_generator=default_token_generator,
+             from_email=None, request=None, html_email_template_name=None,
+             extra_email_context=None):
+        """
+        Generate a one-use only link for resetting password and send it to the
+        user.
+        """
+        email = self.cleaned_data["email"]
+        if not domain_override:
+            current_site = get_current_site(request)
+            site_name = current_site.name
+            domain = current_site.domain
+        else:
+            site_name = domain = domain_override
+        email_field_name = UserModel.get_email_field_name()
+        for user in self.get_users(email):
+            user_email = getattr(user, email_field_name)
+            context = {
+                'email': user_email,
+                'domain': domain,
+                'site_name': site_name,
+                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+                'user': user,
+                'token': token_generator.make_token(user),
+                'protocol': 'https' if use_https else 'http',
+                **(extra_email_context or {}),
+                'link' : request.get_full_path()
+            }
+            context['link'] = context['link'].split('/')[1] + '/reset/'
+            context['link'] = f"{context['protocol']}://{context['domain']}/{context['link']}{context['uid']}/{context['token']}"
+            self.send_mail(
+                subject_template_name, email_template_name, context, from_email,
+                user_email, html_email_template_name=html_email_template_name,
+            )
+

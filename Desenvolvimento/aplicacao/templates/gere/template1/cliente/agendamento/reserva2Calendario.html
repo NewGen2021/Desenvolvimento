@@ -1,6 +1,7 @@
 {% extends 'gere/template1/base.html' %}
 {% load static %}
 {% load i18n %}
+{% load hosts %}
 
 {% block title %}{% translate "Calendário de agendamento" %}{% endblock %}
 
@@ -114,7 +115,7 @@
 
   <p class="card-text">{% translate "Passo 2 de 3"%}</p>
     <div class="row">
-      <a href="reserva" class="btn btn-sm btn-primary animate__animated animate__fadeInUp scrollto col-lg-2 col-md-6"> ← {% translate "VOLTAR" %} </a>
+      <a href="{% host_url 'reserva' host 'custom_host' domain %}" class="btn btn-sm btn-primary animate__animated animate__fadeInUp scrollto col-lg-2 col-md-6"> ← {% translate "VOLTAR" %} </a>
     </div>
 </section>
 
@@ -125,7 +126,42 @@
 <!-- Inicio Full Calendar Script -->
 <script src="{% static 'js/fullcalendar.js' %}"></script>
 <script>
-
+  async function consultar_cep(cep){
+  cep = cep.replace('-', '')
+  var url = 'http://cep.republicavirtual.com.br/web_cep.php?cep=' + cep + '&formato=jsonp';
+  const res = await fetch(url);
+  const promiseJson = await res.json();
+  console.log(cep);
+  if (promiseJson.resultado == '0')
+    console.log('CEP NÃO ENCONTRADO');
+  if (promiseJson.resultado == '1') {
+    return promiseJson;
+    // let teste;
+    // promiseJson.then(r => {teste = $scope.r.bairro;})
+    // return teste();
+  }
+}
+  
+  let resultado = consultar_cep('02039020')
+  let teste5;
+  cep = '02039020'
+  url = 'http://milleniacoworking.mooo.com/api/month_event/10/1/1/'
+  let test = fetch(url).then(function(response){
+	return response.json();
+	}).then(function (obj) {
+    console.log(obj.event_list);
+    globalThis.teste = 'Aloo';
+	}).catch(function (error){
+	return error;
+	})
+  globalThis.teste2 = 'Aloo2';
+  console.log(teste5);
+  console.log(globalThis.teste);
+  console.log(globalThis.teste2);
+  // let bairro
+  // let teste = resultado.then(r => {return r.bairro;})
+  // consultar_cep
+  alert(test);
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var today = new Date();
@@ -266,10 +302,47 @@
       // },
 
       select: function(arg) {
+          // $("[class=fc-non-business]").hide();
+          // alert($("[class=fc-non-business]").length);
+          // document.getElementById('calendar');
+          // let unvalid_hours = document.getElementsByClassName("fc-non-business");
+          // let final = false;
+          // let tabelaDeHoras = document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1].children;
+          // for (var i = 0; i < unvalid_hours.length; i++) {
+          //   element = unvalid_hours[i]
+          //   h = element.clientHeight;
+          //   horas = Math.round(h / 21.11);  // h / altura do elemento de uma meia hora
+          //   if (!final){
+          //     for (var j = 0; j < horas; j++) {
+          //       // tabelaDeHoras[j].style.display = 'none';
+          //       // tabelaDeHoras[j].parentNode.removeChild(tabelaDeHoras[j]);
+          //       // tabelaDeHoras[j].children[0].style.display = 'none';
+          //       // tabelaDeHoras[j].children[1].style.display = 'none';
+          //       // console.log(tabelaDeHoras[j]);
+          //     }
+          //   }
+          //   else{
+          //     for (var j = tabelaDeHoras.length - horas; j < tabelaDeHoras.length; j++) {
+          //       tabelaDeHoras[j].style.display = 'none';
+          //       // console.log(tabelaDeHoras[j]);
+          //     }
+          //   }
+          //   final = true;
+          // }
+          
+          // console.log( document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1] );
+          // /* for (element in unvalid_hours){
+          //   console.log(element);
+          //   console.log(element.clientHeight);
+          // } */
+          // console.log(unvalid_hours);
+          // console.log('ALOOOOOO3');
+          // $("[class=fc-timegrid-bg-harness]").hide();
+          this.minTime = "14:00:00";
           var modal = document.getElementById('eventModal')
           modal.style.display = 'block'
           const datepickerDate = document.getElementById('datepicker-data');
-          dataReserva = `${arg.start.getDate()}/${(arg.start.getMonth()+1) < 10 ? '0' + (arg.start.getMonth()+1) : arg.start.getMonth()}/${arg.start.getFullYear()}`
+          dataReserva = `${arg.start.getDate()}/${(arg.start.getMonth()+1) < 10 ? '0' + (arg.start.getMonth()+1) : arg.start.getMonth()+1}/${arg.start.getFullYear()}`
           
           datepickerDate.textContent = dataReserva
           document.getElementById('data-reserva').value = dataReserva
@@ -305,7 +378,7 @@
         // if (confirm('Are you sure you want to delete this event?')) {
         //   arg.event.remove()
         // }
-        alert({% translate "Este horário está reservado!" %});
+        alert("{% translate "Este horário está reservado!" %}");
       },
       // editable: true,
       dayMaxEvents: true, // allow "more" link when too many events
@@ -351,6 +424,20 @@
     document.getElementById("hora-saida").value = datepickerOutput2;
   });
 </script>
+<script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,today,next',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        allDayDefault: true,
+    })
+});
+alert('teste');
+  // alert(calendar.events);
+</script>
 <!-- Fim Full Calendar Script -->
 
 <!-- Início DATE PICKER -->
@@ -361,6 +448,7 @@
 <script type="text/javascript" src="{% static 'js/datepicker/demo2.js' %}"></script>
 <script type="text/javascript">
   var datepickerToday = new Date();
+  datepickerToday.setMonth(datepickerToday.getMonth())
     datepickerToday.setHours(11);
     datepickerToday.setMinutes(59);
     datepickerToday.setSeconds(0);
@@ -375,6 +463,7 @@ var myDatepicker1 = new MtrDatepicker(config);
 </script>
 <script type="text/javascript">
   var datepickerToday = new Date();
+  datepickerToday.setMonth(datepickerToday.getMonth())
     datepickerToday.setHours(11);
     datepickerToday.setMinutes(59);
     datepickerToday.setSeconds(0);

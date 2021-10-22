@@ -747,7 +747,7 @@ msgstr "Loading"
 
 #: .\templates\gere\template1\cliente\apresentacao\index.html:172
 msgid "Sua mensagem foi enviada. Obrigado!"
-msgstr "Your message has been sent. Tank you!"
+msgstr "Your message has been sent. Thank you!"
 
 #: .\templates\gere\template1\cliente\apresentacao\index.html:174
 msgid "Enviar Mensagem"

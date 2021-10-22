@@ -5,8 +5,6 @@ from django.utils.translation import gettext as _
 import sys
 
 availableDomains = Domain.objects.filter(isActive=0)
-print('ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ', file=sys.stderr)
-print(availableDomains, file=sys.stderr)
 
 class Administrador(models.Model):
     """ nome = models.CharField(max_length=128)

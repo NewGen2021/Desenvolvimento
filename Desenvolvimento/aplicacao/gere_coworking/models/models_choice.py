@@ -41,9 +41,9 @@ ESTADO_CHOICES = (
 ESCOLHAS_ESTADOS = (('', '----------'),) + ESTADO_CHOICES
 
 EQUIPAMENTOS_STATUS_CHOICES = (
-        ("0", _("Ativo")),
-        ("1", _("Desativado")),
-        ("2", _("Extraviado"))
+        (0, _("Ativo")),
+        (1, _("Desativado")),
+        (2, _("Extraviado"))
 )
 
 PAGAMENTO_METODO_CHOICES = (
@@ -52,17 +52,31 @@ PAGAMENTO_METODO_CHOICES = (
         ("Boleto", _("Boleto"))
     )
 
+# PAGAMENTO_STATUS_CHOICES = (
+#     (0, _("Aguardando Pagamento")),
+#     (1, _("Pagamento Aprovado")),
+#     (2, _("Pagamento Negado")),
+#     (3, _("Pacote de Horas")),
+#     (4, _("Cancelado pelo Cliente")),
+#     (5, _("Expirado")),
+#     (6, _("Cancelado via Sistema"))
+# )
+
 PAGAMENTO_STATUS_CHOICES = (
-    ("0", _("Aguardando Pagamento")),
-    ("1", _("Pagamento Aprovado")),
-    ("2", _("Pagamento Negado")),
-    ("3", _("Pacote de Horas")),
-    ("4", _("Cancelado pelo Cliente")),
-    ("5", _("Expirado")),
-    ("6", _("Cancelado via Sistema"))
+    (0, 400),
+    (0, _("failed")),
+    (1, _("approved")),
+    (2, _("authorized")),
+    (3, _("rejected")),
+    (4, _("pending")),
+    (5, _("in_process")),
+    (6, _("in_mediation")),
+    (7, _("refunded")),
+    (8, _("charged_back")),
+    (9, _("rejected")),
 )
 
 ESPACOS_STATUS_CHOICES = (
-        ("0", _("Ativo")),
-        ("1", _("Desativado"))
+        (1, _("Ativo")),
+        (0, _("Desativado"))
 )

@@ -18,8 +18,6 @@ def configura_banco_e_dominio(data):
     domain = Domain.objects.get(id=int(data['domain']))
     domain.isActive = 1
     domain.save()
-    print('JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ', file=stderr)
-    print(data, file=stderr)
     return data
 
 def configuraGrupoUsuario(usuario, tipo):
@@ -89,11 +87,9 @@ def getDicionarioFuncionarioForm(request, is_administrador=False):
 
     if not is_administrador:
         fields = ["nome", "senha", "data_nascimento", "cpf_cnpj", "genero", "email", "telefone", "cep", "logradouro", "numero", "bairro", "cidade", "estado"]
+       # fields= ["nome", "senha", "cpf_cnpj", "email", "telefone", "cep", "logradouro", "numero", "bairro", "estado", "cidade"]
     else:
-        # fields= ["nome", "senha", "cpf_cnpj", "email", "telefone", "cep", "logradouro", "numero", "bairro", "estado", "cidade"]
         fields = ["nome", "senha", "domain", "cnpj", "email", "telefone", "cep", "logradouro", "numero", "bairro", "estado", "cidade"]
-    print('------------------------- AAAAAAA', file=stderr)
-    print(request.POST , file=stderr)
     for field in fields:
         data[field] = request.POST[field]
     return data
@@ -109,7 +105,9 @@ def writeCliente(formCliente, data, isPerson):
     else:
         user = escreveNaTabelaUser(json=data, pessoa=False)
         configuraGrupoUsuario(user, tipo='empresa')
-    formCliente.save()  # Salva na tabela cliente
+    cliente = formCliente.save(commit=False)  # Pega os dados do cliente
+    cliente.user = user  # linka o usuário criado com o cliente
+    cliente.save()  # Salva na tabela cliente
 
 def writeFuncionario(formFuncionario, data, administrador=False):
     if administrador:
@@ -124,4 +122,6 @@ def writeFuncionario(formFuncionario, data, administrador=False):
     configuraGrupoUsuario(user, tipo='funcionario')
     # instance = formFuncionario.save(commit=False)
     # instance.save(using='newgendb')
-    formFuncionario.save()  # Salva na tabela cliente
+    funcionario = formFuncionario.save(commit=False)  # Salva na tabela cliente
+    funcionario.user = user
+    funcionario.save()

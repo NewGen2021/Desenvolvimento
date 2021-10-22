@@ -4,10 +4,12 @@
 '''
 
 import datetime
+from django.utils.translation import gettext as _
 
 minimo = datetime.datetime.strptime('1900-01-01', '%Y-%m-%d')
 maximo = datetime.datetime.strptime('2100-12-31', '%Y-%m-%d')
 idade_minima = 10
+DIFERENCIA_ANO_MAXIMO_VENCIMENTO = 20
 
 
 def datetime_format(date, format):
@@ -56,4 +58,26 @@ def validate_date(date):
         return False
     return True
 
+def validate_expire_date(date):
+    mes, ano = date.split('/')
+    mes = int(mes)
+    ano = int(ano)
+    ano_atual = int(str(datetime.datetime.today().year)[2:])
+    if mes < 1 or mes > 12:
+        return _('Insira uma data válida no formato mm/yy, ex: 07/25')
+    if ano < ano_atual or ano > ano_atual + DIFERENCIA_ANO_MAXIMO_VENCIMENTO:
+        return _(f'Insira um ano válido no formato yy até {DIFERENCIA_ANO_MAXIMO_VENCIMENTO} anos. Ex: 07/27')
+    return False
 
+def validate_expire_month(month):
+    mes = int(month)
+    if mes < 1 or mes > 12:
+        return _('Insira uma data válida no formato mm/yy, ex: 07/25')
+    return False
+
+def validate_expire_year(year):
+    ano = int(year)
+    ano_atual = int(str(datetime.datetime.today().year)[2:])
+    if ano < ano_atual or ano > ano_atual + DIFERENCIA_ANO_MAXIMO_VENCIMENTO:
+        return _(f'Insira um ano válido no formato yy até {DIFERENCIA_ANO_MAXIMO_VENCIMENTO} anos. Ex: 07/27')
+    return False

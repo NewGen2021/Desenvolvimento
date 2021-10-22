@@ -3,6 +3,7 @@
     * Favor manter em ordem alfabética
 '''
 
+from typing import OrderedDict
 import gere_coworking.views.views_helper as h
 from gere_coworking.models.models import TipoespacoModel, ReservaModel, ClienteModel, EspacosModel
 import datetime, sys
@@ -43,7 +44,6 @@ def createDayDict(diaSemana):
     while hora <= horaFim:
         dayDict[hora.strftime("%H:%M")] = 0
         hora += datetime.timedelta(minutes=30)
-        # print('hora Depois = ', hora.strftime("%Y-%m-%d %H:%M"), file=sys.stderr)
     return dayDict
 
 def getDicionarioBusinessHours(diaSemana):
@@ -100,6 +100,66 @@ def getDicionarioReservas(id_tipo_espaco):
     #     '09:00': 0
     # }}
 
+# Não deletar
+def getDicionarioReservasDia(id_espaco, dia, reservas=None):
+    
+    # reservas = getReservasAtuaisDia(id_tipo_espaco, dia)
+    if reservas is None:
+        reservas = ReservaModel.objects.filter(id_espaco= EspacosModel.objects.get(id_espaco=id_espaco), data_reserva=dia)
+    if type(dia) == str:
+        diaSemana = converteNumeroDiaSemana(datetime.datetime.strptime(dia, "%Y-%m-%d").weekday(), To_ISO=False)
+    else:
+        diaSemana = converteNumeroDiaSemana(dia.weekday(), To_ISO=False)
+    dicio = createDayDict(diaSemana)
+
+    # Popula o dicionário
+    for reserva in reservas:
+        # Marca as horas desta reserva no dicionário
+        if type(reserva) == dict:
+            entrada = f"{reserva['data_reserva']}T{reserva['hora_entrada']}"
+            entrada = datetime.datetime.strptime(entrada, "%Y-%m-%dT%H:%M:%S")
+            saida = f"{reserva['data_reserva']}T{reserva['hora_saida']}"
+            saida = datetime.datetime.strptime(saida, "%Y-%m-%dT%H:%M:%S")
+        else:
+            entrada = datetime.datetime.combine(reserva.data_reserva, reserva.hora_entrada)
+            saida = datetime.datetime.combine(reserva.data_reserva, reserva.hora_saida)
+        
+        dicionario = getDicionarioBusinessHours(diaSemana)
+        hour, minute = dicionario['startTime'].split(':')
+        
+        hora = entrada
+        horaJson = entrada
+        
+        horaJson = entrada.replace(hour=int(hour), minute=int(minute), second=0, microsecond=0)
+        while hora < saida:
+            if entrada <= horaJson:
+                hora += datetime.timedelta(minutes=30)
+                # Incrementa o campo do JSON com um valor a mais
+                dicio[horaJson.strftime("%H:%M")] += 1
+            horaJson += datetime.timedelta(minutes=30)
+    return dicio
+
+def getPorcentagemOcupadaDia(date_dict, max_vaga):
+    ocupado_points = 0
+    total = 0
+    for value in date_dict.values():
+        total += max_vaga
+        ocupado_points += value
+    return ocupado_points/total
+
+def getEventoMes(porcentagem: float, cores: tuple, date: str):
+    divisao = 100/(len(cores)-1)
+    i = int(porcentagem//divisao)
+    return {
+        'start': f'{date}T01:00:00',
+        'end': f'{date}T23:00:00',
+        'color': cores[i][0],
+        'textColor': cores[i][1],
+    }
+
+    return
+
+
 def getEventoReservasCliente(request, id_tipo_espaco):
     event_list = []
     if h.isAdministrator(request=request):
@@ -126,7 +186,7 @@ def getEventoReservasLotadas(dateDicts, vagas_max, event_list):
     for data, horarios in dateDicts.items():
         comecoEvento = False # Lógica de verificação do começo do evento
         inicio = None # Para salvar o horário do começo do evento
-
+        
         # Lê as horas de um dia das reservas
         for hora, valor in horarios.items():
 
@@ -182,6 +242,55 @@ def getEventoReservasLotadas(dateDicts, vagas_max, event_list):
                     'textColor': 'black',
                     # 'display': 'list-item'
                 })
+    return event_list
+
+# Não deletar
+def getEventoReservasLotadasViewSet(dateDict, vagas_max, event_list, date):        
+    """ dateDict={'07:00': 0, '07:30': 0, '08:00': 0, '08:30': 0, '09:00': 0, '09:30': 0,
+     '10:00': 0, '10:30': 0, '11:00': 0, '11:30': 0, '12:00': 0, '12:30': 0, '13:00': 1,
+      '13:30': 1, '14:00': 2, '14:30': 2, '15:00': 1, '15:30': 1, '16:00': 0, '16:30': 0,
+       '17:00': 0, '17:30': 0, '18:00': 0, '18:30': 0, '19:00': 0, '19:30': 0, '20:00': 0,
+        '20:30': 0, '21:00': 0, '21:30': 0, '22:00': 0} """
+    
+    """ event_list = [{'title': 'Sua reserva',
+                   'start': '2021-10-13T13:00:00',
+                   'end': '2021-10-13T15:00:00',
+                   'color': 'lightblue',
+                   'textColor': 'black'}] """
+
+    # Seta o horário para 0 no dateDict caso seja uma reserva do usuário
+    for reserva_cliente in event_list:
+        hora_inicio = reserva_cliente['start'].split('T')[1] # 13:00:00
+        hora_fim = reserva_cliente['end'].split('T')[1] # 15:00:00
+        
+        for hora in dateDict.keys():
+            if hora >= hora_inicio and hora <= hora_fim:
+                dateDict[hora] = 0
+    
+    comecoEvento = False # Lógica de verificação do começo do evento
+    inicio = None # Para salvar o horário do começo do evento
+
+    # Lê as horas de um dia das reservas
+    for hora, valor in dateDict.items():
+
+        # Começa a rastrear o tamanho do evento
+        if valor >= vagas_max and comecoEvento == False:
+            comecoEvento = True
+            inicio = hora
+
+        # Conclui o fim do evento e define a lógica de setar o evento
+        if comecoEvento == True and valor < vagas_max :
+            comecoEvento = False
+            fim = hora
+
+            event_list.append({
+                    'title': _('Sem vagas'),
+                    'start': f'{date}T{inicio}:00',
+                    'end': f'{date}T{fim}:00',
+                    'color': 'red',
+                    'textColor': 'black',
+                })
+        
     return event_list
 
 def getForm(request, id_tipo_espaco):
@@ -289,6 +398,15 @@ def getPrecoEspaco(id_espaco):
 def getReservasAtuais(id_tipo_espaco):
     return ReservaModel.objects.get_reservas_atuais(id_tipo_espaco = id_tipo_espaco)
 
+def getReservasAtuaisMes(mes: int, id_espaco: int):
+    date = datetime.datetime.today().date()
+    reservas = []
+    while date.month == mes:
+        reservas += ReservaModel.objects.filter(id_espaco=id_espaco, data_reserva=date)
+        date += datetime.timedelta(days=1)
+    return reservas
+
+
 def getReservasCliente(request, cpf_cnpj, id_tipo_espaco=None):
     if id_tipo_espaco:
         return ReservaModel.objects.get_reservas_cliente(cpf_cnpj = request.user.username, id_tipo_espaco = id_tipo_espaco)
@@ -299,6 +417,12 @@ def getReservaTipoEspacoName(id_espaco):
         id_espaco = id_espaco
     ))[0]
     return reserva.id_espaco.id_tipo_espaco.nome
+
+def get_vagas_dict(date_dict, max_vagas):
+    for hora in date_dict.keys():
+        vagas_ocupadas = date_dict[hora]
+        date_dict[hora] = max_vagas - vagas_ocupadas
+    return date_dict
 
 def isCompartilhado(id_tipo_espaco):
     return list(TipoespacoModel.objects.filter(

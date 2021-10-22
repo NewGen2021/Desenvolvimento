@@ -17,7 +17,7 @@
     <div class="container-fluid">
 
         <div class="topLogin">
-            <img class="gif" src="{% static 'img/logoGif.gif' %}" alt="NewGen">
+
             <h1>{% translate "Sistema de Gerenciamento de Coworking" %}</h1>    
         </div>
         
@@ -45,7 +45,7 @@
                 <input type="submit" value="Entrar" class="btn btn-primary">
 
                 <p><a href="escolherCadastro">{% translate "Primeiro Acesso" %}</a></p>
-                <p><a href="#">{% translate "Esqueceu a senha?" %}</a></p>
+                <p><a href="{% host_url 'password_reset' host 'custom_host' domain %}">{% translate "Esqueceu a senha?" %}</a></p>
             </form>
 
             {% for message in messages %}

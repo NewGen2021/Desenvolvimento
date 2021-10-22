@@ -18,9 +18,10 @@ def create_database(name):
 
     connections.databases[name] = newdatabase
 
-    call_command('migrate', app_label='gere_coworking', database=name)
     call_command('migrate', app_label='auth', database=name)
     call_command('migrate', app_label='sessions', database=name)
+    call_command('migrate', app_label='gere_coworking', database=name)
+    
     from django.contrib.auth.models import Group
     Group.objects.using(name).get_or_create(name='administrador')
     Group.objects.using(name).get_or_create(name='funcionario')

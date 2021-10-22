@@ -1,4 +1,15 @@
+# internacionalização
 django-admin makemessages -l en -i m.py -i models.py -i auxiliar
 django-admin makemessages -l en -i auxiliar
 django-admin compilemessages
 
+# migrações
+python manage.py migrate --database db
+
+# cobertura dos testes
+coverage erase
+coverage run manage.py test
+coverage report
+
+# rodar aplicacao localhost
+python manage.py runserver 127.0.0.1:80
