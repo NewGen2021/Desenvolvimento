@@ -1,0 +1,20 @@
+views com método post
+
+cria_coworking
+
+registrarAdministrador
+loginNewGen
+password_reset
+password_reset_confirm
+
+------------------------------
+gere_coworking
+
+loginSystem
+loginNovo
+registrarUsuario
+registrarFuncionario
+registrarAdministrador  # deprecated
+agendamento
+password_reset
+password_reset_confirm

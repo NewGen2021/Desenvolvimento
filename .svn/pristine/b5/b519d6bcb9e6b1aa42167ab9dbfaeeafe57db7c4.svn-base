@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"/>
+    <title>SGC - LOGIN</title>
+
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="topLogin">
+            <img class="gif" src="assets/img/logoGif.gif" alt="NewGen">
+            <h1>Sistema de Gerenciamento de Coworking</h1>    
+        </div>
+        
+        <div id="BodyLogin">
+            <div id="title">LOGIN</div>
+            <form method="post" action="{% url 'login' %}">
+           
+            <div class="form-group row">
+                <label class="control-label col-sm-3" for="id_username">Usuário:</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="id_username" autofocus autocomplete="username" 
+                    required name="username">
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="control-label col-sm-3" for="id_password">Senha:</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" autocomplete="current-password" required 
+                    id="id_password" name="password">
+                </div>
+            </div>
+           
+                <input type="submit" value="Entrar" class="btn btn-primary">
+
+                <p><a href="homeReg.html">Primeiro Acesso</a></p>
+                <p><a href="#">Esqueceu a senha?</a></p>
+            </form>
+            </div>
+    
+        </div>
+</body>  
+</html>

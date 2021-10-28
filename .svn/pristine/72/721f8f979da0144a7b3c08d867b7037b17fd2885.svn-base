@@ -1,0 +1,66 @@
+{% load static %}
+{% load hosts %}
+{% load i18n %}
+
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alterar Senha</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+  
+</head>
+<body>
+    <div class="headerResetSenha">
+        <h1>Redefinir Senha</h1>
+    </div>
+    <section class="sectionResetSenha">
+        <hr>
+            <div class="container">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-4">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <div class="text-center">
+                                    <h3><i class="fa fa-lock fa-4x"></i></h3>
+                                    <h2 class="text-center">Esqueceu a senha?</h2>
+                                    <p>Você pode redefinir sua senha aqui.</p>
+                                        <div class="panel-body">
+                                        <form method="post" class="form">
+                                            <fieldset>
+                                            <div class="form-group">
+                                                {% csrf_token %}
+                                                {{ form.as_p }}
+                                                <div class="form-group">
+                                                    <input class="btn btn-lg btn-primary btn-block" value="Enviar para e-mial" type="submit">
+                                                </div>
+                                            </fieldset>
+                                        </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Mask JS Files -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+        <!-- Cep validator -->
+    <script src="{% static 'js/cep_verifier.js' %}"></script>
+
+</body>
+</html>
+
+
+
+

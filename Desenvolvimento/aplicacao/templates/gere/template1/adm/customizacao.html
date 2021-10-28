@@ -1,0 +1,65 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css'%}"/>
+        
+    
+        <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon"/>
+    
+        <title>{% translate "SGC - Configuração" %}</title>
+    </head>
+<body>
+  
+      <form id="form_custom" class="was-validated">
+        <div id="box_custom">
+          <div id="box">
+            <label for="colorPicker">{% translate "Escolha a cor primária:" %}</label>
+            <input type="color" value="#8888ff" id="colorPicker" onblur="alterarCor()">
+            <p id="output"></p>
+          </div>
+          <div id="box">
+            <label for="colorPicker">{% translate "Escolha a cor secundária:" %}</label>
+            <input type="color" value="#8888ff" id="colorPicker" onblur=" alterarCor()">
+            <p id="output"></p>
+          </div>
+        </div>
+        <a href="index">{% translate "Visualizar página inicial" %}</a>
+
+        <div id="logo_custom" class="mb-3">
+          <div class="form-group">
+            <label for="exampleFormControlFile1">{% translate "Adicionar a logomarca da empresa" %}</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+          </div>
+        </div>
+
+      <fieldset id="conteudo-box">
+        <legend>{% translate "Conteúdo do site" %}</legend>
+        <div id="conteudo_sobreNos" class="form-group">
+          <label for="exampleFormControlTextarea1"><b>{% translate "Sobre Nós" %}</b></label>
+          <textarea class="form-control content" id="conteudo_sobre" rows="3"></textarea>
+        </div>
+        <div id="Conteudo_servicos" class="form-group">
+          <label for="exampleFormControlTextarea1"><b>{% translate "Serviços" %}</b></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div id="Conteudo_contato" class="form-group">
+          <label for="exampleFormControlTextarea1"><b>{% translate "Contato" %}</b></label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+      </fieldset>
+          <div id="botao_box" class="mb-3">
+            <button class="btn btn-primary" type="submit" onclick="enviar()">{% translate "Enviar" %}</button>
+          </div>
+      </form>
+      <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>

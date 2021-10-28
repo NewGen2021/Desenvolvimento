@@ -1,0 +1,17 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+{% block title %}{% translate "teste" %}{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4 d-flex justify-content-center">{% translate "Olá, cadastre seu coworking!" %}</h1>
+    <a href="{% host_url 'registrarAdmin' host 'newgen' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto d-flex justify-content-center">
+        {% translate "Cadastrar" %}
+    </a>
+    <hr class="my-4">
+</div>
+
+{% endblock content %}

@@ -1,0 +1,43 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="{% static 'css/style.css'%}"/>
+        
+    
+        <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/x-icon"/>
+    
+        <title>{% translate "SGC - Configuração" %}</title>
+    </head>
+<body>
+  
+    <form class="was-validated">
+      <div id="box">
+        <label for="colorPicker">{% translate "Escolha a cor primária:" %}</label>
+        <input type="color" value="#8888ff" id="colorPicker">
+        <p id="output"></p>
+      </div>
+
+      <p><a href="teste.html">{% translate "Entrar na pagina" %}</a></p>
+      
+      
+        <div class="mb-3">
+          <input type="file" class="form-control" aria-label="file example" required>
+          <div class="invalid-feedback">{% translate "Adicione o logotipo da sua empresa" %}</div>
+        </div>
+      
+        <div class="mb-3">
+          <button class="btn btn-primary" type="submit" disabled>{% translate "Enviar" %}</button>
+        </div>
+      </form>
+    <script src="{% static 'js/teste.js' %}"></script>
+</body>
+</html>

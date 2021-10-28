@@ -1,0 +1,213 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title data-tag="tema">NewGen - Cadastro Funcionários</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+</head>
+
+{% if lng == "en" %} 
+<body onLoad="en_us()">
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="{% url 'index' %}">Coworking</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul >
+          <li><a class="nav-link scrollto active" href="{% url 'index' %}" data-tag="home">Início</a></li>
+          <li class="dropdown"><a href="#" data-tag="language"><span>Escolha seu Idioma</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a onclick="pt_Br()">Português</a></li>
+              <li><a onclick="en_us()">English</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
+<Section>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1 data-tag="funcionario">Funcionários</h1>    
+        </div>
+
+        {% load crispy_forms_tags %}
+        
+        <div id="BodyRegister">
+            <!-- <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ funcionarioForm|crispy }}
+
+
+                <button type="submit" class="btn btn-primary" data-tag="regitrar">Registrar</button>
+            
+            </form> -->
+
+            <form method="POST" class="form-group" name="formFuncionario">
+              {% csrf_token %}
+              {{ funcionarioForm|crispy }}
+              
+              <button type="submit" id="enviar_form_funcionario" class="btn btn-primary" data-tag="registrar">Registrar</button>
+              
+            </form>
+            </div>
+        </div>
+
+    </div>
+</Section>
+</body>
+{% else %}
+<body onLoad="pt_Br()">
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="{% url 'index' %}">Coworking</a></h1>
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul >
+          <li><a class="nav-link scrollto active" href="{% url 'index' %}" data-tag="home">Início</a></li>
+          <li class="dropdown"><a href="#" data-tag="language"><span>Escolha seu Idioma</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a onclick="pt_Br()">Português</a></li>
+              <li><a onclick="en_us()">English</a></li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  <!-- End Header -->
+<Section>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1 data-tag="funcionario">Funcionários</h1>    
+        </div>
+
+        {% load crispy_forms_tags %}
+        
+        <div id="BodyRegister">
+            <!-- <form method="POST" class="form-group">
+                {% csrf_token %}
+                {{ funcionarioForm|crispy }}
+
+
+                <button type="submit" class="btn btn-primary" data-tag="regitrar">Registrar</button>
+            
+            </form> -->
+
+            <form method="POST" class="form-group" name="formFuncionario">
+              {% csrf_token %}
+              {{ funcionarioForm|crispy }}
+              
+              <button type="submit" id="enviar_form_funcionario" class="btn btn-primary" data-tag="registrar">Registrar</button>
+              
+            </form>
+            </div>
+        </div>
+
+    </div>
+</Section>
+</body>
+{% endif %}
+<!-- ======= Footer ======= -->
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row">
+   
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>NewGen</h3>
+            <p>
+              Rua Pedro Vicente <br>
+              Canindé 01109-010, SP<br><br>
+              <strong>Email:</strong> newgenoficial@gmail.com<br>
+            </p>
+          </div>
+   
+          <div class="col-lg-2 col-md-6 footer-links">
+            <h4 data-tag="links">Links Úteis</h4>
+            <ul>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}" data-tag="home">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}" data-tag="about">Sobre Nós</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'index' %}" data-tag="services">Serviços</a></li>
+            </ul>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>NewGen</span></strong>. Todos os direitos reservados
+      </div>
+    </div>
+   </footer><!-- End Footer -->
+   
+   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+   <!-- Cep validator -->
+   <script src="{% static 'js/cep_verifier.js' %}"></script>
+   
+   <!-- Vendor JS Files -->
+   <script src="{% static 'vendor/aos/aos.js' %}"></script>
+   <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+   <script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+   <script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+   <script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+   <script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+   
+   <!-- Mask JS Files -->
+   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+   <!-- Template Main JS File -->
+   <script src="{% static 'js/main.js' %}"></script>
+   <script src="{% static 'js/internacionalizacao.js' %}"></script>
+</html>

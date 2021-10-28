@@ -1,0 +1,328 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+<root>
+  <label>[root]</label>
+    <branch>
+        <label>Desenvolvimento</label>
+      <branch>
+          <label>Newgen_novoLayout</label>
+        <branch>
+            <label>assets</label>
+          <branch>
+              <label>js</label>
+              <leaf><label>main.js</label><weight>239</weight><value>100.0</value></leaf>
+          </branch>
+
+          <branch>
+              <label>vendor</label>
+            <branch>
+                <label>aos</label>
+                <leaf><label>aos.js</label><weight>1</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>bootstrap-icons</label>
+                <leaf><label>index.html</label><weight>5527</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>bootstrap</label>
+              <branch>
+                  <label>js</label>
+                  <leaf><label>bootstrap.bundle.js</label><weight>6727</weight><value>100.0</value></leaf>
+                  <leaf><label>bootstrap.bundle.min.js</label><weight>7</weight><value>100.0</value></leaf>
+                  <leaf><label>bootstrap.esm.js</label><weight>4946</weight><value>100.0</value></leaf>
+                  <leaf><label>bootstrap.esm.min.js</label><weight>7</weight><value>100.0</value></leaf>
+                  <leaf><label>bootstrap.js</label><weight>4995</weight><value>100.0</value></leaf>
+                  <leaf><label>bootstrap.min.js</label><weight>7</weight><value>100.0</value></leaf>
+              </branch>
+            </branch>
+
+            <branch>
+                <label>glightbox</label>
+              <branch>
+                  <label>js</label>
+                  <leaf><label>glightbox.js</label><weight>3675</weight><value>100.0</value></leaf>
+                  <leaf><label>glightbox.min.js</label><weight>1</weight><value>100.0</value></leaf>
+              </branch>
+            </branch>
+
+            <branch>
+                <label>isotope-layout</label>
+                <leaf><label>isotope.pkgd.js</label><weight>3563</weight><value>100.0</value></leaf>
+                <leaf><label>isotope.pkgd.min.js</label><weight>12</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>php-email-form</label>
+                <leaf><label>validate.js</label><weight>85</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>purecounter</label>
+                <leaf><label>purecounter.js</label><weight>1</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>swiper</label>
+                <leaf><label>swiper-bundle.min.js</label><weight>14</weight><value>100.0</value></leaf>
+            </branch>
+          </branch>
+        </branch>
+          <leaf><label>agendamento.html</label><weight>166</weight><value>100.0</value></leaf>
+          <leaf><label>assinatura.html</label><weight>144</weight><value>100.0</value></leaf>
+          <leaf><label>index.html</label><weight>338</weight><value>100.0</value></leaf>
+          <leaf><label>inner-page.html</label><weight>214</weight><value>100.0</value></leaf>
+          <leaf><label>loginSystem.html</label><weight>53</weight><value>100.0</value></leaf>
+          <leaf><label>portfolio-details.html</label><weight>257</weight><value>100.0</value></leaf>
+          <leaf><label>reserva.html</label><weight>140</weight><value>100.0</value></leaf>
+      </branch>
+
+      <branch>
+          <label>aplicacao</label>
+        <branch>
+            <label>newgenapp</label>
+          <branch>
+              <label>static</label>
+            <branch>
+                <label>js</label>
+                <leaf><label>main.js</label><weight>239</weight><value>100.0</value></leaf>
+                <leaf><label>script.js</label><weight>19</weight><value>100.0</value></leaf>
+            </branch>
+
+            <branch>
+                <label>vendor</label>
+              <branch>
+                  <label>aos</label>
+                  <leaf><label>aos.js</label><weight>1</weight><value>100.0</value></leaf>
+              </branch>
+
+              <branch>
+                  <label>bootstrap-icons</label>
+                  <leaf><label>index.html</label><weight>5527</weight><value>100.0</value></leaf>
+              </branch>
+
+              <branch>
+                  <label>bootstrap</label>
+                <branch>
+                    <label>js</label>
+                    <leaf><label>bootstrap.bundle.js</label><weight>6727</weight><value>100.0</value></leaf>
+                    <leaf><label>bootstrap.bundle.min.js</label><weight>7</weight><value>100.0</value></leaf>
+                    <leaf><label>bootstrap.esm.js</label><weight>4946</weight><value>100.0</value></leaf>
+                    <leaf><label>bootstrap.esm.min.js</label><weight>7</weight><value>100.0</value></leaf>
+                    <leaf><label>bootstrap.js</label><weight>4995</weight><value>100.0</value></leaf>
+                    <leaf><label>bootstrap.min.js</label><weight>7</weight><value>100.0</value></leaf>
+                </branch>
+              </branch>
+
+              <branch>
+                  <label>glightbox</label>
+                <branch>
+                    <label>js</label>
+                    <leaf><label>glightbox.js</label><weight>3675</weight><value>100.0</value></leaf>
+                    <leaf><label>glightbox.min.js</label><weight>1</weight><value>100.0</value></leaf>
+                </branch>
+              </branch>
+
+              <branch>
+                  <label>isotope-layout</label>
+                  <leaf><label>isotope.pkgd.js</label><weight>3563</weight><value>100.0</value></leaf>
+                  <leaf><label>isotope.pkgd.min.js</label><weight>12</weight><value>100.0</value></leaf>
+              </branch>
+
+              <branch>
+                  <label>php-email-form</label>
+                  <leaf><label>validate.js</label><weight>85</weight><value>100.0</value></leaf>
+              </branch>
+
+              <branch>
+                  <label>purecounter</label>
+                  <leaf><label>purecounter.js</label><weight>1</weight><value>100.0</value></leaf>
+              </branch>
+
+              <branch>
+                  <label>swiper</label>
+                  <leaf><label>swiper-bundle.min.js</label><weight>14</weight><value>100.0</value></leaf>
+              </branch>
+            </branch>
+          </branch>
+
+          <branch>
+              <label>templates</label>
+              <leaf><label>agendamento.html</label><weight>1</weight><value>16900.0</value></leaf>
+              <leaf><label>assinatura.html</label><weight>35</weight><value>494.28571428571433</value></leaf>
+              <leaf><label>configAdmin.html</label><weight>42</weight><value>100.0</value></leaf>
+              <leaf><label>escolherCadastro.html</label><weight>45</weight><value>100.0</value></leaf>
+              <leaf><label>home.html</label><weight>52</weight><value>100.0</value></leaf>
+              <leaf><label>index.html</label><weight>2</weight><value>16950.0</value></leaf>
+              <leaf><label>loginSystem.html</label><weight>70</weight><value>100.0</value></leaf>
+              <leaf><label>loginSystemaaaaaaaa.html</label><weight>67</weight><value>100.0</value></leaf>
+              <leaf><label>loginUser.html</label><weight>54</weight><value>100.0</value></leaf>
+              <leaf><label>regAdministrator.html</label><weight>49</weight><value>100.0</value></leaf>
+              <leaf><label>regAdministratoraaaaaaaaa.html</label><weight>79</weight><value>100.0</value></leaf>
+              <leaf><label>regEmployee.html</label><weight>49</weight><value>100.0</value></leaf>
+              <leaf><label>regEmployeeaaaaaaaaaaa.html</label><weight>129</weight><value>100.0</value></leaf>
+              <leaf><label>regUsers.html</label><weight>54</weight><value>100.0</value></leaf>
+              <leaf><label>regUsersaaaaaaaa.html</label><weight>149</weight><value>100.0</value></leaf>
+              <leaf><label>reserva.html</label><weight>141</weight><value>100.0</value></leaf>
+          </branch>
+        </branch>
+      </branch>
+
+      <branch>
+          <label>layouts_poc</label>
+        <branch>
+            <label>js</label>
+            <leaf><label>teste.js</label><weight>19</weight><value>100.0</value></leaf>
+        </branch>
+          <leaf><label>configAdmin.html</label><weight>8</weight><value>412.5</value></leaf>
+          <leaf><label>home.html</label><weight>44</weight><value>100.0</value></leaf>
+          <leaf><label>homeReg.html</label><weight>46</weight><value>100.0</value></leaf>
+          <leaf><label>loginSystem.html</label><weight>53</weight><value>100.0</value></leaf>
+          <leaf><label>loginUser.html</label><weight>52</weight><value>100.0</value></leaf>
+          <leaf><label>regAdministrator.html</label><weight>3</weight><value>2466.666666666667</value></leaf>
+          <leaf><label>regEmployee.html</label><weight>79</weight><value>100.0</value></leaf>
+          <leaf><label>regUsers.html</label><weight>73</weight><value>100.0</value></leaf>
+      </branch>
+    </branch>
+
+    <branch>
+        <label>Desenvolvimento_Lucas</label>
+      <branch>
+          <label>Newgen_novoLayout</label>
+        <branch>
+            <label>assets</label>
+          <branch>
+              <label>vendor</label>
+            <branch>
+                <label>bootstrap</label>            </branch>
+
+            <branch>
+                <label>glightbox</label>            </branch>
+          </branch>
+        </branch>
+      </branch>
+
+      <branch>
+          <label>aplicacao</label>
+        <branch>
+            <label>newgenapp</label>
+          <branch>
+              <label>static</label>
+            <branch>
+                <label>vendor</label>
+              <branch>
+                  <label>bootstrap</label>              </branch>
+
+              <branch>
+                  <label>glightbox</label>              </branch>
+            </branch>
+          </branch>
+        </branch>
+      </branch>
+
+      <branch>
+          <label>layouts_poc</label>      </branch>
+    </branch>
+
+    <branch>
+        <label>statSVN</label>
+      <branch>
+          <label>relatorio__2021.07.12</label>
+          <leaf><label>2021-05.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>2021-06.html</label><weight>298</weight><value>100.0</value></leaf>
+          <leaf><label>churn.html</label><weight>22</weight><value>100.0</value></leaf>
+          <leaf><label>cloud.html</label><weight>98</weight><value>100.0</value></leaf>
+          <leaf><label>commitlog.html</label><weight>111</weight><value>371.1711711711712</value></leaf>
+          <leaf><label>developers.html</label><weight>236</weight><value>100.0</value></leaf>
+          <leaf><label>dir.html</label><weight>6</weight><value>4316.666666666666</value></leaf>
+          <leaf><label>dir_Desenvolvimento.html</label><weight>157</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas.html</label><weight>124</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout.html</label><weight>128</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets.html</label><weight>64</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor.html</label><weight>58</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html</label><weight>88</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao.html</label><weight>73</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp.html</label><weight>70</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static.html</label><weight>64</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html</label><weight>85</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor.html</label><weight>58</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html</label><weight>88</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html</label><weight>94</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_layouts_poc.html</label><weight>93</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Lucas_layouts_poc_js.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout.html</label><weight>128</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets.html</label><weight>64</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_js.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor.html</label><weight>58</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html</label><weight>88</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao.html</label><weight>85</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp.html</label><weight>70</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static.html</label><weight>64</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_js.html</label><weight>151</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor.html</label><weight>58</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html</label><weight>89</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html</label><weight>85</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html</label><weight>85</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html</label><weight>84</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_newgenapp_templates.html</label><weight>190</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_register.html</label><weight>37</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_register_templates.html</label><weight>111</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_register_templates_register.html</label><weight>107</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_aplicacao_register_templates_registration.html</label><weight>105</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_layouts_poc.html</label><weight>111</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_layouts_poc_js.html</label><weight>83</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen.html</label><weight>46</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_newgenapp.html</label><weight>37</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_newgenapp_static.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_newgenapp_static_js.html</label><weight>123</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_newgenapp_templates.html</label><weight>230</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_templates.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_Desenvolvimento_newgen_templates_registration.html</label><weight>104</weight><value>100.0</value></leaf>
+          <leaf><label>dir_sizes.html</label><weight>5</weight><value>5920.0</value></leaf>
+          <leaf><label>dir_statSVN.html</label><weight>31</weight><value>100.0</value></leaf>
+          <leaf><label>dir_statSVN_relatorio__2021.07.12.html</label><weight>175</weight><value>100.0</value></leaf>
+          <leaf><label>file_sizes.html</label><weight>263</weight><value>100.0</value></leaf>
+          <leaf><label>index.html</label><weight>6</weight><value>5266.666666666666</value></leaf>
+          <leaf><label>loc.html</label><weight>23</weight><value>100.0</value></leaf>
+          <leaf><label>repomap.html</label><weight>23</weight><value>100.0</value></leaf>
+          <leaf><label>user_Beatriz.html</label><weight>82</weight><value>100.0</value></leaf>
+          <leaf><label>user_Bruna.html</label><weight>343</weight><value>100.0</value></leaf>
+          <leaf><label>user_Gabriel.html</label><weight>543</weight><value>100.0</value></leaf>
+          <leaf><label>user_Lucas.html</label><weight>338</weight><value>100.0</value></leaf>
+      </branch>
+    </branch>
+</root>

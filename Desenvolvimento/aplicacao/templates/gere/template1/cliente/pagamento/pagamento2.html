@@ -1,0 +1,82 @@
+﻿{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Formulário de pagamento" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1>{% translate "Formulário de pagamento" %}</h1>    
+        </div>
+
+        <div id="BodyRegister">
+
+            <form method="POST" class="form-group" name="formPagamento" id="form-checkout">
+              {% csrf_token %}
+              {{ form|crispy }}
+              <!-- {% for field in form %}
+                <div class="fieldWrapper">
+                    {# uncomment to display field errors #}
+                    {# {{ field.errors }} #} 
+
+                    {{ field.label_tag }} {{ field }}
+                </div>
+            {% endfor %} -->
+              
+              <input type="hidden" id="mensagem_de_erro" name="mensagem_de_erro" value="none" onchange="mostrar_mensagem()">
+              <input type="hidden" id="id_reserva" name="id_reserva" value="{{ id_reserva }}">
+              <button type="submit" id="form-checkout__submit" class="btn btn-primary">{% translate "Pagar" %}</button>
+              <div class="alert alert-danger alert-dismissible fade show" id="alerta_de_erro" style="display: none;">
+                <strong>{% translate "Erro!" %}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+              <!-- <input type="submit" value="Pagar"> -->
+              <progress value="0" class="progress-bar">Carregando...</progress>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('TEST-3857db53-06c2-4bfc-a9a5-bec2dd9d1579');
+    function mostrar_mensagem(){
+        let element = document.getElementById(`mensagem_de_erro`);
+        let mensagem = element.value;
+        if (mensagem == "" || mensagem == "none"){
+            let caixa_alerta_erro = document.getElementById(`alerta_de_erro`);
+            caixa_alerta_erro.style.display = 'block';          // Show
+        }
+        else
+        caixa_alerta_erro.style.display = 'none';
+            
+            
+    }
+</script>
+<script src="{% static 'js/pagamento.js' %}"></script>
+
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+<!-- Cep validator -->
+<script src="{% static 'js/cep_verifier.js' %}"></script>
+
+{% endblock js %}

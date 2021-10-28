@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+        <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="css/style.css"/>
+        
+    
+        <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"/>
+    
+        <title>SGC - Cadastro</title>
+    </head>
+<body class="bodyHome">
+    <div class="topLogin">
+        <img class="gif" src="img/logoGif.gif" alt="NewGen">
+        <h1>Cadastros</h1> 
+    </div>
+
+    <div class="container overflow-hidden">
+        <div class="row gy-5">
+          <div class="col-6">
+            <div class="p-3 border bg-light">
+                <p><a href="regAdministrator.html">Administrador</a></p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 border bg-light">
+                <p><a href="regEmployee.html">Funcioários</a></p>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="p-3 border bg-light">
+                <p><a href="loginUser.html">Faça seu agendamento!</a></p>
+            </div>
+          </div>
+          
+          
+      </div>
+    
+</body>
+</html>

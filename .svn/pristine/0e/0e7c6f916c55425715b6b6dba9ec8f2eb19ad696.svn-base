@@ -1,0 +1,322 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - Development Statistics for NewGen</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+  </head>
+
+<body>
+
+<h1>Development Statistics for NewGen</h1>
+<dl class="attributes">
+    <dt>Generated:</dt>
+    <dd><span class="date">2021-08-10 16:32</span></dd>
+    <dt>Head revision:</dt>
+    <dd>70205</dd>
+    <dt>Report Period:</dt>
+    <dd><span class="date">2021-05-19</span> to <span class="date">2021-07-12</span></dd>
+    <dt>Total Files:</dt>
+    <dd>219</dd>
+    <dt>Total Lines of Code:</dt>
+    <dd>64931</dd>
+    <dt>Developers:</dt>
+    <dd>4</dd>
+</dl>
+<ul class="linklist">
+    <li><a href="developers.html">Developers</a></li>
+    <li><a href="commitlog.html">Commit Logs</a></li>
+    <li><a href="loc.html">Lines of Code</a></li>
+    <li><a href="file_sizes.html">File Statistics</a></li>
+    <li><a href="dir_sizes.html">Directory Sizes</a></li>
+    <li><a href="repomap.html">Repo Heatmap</a></li>
+    <li><a href="churn.html">LOC and Churn</a></li>
+    <li><a href="cloud.html">Cloud Commit</a></li>
+</ul>
+<div class="section">
+<h2>Lines of Code</h2>
+<p class="chart"><a href="loc.html"><img src="loc_small.png" alt="Lines of Code" width="512" height="320" /></a></p></div>
+<div class="section">
+<h2>Developers</h2>
+  <table  rules="groups" summary="All authors and the number of code lines they wrote or changed">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Author</th>
+        <th>Lines of Code</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="user_Gabriel.html" class="author">Gabriel</a></th>
+        <td>42342 (57.1%)</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="user_Bruna.html" class="author">Bruna</a></th>
+        <td>31630 (42.7%)</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="user_Beatriz.html" class="author">Beatriz</a></th>
+        <td>138 (0.2%)</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="user_Lucas.html" class="author">Lucas</a></th>
+        <td>0 (0.0%)</td>
+      </tr>
+    </tbody>
+  </table>
+
+<a href="developers.html">more...</a></div>
+<div class="section">
+<h2>Tag Cloud of Words in Commit Log Messages</h2>
+<p><font size="6">admin </font> <font size="6">ainda </font> <font size="7">altera </font> <font size="6">aplica </font> <font size="6">cadastrar </font> <font size="7">cadastro </font> <font size="6">forms </font> <font size="6">gica </font> <font size="6">gina </font> <font size="8">incluindo </font> <font size="7">login </font> <font size="6">novo </font> <font size="6">outra </font> <font size="6">paginas </font> <font size="8">para </font> <font size="7">sistema </font> <font size="6">statsvn </font> <font size="6">templates </font> </p><a href="cloud.html">more...</a></div>
+<div class="section">
+<h2>Directories</h2>
+<p class="dirtree">
+<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir.html">[root]</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento.html">Desenvolvimento</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout.html">Newgen_novoLayout</a> 
+(7 files, 1312 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets.html">assets</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_js.html">js</a> 
+(1 files, 239 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor.html">vendor</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html">aos</a> 
+(1 files, 1 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html">bootstrap-icons</a> 
+(1 files, 5527 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap.html">bootstrap</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html">js</a> 
+(6 files, 16689 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox.html">glightbox</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html">js</a> 
+(2 files, 3676 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html">isotope-layout</a> 
+(2 files, 3575 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html">php-email-form</a> 
+(1 files, 85 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html">purecounter</a> 
+(1 files, 1 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html">swiper</a> 
+(1 files, 14 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao.html">aplicacao</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp.html">newgenapp</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static.html">static</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_js.html">js</a> 
+(3 files, 239 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor.html">vendor</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html">aos</a> 
+(1 files, 1 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html">bootstrap-icons</a> 
+(1 files, 5527 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap.html">bootstrap</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html">js</a> 
+(6 files, 16689 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox.html">glightbox</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html">js</a> 
+(2 files, 3676 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html">isotope-layout</a> 
+(2 files, 3575 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html">php-email-form</a> 
+(1 files, 85 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html">purecounter</a> 
+(1 files, 1 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html">swiper</a> 
+(1 files, 14 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_newgenapp_templates.html">templates</a> 
+(12 files, 491 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_register.html">register</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_register_templates.html">templates</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_register_templates_register.html">register</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_aplicacao_register_templates_registration.html">registration</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_layouts_poc.html">layouts_poc</a> 
+(8 files, 305 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_layouts_poc_js.html">js</a> 
+(1 files, 19 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen.html">newgen</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_newgenapp.html">newgenapp</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_newgenapp_static.html">static</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_newgenapp_static_js.html">js</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_newgenapp_templates.html">templates</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_templates.html">templates</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder-deleted.png" width="15" height="13" alt="Folder removed from repo" title="Folder removed from repo"/> 
+<a href="dir_Desenvolvimento_newgen_templates_registration.html">registration</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas.html">Desenvolvimento_Lucas</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout.html">Newgen_novoLayout</a> 
+(7 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets.html">assets</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html">js</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor.html">vendor</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html">aos</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html">bootstrap-icons</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap.html">bootstrap</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html">js</a> 
+(6 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox.html">glightbox</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html">js</a> 
+(2 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html">isotope-layout</a> 
+(2 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html">php-email-form</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html">purecounter</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html">swiper</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao.html">aplicacao</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp.html">newgenapp</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static.html">static</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html">js</a> 
+(3 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor.html">vendor</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html">aos</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html">bootstrap-icons</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap.html">bootstrap</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html">js</a> 
+(6 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox.html">glightbox</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html">js</a> 
+(2 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html">isotope-layout</a> 
+(2 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html">php-email-form</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html">purecounter</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html">swiper</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html">templates</a> 
+(12 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_layouts_poc.html">layouts_poc</a> 
+(8 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_Desenvolvimento_Lucas_layouts_poc_js.html">js</a> 
+(1 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_statSVN.html">statSVN</a> 
+(0 files, 0 lines)<br />
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<img src="folder.png" width="15" height="13" alt="directory in repo" title="directory in repo"/> 
+<a href="dir_statSVN_relatorio__2021.07.12.html">relatorio__2021.07.12</a> 
+(95 files, 3190 lines)<br />
+</p>
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>
