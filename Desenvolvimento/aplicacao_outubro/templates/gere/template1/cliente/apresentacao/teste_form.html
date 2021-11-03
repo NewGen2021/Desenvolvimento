@@ -1,0 +1,30 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "teste" %}{% endblock %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+        <div id="BodyRegister">
+            <form action="" method="POST">
+                {{ resultado }}
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button type="submit" id="enviar_form_pessoa" class="btn btn-primary">{% translate "Registrar" %}</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+{% block js %}
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+{% endblock js %}

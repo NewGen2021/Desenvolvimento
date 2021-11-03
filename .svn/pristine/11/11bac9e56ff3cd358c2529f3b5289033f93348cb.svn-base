@@ -1,0 +1,75 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+   
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/carousel/style.css' %}">
+
+    <title>Carousel #2</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+      <h2 class="h2_carousel my-5 text-center">Carousel #2</h2>
+    </div>
+
+
+    <div class="site-section bg-left-half mb-5">
+      <div class="container owl-2-style">
+        
+        <h2 class="h2_carousel text-primary py-5 ">Our Products</h2>
+        
+
+        <div class="owl-carousel owl-2">
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeeeTESTEEEEEEEEEEE" class="a_carousel">Consectetur Adipisicing Elit</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeee" class="a_carousel">Beatae Doloribu</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeee" class="a_carousel">Accusantium Eius Soluta</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeee" class="a_carousel">Consectetur Adipisicing Elit</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeee" class="a_carousel">Beatae Doloribu</a></h3>
+          </div>
+          <div class="media-29101">
+            <a href="#imagem" class="a_carousel"><img src="https://img.freepik.com/fotos-gratis/imagem-aproximada-em-tons-de-cinza-de-uma-aguia-careca-americana-em-um-fundo-escuro_181624-31795.jpg?size=626&ext=jpg" alt="Image" class="img-fluid img_carousel"></a>
+            <h3 class="himagem3_carousel"><a href="#testeeeeee" class="a_carousel">Accusantium Eius Soluta</a></h3>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+    
+    
+
+    <script src="{% static 'js/carousel/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/carousel/popper.min.js' %}"></script>
+    <script src="{% static 'js/carousel/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/carousel/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/carousel/main.js' %}"></script>
+  </body>
+</html>

@@ -21,59 +21,6 @@ SECRET_KEY = 'django-insecure-4x57g(r^*u^2pu=sl8j4i&!rg=93@u!m-!duorv%n##wwqc$p-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True #QUANDO FOR SUBIR NO >>GITHUB<<, DEIXE COMO "FALSE" PARA O DEPLOY FUNCIONAR E NÃO CAIR O SERVER
 
-LOGGING = {
-'version': 1,
-'disable_existing_loggers': False,
-'filters': {
-    'require_debug_false': {
-        '()': 'Django.utils.log.RequireDebugFalse',
-    },
-    'require_debug_true': {
-        '()': 'Django.utils.log.RequireDebugTrue',
-    },
-},
-'formatters': {
-    'Django.server': {
-        '()': 'Django.utils.log.ServerFormatter',
-        'format': '[%(server_time)s] %(message)s',
-    }
-},
-'handlers': {
-    'console': {
-        'level': 'INFO',
-        'filters': ['require_debug_true'],
-        'class': 'logging.StreamHandler',
-    },
-    # Custom handler which we will use with logger 'Django'.
-    # We want errors/warnings to be logged when DEBUG=False
-    'console_on_not_debug': {
-        'level': 'WARNING',
-        'filters': ['require_debug_false'],
-        'class': 'logging.StreamHandler',
-    },
-    'Django.server': {
-        'level': 'INFO',
-        'class': 'logging.StreamHandler',
-        'formatter': 'Django.server',
-    },
-    'mail_admins': {
-        'level': 'ERROR',
-        'filters': ['require_debug_false'],
-        'class': 'Django.utils.log.AdminEmailHandler'
-    }
-},
-'loggers': {
-    'Django': {
-        'handlers': ['console', 'mail_admins', 'console_on_not_debug'],
-        'level': 'INFO',
-    },
-    'Django.server': {
-        'handlers': ['Django.server'],
-        'level': 'INFO',
-        'propagate': False,
-    },
-}
-}
 # ALLOWED_HOSTS = ['127.0.0.1', 'newgenapp.link', 'www.newgenapp.link', 'testtest.com', 'www.testtest.com', 'newgen.testtest.com']
 ALLOWED_HOSTS = ['*']
 

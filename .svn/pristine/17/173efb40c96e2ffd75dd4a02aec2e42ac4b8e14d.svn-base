@@ -1,0 +1,230 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load hosts %}
+
+{% block title %}{% translate "Listar espaços" %}{% endblock %}
+
+{% block css %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+
+<!------ Snippet by kshiti06 ---------->
+<!------ https://bootsnipp.com/snippets/AlZ7g ---------->
+
+
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            {% if messages %}
+            <div class="alert alert-warning">
+                {% for m in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ m }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        <div class="row">
+            <div class="form-group">
+                {% if active_tipo_espaco %}
+                <a href="{% host_url 'criar_tipo_espaco' host 'custom_host' domain %}" style="color:#fff" class="btn btn-primary"> 
+                    <span style="margin-left: 5px; margin-right: 10px; font-size: 16px; padding-bottom:5px;">
+                        {% translate "Novo tipo de espaço" %}
+                    </span>
+                </a>
+                {% else %}
+                <a href="{% host_url 'criar_espaco' host 'custom_host' domain %}" style="color:#fff" class="btn btn-primary"> 
+                    <span style="margin-left: 5px; margin-right: 10px; font-size: 16px; padding-bottom:5px;">
+                        {% translate "Novo espaço" %}
+                    </span>
+                </a>
+                {% endif %}
+                <!-- style="margin-left: 5px; margin-right: 10px; font-size: 18px; padding-bottom:5px;"> {% translate "Novo tipo de espaço" %}
+                </span></a>                 -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link {{ active_tipo_espaco }}" id="nav-home-tab" data-toggle="tab" 
+                            href="{% host_url 'listar_espacos' host 'custom_host' domain %}?tipo_espaco=1?page=1"
+                            role="tab" aria-controls="nav-home" aria-selected="{{ is_tipo_espaco }}">{% translate "Tipo de espaço" %}</a>
+                        <a class="nav-item nav-link {{ active_espaco }}" id="nav-profile-tab" data-toggle="tab" 
+                            href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1?page=1"
+                            role="tab" aria-controls="nav-profile" aria-selected="{{ is_espaco }}">{% translate "Espaço" %}</a>
+                        <!-- <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Project Tab 3</a> -->
+                    </div>
+                </nav>
+                
+                <div class="tab-content" id="nav-tabContent">
+                    {% if active_tipo_espaco %}
+                    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>{% translate "Nome" %}</th>
+                                    <th>{% translate "Limpeza" %}</th>
+                                    <th>{% translate "Preço" %}</th>
+                                    <th>{% translate "Descrição" %}</th>
+                                    <th style="text-align: center;">{% translate "Compartilhado" %}</th>
+                                    <th>{% translate "Excluir" %}</th>
+                                    <th>{% translate "Editar" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                
+                                    {% for item in items %}
+                                    <tr>
+                                    <td><a href="{% host_url 'listar_espacos' host 'custom_host' domain %}">{{ item.nome }}</a></td>
+                                    <td>{{ item.get_tempo_limpeza }}</td>
+                                    <td>{{ item.get_preco }}</td>
+                                    <td>{{ item.get_descricao_breve }}</td>
+                                    <td style="text-align: center;"><strong>{{ item.get_compartilhado }}</strong></td>
+                                    <td style="width:50px; text-align: center;">
+                                        <a href="{% host_url 'excluir_tipo_espaco' id_tipo_espaco=item.id_tipoespaco host 'custom_host' domain %}" 
+                                        style="color:#fff" class="btn btn-danger">
+                                        <span class = "glyphicon glyphicon-trash"
+                                        style="margin-left: 5px; margin-right: 5px; font-size: 10px; padding-bottom:5px;">
+                                        </span></a></td>
+                                    <td style="width:50px; text-align: center;">
+                                        <a href="{% host_url 'editar_tipo_espaco' id_tipo_espaco=item.id_tipoespaco host 'custom_host' domain %}" 
+                                        style="color:#fff" class="btn btn-primary">
+                                        <span class = "glyphicon glyphicon-edit"
+                                        style="margin-left: 5px; margin-right: 5px; font-size: 10px; padding-bottom:5px;">
+                                        </span></a></td>
+                                    </tr>
+                                    {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                    {% elif active_espaco %}
+                    <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>{% translate "Tipo de espaço" %}</th>
+                                    <th style="text-align: center;">{% translate "Vagas" %}</th>
+                                    <th>{% translate "Status" %}</th>
+                                    <th>{% translate "Preco" %}</th>
+                                    <th>{% translate "Excluir" %}</th>
+                                    <th>{% translate "Editar" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items %}
+                                <tr>
+                                <td><a href="{% host_url 'editar_espaco' id_espaco=1 host 'custom_host' domain %}" >{{ item }}</a></td>
+                                <td style="text-align: center;">{{ item.get_vagas }}</td>
+                                <td>{{ item.get_status }}</td>
+                                <td>{{ item.get_preco }}</td>
+                                <td style="width:50px; text-align: center;">
+                                    <a href="{% host_url 'excluir_espaco' id_espaco=item.id_espaco host 'custom_host' domain %}" 
+                                    style="color:#fff" class="btn btn-danger">
+                                    <span class = "glyphicon glyphicon-trash"
+                                    style="margin-left: 5px; margin-right: 5px; font-size: 10px; padding-bottom:5px;">
+                                    </span></a></td>
+                                <td style="width:50px; text-align: center;">
+                                    <a href="{% host_url 'editar_espaco' id_espaco=item.id_espaco host 'custom_host' domain %}" 
+                                    style="color:#fff" class="btn btn-primary">
+                                    <span class = "glyphicon glyphicon-edit"
+                                    style="margin-left: 5px; margin-right: 5px; font-size: 10px; padding-bottom:5px;">
+                                    </span></a></td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    {% else %}  <!-- A fins de uma futura implementação -->
+                    <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                        <table class="table" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Contest Name</th>
+                                    <th>Date</th>
+                                    <th>Award Position</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="#">Work 1</a></td>
+                                    <td>Doe</td>
+                                    <td>john@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Work 2</a></td>
+                                    <td>Moe</td>
+                                    <td>mary@example.com</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="#">Work 3</a></td>
+                                    <td>Dooley</td>
+                                    <td>july@example.com</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center">
+                <!-- Snippet by wbitholedotbe -->
+                <!-- https://bootsnipp.com/snippets/O5BGZ -->
+                <nav aria-label="Page navigation example" class="align-bottom">
+                    {% if items.has_other_pages %}
+                    <ul class="pagination">
+                        {% if items.has_previous %}
+                        <li class="page-item">
+                            <a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page=1" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        {% endif %}
+
+                        {% if not items.has_previous %}
+                            <li class="page-item active"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page=1">1</a></li>
+                            {% if items.has_next %}
+                                <li class="page-item"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page=2">2</a></li>
+                            {% endif %}
+                        {% elif not items.has_next %}
+                            <li class="page-item"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{page_num|sub:1}}">{{page_num|sub:1}}</a></li>
+                            <li class="page-item active"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{page_num}}">{{page_num}}</a></li>
+                        {% else %}
+                            <li class="page-item"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{page_num|sub:1}}">{{page_num|sub:1}}</a></li>
+                            <li class="page-item active"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{page_num}}">{{page_num}}</a></li>
+                            <li class="page-item"><a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{page_num|add:1}}">{{page_num|add:1}}</a></li>
+                        {% endif %}
+
+                        {% if items.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?{{ opcao }}=1&page={{number_of_pages}}" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </nav>
+
+
+
+            </div>
+        </div>
+
+</section>
+
+
+{% endblock %}
+{% block js %}
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+{% endblock %}

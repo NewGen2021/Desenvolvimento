@@ -1,0 +1,139 @@
+{% extends 'gere/template1/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+{% block title %}{% translate "Cadastrar tipo espaço" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+<style>
+    small {
+    display: none;
+    }
+    
+    input:hover + small {
+        display: block;
+    }
+    .form-check:hover + small {
+        display: block;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1>{% translate "Criação de tipo de espaço" %}</h1>    
+        </div>
+
+        <div id="BodyRegister">
+
+            <form method="POST" class="form-group" name="formFuncionario" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group">
+                      {{ form.nome|as_crispy_field }}
+                      <small class="form-text text-muted">
+                        {% translate "Coloque um nome para um tipo de espaço." %}
+                        <!-- {% translate " Exemplos: Sala Compartilhada, Sala de Reunião." %} -->
+                      </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.descricao|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Defina uma descrição para este tipo de espaço." %}
+                            <!-- {% translate "Exemplo: Uma sala privada para você e seus convidados desfrutarem de privacidade e equipamentos profissionais de reunião." %} -->
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.preco|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Defina um preço padrão para salas desse tipo de espaço." %}
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.tempo_limpeza|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "O sistema entende que existe um intervalo para limpeza de um determinado espaço que entra em consideração na hora das reservas das salas. " %}
+                            {% translate "Selecione aqui a quantidade de intervalo que este espaço precisa depois de ser usado antes de ficar pronto novamente ao próximo cliente. " %}
+                            <strong>{% translate "Colocar no formato (hora, minuto, segundo)" %}</strong>
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.compartilhado|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Espaços compartilhados entram na lógica de 'vagas' por espaço, enquanto um espaço compartilhado só permite uma vaga a ser reservada em um momento." %}
+                            {% translate "Eles permitem clientes desconhecidos alugarem aquele mesmo espaço durante um determinado período. Selecione para marcar este espaço como compartilhado." %}
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.imagem|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Selecione a imagem a ser mostrada para o cliente quando ele for selecionar um tipo de espaço para escolher." %}
+                        </small>
+                    </div>
+                </div>
+
+              <!-- {% csrf_token %}
+              {{ form|crispy }} -->
+              
+              <div class="d-flex flex-row">
+                <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?tipo_espaco=1&page=1">{% translate "← Voltar" %}</a>
+                <button type="submit" id="enviar_form_funcionario" class="btn btn-primary" style="margin-left: 2%;">{% translate "Criar tipo de espaço" %}</button>
+            </div>
+
+            {% if messages %}
+            <div class="alert alert-warning">
+                {% for m in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ m }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+              
+            </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+<script>
+    // Reajusta itens para dentro da div form gerada pelo django
+    $( document ).ready(function() {
+        var smalls = document.getElementsByTagName('small');
+        const array_smalls = Array.from(smalls);
+        for (let item of array_smalls) {
+            form_div = item.parentNode.children[0].children[1]
+            form_div = form_div ? form_div : item.parentNode.children[0]
+            form_div.insertAdjacentElement('beforeend', item)
+        }
+    });
+</script>
+
+{% endblock js %}
+
