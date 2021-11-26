@@ -1,0 +1,4 @@
+import json
+
+def json_to_safe_html_string(d: dict):
+    return str(json.dumps(d)).replace("{", '&#x7B;').replace('}', '&#x7D;')

@@ -1,0 +1,76 @@
+{% extends 'gere/template1/base_func.html' %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+{% block title %}{% translate "Leitor QRcode" %}{% endblock %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+{% block content %}
+<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+<section id="video">
+
+  <div> <span class="preview" id="result"> </span></div>
+  
+  <video id="preview" class="camera">   
+  </video>
+</section>
+
+<script type="text/javascript">
+  
+
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  scanner.addListener('scan', function (content) {
+    separator = content.split("//");
+
+    let id_reserva = separator[0];
+    let qrcode = separator[1];
+
+    fetch(`{{ domain }}/api/validate_reserva/${id_reserva}/${qrcode}?format=json`)
+      .then(function(response) {
+          
+    return response.json(); 
+    })
+    .then(function(data) {
+      var isValid = data['valido']
+      var data_reserva = data['data_reserva']
+      var hora_entrada = data['hora_entrada']
+      var data = new Date()
+      var imagem = document.getElementById("preview")
+
+        if(isValid && data_reserva == data.getTime()){
+          imagem.style.display = 'none';
+          var element = document.getElementById('result');
+          element.innerHTML = "<img src=../static/img/valido.gif>"
+          function esconde() {
+            document.getElementById("result").style.visibility = "hidden";
+          }
+          setTimeout(esconde, 3000);
+          location.reload();
+        } else{
+          imagem.style.display = 'none';
+          var element = document.getElementById('result');
+          element.innerHTML = "<img src=../static/img/invalido.gif>"  
+          function esconde() {
+            document.getElementById("result").style.visibility = "hidden";
+          }
+          setTimeout(esconde, 4000);
+          location.reload();
+        }
+      
+    });
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+</script>
+</div>
+{% endblock content %}

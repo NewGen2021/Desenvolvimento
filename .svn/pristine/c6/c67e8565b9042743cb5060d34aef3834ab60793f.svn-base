@@ -1,0 +1,248 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "Gerenciar plano" %}{% endblock %}
+{% load hosts %}
+
+{% block css %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="{% static 'css/gerenciar_plano.css' %}" rel="stylesheet">
+
+<!-- "Bootstrap Profile Page Design"
+Bootstrap 4.1.1 Snippet by kshiti06
+https://bootsnipp.com/snippets/K0ZmK -->
+{% endblock css %}
+
+
+{% block content %}
+
+
+<div class="container emp-profile" style="margin-top: 8.33%;">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-img">
+                            <img src="{% static 'img/default-logo2.png' %}" alt=""/>
+                            <div class="file btn btn-lg btn-primary">
+                                {% translate "Mudar imagem" %}
+                                <input type="file" name="file"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="profile-head">
+                                    <h5>
+                                        {{ user.first_name }} {{ user.last_name }}
+                                    </h5>
+                                    <h6>
+                                        {% translate "Empresa de Coworking" %}
+                                    </h6>
+                                    <p class="proile-rating">Data de inscrição: <span>{{ user.date_joined|date:"d/m/Y - H:m"}}</span></p>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active tab1" id="tab1" href="#">
+                                      {% translate "Informações pessoais" %}
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link tab2" id="tab2" href="#">
+                                      {% translate "Assinatura" %}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="profile-work">
+                            <!-- <p>{WORK LINK}</p>
+                            <a href="">Website Link</a><br/>
+                            <a href="">Bootsnipp Profile</a><br/>
+                            <a href="">Bootply Profile</a>
+                            <p>SKILLS</p>
+                            <a href="">Web Designer</a><br/>
+                            <a href="">Web Developer</a><br/>
+                            <a href="">WordPress</a><br/>
+                            <a href="">WooCommerce</a><br/>
+                            <a href="">PHP, .Net</a><br/> -->
+                            <p>{% translate "Site" %}</p>
+                            <a href="">{% if Administrador.domain %}{{ Administrador.domain }} {%else%} {% translate "Domínio não cadastrado" %}{%endif%}</a><br/>
+                            <p>{% translate "Empresa" %}</p>
+                            <a href="">{% translate "CNPJ:" %} {{ Administrador.cnpj}}</a><br/>
+                            <a href="">{% translate "Endereço: " %} {{ Administrador.logradouro}} {{ Administrador.numero }} - {{Administrador.cidade}} {{Administrador.estado}} </a><br/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="tab-content profile-tab" id="myTabContent">
+                            <div class="tab-pane fade show tab1 active" id='content-tab1' style="display: block;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Email" %}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.email }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "CNPJ" %}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.get_cnpj }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Telefone" %}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.telefone }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Logradouro / Número" %}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.logradouro }} / {{ Administrador.numero }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Bairro / Cep" %}</label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.bairro }} / {{ Administrador.cep }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                          <div class="col-md-6">
+                                              <label>{% translate "Cidade / Estado" %}</label>
+                                          </div>
+                                          <div class="col-md-6">
+                                              <p>{{ Administrador.cidade }} / {{ Administrador.estado }}</p>
+                                          </div>
+                                      </div>
+                            </div>
+                            <div class="tab-pane fade show tab2" id='content-tab2' style="display: none;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate 'Plano atual:' %}</label>
+                                            </div>
+                                            {% if Administrador.has_plano %}
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.get_plano }}</p>
+                                            </div>
+                                            {%else%}
+                                            <div class="col-md-4">
+                                              <p>{{ Administrador.get_plano}}</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                              <a href="{% host_url 'assinatura' host 'newgen' %}">
+                                                {% translate 'Escolher plano.' %}
+                                              </a>
+                                            </div>
+                                            {%endif%}
+                                        </div>
+                                        <!-- {% if not Administrador.has_plano %}
+                                        <div class="row">
+                                          <a href="{% host_url 'assinatura' host 'newgen' %}">
+                                            {% translate 'Escolha já seu plano!' %}
+                                          </a>
+                                        </div>
+                                        {% endif %} -->
+                                        <div class="row">
+                                            <div class="col-md-5">
+                                                <label>{% translate "Banco de dados: " %}</label>
+                                            </div>
+                                            <div class="col-md-5">
+                                                <p>{{ Administrador.get_database }}</p>
+                                            </div>
+                                            <div class="col-md-2">
+                                              <a href="#">
+                                                {% translate 'Solicitar dados' %}
+                                              </a>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Validade do plano:" %} </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{{ Administrador.get_validade_plano }}</p>
+                                            </div>
+                                        </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label>Your Bio</label><br/>
+                                        <p>Your detail description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>           
+        </div>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+let tab1 = document.getElementById("tab1");
+let tab2 = document.getElementById("tab2");
+
+// let getActiveContent = () => {
+//   // let content_elements = document.getElementsByClassName('tab-pane');
+//   // let active = content_elements.getElementsByClassName('active')[0];  
+//   // return active;
+//   return $('div').filter('.tab-pane.active');
+// }
+
+let getOtherTab = function (element){
+  if (element.id == 'tab1')
+    return 'tab2'
+  else
+    return 'tab1'
+}
+
+let deactive = function(element) {
+    // let actives = document.getElementsByClassName('active');
+    // for(let i = 0; i < actives.length; i++){
+    //   console.log(actives[i]);
+    //   actives[i].classList.remove('active');
+    // }
+    // getActiveContent().classList.remove('active');
+    let tab = getOtherTab(element);
+    document.getElementById(tab).classList.remove('active');
+    document.getElementById(`content-${tab}`).classList.remove('active');
+    document.getElementById(`content-${tab}`).style.display = 'none';
+
+}
+let activeThis = function(element){
+  // let elementsToActive = document.getElementsByClassName(element.id);
+  // for(let i = 0; i < elementsToActive.length; i++){
+  //   elementsToActive[i].classList.add('active');
+  // }
+  let tab = element.id;
+  document.getElementById(tab).classList.add('active');
+  document.getElementById(`content-${tab}`).classList.add('active');
+  document.getElementById(`content-${tab}`).style.display = 'block';
+}
+
+let event = function (e) {
+  deactive(this);
+  activeThis(this);
+}
+
+tab1.addEventListener('click', event, false);
+tab2.addEventListener('click', event, false);
+</script>
+{% endblock js %}

@@ -1,0 +1,172 @@
+import json
+import os
+
+from django.template.loader import render_to_string
+from .models import *
+from django.core.files import File
+import custom_templates.selectors as selectors
+import common.services as c
+
+def split_path(path: str) -> list:
+    def split_paths(path: str) -> list:
+        paths = []
+        paths.append(os.path.split(path)[1])
+        if path != "":
+            paths += split_paths(os.path.split(path)[0]) 
+        return paths
+    paths = split_paths(path)[:-1]
+    return paths[::-1]
+
+def create_path_if_does_not_exist(path: str) -> str:
+    paths = split_path(path)
+    current = ''
+    for path in paths:
+        current = os.path.join(current, path)
+        if not os.path.exists(current) and path.find('.') == -1:
+            os.mkdir(current)
+    return current
+
+def instantiate_config(cliente:Administrador):
+    file = open('static/img/default-logo.png', 'rb')
+    InstanceConfig.objects.using('default').create(
+        client_id=cliente,
+        color_palette={'1st':'5382ab','2nd':'428bca','3rd':'7cadd7'},
+        client_logo='template_index/default/default-logo.png',
+        showing_company_name=cliente.nome,
+    )
+
+def instantiate_template_index(cliente:Administrador):
+
+    index = TemplateIndex.objects.using('default').create(
+        client_id=cliente,
+        has_carousel_slides=1,
+        has_services=1,
+        has_contact=1,
+        about_us={'pt-br':{'title': 'Sobre Nós',
+                           'description': 'Somos mais que um simples coworking, nascemos com um propósito muito maior, o de apoiar pequenos e médios empresários, profissionais autônomos, empreendedores, startup e todos aqueles sonhadores que merecem um espaço com toda infra estrutura necessária para seu projeto decolar.'},
+                  'en':{'title': 'About us', 
+                        'description':'We are more than a simple coworking, we were born with a much greater purpose, that of supporting small and medium entrepreneurs, self-employed professionals, entrepreneurs, startups and all those dreamers who deserve a space with all the necessary infrastructure for their project to take off.'}},
+    )
+    button = ResourceButtons.objects.using('default').create(
+        client_id=cliente,
+        button_tipo=1,
+        text={'pt-br':{'title': 'Faça seu agendamento', 'href':'reserva'},
+              'en':{'title':'Make your appointment', 'href':'reserva'},}
+    )
+    ResourceCarouselSlide.objects.using('default').create(
+        client_id=cliente,
+        id_index=index,
+        id_button=None,
+        text={'pt-br':{'title':'Networking e Economia',
+                       'description': 'Reduzindo custos para sua empresa e proporcionando colaboração mútua.'},
+              'en':{'title':'Networking and Saving', 
+                    'description':'Reducing costs for your company and providing mutual collaboration.'}},
+        image='template_index/default/slide-1.jpg'
+    )
+    ResourceCarouselSlide.objects.using('default').create(
+        client_id=cliente,
+        id_index=index,
+        id_button=button,
+        text={'pt-br':{'title':'Agendamento On-line',
+                       'description': 'Encontre o melhor espaço para você trabalhar.'},
+              'en':{'title':'Online Scheduling',
+                    'description':'Find the best space to work.'}},
+        image='template_index/default/slide-2.jpg'
+    )
+    ResourceCarouselSlide.objects.using('default').create(
+        client_id=cliente,
+        id_index=index,
+        id_button=None,
+        text={'pt-br':{'title':'Infraestrutura', 
+                       'description': 'O Coworking elaborado é o lugar perfeito para você reder ao máximo.'},
+              'en':{'title':'Infrastructure', 
+                    'description':'The elaborate Coworking is the perfect place for you to network to the fullest.'}},
+        image='template_index/default/slide-3.jpg'
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='easel',
+        text={'pt-br':{'title':'Auditório', 
+                       'description': 'O espaço perfeito para as suas palestras ou treinamentos serem um sucesso!'},
+              'en':{'title':'Auditorium',
+                    'description':'The perfect space for your lectures or training to be a success!'}},    
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='people-fill',
+        text={'pt-br':{'title':'Estações de Trabalho', 
+                       'description': 'Reduza os custos com sabedoria! Conheça as nossas estações de trabalho e faça parte do time.'},
+              'en':{'title':'Work stations', 
+                    'description':'Reduce costs wisely! Discover our workstations and join the team.'}},    
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='door-open',
+        text={'pt-br':{'title':'Salas Executivas',
+                       'description': 'Amplo espaço para os seus eventos ou reuniões com uma grande demanda.'},
+              'en':{'title':'Executive Rooms', 'description':'Ample space for your events or meetings in great demand.'}},    
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='shield-check',
+        text={'pt-br':{'title':'Salas de reuniões exclusivas', 
+                       'description': 'Desejando um pouco mais de privacidade para as suas reuniões? Nós temos a solução!'},
+              'en':{'title':'Exclusive meeting rooms',
+                    'description':'Wishing a little more privacy for your meetings? We have the solution!'}},    
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='person-circle',
+        text={'pt-br':{'title':'Secretária compartilhada', 
+                       'description': 'Deixe a comodidade conosco! Contamos com uma equipe capacitada para a recepção.'},
+              'en':{'title':'Shared Secretary', 
+                    'description':'Leave the convenience to us! We have a qualified reception team.'}},    
+    )
+    ResourceServices.objects.using('default').create(
+        client_id=cliente,
+        bootstrap_icon='geo-alt',
+        text={'pt-br':{'title':'Endereço fiscal e comercial',
+                       'description': 'Seja para quem está começando ou não, nós te damos o auxílio que você precisa!'},
+              'en':{'title':'Tax and business address', 
+                    'description':'Whether you are starting or not, we give you the help you need!'}},    
+    )
+    text={'pt-br':{'title':'', 'description': ''},
+              'en':{'title':'', 'description':''}},
+
+def delete_client_configs(cliente_id:int):
+    models = [ResourceCarouselSlide, ResourceServices, InstanceConfig, ResourceButtons, TemplateIndex]
+    
+    for model in models:
+        model.objects.using('default').filter(client_id=cliente_id).delete()
+
+def mount_client_index(request, context: dict)-> None:
+    context = get_context_custom_index(request, context)
+    
+    content = render_to_string('gere/template1/cliente/apresentacao/index_custom.html', context)    
+    template = create_path_if_does_not_exist('templates/instances/cliente/apresentacao/index.html')
+    with open(template, 'w', encoding="utf-8") as static_file:
+        static_file.write(content)
+
+def get_context_custom_index(request, context):
+    cliente = selectors.get_current_adm_by_request(request)
+    context['slides'] = ResourceCarouselSlide.objects.using('default').filter(client_id=cliente)
+    context['instance'] = InstanceConfig.objects.using('default').filter(client_id=cliente)[0]
+    context['template_customs'] = TemplateIndex.objects.using('default').filter(client_id=cliente)[0]
+    context['template_customs'].about_us = c.json_to_safe_html_string(context['template_customs'].about_us)
+    context['services'] = ResourceServices.objects.using('default').filter(client_id=cliente)
+    context['endereco'] = f'{cliente.logradouro}, {cliente.numero}, {cliente.bairro}, {cliente.cidade} - {cliente.estado}, {cliente.cep}'
+    context['email'] = cliente.email
+    context['botoes'] = ResourceButtons.objects.using('default').filter(client_id=cliente)
+    for index, slide in enumerate(context['slides']):
+        slide.text = str(json.dumps(slide.text)).replace("{", '&#x7B;').replace('}', '&#x7D;')
+        slide.active = 'active' if index == 0 else ''
+        
+    i = 0
+    for index, service in enumerate(context['services']):
+        service.text = str(json.dumps(service.text)).replace("{", '&#x7B;').replace('}', '&#x7D;')
+        service.fade = None if i == 0 else i
+        i += 100
+    return context
+
+def process_post_custom_view(request, context):
+    ...

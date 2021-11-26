@@ -1,0 +1,33 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "teste" %}{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 class="display-4 d-flex justify-content-center">{% translate "Olá" %} {{mundo}}</h1>
+    <form method="POST" class="form-group" name="formPessoaJuridica">
+        {% csrf_token %}
+        <div class="d-flex justify-content-center">
+            {{ forms }}   
+            <button type="submit" id="enviar_form_empresa" class="btn {{ button_color  }} d-flex justify-content-center">{% translate "Registrar" %}</button>
+        </div>
+    </form>
+
+    {% if nome %}
+    <div class="d-flex justify-content-center">
+        {{ nome }}
+    </div>
+    
+
+    <a href="{% url 'cadastrar_coworking' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto d-flex justify-content-center">
+        {% translate "Limpar e tentar de novo" %}
+    </a>
+
+    {% endif %}
+
+    <hr class="my-4">
+</div>
+
+{% endblock content %}

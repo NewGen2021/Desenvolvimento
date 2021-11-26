@@ -1,0 +1,55 @@
+{% extends 'gere/template1/base_func.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Menu Administrador" %}{% endblock %}
+
+{% block content %}
+  <!-- inicio Escolha do Cadastro -->
+  <section style="margin: 20px; height:350px">
+    <div class="row">
+      <div class="col-sm-3" id="efeito">
+        <div class="card" id="card_menu">
+          <a href="listar_espacos" class="menuFunc">
+            <div class="card-body">
+              <h5 class="card-title">{% translate "Gerenciamento de Salas" %}</h5>
+              <p class="card-text">{% translate "Cadastro, edição e exclusão de salas"%}</p>  
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-3" id="efeito">
+        <div class="card" id="card_menu">
+          <a href="relatorios/reservas" class="menuFunc">
+            <div class="card-body">
+              <h5 class="card-title">{% translate "Acompanhar Reservas" %}</h5>
+              <p class="card-text">{% translate "Visualize todas as reservas feitas no dia!" %}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-3" id="efeito">
+        <div class="card" id="card_menu">
+          <a href="leitor_qrcode" class="menuFunc">
+            <div class="card-body">
+              <h5 class="card-title">{% translate "Validação de Entrada." %}</h5>
+              <p class="card-text">{% translate "Faça a leitura do QrCode para validar a entrada do cliente" %}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-sm-3" id="efeito">
+        <div class="card" id="card_menu">
+          <a href="advertencia" class="menuFunc">
+            <div class="card-body">
+              <h5 class="card-title">{% translate "Avaliações" %}</h5>
+              <p class="card-text">{% translate "Informe o estado em que o espaço foi deixado após o uso." %}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+ 
+  </section>
+  <!-- Fim escolha do cadastro -->
+{% endblock content %}

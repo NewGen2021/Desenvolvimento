@@ -1,0 +1,59 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "teste" %}{% endblock %}
+
+{% block content %}
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('TEST-3857db53-06c2-4bfc-a9a5-bec2dd9d1579');
+</script>
+ 
+
+<form method="POST" class="form-group" name="formFuncionario">
+    {% csrf_token %}
+    {{ form|crispy }}
+    
+    <button type="submit" id="enviar_form_funcionario" class="btn btn-primary">{% translate "Registrar" %}</button>
+    
+</form>
+
+ <!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+ 
+<form id="form-checkout" >
+    <input type="text" name="cardNumber" id="form-checkout__cardNumber"/>
+    <input type="text" name="cardExpirationMonth" id="form-checkout__cardExpirationMonth" />
+    <input type="text" name="cardExpirationYear" id="form-checkout__cardExpirationYear" />
+    <input type="text" name="cardholderName" id="form-checkout__cardholderName"/>
+    <input type="email" name="cardholderEmail" id="form-checkout__cardholderEmail"/>
+    <input type="text" name="securityCode" id="form-checkout__securityCode" />
+    <select name="issuer" id="form-checkout__issuer"></select>
+    <select name="identificationType" id="form-checkout__identificationType"></select>
+    <input type="text" name="identificationNumber" id="form-checkout__identificationNumber"/>
+    <select name="installments" id="form-checkout__installments"></select>
+    <button type="submit" id="form-checkout__submit">Pagar</button>
+    <progress value="0" class="progress-bar">Carregando...</progress>
+ </form>
+
+<!-- <div class="jumbotron">
+    <!-- <h1 class="display-4 d-flex justify-content-center">{% translate "Olá" %} {{mundo}}</h1> -->
+    <!-- <h1>turl {{ turl }}</h1>
+    <!-- <h1>actual_host {{ actual_host }}</h1> -->
+    <!-- <h1>tenant_name {{ tenant_name }}</h1> -->
+    <!-- <h1>Domain.domain {{ domain.domain }}</h1> -->
+    <!-- <h1>Domain {{ domain }}</h1> -->
+    <!-- <h1>D {{ d }}</h1> --> 
+    <!-- <h1>{{ fruta }}</h1> -->
+    <!-- <h1>{% translate "Telefone" %}</h1> -->
+    <!-- <hr class="my-4"> -->
+<!-- </div> -->
+
+{% endblock content %}

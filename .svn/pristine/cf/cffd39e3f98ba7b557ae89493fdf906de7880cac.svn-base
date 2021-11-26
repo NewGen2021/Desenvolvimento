@@ -1,0 +1,208 @@
+/*Inicio Login*/
+body{
+    background-color: #F1F1F1;
+}
+.topLogin{
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 1px;
+}
+
+.topLogin h1{
+    margin:15px;
+    font-size: 3.5rem;
+    padding-bottom: 5px;
+}
+
+.gif{
+    width: 25%;
+    margin-right: 1rem;
+}
+
+#BodyLogin{
+    width: 400px;
+    height: auto;
+    margin:auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-bottom: .5rem;
+}
+
+#title{
+    background-color: #AAAAAA;
+    color: #fff;
+    width: auto;
+    height: 40px;
+    margin:auto;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 8px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+
+/*Fim Login*/
+/*Inicio de cadastros*/
+.topRegister{
+    text-align: center;
+}
+
+#cadastro{
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom:20px;
+}
+
+#cadastro input[type=radio]{
+    margin-left: 5px;
+    position: relative;
+
+}
+
+#BodyRegister{
+   margin:auto;
+    width: 600px;
+    text-align: left;   
+}
+
+.bodyHome{
+    font-size: 2rem;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#config{
+    position: sticky;
+    top:0;
+    float: right;
+    z-index: 10;
+    height: 60px;
+    margin-right:3rem;
+    font-size: 2rem;
+}
+
+/*Fim de cadastros*/
+
+/*Iicio Usuarios*/
+
+#BodyLoginUser{
+    display: block;
+    width: 400px;
+    height: auto;
+    margin:auto;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    padding-bottom: .5rem;
+}
+
+.logo{
+    width: 25%;
+    margin: 1rem;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    background-color: #4c4d4cfb; 
+    overflow-x: hidden;
+    transition: 0.5s; 
+}
+/*Fim Usuarios*/
+
+.resetSenha{
+      margin: 20px 20px 50px 20px;
+  }
+
+.textReset{
+      font-size: 18px;
+      padding-top: 5px;
+      padding-bottom: 10px;
+  }
+
+#enviarEmail{
+     margin-left: 160px;
+     margin-top: 10px;
+  }
+  
+.conteudoSenha{
+      height: 300px;
+      padding-top: 40px;
+      padding-bottom: 20px;
+      font-size: 16px;
+  }
+.conteudoSenha p{
+    text-align: center;
+}
+
+.headerResetSenha{
+    height: 80px;
+    background-color: #DBDBDB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.headerResetSenha h1{
+    margin: 0;
+    font-size: 34px;  
+}
+
+.sectionResetSenha{
+    margin-top: 50px;
+}
+
+.fieldResetSenha{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#form_custom{
+    margin: 20px;
+ }
+
+#box_custom{
+    display: flex;
+    width: 500px;
+    height: 100px;
+   
+    justify-content: space-between;
+    font: 16px "Lucida Grande", "Helvetica", "Arial", "sans-serif"
+}
+
+#logo_custom{
+    margin-top: 20px;
+    width: 40%;
+}
+
+#logo_custom .invalid-feedback{
+    margin-left: 10px;
+}
+
+#conteudo-box{
+    margin-top: 20px;
+}
+
+#botao_box{
+    margin-top: 20px;
+}
+
+#form-qrcode{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#imputEmail{
+    width: 30%;
+}
+
+
+
+

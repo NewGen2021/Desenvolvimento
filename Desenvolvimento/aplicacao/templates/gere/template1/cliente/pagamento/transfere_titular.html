@@ -1,0 +1,36 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Transferência de Titularidade" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock css %}
+
+</style>
+
+{% block content %}
+<section id="form-qrcode">
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        <div class="conteudoSenha">
+          <p>{% translate "A transferência de titularidade serve para transferir a sua reserva atual para um novo titular." %}</p>
+          <p>{% translate "O titular deve ser previamente cadastrado no sistema. Caso não seja, o e-mail de transferência não será enviado." %}</p>
+      </div>
+
+        <label for="exampleInputEmail1">{% translate "Informe o e-mail do novo titular da reserva" %}</label>
+            <input type="email" name="email" class="form-control" id="imputEmail" aria-describedby="emailHelp" placeholder="Email">
+        </div>
+        <button type="submit" id="enviar_email_transf" class="btn btn-primary">{% translate "Enviar" %}</button>
+    </form>
+        
+</section>
+{% endblock content %}
+

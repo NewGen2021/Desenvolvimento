@@ -1,0 +1,163 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% load client_translation %}
+
+{% block content %}
+
+{% templatetag openblock %} block title {% templatetag closeblock %}
+{% templatetag openblock %} load i18n {% templatetag closeblock %}
+{% templatetag openblock %} translate "Início" {% templatetag closeblock %}
+{% templatetag openblock %} endblock {% templatetag closeblock %}
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+      {% templatetag openblock %} load client_translation {% templatetag closeblock %}
+      <div class="carousel-inner" role="listbox">
+        {% for slide in slides %}
+        <div class="carousel-item {{slide.active}}" style="background-image: url({{ slide.image.url }});">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animate__animated animate__fadeInDown">{% templatetag openvariable %} "{{slide.text}}" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' {% templatetag closevariable %}</h2>
+              <p class="animate__animated animate__fadeInUp">{% templatetag openvariable %} "{{slide.text}}" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' {% templatetag closevariable %}</p>
+              {% if slide.id_button %}
+              {% for lang, value in slide.id_button.text.items %} 
+              {% templatetag openblock %} if "{{lang}}" == request.LANGUAGE_CODE {% templatetag closeblock %}
+                  
+                    <a href="{{value.href}}"
+                      class="btn {{ button_color }} animateanimated animatefadeInUp scrollto">
+                      {{value.title}}
+                    </a>
+                  
+              {% templatetag openblock %} endif {% templatetag closeblock %}  
+              {% endfor %}
+              
+                
+              {% endif %}
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row no-gutters">
+        <div class="col-lg-6 video-box">
+          <img src="{{ instance.client_logo.url }}" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+          <div class="section-title">
+            <h2>{% templatetag openblock %} translate "Sobre Nós" {% templatetag closeblock %}</h2>
+            <p id="valor_sobre">
+              {% templatetag openvariable %} "{{template_customs.about_us}}" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' {% templatetag closevariable %}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% templatetag openblock %} translate "Serviços" {% templatetag closeblock %}</h2>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" {% if service.fade %} data-aos-delay="{{service.fade}}" {% endif %}>
+          <div class="icon"><i class="bi bi-{{service.bootstrap_icon}}"></i></div>
+          <h4 class="title">
+{% templatetag openvariable %} "{{service.text}}" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' {% templatetag closevariable %}
+          </h4>
+          <p class="description">
+{% templatetag openvariable %} "{{service.text}}" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' {% templatetag closevariable %}
+        </p>
+        </div>
+        {% endfor %}
+      </div>
+      
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% templatetag openblock %} translate "Entre e contato" {% templatetag closeblock %}</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>{% templatetag openblock %} translate "Endereço" {% templatetag closeblock %}</h3>
+            <p>{{ endereco }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>{% templatetag openblock %} translate "Email" {% templatetag closeblock %}</h3>
+            <p>{{ email }}</p>
+          </div>
+        </div>
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-lg-6 form-group">
+                <input data-tag ="nome" type="text" name="name" class="form-control" id="name" placeholder="{% templatetag openblock %} translate 'Nome' {% templatetag closeblock %}" required>
+              </div>
+              <div class="col-lg-6 form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="{% templatetag openblock %} translate 'Email' {% templatetag closeblock %}" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="{% templatetag openblock %} translate 'Assunto' {% templatetag closeblock %}" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="{% templatetag openblock %} translate 'Messagem' {% templatetag closeblock %}" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">{% templatetag openblock %} translate "Carregando" {% templatetag closeblock %}</div>
+              <div class="error-message"></div>
+              <div class="sent-message">{% templatetag openblock %} translate "Sua mensagem foi enviada. Obrigado!" {% templatetag closeblock %}</div>
+            </div>
+            <div class="text-center"><a type="submit" id="enviar_form_pessoa" class="btn {{ button_color  }}">{% templatetag openblock %} translate "Enviar Mensagem" {% templatetag closeblock %}</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Contact Us Section -->
+
+</main><!-- End #main -->
+{% endblock content %}

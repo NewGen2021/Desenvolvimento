@@ -1,0 +1,51 @@
+{% extends 'gere/template1/base_func.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Menu Administrador" %}{% endblock %}
+
+{% block content %}
+  <!-- inicio Escolha do Cadastro -->
+  <section style="margin: 20px">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{% translate "Gere. Salas e Recursos" %}</h5>
+            <p class="card-text">{% translate "Cadastro, edição e exclusão de esalas e recusros"%}</p>
+            <a href="listar_espacos" class="btn btn-primary">{% translate "Entrar" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{% translate "Reservas diárias" %}</h5>
+            <p class="card-text">{% translate "Visualize todas as reservas feitas no dia!" %}</p>
+            <a href="Emproducao" class="btn btn-primary">{% translate "Entrar" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{% translate "Validação de Entrada." %}</h5>
+            <p class="card-text">{% translate "Faça a leitura do QrCode para validar a entrada do cliente" %}</p>
+            <a href="leitor_qrcode" class="btn btn-primary">{% translate "Entrar" %}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{% translate "Avaliações" %}</h5>
+            <p class="card-text">{% translate "Informe o estado em que o espaço foi deixado após o uso." %}</p>
+            <a href="#" class="btn btn-primary">{% translate "Entrar" %}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  </section>
+  <!-- Fim escolha do cadastro -->
+{% endblock content %}

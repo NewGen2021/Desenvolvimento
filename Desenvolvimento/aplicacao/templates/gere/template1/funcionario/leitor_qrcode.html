@@ -1,0 +1,66 @@
+{% extends 'gere/template1/base_func.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Leitor QRcode" %}{% endblock %}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+<div>
+
+{% block content %}
+<section id="video">
+  <video id="preview" class="camera">
+
+      <div class="preview" onchange="changeValue()">
+          
+      </div>
+  </video>
+</section>
+
+<script type="text/javascript">
+  
+ var tela = document.getElementById('tela')
+ var imagem = document.createElement('img')
+ imagem.setAttribute('id', 'foto')
+
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  scanner.addListener('scan', function (content) {
+    separator = content.split("//");
+
+    let id_reserva = separator[0];
+    let qrcode = separator[1];
+
+    fetch(`https://aea6-189-18-59-109.ngrok.io/api/validate_reserva/${id_reserva}/${qrcode}?format=json`)
+      .then(function(response) {
+          
+    return response.json();
+      (data) => {
+         var isValid = true
+         var change = document.getElementsById('preview')
+        
+       function changeValue(){
+          if (isValid) {
+              change.src="{% static 'img/valido.gif' %}"
+          } else {
+             change.src="{% static 'img/invalido.gif' %}"
+          }
+      }         
+      
+    }
+
+    })
+    
+  });
+  Instascan.Camera.getCameras().then(function (cameras) {
+    if (cameras.length > 0) {
+      scanner.start(cameras[0]);
+    } else {
+      console.error('No cameras found.');
+    }
+  }).catch(function (e) {
+    console.error(e);
+  });
+</script>
+</div>
+{% endblock content %}

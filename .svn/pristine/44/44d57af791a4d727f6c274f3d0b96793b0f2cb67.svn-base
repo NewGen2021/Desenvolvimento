@@ -1,0 +1,31 @@
+{% extends 'gere/template1/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "E-mail Não Encontrado" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock css %}
+
+</style>
+
+{% block content %}
+<section id="form-qrcode">
+    <form method="POST" class="form-group">
+        {% csrf_token %}
+        {{ form|crispy }}
+        
+        <div class="conteudoSenha">
+          <p>{% translate "O e-mail solicitado não foi encontrado." %}</p>
+          <p>{% translate "Por favor, refaça o pedido com um e-mail cadastado." %}</p>
+      </div>
+    </form>
+        
+</section>
+{% endblock content %}
+

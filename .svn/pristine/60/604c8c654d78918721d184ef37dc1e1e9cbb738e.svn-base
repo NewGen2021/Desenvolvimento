@@ -1,0 +1,199 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "NewGen" %}{% endblock %}
+{% load hosts %}
+
+
+{% block content %}
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="d-flex align-items-center">
+    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+      <h1>{% translate "Bem vindo à" %} <span>{% translate "NewGen" %}</span></h1>
+      <h2>{% translate "Somos um sistema de gerencimento de coworking, que vai ajudar você e seu negócio a prosperarem neste ramo!" %}</h2>
+      <div class="d-flex">
+        <a href="#about" class="btn-get-started scrollto">{% translate "Saiba mais" %}</a>
+      </div>
+    </div>
+  </section><!-- End Hero -->
+  <main id="main">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% translate "Sobre Nós" %}</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+            <img src="{% static 'img/logoGif.gif' %}" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <h3>{% translate "Nossa empresa disponiliza um sistema com a sua identidade, com seus valores e princícipos. Tornamos a tarefa de administrar um coworking muito mais acessível para você." %}</h3>
+            <ul>
+              <li>
+                <i class="bi bi-upc-scan"></i>
+                <div>
+                  <h5>{% translate "Validação de Entrada" %}</h5>
+                  <p>{% translate "Faça a validação de entrada do seu cliente com sistema de QR Code." %}</p>
+                </div>
+              </li>
+              <li>
+                <i class="bi bi-calendar3"></i>
+                <div>
+                  <h5>{% translate "Agendamento On-line" %}</h5>
+                  <p>{% translate "Tenha o controle de sua agenda da palma da mão!" %}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% translate "Serviços" %}</h2>
+          <h3>{% translate "Veja nossos" %} <span>{% translate "Serviços" %}</span></h3>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-chat-left-dots"></i></div>
+              <h4><a>{% translate "Confirmação de Agendamento" %}</a></h4>
+              <p>{% translate "O sistema envia um aviso para que seu cliente não esqueça de nenhum agendamento" %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-clipboard-data"></i></div>
+              <h4><a>{% translate "Relatórios Analíticos" %}</a></h4>
+              <p>{% translate "Obtenha as métricas do seu coworking e desenvolva maior conhecimento sobre seu público." %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-door-open"></i></div>
+              <h4><a>{% translate "Gerenciamento de Salas" %}</a></h4>
+              <p>{% translate "Informe as salas disponíveis e os recursos necessárias." %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-box-seam"></i></div>
+              <h4><a>{% translate "Gerenciamento de Estoque" %}</a></h4>
+              <p>{% translate "Tenha o controle de entrada e saíde de seus recursos e materiais." %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-brush"></i></div>
+              <h4><a>{% translate "Sistema White Label" %}</a></h4>
+              <p>{% translate "Customize nosso sistema com sua identidade visual." %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-calendar2-week"></i></div>
+              <h4><a>{% translate "Agendamento Online" %}</a></h4>
+              <p>{% translate "Seu cliente tem a facilidade de marcar reuniões e encontros para toda a equipe." %}</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+        <h1 style="text-align: center;">
+          {% translate "Não perca tempo e registre já o seu coworking." %}</br>
+          {% translate "Escolha o plano e a forma de pagamento e assine!" %}
+        </h1>
+        <br>
+        <div class="row d-flex">
+          <a href="{% host_url 'assinatura' host 'newgen' %}" class="btn btn-primary" style="font-size: 30px;">
+            {% translate "Faça sua assinatura!" %}</a>
+        </div>
+        
+
+      </div>
+    </section><!-- End Pricing Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Contato</h2>
+          <h3><span>Entre em contato</span></h3>
+          <p>Entre em contato para saber mais!</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-6">
+            <div class="info-box mb-4">
+              <i class="bx bx-map"></i>
+              <h3>{% translate "Endereço" %}</h3>
+              <p>{% translate "R. Pedro Vicente, 625 - Canindé, São Paulo - SP, 01109-010" %}</p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-md-6">
+            <div class="info-box  mb-4">
+              <i class="bx bx-envelope"></i>
+              <h3>{% translate "Email" %}</h3>
+              <p>{% translate "newgenoficial@gmail.com" %}</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="col-lg-12">
+            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <div class="row">
+                <div class="col form-group">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
+                </div>
+                <div class="col form-group">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Seu Email" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Assunto" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Mensagem" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">{% translate "Carregando" %}</div>
+                <div class="error-message"></div>
+                <div class="sent-message">{% translate "Sua mensagem foi enviada. Obrigada!" %}</div>
+              </div>
+              <div class="text-center"><button type="submit">{% translate "Enviar" %}</button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  {% endblock content %}
+  

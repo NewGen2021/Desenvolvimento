@@ -1,0 +1,87 @@
+
+{% load static %}
+{% load i18n %}
+<link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
+{% block content %}
+
+<hr>
+<div class="table-responsive" style="margin: 20px;">
+    <h3>Pagamentos</h3>
+    <table class="table table-striped" id="tabela_listar">
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Status</th>
+                <th>Data</th>
+                <th>valor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for campo in object_list %}
+            <tr>
+                <td>{{ campo.metodo }}</td>
+                <td>{{ campo.status_pagamento }}</td>
+                <td>{{ campo.datahora_log }}</td>
+                <td>{{ campo.preco_total}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum campo registrado</td>
+            </tr>
+
+            {% endfor %}
+       </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready(function(){
+        $('#tabela_listar').DataTable({
+            responsive: true,
+            // "bSort": false,
+            "aaSorting": [],
+            "pageLength": 10,
+            "language": {
+                "decimal": "",
+                "emptyTable": "Sem dados disponíveis",
+                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
+                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
+                "infoFiltered": "(filtrado de _MAX_ registos no total)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ registos",
+                "loadingRecords": "A carregar dados...",
+                "processing": "A processar...",
+                "search": "Procurar:",
+                "zeroRecords": "Não foram encontrados resultados",
+                "paginate": {
+                    "first": "Primeiro",
+                    "last": "Último",
+                    "next": "Seguinte",
+                    "previous": "Anterior"
+                },
+                "aria": {
+                    "sortAscending": ": ordem crescente",
+                    "sortDescending": ": ordem decrescente"
+                }
+            }
+        });  
+    });
+</script>
+
+
+{% endblock content %}
+
+
+

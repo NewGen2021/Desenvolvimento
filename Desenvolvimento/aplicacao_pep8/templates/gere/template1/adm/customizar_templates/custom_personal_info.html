@@ -1,0 +1,86 @@
+{% extends 'gere/template1/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load hosts %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "Edição de espaço" %}{% endblock %}
+
+{% block css %}
+
+<style>
+    #img_tipo {
+    height: auto; 
+    width: auto; 
+    max-width: 600px; 
+    max-height: 600px;
+}
+small{
+        display: none;
+    }
+    input:hover + small {
+        display: block;
+    }
+    .form-control:hover + small {
+        display: block;
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">{% translate "Alterar espaço" %}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if nao_existe %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <strong>{% translate "ERRO!" %}</strong> {% translate "Não foi possível encontrar esse tipo de espaço, volte à tela de listar espaços e selecione ou crie um válido!" %}
+                </div>
+                <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1?page=1">{% translate "← Voltar" %}</a>
+                {% else %}
+                
+                {% if imagem %}
+                {% endif %}
+                <img div="imagem_layout_cima">
+                <div class="container-fluid">
+                    <div id="BodyRegister">
+                        <form method="POST" class="form-group" name="formPessoaFisica">
+                            {% csrf_token %}
+                            {{ form|crispy }}
+                            
+                            <input type="hidden" class="form-selecionado" name="form-selecionado" value="{{ selecionado }}">
+                            
+                            <div class="d-flex flex-row">
+                                <a role="button" class="btn {{ button_color  }}" style="margin-right: 5%;" href="{% host_url 'menuAdmin' host 'custom_host' domain %}">{% translate "← Voltar" %}</a>
+                                <button type="submit" id="enviar_form_pessoa" class="btn {{ button_color  }}">{% translate "Salvar alterações" %}</button>
+                            </div>
+
+                            
+                            
+                        </form>
+
+                    </div>
+                    
+                {% endif %}
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+{% endblock %}

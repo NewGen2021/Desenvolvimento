@@ -1,0 +1,157 @@
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title data-tag="tema">{% block title %}{% endblock %}</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/favicon.png' %}" rel="icon">
+  <link href="{% static 'img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,600,600i,700,700i,900" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+  {% block css %}
+  {% endblock %}
+
+</head>
+
+<body>
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center">
+
+      <div class="logo me-auto">
+        <h1><a href="{% host_url 'menuAdmin' host 'custom_host' domain %}">{% translate "Coworking" %}</a></h1>
+      </div>
+      
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto" href="relatorios/reservas">{% translate "Acompanhamento de Reservas" %}</a></li>
+          <li><a class="nav-link scrollto" href="{% host_url 'registrarFuncionario' host 'custom_host' domain %}">{% translate "Cadastro de Funcionários"%}</a></li>
+          <li class="dropdown"><a href="#"><span>{% translate "Configurações" %}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+                <li><a href="listar_espacos">{% translate "Salas" %}</a></li>
+                <li><a href="#">{% translate "Recusos" %}</a></li>
+                <li class="dropdown"><a href="#">{% translate "Customização" %}<i class="bi bi-chevron-down"></i></a>
+                  <ul>
+                    <li><a href="custom_cowork_info">{% translate  'Informações Site' %}</a></li>
+                    <li><a href="custom_index">{% translate 'Página Principal' %}</a></li>
+                    <li><a href="custom_personal_info">{% translate 'Informações Pessoais' %}</a></li>
+                  </ul>
+                </li>
+            </ul>
+          </li>
+
+        {% if user.is_authenticated %}
+
+          </li>
+          <li class="dropdown">
+            <a href="{% host_url 'loginSystem' host 'custom_host' domain %}" 
+            class="btn-get-started animate__animated animate__fadeInUp scrollto" 
+            id="loggedAs">Olá {{ user.first_name }}</a>
+            <ul>
+              <li><a href="{% host_url 'index' host 'custom_host' domain %}">{% translate "Ir para Site" %}</a></li>
+              <li><a href="/logout" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Deslogar" %}</a></li>
+            </ul>
+          </li>
+
+        {% else %}
+          <li>
+            <a href="{% host_url 'loginSystem' host 'custom_host' domain %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Login" %}</a>
+          </li>
+          
+        {% endif %}
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+        
+        
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  {% block content %}
+  
+  {% endblock %}
+
+</body>
+
+<!-- ======= Footer ======= -->
+<footer id="footer">
+ <div class="footer-top">
+   <div class="container">
+     <div class="row">
+
+       <div class="col-lg-3 col-md-6 footer-info">
+         <h3>NewGen</h3>
+         <p>
+          {% translate "Rua Pedro Vicente" %} <br>
+           Canindé 01109-010, SP<br><br>
+           <strong>Email:</strong> newgenoficial@gmail.com<br>
+         </p>
+       </div>
+
+       <div class="col-lg-2 col-md-6 footer-links">
+         <h4>{% translate "Links Úteis" %}</h4>
+         <ul>
+           <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Inicio" %}</a></li>
+           <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Sobre Nós" %}</a></li>
+           <li><i class="bx bx-chevron-right"></i> <a href="#"></a>{% translate "Serviços" %}</a></li>
+         </ul>
+       </div>
+       </div>
+     </div>
+   </div>
+ </div>
+
+ <div class="container">
+   <div class="copyright">
+     &copy; Copyright <strong><span>NewGen</span></strong>. {% translate "Todos os direitos reservados" %}
+   </div>
+ </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+{% block js %}
+{% endblock %}
+
+<!-- Vendor JS Files -->
+<script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'vendor/purecounter/purecounter.js' %}"></script>
+<script src="{% static 'vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Template Main JS File -->
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+
+
+</html>
