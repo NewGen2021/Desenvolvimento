@@ -1,6 +1,8 @@
-
+{% load hosts %}
 {% load static %}
 {% load i18n %}
+
+
 <link href="{% static 'css/style2.css' %}" rel="stylesheet">
 
 <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -14,32 +16,62 @@
 
 {% block content %}
 
-<hr>
 <div class="table-responsive" style="margin: 20px;">
-    <h3>Reservas</h3>
+    <h3>{% translate 'Reservas do dia' %}</h3>
     <table class="table table-striped" id="tabela_listar">
         <thead>
             <tr>
-                <th>Cliente</th>
-                <th>Data</th>
-                <th>Hora</th>
-                <th>Espaço</th>
-                <th>Preço</th>
+                <th>{% translate 'Cliente' %}</th>
+                <th>{% translate 'Data' %}</th>
+                <th>{% translate 'Hora' %}</th>
+                <th>{% translate 'Espaço' %}</th>
+                <th>{% translate 'Opções' %}</th>
             </tr>
         </thead>
 
         <tbody>
             {% for campo in object_list %}
-            <tr>
+            <tr id="campos">
                 <td>{{ campo.id_cliente.nome }}</td>
                 <td>{{ campo.data_reserva }}</td>
                 <td>{{ campo.hora_entrada }}</td>
                 <td>{{ campo.id_espaco }}</td>
-                <td>{{ campo.preco_total }}</td>
+                <td>
+                    <button type="button" class="btn btn-success btn-sm" id="btn_valido{{campo.id_reserva}}">{% translate 'Validar Entrada' %}</button>
+                    <button type="button" class="btn btn-outline-secondary btn-sm" id="btn_finaliza{{campo.id_reserva}}"  onclick="Finaliza()">{% translate 'Finalizar Reserva' %}</button>
+                </td>
+                <script>
+                    
+                    
+                    function Finaliza() {
+                      if (hora = ! null) {
+                        fetch(`{{ domain }}api/finaliza_reserva/{{ campo.id_reserva }}?format=json`)
+                          .then(function (content) {
+                            return content.json()
+                          
+                          })
+                          .then(function (data) {
+                            var hora = data['hora_saida_real']
+                            var btn_valido = document.getElementById("btn_valido{{campo.id_reserva}}");
+                            var campos = document.getElementById("campos");
+                            var btn_finaliza = document.getElementById("btn_finaliza{{campo.id_reserva}}");
+
+                            alert("A reserva foi finalizada!");
+                            btn_finaliza.innerHTML = "Finalizado";
+
+                            if (btn_finaliza.value = "Finalizado") {
+                              btn_valido.disabled = true;
+                            }
+                          })
+                      }
+                    }
+                    document.getElementById("btn_finaliza{{campo.id_reserva}}").addEventListener("click", Finaliza, false);
+
+                  </script>
             </tr>
             {% empty %}
             <tr>
-                <td colspan="4">Nenhum campo registrado</td>
+                <td colspan="5">{% translate 'Nenhum campo registrado' %}</td>
             </tr>
 
             {% endfor %}
@@ -47,43 +79,9 @@
     </table>
 </div>
 
-<script>
-    $(document).ready(function(){
-        $('#tabela_listar').DataTable({
-            responsive: true,
-            // "bSort": false,
-            "aaSorting": [],
-            "pageLength": 10,
-            "language": {
-                "decimal": "",
-                "emptyTable": "Sem dados disponíveis",
-                "info": "Mostrando de _START_ até _END_ de _TOTAL_ registos",
-                "infoEmpty": "Mostrando de 0 até 0 de 0 registos",
-                "infoFiltered": "(filtrado de _MAX_ registos no total)",
-                "infoPostFix": "",
-                "thousands": ",",
-                "lengthMenu": "Mostrar _MENU_ registos",
-                "loadingRecords": "A carregar dados...",
-                "processing": "A processar...",
-                "search": "Procurar:",
-                "zeroRecords": "Não foram encontrados resultados",
-                "paginate": {
-                    "first": "Primeiro",
-                    "last": "Último",
-                    "next": "Seguinte",
-                    "previous": "Anterior"
-                },
-                "aria": {
-                    "sortAscending": ": ordem crescente",
-                    "sortDescending": ": ordem decrescente"
-                }
-            }
-        });  
-    });
-</script>
+
 
 
 {% endblock content %}
-
 
 

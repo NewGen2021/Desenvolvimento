@@ -9,6 +9,7 @@ from common import forms_util as h
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 from django.utils.translation import gettext as _
+from main.databases import check_if_database_exists
 import sys
 
 
@@ -33,20 +34,25 @@ def format_cpf_cnpj(cpf_cnpj):
 
 
 def gera_nome_banco(nome_cliente):
-    nome_cliente = nome_cliente.strip().replace(' ', '').lower()
-    nome_cliente = nome_cliente.encode("ascii", "ignore").decode()
-    string = ''
-    contador = 0
-    size = len(nome_cliente)
-    tamanho_max = 6
+    db_name = ''
     while True:
-        string += nome_cliente[contador]
-        contador += 1
-        if contador == size or contador == tamanho_max:
+        nome_cliente = nome_cliente.strip().replace(' ', '').lower()
+        nome_cliente = nome_cliente.encode("ascii", "ignore").decode()
+        string = ''
+        contador = 0
+        size = len(nome_cliente)
+        tamanho_max = 6
+        while True:
+            string += nome_cliente[contador]
+            contador += 1
+            if contador == size or contador == tamanho_max:
+                break
+        import uuid
+        entropy = str(uuid.uuid4()).split('-')[0]
+        db_name = 'db_' + string + '_' * (tamanho_max - contador + 1) + entropy
+        if not check_if_database_exists(db_name):
             break
-    import uuid
-    entropy = str(uuid.uuid4()).split('-')[0]
-    return 'db_' + string + '_' * (tamanho_max - contador + 1) + entropy
+    return db_name
 
 
 def getGrupoDoUsuario(request):

@@ -16,6 +16,8 @@
   
   <video id="preview" class="camera">   
   </video>
+
+  <div><h3 id="msg"></h3></div>
 </section>
 
 <script type="text/javascript">
@@ -27,20 +29,19 @@
 
     let id_reserva = separator[0];
     let qrcode = separator[1];
-
-    fetch(`{{ domain }}/api/validate_reserva/${id_reserva}/${qrcode}?format=json`)
+    
+    fetch(`{{domain}}/api/validate_reserva/${id_reserva}/${qrcode}?format=json`)
       .then(function(response) {
-          
     return response.json(); 
     })
     .then(function(data) {
       var isValid = data['valido']
       var data_reserva = data['data_reserva']
       var hora_entrada = data['hora_entrada']
-      var data = new Date()
       var imagem = document.getElementById("preview")
+      var msg = document.getElementById('msg');
 
-        if(isValid && data_reserva == data.getTime()){
+        if(isValid){
           imagem.style.display = 'none';
           var element = document.getElementById('result');
           element.innerHTML = "<img src=../static/img/valido.gif>"

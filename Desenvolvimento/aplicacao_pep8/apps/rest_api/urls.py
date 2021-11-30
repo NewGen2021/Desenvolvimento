@@ -9,7 +9,9 @@ urlpatterns = [
     path('api/reserva_event/<data_reserva>/<id_cliente>/<id_espaco>/', ReservaEventDateViewset.as_view()),
     path('api/month_event/<mes>/<id_cliente>/<id_espaco>/', ReservaEventMonthViewset.as_view()),
     path('api/pagamento', PagamentoAPIView.as_view()),
+    path('api/pagar_assinatura', PagamentoDePlanoAPIView.as_view()),
     path('api/tipo_espaco/get_preco/<id_tipo_espaco>', TipoEspacoGetPrecoViewset.as_view()),
     path('api/get_resource_button_by_id/<id_resource_button>/', ResourceButtonsViewset.as_view()),
     path('api/validate_reserva/<id_reserva>/<hash>', ReservaValidationViewset.as_view()),
+    path('relatorios/api/finaliza_reserva/<id_reserva>', FinalizaReservaViewset.as_view()),
 ]

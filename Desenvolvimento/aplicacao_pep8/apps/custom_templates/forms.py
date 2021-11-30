@@ -24,7 +24,7 @@ from django.utils.translation import gettext as _
 
 
 class FormInstanceConfig(forms.ModelForm):
-    showing_company_name = forms.CharField(label=_("Nome amostral"))
+    showing_company_name = forms.CharField(label=_("Nome de exibição"))
     paleta1 = forms.CharField(label=_("Cor 1"), widget=forms.TextInput(attrs={'type': 'color'}))
     paleta2 = forms.CharField(label=_("Cor 2"), widget=forms.TextInput(attrs={'type': 'color'}))
     paleta3 = forms.CharField(label=_("Cor 3"), widget=forms.TextInput(attrs={'type': 'color'}))

@@ -11,7 +11,7 @@ import main.databases as d
 from cria_coworking.models import Administrador
 from domains.models import Domain
 
-def configura_banco_e_dominio(data):
+def configura_banco_e_dominio(data: dict) -> dict:
     nomedb = h.gera_nome_banco(data['nome'])
     data['database'] = nomedb
     d.create_database(nomedb)
@@ -20,24 +20,24 @@ def configura_banco_e_dominio(data):
     domain.save()
     return data
 
-def configuraGrupoUsuario(usuario, tipo):
+def configuraGrupoUsuario(usuario, tipo, banco='default'):
     if tipo == 'pessoa':
-        my_group = Group.objects.get(name='clientePessoa')        
+        my_group = Group.objects.using(banco).get(name='clientePessoa')        
         my_group.user_set.add(usuario)
     elif tipo == 'empresa':
-        my_group = Group.objects.get(name='clienteEmpresa')        
+        my_group = Group.objects.using(banco).get(name='clienteEmpresa')        
         my_group.user_set.add(usuario)
     elif tipo == 'funcionario':
-        my_group = Group.objects.get(name='funcionario')        
+        my_group = Group.objects.using(banco).get(name='funcionario')        
         my_group.user_set.add(usuario)
     elif tipo == 'administrador':
-        my_group = Group.objects.get(name='administrador')        
+        my_group = Group.objects.using(banco).get(name='administrador')        
         my_group.user_set.add(usuario)
     else:
         raise ValueError('Função configuraGrupoUsuario não reconhece o tipo "' + tipo + '"')
 
 
-def escreveNaTabelaUser(json, pessoa=True, administrador=False):
+def escreveNaTabelaUser(json, pessoa=True, administrador=False, banco='default') -> User:
     cpf_cnpj = json.get('cnpj') if administrador else json.get('cpf_cnpj')
     email = json['email']
     senha = json['senha']
@@ -53,13 +53,25 @@ def escreveNaTabelaUser(json, pessoa=True, administrador=False):
     else:
         first_name = h.capitalizaNome(json['nome'])
         last_name = ''
-
+        
+    new_user = User()
+    new_user.username = cpf_cnpj
+    new_user.password = senha
+    new_user.email = email
+    new_user.first_name = first_name
+    new_user.last_name = last_name
+    
     # Salva na tabela user
     if administrador:
-        return User.objects.create_user(username=cpf_cnpj, password=senha, email=email, first_name=first_name,
-         last_name=last_name, is_superuser=True, is_staff=True)
-    return User.objects.create_user(username=cpf_cnpj, password=senha,
-    email=email, first_name=first_name, last_name=last_name)
+        new_user.is_superuser = True
+        new_user.is_staff = True
+    #     return User.objects.using(banco).create_user(username=cpf_cnpj, 
+    #      password=senha, email=email, first_name=first_name, last_name=last_name, 
+    #      is_superuser=True, is_staff=True)
+    # return User.objects.using(banco).create_user(username=cpf_cnpj, password=senha,
+    # email=email, first_name=first_name, last_name=last_name)
+    new_user.save(using=banco)
+    return new_user
 
 def getDataNascimentoCliente(request):
     try:
@@ -116,11 +128,19 @@ def writeFuncionario(formFuncionario, data):
     funcionario.user = user
     funcionario.save()
 
-def writeAdministrador(formAdministrador, data):
+def writeAdministradorInCriaCoworking(formAdministrador, data) -> User:
     user = escreveNaTabelaUser(json=data, pessoa=False, administrador=True)
-    configuraGrupoUsuario(user, tipo='administrador')
-    formAdministrador.save()
+    configuraGrupoUsuario(user, tipo='administrador')    
     # adm = Administrador.objects.get(cnpj=data['cnpj'])
     # adm.database = data['database']
     # adm.save()
-    return
+    formAdministrador.save()
+    return user
+
+def writeAdministradorInGereCoworking(data, banco) -> User:
+    user = escreveNaTabelaUser(json=data, pessoa=False, administrador=True, banco=banco)
+    configuraGrupoUsuario(user, tipo='administrador')    
+    # adm = Administrador.objects.get(cnpj=data['cnpj'])
+    # adm.database = data['database']
+    # adm.save()
+    return user

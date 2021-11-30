@@ -1,6 +1,7 @@
 from rest_framework import (viewsets, generics)
 from rest_framework.views import APIView
 from rest_framework import status
+from cria_coworking.models import Administrador
 from custom_templates.models import ResourceButtons
 from gere_coworking.models import (ReservaModel, EspacosModel, PagamentoModel, TipoespacoModel)
 from . import serializers
@@ -8,7 +9,8 @@ from django.utils.translation import gettext as _
 from gere_coworking.services.reserva import (getDicionarioReservasDia, getEventoReservasCliente,
                                              getEventoReservasLotadasViewSet, get_vagas_dict, getReservasAtuaisMes,
                                              getPorcentagemOcupadaDia, getEventoMes)
-import datetime
+from datetime import *
+from dateutil.relativedelta import relativedelta
 from rest_framework.response import Response
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
@@ -16,7 +18,7 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 import common.services_modules.pagamento as b_pagamento  # 'b' de 'business"
 import common.models_choices as mc
-
+from common.selectors import get_administrador_logado_in_cria
 from django.conf import settings
 import mercadopago
 
@@ -247,8 +249,8 @@ class ReservaEventMonthViewset(generics.ListAPIView):
 
         """ response.data = {'event_list':[]} """
         response.data = []
-        hoje = datetime.datetime.today()
-        date = datetime.datetime(self.ano, self.mes, hoje.day)
+        hoje = datetime.today()
+        date = datetime(self.ano, self.mes, hoje.day)
         while date.month == self.mes:
             reservas = ReservaModel.objects.filter(id_espaco=self.id_espaco, data_reserva=date)
             if reservas:
@@ -276,7 +278,7 @@ class ReservaEventMonthViewset(generics.ListAPIView):
                     porcentagem = getPorcentagemOcupadaDia(date_dict, max_vaga=self.vagas)
                     """ response.data['event_list'].append(getEventoMes(porcentagem, self.CORES_OCUPADO, date)) """
                     response.data.append(getEventoMes(porcentagem, self.CORES_OCUPADO, date))
-            date += datetime.timedelta(days=1)
+            date += timedelta(days=1)
         return response
 
         # def get_evento(date, reservas_do_dia):
@@ -360,6 +362,7 @@ class ReservaValidationViewset(generics.ListAPIView):
         """
         self.id_reserva = self.kwargs['id_reserva']
         self.hash = self.kwargs['hash']
+       # self.data_reserva = self.kwargs['data_reserva']
         return ReservaModel.objects.filter(
             id_reserva=self.id_reserva
         )
@@ -374,10 +377,63 @@ class ReservaValidationViewset(generics.ListAPIView):
         except IndexError:
             response.data = {}
             return response
-        if reserva['hash_qrcode'] == self.hash:
+        if reserva['hash_qrcode'] == self.hash and reserva['data_reserva'] == datetime.now().strftime("%Y-%m-%d"):
             reserva['valido'] = True
-
+            ReservaModel.objects.filter(id_reserva=self.id_reserva).update(hora_entrada_real = datetime.now().strftime("%H:%M:%S"))           
         else:
             reserva['valido'] = False
         response.data = reserva
         return response
+
+
+class FinalizaReservaViewset(generics.ListAPIView):
+    serializer_class = serializers.FinalizarReservaSerializer
+
+    def get_queryset(self):
+       
+        self.id_reserva = self.kwargs['id_reserva']
+        #self.hora_saida_real = self.kwargs['hora_saida_real']
+        return ReservaModel.objects.filter(
+            id_reserva=self.id_reserva
+        )
+
+    def list(self, request, *args, **kwargs):
+        # call the original 'list' to get the original response
+        response = super(FinalizaReservaViewset, self).list(request, *args, **kwargs)
+        lista = response.data
+        reserva = {}
+        try:
+            reserva = lista[0]
+        except IndexError:
+            response.data = {'valido':False}
+            return response
+        if reserva['hora_entrada_real'] is not None:
+            reserva['valido'] = True
+            ReservaModel.objects.filter(id_reserva=self.id_reserva).update(hora_saida_real = datetime.now().strftime("%H:%M:%S"))           
+        else:
+            reserva['valido'] = False
+
+        response.data = reserva
+        return response
+
+class PagamentoDePlanoAPIView(APIView):
+
+    @method_decorator(csrf_exempt)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    @staticmethod
+    def post(request):
+        id_administrador = request.data.pop('id_administrador')
+        pagamento = b_pagamento.efetuar_pagamento(request)
+        metodo = pagamento.get('payment_type_id')
+        cod_mercadopago = pagamento.get('id')
+        status_pagamento = pagamento.get('status')
+        # administrador = get_administrador_logado_in_cria(request)
+        
+        erro = pagamento.get('message')
+        if not erro:
+            Administrador.objects.filter(id=id_administrador).update(plano='Plano Básico', 
+                                 validade_plano=datetime.today() + relativedelta(months=+1))
+        mensagem_de_erro = erro if erro else 'none'
+        return Response(data={'mensagem_de_erro': mensagem_de_erro}, status=status.HTTP_201_CREATED)

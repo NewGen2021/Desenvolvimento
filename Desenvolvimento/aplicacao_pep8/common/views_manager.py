@@ -37,6 +37,20 @@ def get_url_without_langcode(request):
 
 def verify_view(request, criaCoworking: bool, adm_page: bool, func_page: bool):
     response = {}
+    response['context'] = {
+        'turl': get_url_without_langcode(request),
+        'domain': str(request.domain['domain'])}
+    if request.domain['domain'] is None:
+        print('ERRO 1', file=sys.stderr)
+        response['context']['error_message'] = _('O seguinte sistema não existe.')
+        response['render'] = render(request, 'erros/erroGenerico.html', response['context'])
+        return response
+    if request.domain['isActive'] is False:
+        print('ERRO 2', file=sys.stderr)
+        response['context']['error_message'] = _('O seguinte sistema atualmente está desativado.')
+        response['render'] = render(request, 'erros/erroGenerico.html', response['context'])
+        return response
+    
     adm = get_administrador_by_request(request)
     
     if request.user.is_authenticated:
@@ -54,29 +68,16 @@ def verify_view(request, criaCoworking: bool, adm_page: bool, func_page: bool):
         else:
             is_cliente = True
 
-    response['context'] = {
-        'turl': get_url_without_langcode(request),
-        'domain': str(request.domain['domain']),
-        'showing_username': username,
-        'client_page': not (adm_page or func_page),
-        'is_cliente': is_cliente,
-        'is_adm': is_adm,
-        'is_func': is_func,
-    }
+    response['context']['showing_username'] = username
+    response['context']['client_page'] = not (adm_page or func_page)
+    response['context']['is_cliente'] = is_cliente
+    response['context']['is_adm'] = is_adm
+    response['context']['is_func'] = is_func
+    
     if request.domain['domain'] != MAIN_HOST:
         response['context']['button_color'] = get_button_by_administrador(adm)
         response['context']['base_template'] = f'instances/{adm.id}/base.html'
 
-    if request.domain['domain'] is None:
-        print('ERRO 1', file=sys.stderr)
-        response['context']['error_message'] = _('O seguinte sistema não existe.')
-        response['render'] = render(request, 'erros/erroGenerico.html', response['context'])
-        return response
-    if request.domain['isActive'] is False:
-        print('ERRO 2', file=sys.stderr)
-        response['context']['error_message'] = _('O seguinte sistema atualmente está desativado.')
-        response['render'] = render(request, 'erros/erroGenerico.html', response['context'])
-        return response
     # if request.domain['domain'].domain == MAIN_HOST:  # with database
     if request.domain['domain'] == MAIN_HOST:  # with json
         # if criaCoworking is False:

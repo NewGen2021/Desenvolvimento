@@ -155,16 +155,17 @@
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
               <h3>{% translate "Email" %}</h3>
-              <p>{% translate "newgenoficial@gmail.com" %}</p>
+              <p>{% translate "newgenoficial2021@gmail.com" %}</p>
             </div>
           </div>
 
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
-
+         
           <div class="col-lg-12">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form method="post" action="{% host_url 'index_cria' host 'newgen' %}" role="form" class="php-email-form">
+              {% csrf_token %}
               <div class="row">
                 <div class="col form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
@@ -197,3 +198,25 @@
 
   {% endblock content %}
   
+
+<script>
+  var hora = data['hora_saida_real']
+  var btn_valido = document.getElementById("btn_valido");
+  var campos = document.getElementById("campos");
+  function Finaliza() {
+    if (hora = ! null) {
+      fetch(`{{ domain }}api/finaliza_reserva/{{ campo.id_reserva }}?format=json`)
+        .then(function (content) {
+          return content.json()
+        })
+        .then(function (resposta) {
+          alert("A reserva foi finalizada!");
+          btn_finaliza.innerHTML = "Finalizado"
+          if (btn_finaliza.value = "Finalizado") {
+            campos.style.color = "red"
+            btn_valido.disabled = true;
+          }
+        })
+    }
+  }
+</script>

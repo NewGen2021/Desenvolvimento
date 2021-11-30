@@ -2,6 +2,7 @@ import json
 import os
 
 from django.template.loader import render_to_string
+from dns.flags import AD
 from .models import *
 import custom_templates.selectors as selectors
 import common.services as c
@@ -9,10 +10,10 @@ import common.selectors as cselc
 
 
 def escape_tags(html_string: str) -> str:
-    html_string = html_string.replace('{%', '{% templatetag openblock %}')
-    html_string = html_string.replace('%}', '{% templatetag closeblock %}')
-    html_string = html_string.replace('{{', '{% templatetag openvariable %}')
-    html_string = html_string.replace('}}', '{% templatetag closevariable %}')
+    html_string = html_string.replace('{%', '{%templatetag openblock%}')
+    html_string = html_string.replace(' %}', '{%templatetag closeblock%}')
+    html_string = html_string.replace('{{', '{%templatetag openvariable%}')
+    html_string = html_string.replace(' }}', '{%templatetag closevariable%}')
     return html_string
 
 
@@ -53,6 +54,18 @@ def instantiate_config(cliente: Administrador):
         showing_company_name=cliente.nome,
     )
 
+
+def instantiate_custom_config(cliente: Administrador, nome: str, 
+                              cor1: str, cor2: str, cor3: str, button: str, client_logo):
+    file = open('static/img/default-logo.png', 'rb')
+    Instance, success = InstanceConfig.objects.using('default').get_or_create(
+        client_id=cliente
+    )
+    Instance.color_palette="{'1st':'%s','2nd':'%s','3rd':'%s','button':'%s'}" %(cor1, cor2, cor3, button)
+    Instance.client_logo=client_logo
+    Instance.showing_company_name=nome
+    Instance.save()
+    return success
 
 def instantiate_template_index(cliente: Administrador):
     index = TemplateIndex.objects.using('default').create(
@@ -168,31 +181,30 @@ def delete_client_configs(cliente_id: int):
         model.objects.using('default').filter(client_id=cliente_id).delete()
 
 
-def mount_client_index(request, context: dict) -> None:
-    context = get_context_custom_index(request, context)
-    cliente = selectors.get_current_adm_by_request(request)
+def mount_client_index(cliente: Administrador, context: dict) -> None:
+    context = get_context_custom_index(cliente, context)
+    # cliente = selectors.get_current_adm_by_request(request)
     content = render_to_string('gere/template1/cliente/apresentacao/index_custom.html', context)
     template = create_path_if_does_not_exist(f'templates/instances/{cliente.id}/cliente/apresentacao/index.html')
     with open(template, 'w', encoding="utf-8") as static_file:
         static_file.write(content)
 
 
-def mount_client_base(request, context: dict) -> None:
-    context = get_context_custom_base(request, context)
-    cliente = selectors.get_current_adm_by_request(request)
+def mount_client_base(cliente: Administrador, context: dict) -> None:
+    context = get_context_custom_base(cliente, context)
     content = render_to_string('gere/template1/base_custom.html', context)
     template = create_path_if_does_not_exist(f'templates/instances/{cliente.id}/base.html')
     with open(template, 'w', encoding="utf-8") as static_file:
         static_file.write(content)
 
 
-def mount_all_customs(request, context):
-    mount_client_index(request, context)
-    mount_client_base(request, context)
+def mount_all_customs(cliente: Administrador, context: dict) -> None:
+    mount_client_index(cliente, context)
+    mount_client_base(cliente, context)
 
 
-def get_context_custom_base(request, context):
-    cliente = selectors.get_current_adm_by_request(request)
+def get_context_custom_base(cliente: Administrador, context: dict) -> Administrador:
+    # cliente = selectors.get_current_adm_by_request(request)
     instancia = InstanceConfig.objects.get(client_id=cliente)
     paleta = instancia.color_palette
     context['nome_empresa'] = instancia.showing_company_name
@@ -200,8 +212,8 @@ def get_context_custom_base(request, context):
     context['cep'] = f'{cliente.bairro} {cliente.cep},'
     context['cidade'] = f'{cliente.cidade} - {cliente.estado}'
     context['email'] = cliente.email
-    context['menu_administrador'] = get_html_string('gere/template1/base_include_admin.html', True)
-    context['menu_funcionario'] = get_html_string('gere/template1/base_include_func.html', True)
+    context['menu_administrador'] = get_html_string('templates/gere/template1/base_include_admin.html', True)
+    context['menu_funcionario'] = get_html_string('templates/gere/template1/base_include_func.html', True)
     if isinstance(paleta, str):
         paleta = json.loads(paleta.replace("'", "\""))
     context['cor1'] = paleta.get('1st')
@@ -214,8 +226,8 @@ def get_endereco(cliente: Administrador) -> str:
     return f'{cliente.logradouro}, {cliente.numero}, {cliente.bairro}, {cliente.cidade} - {cliente.estado}, {cliente.cep} '
 
 
-def get_context_custom_index(request, context):
-    cliente = selectors.get_current_adm_by_request(request)
+def get_context_custom_index(cliente: Administrador, context: dict) -> dict:
+    # cliente = selectors.get_current_adm_by_request(request)
     context['slides'] = ResourceCarouselSlide.objects.using('default').filter(client_id=cliente)
     context['instance'] = InstanceConfig.objects.using('default').filter(client_id=cliente)[0]
     context['template_customs'] = TemplateIndex.objects.using('default').filter(client_id=cliente)[0]

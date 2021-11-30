@@ -43,13 +43,17 @@ class Administrador(models.Model):
     plano = models.CharField(max_length=45, blank=True, null=True)
     validade_plano = models.DateTimeField(blank=True, null=True)
     
-    def get_cnpj(self):
+    def get_formatted_cnpj(self):
         if len(self.cnpj) != 14:
             return self.cnpj
         else:
             # 84.584.110/0001-38
             cnpj = self.cnpj
             return "%s.%s.%s/%s-%s" %(cnpj[0:2], cnpj[2:5], cnpj[5:8], cnpj[8:12], cnpj[12:14])
+    
+    # def get_clean_cnpj(self):
+    #     # return self.cnpj
+    #     return '%s'.replace('.', '').replace('/', '').replace('-', '') %self.cnpj
 
     def has_plano(self):
         if self.plano:

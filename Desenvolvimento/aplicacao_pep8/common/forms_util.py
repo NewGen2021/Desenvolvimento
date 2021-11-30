@@ -30,6 +30,8 @@ def validate(var, tipo):
         return validate_cpf(var, asEmployee=True)
     if tipo == 'cnpj':
         return validate_cnpj(var)
+    if tipo == 'cnpj_allow_duplicate':
+        return validate_cnpj_allow_duplicate(var)
     if tipo == 'cnpj_administrador':
         return validate_adm_cnpj(var)
     if tipo == 'telefone':
@@ -92,6 +94,11 @@ def validate_cnpj(cnpj: str, isClient: bool = True):
         raise_error(_("CNPJ inválido"), code='invalid')
     if is_cliente_duplicated(cnpj, tipo_pessoa="cliente" if isClient else "funcionario"):
         raise_error(_("CNPJ já registrado! Insira outro por favor."), code='duplicated')
+    return cnpj
+
+def validate_cnpj_allow_duplicate(cnpj: str):
+    if not isCNPJValid(cnpj):
+        raise_error(_("CNPJ inválido"), code='invalid')
     return cnpj
 
 

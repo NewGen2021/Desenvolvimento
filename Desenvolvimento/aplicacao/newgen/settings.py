@@ -5,41 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import get_language
 import newgen.databases as db
 
-from boto3.session import Session
-# ...
-CLOUDWATCH_AWS_ID = 'AKIAU7IY5FUET2EOBFOU'
-CLOUDWATCH_AWS_KEY = 'f4Hc08eDPgXKDNAieNs5OXk5N1NjoBTJcPavsOqz'
-AWS_DEFAULT_REGION = 'us-east-1'  # Be sure to update with your AWS region
-logger_boto3_session = Session(
-    aws_access_key_id=CLOUDWATCH_AWS_ID,
-    aws_secret_access_key=CLOUDWATCH_AWS_KEY,
-    region_name=AWS_DEFAULT_REGION,
-)
 
-LOGGING = {
-    "version": 1,
-    "disable_existing_loggers": False,
-    "formatters": {
-        "aws": {
-            "format": "%(asctime)s [%(levelname)-8s] %(message)s [%(pathname)s:%(lineno)d]",
-            "datefmt": "%Y-%m-%d %H:%M:%S",
-        },
-    },
-    "handlers": {
-        "watchtower": {
-            "level": "INFO",
-            "class": "watchtower.CloudWatchLogHandler",
-
-        },
-    },
-    "loggers": {
-        'django': {
-            'handlers': ['watchtower'],
-            'level': 'DEBUG',  # Or some more appropriate level
-            'propagate': True,
-        },
-    },
-}
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

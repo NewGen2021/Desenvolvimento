@@ -32,4 +32,9 @@ class ResouceButtonsSerializer(serializers.ModelSerializer):
 class ReservaValidateHashSerializer(serializers.ModelSerializer):
     class Meta:
         model = ReservaModel
-        fields = ('id_reserva', 'hash_qrcode','data_reserva','hora_entrada')
+        fields = ('id_reserva', 'hash_qrcode','data_reserva')
+
+class FinalizarReservaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= ReservaModel
+        fields = ('id_reserva', 'hora_saida_real', 'hora_entrada_real')

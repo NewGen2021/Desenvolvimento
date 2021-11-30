@@ -67,9 +67,9 @@ class ResourceServices(models.Model):
 
 class InstanceConfig(models.Model):
     client_id = models.ForeignKey(Administrador, models.DO_NOTHING, db_column='client_id', blank=True, null=True)
-    color_palette = models.JSONField()
+    color_palette = models.JSONField(null=True, blank=True)
     client_logo = models.ImageField(null=True, blank=True, upload_to="client_logo")
-    showing_company_name = models.CharField(max_length=32)
+    showing_company_name = models.CharField(null=True, blank=True, max_length=32)
 
     class Meta:
         db_table = 'instance_config'

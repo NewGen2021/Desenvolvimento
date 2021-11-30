@@ -8,6 +8,9 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
 <!------ Include the above in your HEAD tag ---------->
 <link href="{% static 'css/gerenciar_plano.css' %}" rel="stylesheet">
 
@@ -18,18 +21,55 @@ https://bootsnipp.com/snippets/K0ZmK -->
 
 
 {% block content %}
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{% translate "Sucesso" %}</h5>
+          <button type="button" class="close" id="Modal1BotaoFechar1" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <strong>{% translate "O seu coworking está sendo gerado." %}</strong>
+          {% translate "Um banco de dados novo está sendo criado para garantir a privacidade e autonomia dos dados de seu site." %}
+          {% translate "Volte em alguns instantes nesta página para conferir o estado de criação." %}
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="Modal1BotaoFechar2" class="btn btn-primary">{% translate "Fechar" %}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    {% if avisar_estado_criacao %}
+    $(window).on('load', function() {
+        $('#exampleModalCenter').modal('show');
+    });
+    {% endif %}
+    $('#Modal1BotaoFechar1').on('click', function() {
+        $('#exampleModalCenter').modal('hide');
+    });
+    $('#Modal1BotaoFechar2').on('click', function() {
+        $('#exampleModalCenter').modal('hide');
+    });
+</script>
 
 
 <div class="container emp-profile" style="margin-top: 8.33%;">
+    <!-- Button trigger modal -->
+
             <form method="post">
                 <div class="row">
                     <div class="col-md-4">
                         <div class="profile-img">
-                            <img src="{% static 'img/default-logo2.png' %}" alt=""/>
-                            <div class="file btn btn-lg btn-primary">
+                            <img src="{%if Instancia.client_logo %}{{Instancia.client_logo.url}}{%else%}{% static 'img/default-logo2.png' %}{%endif%}" alt=""/>
+                            <!-- <div class="file btn btn-lg btn-primary">
                                 {% translate "Mudar imagem" %}
                                 <input type="file" name="file"/>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -55,9 +95,9 @@ https://bootsnipp.com/snippets/K0ZmK -->
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-2">
+                    <!-- <div class="col-md-2">
                         <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="row">
                     <div class="col-md-4">
@@ -73,7 +113,8 @@ https://bootsnipp.com/snippets/K0ZmK -->
                             <a href="">WooCommerce</a><br/>
                             <a href="">PHP, .Net</a><br/> -->
                             <p>{% translate "Site" %}</p>
-                            <a href="">{% if Administrador.domain %}{{ Administrador.domain }} {%else%} {% translate "Domínio não cadastrado" %}{%endif%}</a><br/>
+                            <a href="{% if Administrador.domain and Administrador.database %}{% host_url 'index' host 'custom_host' Administrador.domain %}{%else%}#{%endif%}">
+                                {% if Administrador.domain and Administrador.database %}{{ Administrador.domain }} {%else%} {% translate "Domínio não cadastrado" %}{%endif%}</a><br/>
                             <p>{% translate "Empresa" %}</p>
                             <a href="">{% translate "CNPJ:" %} {{ Administrador.cnpj}}</a><br/>
                             <a href="">{% translate "Endereço: " %} {{ Administrador.logradouro}} {{ Administrador.numero }} - {{Administrador.cidade}} {{Administrador.estado}} </a><br/>
@@ -95,7 +136,7 @@ https://bootsnipp.com/snippets/K0ZmK -->
                                                 <label>{% translate "CNPJ" %}</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>{{ Administrador.get_cnpj }}</p>
+                                                <p>{{ Administrador.get_formatted_cnpj }}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -141,10 +182,10 @@ https://bootsnipp.com/snippets/K0ZmK -->
                                                 <p>{{ Administrador.get_plano }}</p>
                                             </div>
                                             {%else%}
-                                            <div class="col-md-4">
+                                            <div class="col-md-3">
                                               <p>{{ Administrador.get_plano}}</p>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                               <a href="{% host_url 'assinatura' host 'newgen' %}">
                                                 {% translate 'Escolher plano.' %}
                                               </a>
@@ -159,13 +200,13 @@ https://bootsnipp.com/snippets/K0ZmK -->
                                         </div>
                                         {% endif %} -->
                                         <div class="row">
-                                            <div class="col-md-5">
+                                            <div class="col-md-6">
                                                 <label>{% translate "Banco de dados: " %}</label>
                                             </div>
-                                            <div class="col-md-5">
+                                            <div class="col-md-3">
                                                 <p>{{ Administrador.get_database }}</p>
                                             </div>
-                                            <div class="col-md-2">
+                                            <div class="col-md-3">
                                               <a href="#">
                                                 {% translate 'Solicitar dados' %}
                                               </a>
@@ -179,12 +220,14 @@ https://bootsnipp.com/snippets/K0ZmK -->
                                                 <p>{{ Administrador.get_validade_plano }}</p>
                                             </div>
                                         </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <label>Your Bio</label><br/>
-                                        <p>Your detail description</p>
-                                    </div>
-                                </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>{% translate "Domínio atual:" %} </label>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p>{% if Administrador.domain and Administrador.database %}{{ Administrador.domain }} {%else%} {% translate "Domínio não cadastrado" %}{%endif%}</p>
+                                            </div>
+                                        </div>
                             </div>
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 import json
-
+from django.contrib.auth.models import User
 import custom_templates.selectors as sc
+import common
 import custom_templates.services as s
 from cria_coworking.forms import RegistrarAdministradorForm
 from cria_coworking.models import Administrador
@@ -82,7 +83,8 @@ def custom_cowork_info(request, context):
             if dados['client_logo'] != '':
                 form_aux.client_logo = dados['client_logo']
             form_aux.save()
-            s.mount_all_customs(request, context)
+            cliente = common.selectors.get_administrador_by_request(request)
+            s.mount_all_customs(cliente, context)
             return redirect('custom_cowork_info')
     else:
         if isinstance(instance.color_palette, dict):
@@ -106,9 +108,16 @@ def custom_personal_info(request, context):
                                           exclude_fields=['senha', 'domain'],
                                           instance=sc.get_current_adm_by_request(request))
         if form.is_valid():
+            adm = common.selectors.get_administrador_by_request(request)
+            cria_coworking_user = User.objects.using('default').get(username=adm.cnpj)
+            cria_coworking_user.username = common.views_util.retiraSimbolosString(request.POST['cnpj'])
+            cria_coworking_user.save(using = 'default')
+            gere_coworking_user = User.objects.using(adm.database).get(username=adm.cnpj)
+            gere_coworking_user.username = common.views_util.retiraSimbolosString(request.POST['cnpj'])
+            gere_coworking_user.save(using = adm.database)
             form.save()
-            s.mount_all_customs(request, context)
-            ...
+            cliente = common.selectors.get_administrador_by_request(request)
+            s.mount_all_customs(cliente, context)
     else:
         form = RegistrarAdministradorForm(exclude_fields=['senha', 'domain'],
                                           instance=sc.get_current_adm_by_request(request))

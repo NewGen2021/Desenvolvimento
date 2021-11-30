@@ -169,7 +169,21 @@ class EspacosModel(models.Model):
     
     def get_image_url(self):
         # return 'batata'
-        return "%s%s" %(settings.MEDIA_URL, self.imagem.decode('utf-8'))
+        # return "%s%s" %(settings.MEDIA_URL, self.imagem.decode('utf-8'))
+        # https://recicleexpress.com.br/images/sem_foto.png
+        try:
+            if not self.imagem:
+                # return 'https://recicleexpress.com.br/images/sem_foto.png'
+                return '/static/img/sem_foto.png'
+            
+            return self.imagem.url
+        except AttributeError:
+            """'bytes' object has no attribute 'url'"""
+            if self.imagem == b'':
+                # return 'https://recicleexpress.com.br/images/sem_foto.png'
+                return '/static/img/sem_foto.png'
+            return "%s%s" %(settings.MEDIA_URL, self.imagem.decode('utf-8'))
+            
     
     def status(self):
         return _("Ativado") if self.status else _("Desativado")

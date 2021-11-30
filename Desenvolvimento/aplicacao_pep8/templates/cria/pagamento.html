@@ -1,0 +1,216 @@
+﻿{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Formulário de pagamento" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+        <div class="topRegister">
+            <h1>{% translate "Pagar plano" %}</h1> 
+        </div>
+
+        <div id="BodyRegister">
+
+            <form method="POST" class="form-group" name="formPagamento" id="form-checkout">
+              {% csrf_token %}
+              {{ form|crispy }}
+              
+              <input type="hidden" id="mensagem_de_erro" name="mensagem_de_erro" value="none" onchange="mostrar_mensagem()">
+              <input type="hidden" id="id_reserva" name="id_reserva" value="{{ id_reserva }}">
+              <button type="submit" id="form-checkout__submit" class="btn btn-primary">{% translate "Pagar" %}</button>
+              <div class="alert alert-danger alert-dismissible fade show" id="alerta_de_erro" style="display: none;">
+                <strong>{% translate "Erro!" %}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+              <!-- <input type="submit" value="Pagar"> -->
+              <progress value="0" class="progress-bar">Carregando...</progress>
+            </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+
+<script src="https://sdk.mercadopago.com/js/v2"></script>
+<script>
+    const mp = new MercadoPago('TEST-3857db53-06c2-4bfc-a9a5-bec2dd9d1579');
+    function mostrar_mensagem(){
+        let element = document.getElementById(`mensagem_de_erro`);
+        let mensagem = element.value;
+        if (mensagem == "" || mensagem == "none"){
+            let caixa_alerta_erro = document.getElementById(`alerta_de_erro`);
+            caixa_alerta_erro.style.display = 'block';          // Show
+        }
+        else
+        caixa_alerta_erro.style.display = 'none';
+            
+            
+    }
+
+</script>
+<script src="{% static 'js/pagamentoEscolha.js' %}"></script>
+
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+<!-- Cep validator -->
+<script src="{% static 'js/cep_verifier.js' %}"></script>
+
+<script>
+    // Step #3
+const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+// alert(csrftoken)
+const cardForm = mp.cardForm({
+    amount: "249.99",  // valor da compra
+    autoMount: true,
+    form: {
+      id: "form-checkout",
+      cardholderName: {
+        id: "id_nome_cartao",
+        placeholder: "Titular do cartão",
+      },
+      cardholderEmail: {
+        id: "id_email",
+        placeholder: "E-mail",
+      },
+      cardNumber: {
+        id: "id_numero_cartao",
+        placeholder: "Número do cartão",
+      },
+      cardExpirationMonth: {
+        id: "id_mes_vencimento",
+        placeholder: "Mês de vencimento",
+      },
+      cardExpirationYear: {
+        id: "id_ano_vencimento",
+        placeholder: "Ano de vencimento",
+      },
+      securityCode: {
+        id: "id_codigo_seguranca",
+        placeholder: "Código de segurança",
+      },
+      installments: {
+        id: "id_parcelas",
+        placeholder: "Parcelas",
+      },
+      identificationType: {
+        id: "id_tipo_documento",
+        placeholder: "Tipo de documento",
+      },
+      identificationNumber: {
+        id: "id_numero_documento",
+        placeholder: "Número do documento",
+      },
+      issuer: {
+        id: "id_banco",
+        placeholder: "Banco emissor",
+      },
+    },
+    callbacks: {
+      onFormMounted: error => {
+        if (error) return console.warn("Form Mounted handling error: ", error);
+        console.log("Form mounted");
+      },
+      onSubmit: async function (event) {
+        event.preventDefault();
+        
+        const {
+          paymentMethodId: payment_method_id,
+          issuerId: issuer_id,
+          cardholderEmail: email,
+          amount,
+          token,
+          installments,
+          identificationNumber,
+          identificationType,
+        } = cardForm.getCardFormData();
+  
+        const res = await fetch("/api/pagar_assinatura?format=json", {
+          method: "POST",
+          headers: {
+            'X-CSRFToken': csrftoken,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            token,
+            issuer_id,
+            payment_method_id,
+            transaction_amount: Number(amount),
+            installments: Number(installments),
+            description: "Descrição do produto",
+            payer: {
+              email,
+              identification: {
+                type: identificationType,
+                number: identificationNumber,
+              },
+            },
+            id_administrador: {{adm.id}}
+          }),
+        });
+        // alert(res.data)
+        console.log(res);
+        if (res.status != 201)
+        alert(res['statusText']);
+        const json = await res.json();
+        let mensagem_de_erro = json.mensagem_de_erro;
+        console.log(mensagem_de_erro);
+        document.getElementById(`mensagem_de_erro`).value = mensagem_de_erro;
+        // res.then(json => {
+        //   // console.log(jsonCep);
+        //   console.log('ENTROU');
+        //   if (json != undefined) {
+        //     document.getElementById(`mensagem_de_erro`).value = json.mensagem_de_erro;
+        //     console.log('ENTROU2');
+        //     console.log(json.mensagem_de_erro);
+        //   }
+        // });
+        if (mensagem_de_erro == 'none' || mensagem_de_erro == '')
+        document.forms['form-checkout'].submit();
+        else{
+          let element = document.getElementById(`mensagem_de_erro`);
+          let mensagem = element.value;
+          let caixa_alerta_erro = document.getElementById(`alerta_de_erro`);
+          caixa_alerta_erro.style.display = 'block';          // Show
+          caixa_alerta_erro.textContent = mensagem;
+              
+          /* if (mensagem != "" || mensagem != "none"){
+              let caixa_alerta_erro = document.getElementById(`alerta_de_erro`);
+              caixa_alerta_erro.style.display = 'block';          // Show
+          }
+          else
+          caixa_alerta_erro.style.display = 'none'; */
+        }
+        // cardForm.submit();
+        },
+        onFetching: (resource) => {
+        console.log("Fetching resource: ", resource);
+  
+        // Animate progress bar
+        const progressBar = document.querySelector(".progress-bar");
+        progressBar.removeAttribute("value");
+  
+        return () => {
+          progressBar.setAttribute("value", "0");
+        };
+      },
+    },
+  });
+</script>
+
+{% endblock js %}

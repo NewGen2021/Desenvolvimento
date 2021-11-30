@@ -12,7 +12,7 @@ from email.mime.multipart import *
 from email.mime.text import MIMEText
 
 from django.contrib.auth.forms import PasswordResetForm
-
+from django.utils.decorators import method_decorator
 import gere_coworking.services.cadastro as b_cadastro  # 'b' de 'business"
 import gere_coworking.services.config_qrcode as b_qrcode  # 'b' de 'business"
 import gere_coworking.services.reserva as b_reserva  # 'b' de 'business"
@@ -67,7 +67,8 @@ def loginSystem(request, context):
         if h.isFuncionario(request):
             return redirect('menuFunc')
         context['grupo'] = h.getGrupoDoUsuario(request)
-        return render(request, 'gere/template1/cliente/apresentacao/index.html', context)
+        # return render(request, 'gere/template1/cliente/apresentacao/index.html', context)
+        return redirect('index')
 
     form = AuthenticationForm(data=request.POST)
     context['form'] = form
@@ -245,9 +246,18 @@ def agendamento(request, context, id_tipo_espaco):
     context['hasErrors'] = hasErrors
     context['error'] = error
     context['compartilhado'] = compartilhado
-    context['espacos'] = EspacosModel.objects.filter(id_tipo_espaco=id_tipo_espaco)
-    context['quantidade_espacos'] = context['espacos'].count()
-
+    
+    ITENS_POR_PAGINA: int = 3
+    espacos = EspacosModel.objects.filter(id_tipo_espaco=id_tipo_espaco)
+    p = Paginator(espacos.order_by('preco'), ITENS_POR_PAGINA)
+    pages = []
+    for i in range(p.num_pages):
+        page = p.page(i + 1)
+        page.num_items = len(page.object_list)
+        pages.append(page)
+    context['pages'] = pages
+    context['tipo_espaco'] = EspacosModel.objects.filter(id_tipo_espaco=1)[0]
+    
     return render(request, 'gere/template1/cliente/agendamento/reserva2Calendario.html', context)
 
 
@@ -453,32 +463,22 @@ def form_teste2(request, context):
 
 @m.verificador()
 def form_pagamento(request, context, id_reserva):
-    print('AAAAAAAAAAAAAAAA')
-    # context['valor_compra'] = 100
-    # context['valor_compra'] = reserva.id_reserva.preco
     reserva = ReservaModel.objects.get(id_reserva=id_reserva)
     context['valor_compra'] = "%.2f" % float(reserva.preco_total)
     context['valor_compra10'] = "%.2f" % float(reserva.preco_total) / 10
+    aluguel = reserva.is_aluguel
 
     if request.method == "POST":
         form = FormPagamento(request.POST)
         mensagem_de_erro = request.POST['mensagem_de_erro']
-        print('BATATA QUENTEEEEEEEEEEEEEEEEE')
         print(mensagem_de_erro)
         print(request.POST)
         if mensagem_de_erro == '' or mensagem_de_erro == 'none':
             return redirect('listarReservas')
         else:
-            # form.is_valid()
-            # data = form.data
-            # form_novo = FormPagamento(data=data)
-            # form_novo.add_error(field=None, error=mensagem_de_erro)
             context['form'] = form
-            # valor_compra = ReservaModel.objects.get(id_reserva.preco)
-            # context['valor_compra'] = valor_compra
-
-            # valor_compra = TipoespacoModel.objects.get(id_tipoespaco=id_tipo_espaco)
-            print('kkkkkkkkkkkkkkkkkkkkkkk')
+        if aluguel == 1:
+            gerar_qrcode()
 
     else:
         context['form'] = FormPagamento
@@ -721,7 +721,8 @@ def gerar_qrcode(request, context, id_reserva):
     img = qr.make_image(fill_color="black", back_color="white")
     img.save(f'static/media/qrcode{id_reserva}.png')
 
-    email = request.user.email
+    #email = request.user.email
+    email = 'brunaoliveiraweb@gmail.com'
     host = settings.EMAIL_HOST
     port = settings.EMAIL_PORT
     login = settings.EMAIL_HOST_USER
@@ -819,9 +820,28 @@ from datetime import timedelta
 
 
 class ReservaList(ListView):
+
+    #method_decorator(m.verificador)
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
     model = ReservaModel
     template_name = 'gere/template1/relatorios/reservas.html'
+    
+    
+    def get_queryset(self):
+        queryset = ReservaModel.objects.all()
+        #queryset = ReservaModel.objects.filter(data_reserva = datetime.date.today().strftime("%Y-%m-%d"))
+        #queryset = ReservaModel.objects.filter(data_reserva = datetime.date.today().strftime("%Y-%m-%d"), hora_saida_real = None).exclude(hora_entrada_real = None).order_by('hora_saida')
 
+        return queryset
+
+@m.verificador()
+def finalizaReserva(request,context, self):
+    ReservaModel.objects.filter(id_reserva=self.id_reserva).update(hora_saida_real = datetime.now().strftime("%H:%M:%S"))           
+    
+    return render(request, 'gere/template1/relatorios/reservas.html', context)
+   
 class PagamentoList(ListView):
     model = PagamentoModel 
     template_name= 'gere/template1/relatorios/pagamentos.html'
@@ -831,7 +851,24 @@ def advertencia(request, context):
     return render(request, 'gere/template1/funcionario/advertencia.html', context)
 
 
-
-
-
-
+@m.verificador()
+def testar_bootstrap(request, context):
+    
+    ITENS_POR_PAGINA: int = 3
+    # tipo_espacos = EspacosModel.objects.filter(id_tipo_espaco=1)
+    tipo_espacos = EspacosModel.objects.all()
+    p = Paginator(tipo_espacos.order_by('preco'), ITENS_POR_PAGINA)
+    # p.page(2).object_list
+    pages = []
+    # p.page(1).end_index
+    p.page(1).__len__
+    for i in range(p.num_pages):
+        page = p.page(i + 1)
+        page.num_items = len(page.object_list)
+        pages.append(page)
+    context['pages'] = pages
+    context['tipo_espaco'] = EspacosModel.objects.filter(id_tipo_espaco=1)[0]
+    # context['imagem'] = TipoespacoModel.objects.get(id_tipoespaco=1).imagem
+    # context['url_imagem'] = TipoespacoModel.objects.get(id_tipoespaco=1).imagem.decode('utf-8')
+    
+    return render(request, 'gere/template1/cliente/apresentacao/teste2.html', context)

@@ -38,7 +38,7 @@ def get_domain_by_json(request) -> HttpRequest:
         # request.domain['isActive'] = False
         j = domain_manager.get_domain_json_or_create()
         request.domain = j["milleniacoworking.mooo.com"]
-    print(request.domain['isActive'])
+    # print(request.domain['isActive'])
     return request
 
 

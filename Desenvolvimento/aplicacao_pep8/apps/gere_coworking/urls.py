@@ -48,7 +48,7 @@ urlpatterns = [
     path('reset_password_complete/', CustomPasswordResetCompleteView.as_view(), name="password_reset_complete"),
     path('teste', teste, name="teste"),
     path('qrcode_envio/<int:id_reserva>/', gerar_qrcode, name="qrcode_envio"),
-
+    path('finaliza_reserva/<int:id_reserva>/', finalizaReserva, name='finaliza_reserva'),
     path('listar_espacos', listar_espacos, name="listar_espacos"),
     path('editar_tipo_espaco/<int:id_tipo_espaco>/', editar_tipo_espaco, name="editar_tipo_espaco"),
     path('editar_espaco/<int:id_espaco>', editar_espaco, name="editar_espaco"),
@@ -71,7 +71,8 @@ urlpatterns = [
     path('advertencia', advertencia, name='advertencia'),
 
     path('relatorios/reservas', ReservaList.as_view(), name='relatorios/reservas'),
-    path('relatorios/pagamentos', PagamentoList.as_view(), name="relatorios/pagamentos")
+    path('relatorios/pagamentos', PagamentoList.as_view(), name="relatorios/pagamentos"),
+    path('testar_bootstrap', testar_bootstrap, name='testar_bootstrap'),
 ]
 
 # urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
