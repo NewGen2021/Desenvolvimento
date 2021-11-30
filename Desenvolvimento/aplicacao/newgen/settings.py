@@ -5,10 +5,8 @@ from django.utils.translation import gettext_lazy as _
 from django.utils.translation import get_language
 import newgen.databases as db
 
-
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+##removido aws
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 AUTOMATIC_TEST = False

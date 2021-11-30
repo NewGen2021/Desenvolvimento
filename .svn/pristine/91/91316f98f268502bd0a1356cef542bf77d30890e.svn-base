@@ -1,0 +1,785 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+{% load custom_tags %}
+
+{% block title %}{% translate "Calendário de agendamento" %}{% endblock %}
+
+{% block css %}
+
+<!-- CALENDAR CSS -->
+<link href="{% static 'css/fullcalendar.css' %}" rel="stylesheet" />
+
+<!-- DATEPICKER -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/datepicker/mtr-datepicker.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/datepicker//mtr-datepicker.default-theme.min.css' %}" />
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<!-- CAROUSEL -->
+<link rel="stylesheet" href="{% static 'css/carousel/style.css' %}">
+
+<!-- COUNTER -->
+<link rel="stylesheet" href="{% static 'css/counter.css' %}">
+
+<style>
+  
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  @media (min-width: 600px) {
+    img{
+    width: auto;
+    height: auto;
+    max-width: 370px; 
+    max-height: 250px;
+  }
+  /* .card-img{
+   width: 100%!important;
+   height: 200px!important;
+   object-fit: cover;
+} */
+.card{
+  max-width: 370px; 
+}
+}
+</style>
+
+
+
+
+{% endblock css %}
+
+{% block content %}
+
+
+<!-- <nav class="navbar navbar-expand-sm   navbar-light bg-light">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item dropdown dmenu">
+      <a class="nav-link dropdown-toggle text-primary" href="#" id="navbardrop" data-toggle="dropdown" style="font-size: 50px;">
+        {% translate "Escolha um espaço" %}
+      </a>
+      <div class="dropdown-menu sm-menu">
+
+
+      </div>
+    </ul>
+  </div>
+</nav> -->
+
+<div class="content">
+
+  <div class="site-section bg-left-half mb-5">
+
+    <input type="hidden" id="change_space" value="0">
+
+    <div class="container owl-2-style align-items-center" id="selecionar_espacos" style="text-align: center;">
+      
+      <!-- NÃO MEXA NOS ELEMENTOS DESSA DIV, VAI ATRAPALHAR A LÓGICA DE SELECIONAR ESPAÇOS -->
+      <h1 class="card-title py-5">{% translate "Escolha um espaço" %}</h1>
+
+      {% if quantidade_espacos < 4 %}
+      <div class="card-group d-flex justify-content-center">
+        {% for espaco in espacos %}
+        <div class="card align-items-center">
+          <a href="#{{espaco.id_espaco}}" class="a_carousel"><img src="{{espaco.get_image_url}}" alt="Image" class="img-fluid img_carousel"></a>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{{espaco}}</a></h3>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{{espaco.get_preco}}</a></h3>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{% translate "Vagas: " %}{{espaco.vagas}}</a></h3>
+          <a href="#" class="btn btn-outline-primary botao_selecionar" value="{{espaco.id_espaco}}">{% translate "Selecione" %}</a>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="owl-carousel owl-2">
+        {% for espaco in espacos %}
+        <div class="media-29101 align-items-center">
+          <a href="#{{espaco.id_espaco}}" class="a_carousel"><img src="{{espaco.get_image_url}}" alt="Image" class="img-fluid img_carousel"></a>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{{espaco}}</a></h3>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{{espaco.get_preco}}</a></h3>
+          <h3 class="h3_carousel"><a href="#{{espaco.id_espaco}}" class="a_carousel">{% translate "Vagas: " %}{{espaco.vagas}}</a></h3>
+          <a href="#" class="btn btn-outline-primary botao_selecionar id_{{espaco.id_espaco}}" value="{{espaco.id_espaco}}">{% translate "Selecione" %}</a>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+</div>
+
+<section class="agendarSala">
+  <div class="container align-items-center" style="text-align: center;">
+
+    
+  <h1 class="card-title">{% translate "Escolha um horário" %}</h1>
+  
+
+
+  <!-- Fim Escolher sala -->
+
+  <!--Inicio Calendário -->
+  <div class="row">
+    <div class="col-md-12">
+      <div id="calendar"></div>
+    </div>
+  </div>
+  <!-- Fim Calendário -->
+
+  <!--Inicio Date Picker -->
+  <div class="modal fade show" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="exampleModalLongTitle">{% translate "Novo agendamento" %}</h5>
+                <button id="modalClose1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form method="post">
+                {% csrf_token %}
+                <div class="modal-body">
+                  <div class="form-group">
+                    
+                    
+                  </div>
+                    <!-- {% if compartilhado == 0 %}
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">{% translate "Titulo do Evento:" %}</label>
+                        {{ form.id_espaco }}
+                    </div>
+                    {% endif %} -->
+                    <div class="form-group">
+                        <div class="row d-flex align-items-center">
+                          <label for="message-text" class="col-form-label" style="font-size: 20px;">{% translate "Dia:" %}</label>
+                          <h1 class="col-form-label card-title" id="datepicker-data" style="font-size: 20px;"></h1>
+                          <input type="hidden" id="data-reserva" name="data-reserva" value="">
+                        </div>
+                        {% if compartilhado == 1 %}
+                        <div class="row d-flex align-items-center justify-content-center">
+                          <label for="quantity" class="col-form-label" style="font-size: 20px;">{% translate "Quantidade de reservas:" %}</label>
+                          <fieldset data-quantity>
+                            <legend>{% translate "Reservas" %}</legend>
+                          </fieldset>
+                          <script>
+                            
+                            // let contador = document.getElementsByTagName("quantity")[0][0];
+                            // let contador = $('[name="quantity"]')[0];
+                            // let fieldset = document.querySelectorAll('[data-quantity]');
+                            // fieldset.addEventListener("change", e => {
+                            //   let contador = $('[name="quantity"]')[0];
+                            //   console.log(contador.value);
+                            // });
+                            // alert(contador);
+                            function updater(quantity){
+                              console.log(quantity);
+                              if(quantity instanceof Event)
+                              var valor = quantity.target.value;
+                              else
+                              var valor = quantity;
+                              console.log(valor);
+                            }
+                          </script>
+                        </div>
+                        {% endif %}
+                        <hr>
+                        <div class="row">
+                          <div class="form-group col-lg-6 ">
+                            <label for="message-text" class="col-form-label">{% translate "Hora de entrada:" %}</label>
+                            <!-- {{ form.hora_entrada }} -->
+                            <!-- <div id="datepicker-hora-entrada" value=""></div> -->
+                            <input type="time" id="hora-entrada" name="hora-entrada" value="" class="form-control timepicker">
+                          </div>
+                          <div class="form-group col-lg-6">
+                            <label for="message-text" class="col-form-label">{% translate "Hora de saída:" %}</label>
+                            <!-- {{ form.hora_saida }} -->
+                            <input type="time" id="hora-saida" name="hora-saida" value="" class="form-control timepicker">
+                            <!-- <div id="datepicker-hora-saida" value=""></div> -->
+                          </div>
+                          {% if hasErrors == True %}
+                          <script>
+                            alert("{{ error }}");
+                          </script>
+                          {% endif %}
+                        
+                        </div>
+                        
+                    </div>
+                    
+                    
+                </div>
+                <div class="modal-footer">
+                    <button id="modalClose2" type="button" class="btn btn-danger">{% translate "Fechar" %}</button>
+                    <button id="modalClose3" type="submit" class="btn {{ button_color  }}">{% translate "Salvar" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+  <!-- Fim Date Picker -->
+    <div class="row" style="margin-left: 7.5%; margin-top: 3%;">
+      <p class="card-text d-flex justify-content-left">{% translate "Passo 2 de 3"%}</p>
+      <a href="{% host_url 'reserva' host 'custom_host' domain %}" class="btn btn-sm {{ button_color  }} animate__animated animate__fadeInUp scrollto col-lg-2 col-md-6"> ← {% translate "VOLTAR" %} </a>
+    </div>
+  </div>
+</section>
+
+{% endblock content %}
+  
+{% block js %}
+
+
+<!-- LÓGICA DE SELEÇÃO DE BOTÃO -->
+<script>
+  var button = document.getElementsByClassName("botao_selecionar");
+  // var selecionar_espacos = document.getElementById("selecionar_espacos").children[1];
+
+	
+  var addSelectClass = function(){
+    removeSelectClass();
+    var botoes_clonados;
+    this.classList.forEach(function(classe, index){
+      if (classe[0]=='i' && classe[1]=='d' && classe[2]=='_'){
+        botoes_clonados = document.getElementsByClassName(classe);    
+        // console.log(botoes_clonados);
+      }
+    })
+    for (var i =0; i < botoes_clonados.length; i++) {
+      // console.log(botoes_clonados[i]);
+      botoes_clonados[i].classList.add('active');
+      botoes_clonados[i].classList.add('selecionado');
+      botoes_clonados[i].textContent = '{% translate "Selecionado" %}';
+    }
+
+    // Manda sinal para atualizar o calendário
+    var changer = document.getElementById("change_space")
+    changer.value = changer.value=="0"? "1": "0";
+  }
+
+  var removeSelectClass = function(){
+    for (var i =0; i < button.length; i++) {
+      button[i].classList.remove('active');
+      button[i].classList.remove('selecionado');
+      button[i].textContent = '{% translate "Selecione" %}';
+    }
+  }
+  
+  for (var i =0; i < button.length; i++) {
+    button[i].addEventListener("click",addSelectClass);
+  }
+  // console.log(selecionar_espacos);
+  // selecionar_espacos.onload = function(){
+  //   var primeiro_espaco = document.getElementById("selecionar_espacos").children[1].children[0].children[0].children[0];
+  //   alert("Chegou1")
+  //   primeiro_espaco.addSelectClass();
+  //   alert("Chegou2")
+  // };
+  var primeiro_espaco = document.getElementById("selecionar_espacos").children[1].children[0];
+  var primeiro_botao = primeiro_espaco.children[4];
+  console.log(primeiro_espaco);
+  console.log(primeiro_botao);
+  
+  var botoes_clonados;
+  primeiro_botao.classList.forEach(function(classe, index){
+      if (classe[0]=='i' && classe[1]=='d' && classe[2]=='_'){
+        botoes_clonados = document.getElementsByClassName(classe);    
+        // console.log(botoes_clonados);
+      }
+    })
+    for (var i =0; i < botoes_clonados.length; i++) {
+      // console.log(botoes_clonados[i]);
+      botoes_clonados[i].classList.add('active');
+      botoes_clonados[i].classList.add('selecionado');
+      botoes_clonados[i].textContent = '{% translate "Selecionado" %}';
+    }
+
+console.log("ENTROU333");
+</script>
+
+
+
+
+<!-- Inicio Full Calendar Script -->
+<script src="{% static 'js/fullcalendar.js' %}"></script>
+
+<script>
+  function getMonthFromInfo(info){
+    var date = new Date(info.end);
+    date.setMonth(date.getMonth()-1);
+    return `${date.getFullYear()}-${date.getMonth()+1}`;
+  }
+
+  // function getDateFromInfo(info){
+  //   var date = new Date(info.start);
+  //   return `${info.start.getFullYear()}-${info.start.getMonth()+1}-${info.start.getDay()}`;
+  // }
+
+  function hasClass(element, className) {
+  return (' ' + element.className + ' ').indexOf(' ' + className+ ' ') > -1;
+  }
+
+  function get_id_espaco(){
+    selecionado = document.getElementsByClassName('selecionado')[0];
+    return selecionado.getAttribute('value');
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var today = new Date();
+    today.setHours(0);
+    today.setMinutes(0);
+    today.setSeconds(0);
+
+    // EVENTOS DEBUG
+    eventosDebug = [
+        {
+          title: 'All Day Event',
+          start: '2020-09-01'
+        },
+        {
+          title: 'Long Event',
+          start: '2020-09-07',
+          end: '2020-09-10'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-09-09T16:00:00'
+        },
+        {
+          groupId: 999,
+          title: 'Repeating Event',
+          start: '2020-09-16T16:00:00'
+        },
+        {
+          title: 'Conference',
+          start: '2020-09-11',
+          end: '2020-09-13',
+          backgroundColor: 'black'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-09-12T10:30:00',
+          end: '2020-09-12T12:30:00'
+        },
+        {
+          title: 'Lunch',
+          start: '2020-09-12T12:00:00'
+        },
+        {
+          title: 'Meeting',
+          start: '2020-09-12T14:30:00'
+        },
+        {
+          title: 'Happy Hour',
+          start: '2020-09-12T17:30:00'
+        },
+        {
+          title: 'Dinner',
+          start: '2020-09-12T20:00:00'
+        },
+        {
+          title: 'Birthday Party',
+          start: '2020-09-13T07:00:00'
+        },
+        {
+          title: 'Click for Google',
+          url: 'http://google.com/',
+          start: '2020-09-28'
+        }
+      ]
+
+    // HORÁRIO COMERCIAL DO COWORKING
+    businessHours = [{
+        // days of week. an array of zero-based day of week integers (0=Sunday)
+        daysOfWeek: [ 1, 2, 3, 4, 5 ], // Monday - Friday
+
+        startTime: '07:00', // a start time (10am in this example)
+        endTime: '22:00', // an end time (6pm in this example)
+      },
+      {
+        daysOfWeek: [ 6, 0 ], // Saturday, Sunday
+
+        startTime: '09:00', // a start time (10am in this example)
+        endTime: '19:00', // an end time (6pm in this example)
+      }]
+    
+    // CONFIGURAÇÕES DE MUDANÇA DE CADA VIEW
+    changeToMonth = function (info) {
+      calendar.changeView('dayGridMonth', info.dateStr);
+      calendar.setOption('eventDisplay', 'background');
+      calendar.setOption('selectable', 'false');
+    }
+    changeToWeek = function (info) {
+      calendar.changeView('timeGridWeek', info.dateStr);
+      calendar.setOption('eventDisplay', 'list-item');
+      calendar.setOption('selectable', 'false');
+    }
+    changeToDay = function (info) {
+      calendar.changeView('timeGridDay', info.dateStr);
+      calendar.setOption('eventDisplay', 'list-item');
+      calendar.setOption('selectable', 'true');
+    }
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      
+      customButtons: {
+        month: {
+          text: 'Mês',
+          click: changeToMonth,
+          color: '#74b9ff'
+        }, 
+        week: {
+          text: 'Semana',
+          click: changeToWeek
+        },
+        day: {
+          text: 'Dia',
+          click: changeToDay
+        }
+      },
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        // right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        right: 'month,week,day'
+      },
+      allDaySlot: false,
+      eventDisplay: 'background',
+      eventColor: '#74b9ff',
+      
+      // initialDate: '2020-09-12',
+      initialDate: today,
+      navLinks: false, // can click day/week names to navigate views
+      selectable: true,
+      selectMirror: false,
+      eventStartEditable: false,
+      businessHours: businessHours,
+
+      selectConstraint: "businessHours",
+      // select: function(start, end) {
+      //   alert(start, end);
+      //   calendar.unselect();
+      // },
+
+      select: function(arg) {
+          // $("[class=fc-non-business]").hide();
+          // alert($("[class=fc-non-business]").length);
+          // document.getElementById('calendar');
+          // let unvalid_hours = document.getElementsByClassName("fc-non-business");
+          // let final = false;
+          // let tabelaDeHoras = document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1].children;
+          // for (var i = 0; i < unvalid_hours.length; i++) {
+          //   element = unvalid_hours[i]
+          //   h = element.clientHeight;
+          //   horas = Math.round(h / 21.11);  // h / altura do elemento de uma meia hora
+          //   if (!final){
+          //     for (var j = 0; j < horas; j++) {
+          //       // tabelaDeHoras[j].style.display = 'none';
+          //       // tabelaDeHoras[j].parentNode.removeChild(tabelaDeHoras[j]);
+          //       // tabelaDeHoras[j].children[0].style.display = 'none';
+          //       // tabelaDeHoras[j].children[1].style.display = 'none';
+          //       // console.log(tabelaDeHoras[j]);
+          //     }
+          //   }
+          //   else{
+          //     for (var j = tabelaDeHoras.length - horas; j < tabelaDeHoras.length; j++) {
+          //       tabelaDeHoras[j].style.display = 'none';
+          //       // console.log(tabelaDeHoras[j]);
+          //     }
+          //   }
+          //   final = true;
+          // }
+          
+          // console.log( document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1] );
+          // /* for (element in unvalid_hours){
+          //   console.log(element);
+          //   console.log(element.clientHeight);
+          // } */
+          // console.log(unvalid_hours);
+          // console.log('ALOOOOOO3');
+          // $("[class=fc-timegrid-bg-harness]").hide();
+          // this.minTime = "14:00:00";
+          function getTime(date){
+            // const hour = date.getHours();
+            // const minute = date.getMinutes();
+            // const second = date.getSeconds();
+            return date.toTimeString().split(" ")[0];
+          }
+          var modal = document.getElementById('eventModal')
+          modal.style.display = 'block'
+          const datepickerDate = document.getElementById('datepicker-data');
+          dataReserva = `${arg.start.getDate()}/${(arg.start.getMonth()+1) < 10 ? '0' + (arg.start.getMonth()+1) : arg.start.getMonth()+1}/${arg.start.getFullYear()}`
+          
+          datepickerDate.textContent = dataReserva
+          document.getElementById('data-reserva').value = dataReserva
+          document.getElementById('hora-entrada').value = getTime(arg.start)
+          document.getElementById('hora-saida').value = getTime(arg.end)
+          calendar.unselect()
+          
+        },
+/* 
+      select: function(arg) {
+        // var title = prompt('Event Title:');
+        // if (title) {
+        //   calendar.addEvent({
+        //     title: title,
+        //     start: arg.start,
+        //     end: arg.end,
+        //     allDay: arg.allDay
+        //   })
+        // }
+        // calendar.unselect()
+        
+        
+      }, */
+      
+      dateClick: function (info) {
+        if (calendar.view.type == 'dayGridMonth') {
+          if (!hasClass(info.dayEl, 'fc-day-past')) {
+            calendar.changeView('timeGridDay', info.dateStr);
+            calendar.setOption('eventDisplay', 'list-item');
+            console.log(info);
+            fetch(`/api/reserva_event/${info.dateStr}/{{cliente_id}}/1/?format=json`)
+              .then(function (response) {
+                return response.json()
+              })
+              .then(function (json) {
+                if (json != {} && json.event_list != undefined){
+                  // for(var event in json.event_list){
+                  //   calendar.addEvent(event);
+                  // }
+                  json.event_list.forEach(evento => {
+                    calendar.addEvent(evento)
+                  });
+                  // calendar.addEvent({
+                  //   title: 'dynamic event',
+                  //   start: "2021-10-29T13:00:00",
+                  //   end: "2021-10-29T15:00:00",
+                  //   color:"lightblue",
+                  //   textColor:"black"
+                  // });
+                  
+                }
+                
+                console.log("Aloooo");
+                  // addEvent(json[0]);
+
+                console.log(json);
+                console.log("DATECLICK");
+                    // document.getElementById(`id_preco`).value = json[0].preco;
+                // preco_field.setAttribute('placeholder', json[0].preco);
+              })
+              .catch(function (e){
+                console.log(e);
+                alert('{% translate "Não foi possível ler as reservas do dia" %}');
+              })
+          }
+          else{
+            alert('{% translate "Este dia já passou." %}');
+          }
+          
+          console.log(info);
+        }
+        else{
+          // alert(`${info.date.getHours()}:${info.date.getMinutes() == 0 ? '00' : '30'}`);
+        }
+      },
+      eventClick: function(calEvent) {
+        // if (confirm('Are you sure you want to delete this event?')) {
+        //   arg.event.remove()
+        // }
+        if (calendar.view.type == 'dayGridMonth') {
+          
+        }
+        else{
+          alert('{% translate "Este horário está reservado!" %}');
+        }
+        
+      },
+      viewRender: function (view, element) {
+        console.log(view);
+        console.log(element);
+        },
+      // editable: true,
+      dayMaxEvents: true, // allow "more" link when too many events
+      slotLabelFormat: {
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12:false,
+      },
+      // events: {{ eventos|safe }},
+      eventSources: [
+
+        // your event source
+        // {
+        //   url: 'http://{{domain}}/api/month_event/10/1/1/?format=json', // use the `url` property
+
+        //   // color: 'yellow',    // an option!
+        //   // textColor: 'black'  // an option!
+        // },
+        {
+          events: function get_month_reservas(info, successCallback, failureCallback) {
+            console.log(info);
+            var mes = getMonthFromInfo(info);
+            return fetch(`/api/month_event/${mes}/1/${get_id_espaco()}/?format=json`)
+              .then(function (response) {
+                return response.json()
+              })
+              .then(function (json) {
+                return json;
+              })
+              .catch(function (e) {
+                alert('{% translate "Não foi possível ler as reservas do dia" %}');
+                failureCallback(e);
+              })
+            //   return {start: '2021-10-27T01:00:00', end: '2021-10-27T23:00:00', allDay: true,
+            // color: 'yellow',    
+            //     textColor: 'black'  }
+
+          }
+
+        }
+
+        // any other sources...
+
+      ],
+      eventTimeFormat: { 
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12:false,
+      }
+      // events: eventosDebug
+      
+
+    });
+
+    console.log("chegou2");
+    $("#change_space").on('change',function () {
+      alert("OPAAAAA");
+      calendar.refetchEvents();
+    });
+    console.log("Chegou3");
+
+    let changer = document.getElementById("change_space");
+    changer.addEventListener('change',()=>{
+      alert("OPAAAAA");
+    });
+
+
+    calendar.render();
+
+  });
+  const closeBtn1 = document.getElementById('modalClose1');
+  const closeBtn2 = document.getElementById('modalClose2');
+  const closeBtn3 = document.getElementById('modalClose3');
+  closeBtn1.addEventListener('click',()=>{
+    const eventModal = document.getElementById('eventModal')
+    eventModal.style.display = 'none';
+  });
+  closeBtn2.addEventListener('click',()=>{
+    const eventModal = document.getElementById('eventModal')
+    eventModal.style.display = 'none';
+  });
+
+  closeBtn3.addEventListener('click',()=>{
+    const eventModal = document.getElementById('eventModal')
+
+    var datepickerOutput = myDatepicker1.toTimeString();
+    var datepickerOutput2 = myDatepicker2.toTimeString();
+
+    document.getElementById("hora-entrada").value = datepickerOutput;
+    document.getElementById("hora-saida").value = datepickerOutput2;
+  });
+</script>
+
+
+
+<script>
+  $(document).ready(function() {
+    $('#calendar').fullCalendar({
+        header: {
+            left: 'prev,today,next',
+            center: 'title',
+            right: 'month,basicWeek,basicDay'
+        },
+        allDayDefault: true,
+    })
+});
+  // alert(calendar.events);
+</script>
+<!-- Fim Full Calendar Script -->
+
+<!-- Início DATE PICKER -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="{% static 'js/datepicker/mtr-datepicker.js' %}"></script>
+<script src="{% static 'js/datepicker/demo.js' %}"></script>
+<script src="{% static 'js/datepicker/demo2.js' %}"></script>
+<script>
+  var datepickerToday = new Date();
+  datepickerToday.setMonth(datepickerToday.getMonth())
+    datepickerToday.setHours(11);
+    datepickerToday.setMinutes(59);
+    datepickerToday.setSeconds(0);
+  var config = {
+    target: 'datepicker-hora-entrada',
+    disableAmPm: true,
+    timestamp: datepickerToday.getTime(),
+    datepicker: false,
+};
+var myDatepicker1 = new MtrDatepicker(config);
+
+</script>
+<script>
+  var datepickerToday = new Date();
+  datepickerToday.setMonth(datepickerToday.getMonth())
+    datepickerToday.setHours(11);
+    datepickerToday.setMinutes(59);
+    datepickerToday.setSeconds(0);
+  var config = {
+    target: 'datepicker-hora-saida',
+    disableAmPm: true,
+    timestamp: datepickerToday.getTime(),
+    datepicker: false,
+};
+var myDatepicker2 = new MtrDatepicker(config);
+</script>
+
+<!-- Fim DATE PICKER -->
+
+<!-- CAROUSEL -->
+<script src="{% static 'js/carousel/popper.min.js' %}"></script>
+<script src="{% static 'js/carousel/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/carousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/carousel/main.js' %}"></script>
+<!-- Fim CAROUSEL -->
+
+<!-- COUNTER -->
+<script src="{% static 'js/counter.js' %}"></script>
+
+
+{% endblock js %}
+
+
+
+  
+
