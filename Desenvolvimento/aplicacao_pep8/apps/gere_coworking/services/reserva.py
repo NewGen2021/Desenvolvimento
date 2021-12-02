@@ -4,12 +4,16 @@
 """
 
 import datetime
+from django.core.paginator import Paginator
 
 from django.utils.translation import gettext as _
 from gere_coworking.models import TipoespacoModel, ReservaModel, ClienteModel, EspacosModel
 from gere_coworking.selectors import (get_reservas_cliente, get_reservas_atuais)
 
 import common.views_util as h
+
+import requests
+import ast
 
 businessHours = [{
     # days of week. an array of zero-based day of week integers (0=Sunday)
@@ -112,7 +116,7 @@ def getDicionarioReservas(id_tipo_espaco):
 def getDicionarioReservasDia(id_espaco, dia, reservas=None):
     # reservas = getReservasAtuaisDia(id_tipo_espaco, dia)
     if reservas is None:
-        reservas = ReservaModel.objects.filter(id_espaco=EspacosModel.objects.get(id_espaco=id_espaco),
+        reservas = ReservaModel.objects.filter(id_espaco=id_espaco,
                                                data_reserva=dia)
     if type(dia) == str:
         diaSemana = converteNumeroDiaSemana(datetime.datetime.strptime(dia, "%Y-%m-%d").weekday(), To_ISO=False)
@@ -124,6 +128,7 @@ def getDicionarioReservasDia(id_espaco, dia, reservas=None):
     for reserva in reservas:
         # Marca as horas desta reserva no dicionário
         if type(reserva) == dict:
+            print('ENTROU AQUI')
             entrada = f"{reserva['data_reserva']}T{reserva['hora_entrada']}"
             entrada = datetime.datetime.strptime(entrada, "%Y-%m-%dT%H:%M:%S")
             saida = f"{reserva['data_reserva']}T{reserva['hora_saida']}"
@@ -139,12 +144,14 @@ def getDicionarioReservasDia(id_espaco, dia, reservas=None):
         horaJson = entrada
 
         horaJson = entrada.replace(hour=int(hour), minute=int(minute), second=0, microsecond=0)
+
         while hora < saida:
             if entrada <= horaJson:
                 hora += datetime.timedelta(minutes=30)
                 # Incrementa o campo do JSON com um valor a mais
                 dicio[horaJson.strftime("%H:%M")] += 1
             horaJson += datetime.timedelta(minutes=30)
+
     return dicio
 
 
@@ -250,9 +257,6 @@ def getEventoReservasLotadas(dateDicts, vagas_max, event_list):
                 start = f'{ano}-{mes}-{dia}T{hour}:{minutes}:00'
                 hour, minutes = fim.split(':')
                 end = f'{ano}-{mes}-{dia}T{hour}:{minutes}:00'
-                # print('------------- VARS', file=sys.stderr)
-                # print(start, file=sys.stderr)
-                # print(end, file=sys.stderr)
                 event_list.append({
                     'title': _('Sem vagas'),
                     'start': start,
@@ -265,7 +269,11 @@ def getEventoReservasLotadas(dateDicts, vagas_max, event_list):
 
 
 # Não deletar
-def getEventoReservasLotadasViewSet(dateDict, vagas_max, event_list, date):
+def getEventoReservasLotadasViewSet(dateDict: dict, vagas_max: int, 
+                                    vagas_selecionadas: int, event_list: list, date: str):
+    '''
+    date = 'yyyy-mm-dd' '2021-12-31'
+    '''
     """ dateDict={'07:00': 0, '07:30': 0, '08:00': 0, '08:30': 0, '09:00': 0, '09:30': 0,
      '10:00': 0, '10:30': 0, '11:00': 0, '11:30': 0, '12:00': 0, '12:30': 0, '13:00': 1,
       '13:30': 1, '14:00': 2, '14:30': 2, '15:00': 1, '15:30': 1, '16:00': 0, '16:30': 0,
@@ -277,6 +285,12 @@ def getEventoReservasLotadasViewSet(dateDict, vagas_max, event_list, date):
                    'end': '2021-10-13T15:00:00',
                    'color': 'lightblue',
                    'textColor': 'black'}] """
+    
+    totalmente_cheio: bool = vagas_max - vagas_selecionadas < 0
+    
+    if totalmente_cheio:
+        for hora in dateDict.keys():
+            dateDict[hora] = vagas_max
 
     # Seta o horário para 0 no dateDict caso seja uma reserva do usuário
     for reserva_cliente in event_list:
@@ -284,22 +298,38 @@ def getEventoReservasLotadasViewSet(dateDict, vagas_max, event_list, date):
         hora_fim = reserva_cliente['end'].split('T')[1]  # 15:00:00
 
         for hora in dateDict.keys():
-            if hora_inicio <= hora <= hora_fim:
+            hora_com_segs = hora + ':00'
+            if hora_inicio <= hora_com_segs < hora_fim:
                 dateDict[hora] = 0
 
+    print('PRINT THIS DATEDICTSSSS ASPODAKPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPPINTO')
+    print(dateDict)
+    
     comecoEvento = False  # Lógica de verificação do começo do evento
     inicio = None  # Para salvar o horário do começo do evento
 
+    tamanho_dict = len(dateDict)
     # Lê as horas de um dia das reservas
-    for hora, valor in dateDict.items():
-
+    for contador, kv in enumerate(dateDict.items()):
+    # for hora, valor in dateDict.items():
+        hora = kv[0]
+        valor = kv[1]
         # Começa a rastrear o tamanho do evento
-        if valor >= vagas_max and comecoEvento == False:
-            comecoEvento = True
-            inicio = hora
+        if not totalmente_cheio:
+            print(f'contador = {contador}, hora = {hora}, valor = {valor}')
+            if valor > vagas_max - vagas_selecionadas and comecoEvento == False:
+                comecoEvento = True
+                inicio = hora
+        else:
+            if valor > 0 and comecoEvento == False:
+                comecoEvento = True
+                inicio = hora
 
+        print(f'vagas_max {vagas_max}, vagas_selecionadas {vagas_selecionadas},'
+              f'valor < vagas_max {valor < vagas_max}, valor {valor}')
         # Conclui o fim do evento e define a lógica de setar o evento
-        if comecoEvento == True and valor < vagas_max:
+        # if comecoEvento == True and (valor < vagas_max or contador+1 == tamanho_dict):
+        if comecoEvento == True and (valor <= vagas_max - vagas_selecionadas or contador+1 == tamanho_dict):
             comecoEvento = False
             fim = hora
 
@@ -314,15 +344,12 @@ def getEventoReservasLotadasViewSet(dateDict, vagas_max, event_list, date):
     return event_list
 
 
-def getForm(request, id_tipo_espaco):
+def getDicionario(request) -> dict:
     hora_entrada = request.POST['hora-entrada'].split(' ')[0]
     hora_saida = request.POST['hora-saida'].split(' ')[0]
 
-    ''' revisar '''
-    if isCompartilhado(id_tipo_espaco):
-        id_espaco = 1
-    else:
-        id_espaco = request.POST['id_espaco']
+    id_espaco = int(request.POST['id_espaco'])
+    quantidade_reservada = int(request.POST['quantidade_reservada'])
 
     hora_limpeza = getHoraLimpeza(id_espaco, hora_saida)
 
@@ -331,8 +358,17 @@ def getForm(request, id_tipo_espaco):
     ))[0]
 
     # hoje = datetime.datetime.today().strftime("%d/%m/%Y %H:%M:%S")
+    entrada = datetime.datetime.strptime(request.POST['data-reserva'] +'_'+request.POST['hora-entrada'], "%d/%m/%Y_%H:%M:%S")
+    saida = datetime.datetime.strptime(request.POST['data-reserva'] +'_'+request.POST['hora-saida'], "%d/%m/%Y_%H:%M:%S")
+    preco_hora = getPrecoEspaco(id_espaco)
+    preco_minuto = preco_hora/60
+    delta = saida - entrada
+    preco = delta.seconds * preco_minuto / 60
+    preco = round(preco*quantidade_reservada, 2)
+    
+    
     hoje = datetime.datetime.today()
-    preco = getPrecoEspaco(id_espaco)
+    
     dicionario = {
         'id_cliente': cliente.id_cliente,
         'id_espaco': id_espaco,
@@ -350,41 +386,45 @@ def getForm(request, id_tipo_espaco):
 
 
 def getFormErrors(dicionario, event_list):
-    hora_entrada = datetime.datetime.strptime(dicionario['hora_entrada'], "%H:%M:%S")
-    hora_saida = datetime.datetime.strptime(dicionario['hora_saida'], "%H:%M:%S")
-    dataReserva = datetime.datetime.strptime(dicionario['data_reserva'], "%d/%m/%Y")
-    hoje = datetime.datetime.today()
+    if len(dicionario['hora_entrada'].split(':')) == 2:
+        dicionario['hora_entrada'] += ':00'
+    if len(dicionario['hora_saida'].split(':')) == 2:
+        dicionario['hora_saida'] += ':00'
+    hora_entrada = datetime.datetime.strptime(dicionario['data_reserva'] +'_'+ dicionario['hora_entrada'], "%d/%m/%Y_%H:%M:%S")
+    hora_saida = datetime.datetime.strptime(dicionario['data_reserva'] +'_'+ dicionario['hora_saida'], "%d/%m/%Y_%H:%M:%S")
+    # dataReserva = datetime.datetime.strptime(dicionario['data_reserva'], "%d/%m/%Y")
+    agora = datetime.datetime.today()
     error = None
     hasErrors = False
 
     if hora_entrada > hora_saida:
         hasErrors = True
-        error = _('ERRO! A hora de entra não pode ser menor que a hora de saída.')
-    elif dataReserva < hoje:
+        error = _('ERRO! A hora de entrada não pode ser menor que a hora de saída.')
+    elif hora_entrada < agora:
         hasErrors = True
         error = _('ERRO! A data informada já passou!')
     elif (hora_saida - hora_entrada) < datetime.timedelta(minutes=30):
         hasErrors = True
         error = _('ERRO! O tempo mínimo de reserva é 30 minutos.')
-    elif (dataReserva - hoje) > datetime.timedelta(days=30):
+    elif (hora_entrada - agora) > datetime.timedelta(days=60):
         hasErrors = True
         error = _(
-            'ERRO! Não é possível realizar reservas de forma programática para mais de 30 dias. Entre em contato conosco.')
+            'ERRO! Não é possível realizar reservas de forma programática para mais de 60 dias. Entre em contato conosco.')
     else:
         # Confere os eventos reservados
         for evento in event_list:
-            hora, minuto, segundo = dicionario['hora_entrada'].split(':')
-            dhora_entrada = datetime.datetime.combine(dataReserva, datetime.time(int(hora), int(minuto), int(segundo)))
-            hora, minuto, segundo = dicionario['hora_saida'].split(':')
-            dhora_saida = datetime.datetime.combine(dataReserva, datetime.time(int(hora), int(minuto), int(segundo)))
+            # hora, minuto, segundo = dicionario['hora_entrada'].split(':')
+            # dhora_entrada = datetime.datetime.combine(dataReserva, datetime.time(int(hora), int(minuto), int(segundo)))
+            # hora, minuto, segundo = dicionario['hora_saida'].split(':')
+            # dhora_saida = datetime.datetime.combine(dataReserva, datetime.time(int(hora), int(minuto), int(segundo)))
             inicioEvento = datetime.datetime.strptime(evento['start'], '%Y-%m-%dT%H:%M:%S')
             fimEvento = datetime.datetime.strptime(evento['end'], '%Y-%m-%dT%H:%M:%S')
-            if (inicioEvento < dhora_entrada < fimEvento) or (
-                    inicioEvento < dhora_saida < fimEvento):
+            if (inicioEvento < hora_entrada < fimEvento) or (
+                    inicioEvento < hora_saida < fimEvento):
                 hasErrors = True
                 error = _('Horário já reservado. Escolha outro.')
                 break
-        diaSemana = dataReserva.weekday()
+        diaSemana = hora_entrada.weekday()
 
         # Converte dia da semana para modelo do full calendar
         if diaSemana == 6:
@@ -404,7 +444,97 @@ def getFormErrors(dicionario, event_list):
     return hasErrors, error
 
 
+def getFormErrorsByApi(dicionario, request, context):
+    # hora_entrada = datetime.datetime.strptime(dicionario['hora_entrada'], "%H:%M:%S")
+    # hora_saida = datetime.datetime.strptime(dicionario['hora_saida'], "%H:%M:%S")
+    # dataReserva = datetime.datetime.strptime(dicionario['data_reserva'], "%d/%m/%Y")
+    # data_reserva_ISO = dataReserva.strftime("%Y-%m-%d")
+    # hoje = datetime.datetime.today().replace(hour=0, minute=0, second=0, microsecond=0)
+    print("RESERVAAAAAAAAAAAAAAAAAAAA")
+    if len(dicionario['hora_entrada'].split(':')) == 2:
+        dicionario['hora_entrada'] += ':00'
+    if len(dicionario['hora_saida'].split(':')) == 2:
+        dicionario['hora_saida'] += ':00'
+    hora_entrada = datetime.datetime.strptime(
+        dicionario['data_reserva'] +'_'+ dicionario['hora_entrada'], "%d/%m/%Y_%H:%M:%S")
+    hora_saida = datetime.datetime.strptime(
+        dicionario['data_reserva'] +'_'+ dicionario['hora_saida'], "%d/%m/%Y_%H:%M:%S")
+    data_reserva_ISO = hora_entrada.strftime("%Y-%m-%d")
+    agora = datetime.datetime.today()
+    quantidade_reservada = request.POST['quantidade_reservada']
+    domain = context['domain']
+    error = None
+    hasErrors = False
+
+    if hora_entrada > hora_saida:
+        hasErrors = True
+        error = _('ERRO! A hora de entrada não pode ser menor que a hora de saída.')
+    elif hora_entrada < agora:
+        hasErrors = True
+        error = _('ERRO! A hora informada já passou!')
+    elif (hora_saida - hora_entrada) < datetime.timedelta(minutes=30):
+        hasErrors = True
+        error = _('ERRO! O tempo mínimo de reserva é 30 minutos.')
+    elif (hora_entrada - agora) > datetime.timedelta(days=60):
+        hasErrors = True
+        error = _(
+            'ERRO! Não é possível realizar reservas de forma programática para mais de 60 dias. Entre em contato conosco.')
+    else:
+        html_doc = requests.get(f"{context['protocol']}://{domain}/api/reserva_event/{data_reserva_ISO}/{dicionario['id_cliente']}/"
+                                f"{dicionario['id_espaco']}/{quantidade_reservada}/?format=json").content
+        resposta_json = ast.literal_eval(html_doc.decode('ascii'))
+        print('JSON DE RESPUESTA AAAAAAAAHAHAHAHGAHAHAHAHAH TO SEM SANIDADE MENTAL')
+        print(resposta_json)
+        event_list = [] if resposta_json == [] else resposta_json['event_list']
+        # Confere os eventos reservados
+        for evento in event_list:
+            print('eventoaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+            print(evento)
+            # hora, minuto, segundo = dicionario['hora_entrada'].split(':')
+            # dhora_entrada = datetime.datetime.combine(hora_entrada, datetime.time(int(hora), int(minuto), int(segundo)))
+            # hora, minuto, segundo = dicionario['hora_saida'].split(':')
+            # dhora_saida = datetime.datetime.combine(dataReserva, datetime.time(int(hora), int(minuto), int(segundo)))
+            inicioEvento = datetime.datetime.strptime(evento['start'], '%Y-%m-%dT%H:%M:%S')
+            fimEvento = datetime.datetime.strptime(evento['end'], '%Y-%m-%dT%H:%M:%S')
+            print(inicioEvento)
+            print(fimEvento)
+            print(hora_entrada)
+            print(hora_saida)
+            if (inicioEvento < hora_entrada < fimEvento) or (inicioEvento < hora_saida < fimEvento) or \
+            (hora_entrada < inicioEvento < hora_saida) or (hora_entrada < fimEvento < hora_saida):
+                hasErrors = True
+                error = _('Horário já reservado. Escolha outro.')
+                break
+        diaSemana = hora_entrada.weekday()
+
+        # Converte dia da semana para modelo do full calendar
+        if diaSemana == 6:
+            diaSemana = 0
+        else:
+            diaSemana += 1
+
+        # Confere se a hora está dentro do horário comercial válido dicionario['startTime'] dicionario['endTime']
+        for dicionario in businessHours:
+            if diaSemana in dicionario['daysOfWeek']:
+                # horarioAbertura = datetime.datetime.strptime(dicionario['startTime'], "%H:%M")
+                # horarioFechamento = datetime.datetime.strptime(dicionario['endTime'], "%H:%M")
+                horarioAbertura = hora_entrada.strftime("%H:%M")
+                horarioFechamento = hora_saida.strftime("%H:%M")
+                # print('HORAS HEHEHE')
+                # print(horarioAbertura)
+                # print(horarioFechamento)
+                # print(hora_entrada)
+                # print(hora_saida)
+                if (horarioAbertura < dicionario['startTime']) or (horarioFechamento > dicionario['endTime']):
+                    hasErrors = True
+                    error = _('Fora de horário comercial, tente outro horário.')
+                break
+    return hasErrors, error
+
+
 def getHoraLimpeza(id_espaco, hora_saida):
+    if len(hora_saida.split(':')) == 2:
+        hora_saida += ':00'
     espaco = list(EspacosModel.objects.filter(
         id_espaco=id_espaco
     ))[0]
@@ -414,6 +544,18 @@ def getHoraLimpeza(id_espaco, hora_saida):
     hora_limpeza = dataHoraSaida + datetime.timedelta(hours=int(hourDelta), minutes=int(minDelta),
                                                       seconds=int(segDelta))
     return hora_limpeza
+
+
+def get_pages_of_tipo_espaco(id_tipo_espaco):
+    ITENS_POR_PAGINA: int = 3
+    espacos = EspacosModel.objects.filter(id_tipo_espaco=id_tipo_espaco)
+    p = Paginator(espacos.order_by('preco'), ITENS_POR_PAGINA)
+    pages = []
+    for i in range(p.num_pages):
+        page = p.page(i + 1)
+        page.num_items = len(page.object_list)
+        pages.append(page)
+    return pages
 
 
 def getPrecoEspaco(id_espaco):

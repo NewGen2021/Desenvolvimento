@@ -1,0 +1,88 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "Assinatura" %}{% endblock %}
+{% load hosts %}
+
+
+{% block content %}
+    
+    <!-- ======= Pricing Section ======= -->
+    <section id="pricing" class="pricing">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>{% translate "Preços" %}</h2>
+          <h3>{% translate "Veja nossos" %} <span>{% translate "Preços" %}</span></h3>
+          <p>{% translate "Temos várias opções de assinatura para você." %}</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="box">
+              <h3>{% translate "Plano Básico" %}</h3>
+              <h4><sup>{% translate "R$" %}</sup>250,00<span> {% translate "/mês" %}</span></h4>
+              <ul>
+                <li>{% translate "Gestão de clientes e funcionários" %}</li>
+                <li>{% translate "Gestão de salas e equipamentos" %}</li>
+                <li>{% translate "Agendamento On-line" %}</li>
+                <li>{% translate "Checkin e Checkout via QR-Code" %}</li>
+                <li class="na">{% translate "Controle de Estoque" %}</li>
+                <li class="na">{% translate "Fila de Espera" %}</li>
+                <li class="na">{% translate "Pacote de Horas" %}</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="{% host_url 'pagar_plano' host 'newgen' %}" class="btn btn-primary">{% translate "Assine Agora" %}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="box">
+              <h3>{% translate "Plano Pro" %}</h3>
+              <h4><sup>{% translate "R$" %}</sup>350,00<span> {% translate "/mês" %}</span></h4>
+              <ul>
+                <li>{% translate "Gestão de clientes e funcionários" %}</li>
+                <li>{% translate "Gestão de salas e equipamentos" %}</li>
+                <li>{% translate "Agendamento On-line" %}</li>
+                <li>{% translate "Checkin e Checkout via QR-Code" %}</li>
+                <li>{% translate "Controle de Estoque" %}</li>
+                <li class="na">{% translate "Fila de Espera" %}</li>
+                <li class="na">{% translate "Pacote de Horas" %}</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true" style="font-size: 16px;">
+                  {% translate "Em breve" %}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <div class="box">
+              <h3>{% translate "Plano Prime" %}</h3>
+              <h4><sup>{% translate "R$" %}</sup>450,00<span> {% translate "/mês" %}</span></h4>
+              <ul>
+                <li>{% translate "Gestão de clientes e funcionários" %}</li>
+                <li>{% translate "Gestão de salas e equipamentos" %}</li>
+                <li>{% translate "Agendamento On-line" %}</li>
+                <li>{% translate "Checkin e Checkout via QR-Code" %}</li>
+                <li>{% translate "Controle de Estoque" %}</li>
+                <li>{% translate "Fila de Espera" %}</li>
+                <li>{% translate "Pacote de Horas" %}</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn btn-secondary btn-lg disabled" role="button" aria-disabled="true" style="font-size: 16px;">
+                  {% translate "Em breve" %}</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Pricing Section -->
+  </main><!-- End #main -->
+
+  {% endblock content %}
+  

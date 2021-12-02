@@ -4,7 +4,7 @@
 {% load mathfilters %}
 {% load hosts %}
 
-{% block title %}{% translate "teste" %}{% endblock %}
+{% block title %}{% translate "Agendar horário" %}{% endblock %}
 
 {% block css %}
 
@@ -24,9 +24,16 @@
 #calendar {
     max-width: 1100px;
     margin: 0 auto;
-  }
+}
 
-    .blog .carousel-indicators {
+/* .fc-timegrid-col .fc-day .fc-day-mon .fc-day-today Classes elemento today dia*/
+/* fc-daygrid-day fc-day fc-day-mon fc-day-today  Classes elemento today mês*/
+/* .fc-timegrid-col {background-color: white !important;} */
+/* .fc-day-today {background-color: white !important;} */
+/* 
+.fc-past{background-color:red;} */
+
+.blog .carousel-indicators {
 	left: 0;
 	top: auto;
     bottom: -40px;
@@ -88,8 +95,9 @@ background: #707070;
                                     </a>
                                     <div style="text-align: center;">
                                         <p>{{espaco}}</p>
-                                        <p>{{espaco.get_preco}}</p>
+                                        <p>{{espaco.get_preco}} {% translate "/hr" %}</p>
                                         <p>{% translate "Capacidade: " %}{{espaco.vagas}} {% translate "pessoas" %}</p>
+                                        <input type="hidden" id="vagas_{{espaco.id_espaco}}" class="" value="{{espaco.vagas}}">
                                     </div>
                                 </div>
                                 {% endfor %}
@@ -105,6 +113,96 @@ background: #707070;
     </div>
 </div>
 </section>
+
+{% if compartilhado == 1 %}
+<section id="agendar_sala" style='padding-top: 0.5%; padding-bottom: 0%;'>
+
+  <div class="container align-items-center" style="text-align: center;">
+      <div class="row">
+          <button class="btn {{ button_color }}" type="button" data-toggle="collapse" data-target="#collapseEscolherVagas"
+              aria-expanded="true" aria-controls="collapseEscolherVagas">
+              {% translate "Escolher Quantidade de Reservas" %}
+          </button>
+      </div>
+  
+      <div class="collapse" id="collapseEscolherVagas">
+        <div class="row d-flex align-items-center justify-content-center">
+          <fieldset data-quantity style='margin-top: 1%;'></fieldset>
+            <legend>{% translate "Reservas" %}</legend>
+          <!-- </fieldset> -->
+          <div>
+            <button class="btn btn-danger" type="submit" style="margin-bottom: 2%;" onclick="selecionar_vagas(this)">
+              {% translate "Atualizar" %}</button>
+          </div>
+          
+          <script>
+
+            // let contador = document.getElementsByTagName("quantity")[0][0];
+            // let contador = $('[name="quantity"]')[0];
+            // let fieldset = document.querySelectorAll('[data-quantity]');
+            // fieldset.addEventListener("change", e => {
+            //   let contador = $('[name="quantity"]')[0];
+            //   console.log(contador.value);
+            // });
+            // alert(contador);
+            function updater(quantity) {
+              // console.log(quantity);
+              if (quantity instanceof Event)
+                var valor = quantity.target.value;
+              else
+                var valor = quantity;
+              // $('#quantidade_reservada')[0].value = valor;
+              // if (this.value < 1)
+              // this.value = 1;
+              // if (this.value > get_vagas_atual())
+              // this.value = get_vagas_atual();
+              // console.log(window.quantidade_vagas);
+              if (valor < 1)
+              $('input[name="quantity"]')[0].value = 1;
+              if (valor > get_vagas_atual())
+              $('input[name="quantity"]')[0].value = get_vagas_atual();
+              $('#quantidade_reservada')[0].value = valor;
+            };
+            
+          </script>
+
+          <script>
+
+            function get_vagas_atual(){
+              return $('.vagas_max_atual')[0].value
+            }
+
+            $('body').delegate('input[name="quantity"]', 'change', function() {
+              console.log(this.value);
+              if (this.value < 1)
+              this.value = 1;
+              if (this.value > get_vagas_atual())
+              this.value = get_vagas_atual();
+              $('#quantidade_reservada')[0].value = this.value;
+            });
+            // function botao_mudou(){
+            //   console.log(this);
+            //   // $('input[name="quantity"]')
+            // }
+
+            function selecionar_vagas(this_botao){
+              // var quantidade_reservada = $('#quantidade_reservada')[0].value;
+              // window.calendar()
+              if (window.calendar){
+                delete_events_except_allday_ones();
+                fetch_day_events();
+              }
+            }
+          </script>
+        </div>
+      </div>
+      
+  </div>
+</section>
+{% endif %}
+
+
+
 <section id="agendar_sala" style='padding-top: 0.5%; padding-bottom: 0%;'>
 
     <div class="container align-items-center" style="text-align: center;">
@@ -145,46 +243,15 @@ background: #707070;
         
         
                                 </div>
-                                <!-- {% if compartilhado == 0 %}
-                                  <div class="form-group">
-                                      <label for="recipient-name" class="col-form-label">{% translate "Titulo do Evento:" %}</label>
-                                      {{ form.id_espaco }}
-                                  </div>
-                                  {% endif %} -->
                                 <div class="form-group">
                                     <div class="row d-flex align-items-center">
                                         <label for="message-text" class="col-form-label" style="font-size: 20px;">{% translate "Dia:" %}</label>
                                         <h1 class="col-form-label card-title" id="datepicker-data" style="font-size: 20px;">
                                         </h1>
                                         <input type="hidden" id="data-reserva" name="data-reserva" value="">
+                                        <input type="hidden" id="id_espaco" name="id_espaco" value="">
+                                        <input type="hidden" id="quantidade_reservada" name="quantidade_reservada" value="1">
                                     </div>
-                                    {% if compartilhado == 1 %}
-                                    <div class="row d-flex align-items-center justify-content-center">
-                                        <label for="quantity" class="col-form-label" style="font-size: 20px;">{% translate "Quantidade de reservas:" %}</label>
-                                        <fieldset data-quantity>
-                                            <legend>{% translate "Reservas" %}</legend>
-                                        </fieldset>
-                                        <script>
-
-                                            // let contador = document.getElementsByTagName("quantity")[0][0];
-                                            // let contador = $('[name="quantity"]')[0];
-                                            // let fieldset = document.querySelectorAll('[data-quantity]');
-                                            // fieldset.addEventListener("change", e => {
-                                            //   let contador = $('[name="quantity"]')[0];
-                                            //   console.log(contador.value);
-                                            // });
-                                            // alert(contador);
-                                            function updater(quantity) {
-                                                console.log(quantity);
-                                                if (quantity instanceof Event)
-                                                    var valor = quantity.target.value;
-                                                else
-                                                    var valor = quantity;
-                                                console.log(valor);
-                                            }
-                                        </script>
-                                    </div>
-                                    {% endif %}
                                     <hr>
                                     <div class="row">
                                         <div class="form-group col-lg-6 ">
@@ -250,64 +317,6 @@ background: #707070;
     var calendar;
 </script> -->
 <script>
-    let eventosDebug = [
-        {
-          title: 'All Day Event',
-          start: '2020-09-01'
-        },
-        {
-          title: 'Long Event',
-          start: '2020-09-07',
-          end: '2020-09-10'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-09T16:00:00'
-        },
-        {
-          groupId: 999,
-          title: 'Repeating Event',
-          start: '2020-09-16T16:00:00'
-        },
-        {
-          title: 'Conference',
-          start: '2020-09-11',
-          end: '2020-09-13',
-          backgroundColor: 'black'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T10:30:00',
-          end: '2020-09-12T12:30:00'
-        },
-        {
-          title: 'Lunch',
-          start: '2020-09-12T12:00:00'
-        },
-        {
-          title: 'Meeting',
-          start: '2020-09-12T14:30:00'
-        },
-        {
-          title: 'Happy Hour',
-          start: '2020-09-12T17:30:00'
-        },
-        {
-          title: 'Dinner',
-          start: '2020-09-12T20:00:00'
-        },
-        {
-          title: 'Birthday Party',
-          start: '2020-09-13T07:00:00'
-        },
-        {
-          title: 'Click for Google',
-          url: 'http://google.com/',
-          start: '2020-09-28'
-        }
-      ]
-
     function getMonthFromInfo(info) {
         var date = new Date(info.end);
         date.setMonth(date.getMonth() - 1);
@@ -321,6 +330,36 @@ background: #707070;
     function get_id_espaco() {
         selecionado = document.getElementsByClassName('botao_escolher_espaco active')[0];
         return selecionado.id.split('_')[1];
+    }
+
+    function delete_events_except_allday_ones(){
+      events = calendar.getEvents();
+      for(let i = 0; i < events.length; i++){
+        if (!events[i].allDay){
+          events[i].remove()
+        }
+      }
+    }
+
+    function fetch_day_events(){
+      var current_date = calendar.view.currentStart.toISOString().split('T')[0];
+      // var id_cliente = '{{cliente_id}}';
+      var quantidade_reservada = $('#quantidade_reservada')[0].value;
+      fetch(`/api/reserva_event/${current_date}/{{cliente_id}}/${get_id_espaco()}/${quantidade_reservada}/?format=json`)
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (json) {
+        if (json != {} && json.event_list != undefined){
+          json.event_list.forEach(evento => {
+            calendar.addEvent(evento)
+          });
+        }
+      })
+      .catch(function (e){
+        console.log(e);
+        alert('{% translate "Não foi possível ler as reservas do dia" %}');
+      })
     }
 
     function criar_calendario () {
@@ -355,11 +394,6 @@ background: #707070;
             calendar.setOption('eventDisplay', 'background');
             calendar.setOption('selectable', 'false');
         }
-        changeToWeek = function (info) {
-            calendar.changeView('timeGridWeek', info.dateStr);
-            calendar.setOption('eventDisplay', 'list-item');
-            calendar.setOption('selectable', 'false');
-        }
         changeToDay = function (info) {
             calendar.changeView('timeGridDay', info.dateStr);
             calendar.setOption('eventDisplay', 'list-item');
@@ -374,10 +408,6 @@ background: #707070;
           click: changeToMonth,
           color: '#74b9ff'
         }, 
-        week: {
-          text: 'Semana',
-          click: changeToWeek
-        },
         day: {
           text: 'Dia',
           click: changeToDay
@@ -386,69 +416,22 @@ background: #707070;
       headerToolbar: {
         left: 'prev,next today',
         center: 'title',
-        // right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        right: 'month,week,day'
+        right: 'month,day'
       },
       allDaySlot: false,
       eventDisplay: 'background',
       eventColor: '#74b9ff',
-      
-      // initialDate: '2020-09-12',
       initialDate: today,
-      navLinks: false, // can click day/week names to navigate views
+      navLinks: false,
       selectable: true,
       selectMirror: false,
       eventStartEditable: false,
       businessHours: businessHours,
-
       selectConstraint: "businessHours",
-      // select: function(start, end) {
-      //   alert(start, end);
-      //   calendar.unselect();
-      // },
 
       select: function(arg) {
-          // $("[class=fc-non-business]").hide();
-          // alert($("[class=fc-non-business]").length);
-          // document.getElementById('calendar');
-          // let unvalid_hours = document.getElementsByClassName("fc-non-business");
-          // let final = false;
-          // let tabelaDeHoras = document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1].children;
-          // for (var i = 0; i < unvalid_hours.length; i++) {
-          //   element = unvalid_hours[i]
-          //   h = element.clientHeight;
-          //   horas = Math.round(h / 21.11);  // h / altura do elemento de uma meia hora
-          //   if (!final){
-          //     for (var j = 0; j < horas; j++) {
-          //       // tabelaDeHoras[j].style.display = 'none';
-          //       // tabelaDeHoras[j].parentNode.removeChild(tabelaDeHoras[j]);
-          //       // tabelaDeHoras[j].children[0].style.display = 'none';
-          //       // tabelaDeHoras[j].children[1].style.display = 'none';
-          //       // console.log(tabelaDeHoras[j]);
-          //     }
-          //   }
-          //   else{
-          //     for (var j = tabelaDeHoras.length - horas; j < tabelaDeHoras.length; j++) {
-          //       tabelaDeHoras[j].style.display = 'none';
-          //       // console.log(tabelaDeHoras[j]);
-          //     }
-          //   }
-          //   final = true;
-          // }
           
-          // console.log( document.getElementsByClassName("fc-timegrid-slots")[0].children[0].children[1] );
-          // /* for (element in unvalid_hours){
-          //   console.log(element);
-          //   console.log(element.clientHeight);
-          // } */
-          // console.log(unvalid_hours);
-          // console.log('ALOOOOOO3');
-          // $("[class=fc-timegrid-bg-harness]").hide();
-          // this.minTime = "14:00:00";
           function getTime(date){
-            // const hour = date.getHours();
-            // const minute = date.getMinutes();
-            // const second = date.getSeconds();
             return date.toTimeString().split(" ")[0];
           }
           var modal = document.getElementById('eventModal')
@@ -463,77 +446,22 @@ background: #707070;
           calendar.unselect()
           
         },
-/* 
-      select: function(arg) {
-        // var title = prompt('Event Title:');
-        // if (title) {
-        //   calendar.addEvent({
-        //     title: title,
-        //     start: arg.start,
-        //     end: arg.end,
-        //     allDay: arg.allDay
-        //   })
-        // }
-        // calendar.unselect()
-        
-        
-      }, */
-      
       dateClick: function (info) {
         if (calendar.view.type == 'dayGridMonth') {
+
           if (!hasClass(info.dayEl, 'fc-day-past')) {
             calendar.changeView('timeGridDay', info.dateStr);
             calendar.setOption('eventDisplay', 'list-item');
-            console.log(info);
-            fetch(`/api/reserva_event/${info.dateStr}/{{cliente_id}}/1/?format=json`)
-              .then(function (response) {
-                return response.json()
-              })
-              .then(function (json) {
-                if (json != {} && json.event_list != undefined){
-                  // for(var event in json.event_list){
-                  //   calendar.addEvent(event);
-                  // }
-                  json.event_list.forEach(evento => {
-                    calendar.addEvent(evento)
-                  });
-                  // calendar.addEvent({
-                  //   title: 'dynamic event',
-                  //   start: "2021-10-29T13:00:00",
-                  //   end: "2021-10-29T15:00:00",
-                  //   color:"lightblue",
-                  //   textColor:"black"
-                  // });
-                  
-                }
-                
-                console.log("Aloooo");
-                  // addEvent(json[0]);
-
-                console.log(json);
-                console.log("DATECLICK");
-                    // document.getElementById(`id_preco`).value = json[0].preco;
-                // preco_field.setAttribute('placeholder', json[0].preco);
-              })
-              .catch(function (e){
-                console.log(e);
-                alert('{% translate "Não foi possível ler as reservas do dia" %}');
-              })
           }
           else{
             alert('{% translate "Este dia já passou." %}');
           }
-          
-          console.log(info);
         }
         else{
           // alert(`${info.date.getHours()}:${info.date.getMinutes() == 0 ? '00' : '30'}`);
         }
       },
       eventClick: function(calEvent) {
-        // if (confirm('Are you sure you want to delete this event?')) {
-        //   arg.event.remove()
-        // }
         if (calendar.view.type == 'dayGridMonth') {
           
         }
@@ -542,12 +470,73 @@ background: #707070;
         }
         
       },
-      viewRender: function (view, element) {
-        console.log(view);
-        console.log(element);
-        },
-      // editable: true,
-      dayMaxEvents: true, // allow "more" link when too many events
+      datesSet: function(info){
+        if (info.view.type == "timeGridDay"){
+          // calendar.setOption('visibleRange', function(currentDate) {
+          //   return { start: new Date(currentDate.valueOf()) };
+          // });
+          let dia = `${info.start.getFullYear()}-${info.start.getMonth()}-${info.start.getDate()}`
+          let today = new Date()
+          let hoje = `${today.getFullYear()}-${today.getMonth()}-${today.getDate()}`
+          console.log(info)
+          // console.log(info.start);
+          // console.log(info.start.getFullYear());
+          console.log(dia)
+          console.log(hoje)
+          
+          console.log(dia == hoje)
+          if(dia == hoje) { $('.fc-prev-button')[0].setAttribute("disabled","true"); }
+          else { $('.fc-prev-button')[0].removeAttribute("disabled"); }
+          // else { jQuery('.fc-button-prev').removeClass("fc-state-disabled"); }
+          delete_events_except_allday_ones();
+          var quantidade_reservada = $('#quantidade_reservada')[0].value;
+          fetch(`/api/reserva_event/${info.startStr.split('T')[0]}/{{cliente_id}}/${get_id_espaco()}/${quantidade_reservada}/?format=json`)
+            .then(function (response) {
+              return response.json()
+            })
+            .then(function (json) {
+              if (json != {} && json.event_list != undefined){
+                json.event_list.forEach(evento => {
+                  calendar.addEvent(evento)
+                });
+              }
+            })
+            .catch(function (e){
+              console.log(e);
+              alert('{% translate "Não foi possível ler as reservas do dia" %}');
+            })
+        }
+        else{
+          // calendar.setOption('visibleRange', {
+          //   start: '2020-1-1'
+          // });
+          past_elements = document.getElementsByClassName('fc-day-past');
+          for(let i = 0; i < past_elements.length; i++)
+          past_elements[i].classList.add('fc-day-other');
+
+          /* var mes = getMonthFromInfo(info);
+          fetch(`/api/month_event/${mes}/{{cliente_id}}/${get_id_espaco()}/?format=json`)
+              .then(function (response) {
+                return response.json()
+              })
+              .then(function (json) {
+                console.log(json);
+                if (json != []){
+                  json.forEach(evento => {
+                    calendar.addEvent(evento);
+                    console.log('batata');
+                  });
+                }
+              })
+              .catch(function (e) {
+                alert('{% translate "Não foi possível ler as reservas do dia" %}');
+                failureCallback(e);
+              }) */
+
+
+        }
+      },
+      dayMaxEvents: true,
       slotLabelFormat: {
         hour: '2-digit',
         minute: '2-digit',
@@ -555,85 +544,40 @@ background: #707070;
       },
       // events: {{ eventos|safe }},
       eventSources: [
-
-        // your event source
-        // {
-        //   url: 'http://{{domain}}/api/month_event/10/1/1/?format=json', // use the `url` property
-
-        //   // color: 'yellow',    // an option!
-        //   // textColor: 'black'  // an option!
-        // },
         {
           events: function get_month_reservas(info, successCallback, failureCallback) {
             console.log(info);
             var mes = getMonthFromInfo(info);
-            return fetch(`/api/month_event/${mes}/1/${get_id_espaco()}/?format=json`)
+            return fetch(`/api/month_event/${mes}/{{cliente_id}}/${get_id_espaco()}/?format=json`)
               .then(function (response) {
                 return response.json()
               })
               .then(function (json) {
+                console.log(json);
+                if (json != []){
+                  json.forEach(evento => {
+                    calendar.addEvent(evento)
+                  });
+                }
                 return json;
               })
               .catch(function (e) {
                 alert('{% translate "Não foi possível ler as reservas do dia" %}');
                 failureCallback(e);
               })
-            //   return {start: '2021-10-27T01:00:00', end: '2021-10-27T23:00:00', allDay: true,
-            // color: 'yellow',    
-            //     textColor: 'black'  }
-
           }
-
         }
-
-        // any other sources...
-
       ],
+      nowIndicator: true,
       eventTimeFormat: { 
         hour: '2-digit',
         minute: '2-digit',
         hour12:false,
       }
-      // events: eventosDebug
-      
-
     });
-        
-        // window.calendar = new FullCalendar.Calendar(calendarEl, {
-        //         initialView: 'dayGridMonth'
-        //     });
-        // var calendar = $('#calendar').fullCalendar({
-        //     defaultDate: '2014-09-12',
-        //     editable: true,
-        //     eventLimit: true, // allow "more" link when too many events
-        // });
-        console.log("chegou2");
-        $("#change_space").on('change', function () {
-            alert("OPAAAAA");
-            calendar.refetchEvents();
-        });
-        console.log("Chegou3");
 
-        // let changer = document.getElementById("change_space");
-        // changer.addEventListener('change', () => {
-        //     alert("OPAAAAA");
-        // });
-        // calendarEl.aaaa = calendar();
-        // console.log(calendarEl);
-        // console.log(calendarEl.aaaa);
-        // function bindToNode(node, name, fn) {
-        // node[name] = fn.bind(node);
-        // }
-        // bindToNode(calendarEl, 'logValue', calendar.FullCalendar);
-
-        window.calendar.render();
+      window.calendar.render();
     };
-    
-    function ajustar_tamanho_calendario(){
-        // var calendarEl = document.getElementById('calendar');
-        // calendarEl.updateSize();
-        calendar.updateSize();
-    }
 
     const closeBtn1 = document.getElementById('modalClose1');
     const closeBtn2 = document.getElementById('modalClose2');
@@ -661,31 +605,55 @@ background: #707070;
 
 <script>
     function selecionar(botao){
+      '/* lógica de desativar antigo */'
         console.log(botao);
         if (document.getElementsByClassName('botao_escolher_espaco active')[0]){
             let botao_ativo = document.getElementsByClassName('botao_escolher_espaco active')[0];
             botao_ativo.classList.remove('active');
             botao_ativo.classList.add('btn-outline-light');
             botao_ativo.classList.remove('{{ button_color }}');
-            botao_ativo.children[2].innerHTML = '{% translate "Escolher" %}'
+            botao_ativo.children[2].innerHTML = '{% translate "Escolher" %}';
+            input_vagas_max = document.getElementsByClassName('vagas_max_atual')[0]
+            if (input_vagas_max != undefined)
+            input_vagas_max.classList.remove('vagas_max_atual');
         }
+
+        '/* lógica de ativar novo */'
         botao.classList.add('active');
         botao.classList.remove('btn-outline-light');
         botao.classList.add('{{ button_color}}');
         botao.children[2].innerHTML = '{% translate "Escolhido" %}';
         $('#collapseEscolherHorario').collapse('show');
         document.getElementById('calendar_inner_text').innerText = '';
+        let id_espaco = get_id_espaco();
+        document.getElementById('id_espaco').value = id_espaco;
         criar_calendario();
+        
+        document.getElementById(`vagas_${id_espaco}`).classList.add('vagas_max_atual');
+        let vagas = get_vagas_atual(); // Não trocar a ordem com a linha de cima!! (tem que rodar nesta ordem)
+        if (vagas < $('input[name="quantity"]')[0].value){
+          $('input[name="quantity"]')[0].value = vagas;
+          $('#quantidade_reservada')[0].value = vagas;
+        }
+        
     }
 
-    $('#collapseEscolherHorario').on('shown.bs.collapse', function (e) {
-        // try{
-        //     $('#calendar').updateSize();
-        // } catch(e){}
-        // ajustar_tamanho_calendario();
-        // $('#calendar').updateSize();
-        // alert('Event fired on #' + e.currentTarget.id);
+    // function selecionar_vagas(thisbotao){
+    //   console.log(window.quantidade_vagas)
+    // }
+
+    $('#collapseEscolherHorario').on('shown.bs.collapse', 
+    function (e) {
+      try{
         window.calendar.updateSize();
+      } catch (error){
+        // Se acontecer de dar um TypeError é porque a página ainda não carregou o calendário
+        // e este é um comportamento esperado.
+        if (error != TypeError){
+          throw error;
+        }
+      }
     })
+
 </script>
 {% endblock js %}

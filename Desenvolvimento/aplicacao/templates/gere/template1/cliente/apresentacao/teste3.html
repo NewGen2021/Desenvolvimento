@@ -1,0 +1,317 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "Formulário de pagamento" %}{% endblock %}
+
+{% block css %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<style>
+img {
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
+brn-group {
+    overflow-y: scroll;
+}
+input.invalid {
+  background-color: #ffdddd;
+}
+[type='radio'] {
+display: none; 
+}
+select#id_tipo_documento{
+    height: auto !important;
+}
+select#id_parcelas{
+    height: auto !important;
+}
+
+select#id_banco{
+    height: auto !important;
+}
+/* select#parcelas{
+    height: auto !important;
+} */
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 style="margin-top: 10%;">Olá mundo</h1>
+    {% for espaco in espacos %}
+    <h2>{{espaco}}</h2>
+    {% endfor %}
+</div>
+
+
+<div class="container">
+	<div class="row form-group">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                <li class="active"><a href="#step-1">
+                    <h4 class="list-group-item-heading">{% translate "Passo 1" %}</h4>
+                    <p class="list-group-item-text">{% translate "Escolher modo de agendamento" %}</p>
+                </a></li>
+                <li class="disabled"><a href="#step-2">
+                    <h4 class="list-group-item-heading">{% translate "Passo 2" %}</h4>
+                    <p class="list-group-item-text">{% translate "Informações pessoais" %}</p>
+                </a></li>
+                <li class="disabled"><a href="#step-3">
+                    <h4 class="list-group-item-heading">{% translate "Passo 3" %}</h4>
+                    <p class="list-group-item-text">{% translate "Informações bancárias" %}</p>
+                </a></li>
+            </ul>
+        </div>
+	</div>
+
+
+<form method="POST" class="form-group" name="formPagamento" id="form-checkout">
+        {% csrf_token %}
+    <div class="row setup-content" id="step-1">
+        <input type="hidden" name="valor_a_pagar" id="valor_a_pagar" value="{{valor_a_pagar}}"> 
+        <div class="col-xs-12">
+            <div class="col-md-12 well text-center">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <!-- <ul style="align-items: center; align-content: center; justify-content: center;"> -->
+                    <ul class="d-flex align-items-center justify-content-center">
+                        <div {% if reserva_desabilitada %}class='tooltip-test' 
+                        title="{% translate 'Faltam menos de 96 horas para esta reserva começar, não é possível efetuar uma reserva.' %}"
+                        {% endif %} style="list-style: none;">
+                            <li {% if reserva_desabilitada %}disabled {% endif %} class="btn btn-light" onclick="handleClick(this);"
+                            id="opcao_reserva">
+                                <input type="radio" name="options" autocomplete="off">
+                                <h3>{% translate "Reservar" %}</h3>
+                                <img src="https://icons.iconarchive.com/icons/google/noto-emoji-smileys/256/10024-thinking-face-icon.png"
+                                    alt="" width="24" height="24" class="-avatar js-avatar-me">
+                            </li>
+                        </div>
+                        <li class="btn btn-light active" id="opcao_aluga" onclick="handleClick(this);">
+                            <input type="radio" name="options" autocomplete="off" checked>
+                            <h3>{% translate "Alugar" %}</h3>
+                            <img src="https://images.emojiterra.com/twitter/512px/1f5d3.png" alt="" width="24" height="24"
+                                class="-avatar js-avatar-me">
+                        </li>
+                    </ul>
+                    <div id='reserva_info' style="text-align: center; justify-content: center; align-items: center;" class="hide">
+                        <!-- <h1> STEP 1</h1> -->
+                        <p><strong>{% translate "Reservar:" %}</strong> {% translate "Pagar uma taxa pequena para já reservar o espaço desejado e depois pagar o valor integral quando tiver o dinheiro." %}</p>
+                        <small>{% translate "Atenção: Depois de 3 dias se o valor integral não for pago, o valor é perdido e o espaço se torna disponível para outro cliente." %}</small>
+                    </div>
+                    <div id='aluguel_info' style="text-align: center; justify-content: center; align-items: center;" class="">
+                        <!-- <h1> STEP 1</h1> -->
+                        <p><strong>{% translate "Alugar:" %}</strong> {% translate "Pagar o valor integral da reserva e já garantir o seu espaço agora." %}</p>
+                    </div>
+                    <script>
+                        // var currentValue = 0;
+                        function handleClick(myRadio) {
+                            // alert('Old value: ' + currentValue);
+                            // alert('New value: ' + myRadio.id);
+                            console.log('Teste');
+                            console.log(myRadio.id);
+                            if (myRadio.id == 'opcao_reserva'){
+                                document.getElementById('aluguel_info').classList.add('hide');
+                                document.getElementById('reserva_info').classList.remove('hide');
+                                hidden_input = document.getElementById('valor_a_pagar');
+                                if (hidden_input.value == {{valor_a_pagar}})
+                                hidden_input.value = (hidden_input.value * {{taxa_reserva}});
+                            }
+                            else{
+                                document.getElementById('reserva_info').classList.add('hide');
+                                document.getElementById('aluguel_info').classList.remove('hide');
+                                hidden_input = document.getElementById('valor_a_pagar');
+                                if (hidden_input.value != {{valor_a_pagar}})
+                                hidden_input.value = (hidden_input.value / {{taxa_reserva}});
+                            }
+                            // currentValue = myRadio.value;
+                        }
+
+                    </script>
+                    <hr>
+                    <div>
+                        <button id="activate-step-2" class="btn {{ button_color }} btn-lg">{% translate "Avançar"%}</button>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row setup-content" id="step-2">
+        <div class="col-xs-12">
+            <div class="col-md-12 well">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{ form.nome_cartao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-6">
+                        {{ form.tipo_documento|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-6">
+                        {{ form.numero_documento|as_crispy_field }}
+                    </div>
+                </div>
+                <hr>
+                <div>
+                    <button id="activate-step-3" class="btn {{ button_color }} btn-lg">{% translate "Avançar"%}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="row setup-content" id="step-3">
+        <div class="col-xs-12">
+            <div class="col-md-12 well">
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{ form.numero_cartao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{ form.parcelas|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-12">
+                        {{ form.banco|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="form-row d-flex align-items-center">
+                    <div class="form-group col-7">
+                        {{ form.codigo_seguranca|as_crispy_field }}
+                    </div>
+                    <div class="form-group col-2 tooltip-test" title="{% translate 'Mês vencimento' %}">
+                        {{ form.mes_vencimento|as_crispy_field }}
+                    </div>
+                    <strong style="font-size: 20px;">/</strong>
+                    <div class="form-group col-2 tooltip-test" title="{% translate 'Ano vencimento' %}">
+                        {{ form.ano_vencimento|as_crispy_field }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+</div>
+
+
+{% endblock content %}
+
+{% block js %}
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script>
+$(document).ready(function() {
+    
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    allWells.hide();
+
+    navListItems.click(function(e)
+    {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active');
+            $item.addClass('active');
+            allWells.hide();
+            $target.show();
+        }
+    });
+    
+    $('ul.setup-panel li.active a').trigger('click');
+    
+    // DEMO ONLY //
+    $('#activate-step-2').on('click', function(e) {
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+        $(this).remove();
+    })    
+    $('#activate-step-3').on('click', function(e) {
+
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })   
+
+    function validateFormPessoal() {
+        // This function deals with validation of the form fields
+        // var x, y, i, valid = true;
+        // x = document.getElementsByClassName("tab");
+        // y = x[currentTab].getElementsByTagName("input");
+        // // A loop that checks every input field in the current tab:
+        // for (i = 0; i < y.length; i++) {
+        //     // If a field is empty...
+        //     if (y[i].value == "") {
+
+        //     // add an "invalid" class to the field:
+        //     y[i].className += " invalid";
+        //     // and set the current valid status to false:
+        //     valid = false;
+        //     }
+        // }
+        // // If the valid status is true, mark the step as finished and valid:
+        // if (valid) {
+        //     document.getElementsByClassName("step")[currentTab].className += " finish";
+        // }
+        // return valid; // return the valid status
+        
+        campo_nome = document.getElementById("id_nome_cartao")
+        if (campo_nome.value == "")
+        campo_nome.classList.add('invalid');
+
+        campo_email = document.getElementById("id_email");
+        if (email.value == "")
+        email.classList.add('invalid');
+
+        campo_tipo_documento = document.getElementById("id_tipo_documento");
+        if (campo_tipo_documento.value == "")
+        campo_tipo_documento.classList.add('invalid');
+
+        campo_numero_documento = document.getElementById("id_numero_documento");
+        if (campo_numero_documento.value == "")
+        campo_numero_documento.classList.add('invalid');
+        }
+
+    function fixStepIndicator(n) {
+        // This function removes the "active" class of all steps...
+        var i, x = document.getElementsByClassName("step");
+        for (i = 0; i < x.length; i++) {
+            x[i].className = x[i].className.replace(" active", "");
+        }
+        //... and adds the "active" class to the current step:
+        x[n].className += " active";
+    }
+});
+
+
+</script>
+{% endblock js %}

@@ -1,4 +1,5 @@
 from rest_framework import (viewsets, generics)
+import copy
 from rest_framework.views import APIView
 from rest_framework import status
 from cria_coworking.models import Administrador
@@ -43,8 +44,6 @@ class PagamentoAPIView(APIView):
 
     @staticmethod
     def get(request):
-        print('GETTTTTTTTTTTTTTTTT')
-        print(request.data)
         pagamentos = PagamentoModel.objects.all()
         serializer = serializers.PagamentoSerializer(pagamentos, many=True)
         return Response(serializer.data)
@@ -54,26 +53,10 @@ class PagamentoAPIView(APIView):
     def post(request):
         id_reserva = request.data.pop('id_reserva')
         pagamento = b_pagamento.efetuar_pagamento(request)
-
-        # json = {
-        #     "metodo": "Cartão de Débito",
-        #     "cod_mercadopago": 65117,
-        #     "status_pagamento": 1,
-        #     "id_reserva": 2,
-        # }
-        print('VIEWSETTTTTTTTTTTTTTTTTO')
-        print(pagamento)
-        print(request.data)
-        # try:
-        #     pagamento = PagamentoModel.objects.get(id_reserva=ReservaModel.objects.get(id_reserva=981))
-        #     PagamentoModel.objects.update_or_create
-        # except ReservaModel.DoesNotExist:
-        #     pagamento = PagamentoModel.objects.create(metodo="Cartão de Débito", cod_mercadopago=65117, status_pagamento=1, id_reserva=ReservaModel(id_reserva=2))
         metodo = pagamento.get('payment_type_id')
         cod_mercadopago = pagamento.get('id')
         status_pagamento = pagamento.get('status')
         for choice in mc.PAGAMENTO_STATUS_CHOICES:
-            print(choice, status_pagamento)
             if choice[1] == status_pagamento:
                 status_pagamento = choice[0]
                 break
@@ -159,6 +142,7 @@ class ReservaEventDateViewset(generics.ListAPIView):
         data_reserva = self.kwargs['data_reserva']
         id_cliente = int(self.kwargs['id_cliente'])
         id_espaco = int(self.kwargs['id_espaco'])
+        qtd_reservada = int(self.kwargs['qtd_reservada'])
         id_tipo_espaco = EspacosModel.objects.get(id_espaco=id_espaco).id_tipo_espaco
         self.is_compartilhado = EspacosModel.objects.get(id_espaco=id_espaco).id_tipo_espaco.compartilhado
 
@@ -188,8 +172,11 @@ class ReservaEventDateViewset(generics.ListAPIView):
                 vagas = EspacosModel.objects.get(id_espaco=self.id_espaco).vagas
             except AttributeError:
                 vagas = VAGAS_DEFAULT
-            response.data['event_list'] = getEventoReservasLotadasViewSet(date_dict, vagas, event_list, data_reserva)
-            response.data['vagas_dict'] = get_vagas_dict(date_dict, vagas)
+            response.data['vagas_dict'] = get_vagas_dict(copy.deepcopy(date_dict), vagas)
+            response.data['event_list'] = getEventoReservasLotadasViewSet(copy.deepcopy(date_dict), vagas, qtd_reservada, event_list, data_reserva)
+            print('date_dict aspoijdaposdkaspdkapsodkpokdpdkapsodkkapods')
+            print(date_dict)
+            
         else:
             for reserva in reservas:
                 reserva_do_usuario = id_cliente == reserva['id_cliente']
@@ -237,16 +224,7 @@ class ReservaEventMonthViewset(generics.ListAPIView):
         # call the original 'list' to get the original response
         response = super(ReservaEventMonthViewset, self).list(request, *args, **kwargs)
         self.start = request.GET.get('start', False)
-        print('FULL CALENDAR TESTES')
-        print(request.GET.get('format', False))
-        print(self.start)
-        # reservas = list(response.data)
-        # # date = datetime.datetime.today().date()
-        # if response.data == []:
-        #     return response
-        # date = reservas[0]['data_reserva']
-        # waiting_another_date = False
-
+        
         """ response.data = {'event_list':[]} """
         response.data = []
         hoje = datetime.today()
@@ -279,58 +257,6 @@ class ReservaEventMonthViewset(generics.ListAPIView):
                     """ response.data['event_list'].append(getEventoMes(porcentagem, self.CORES_OCUPADO, date)) """
                     response.data.append(getEventoMes(porcentagem, self.CORES_OCUPADO, date))
             date += timedelta(days=1)
-        return response
-
-        # def get_evento(date, reservas_do_dia):
-        # date_dict = getDicionarioReservasDia(id_espaco=self.id_espaco, dia=date, reservas=reservas_do_dia)
-        # porcentagem = getPorcentagemOcupadaDia(date_dict, max_vaga=self.vagas)
-        # return getEventoMes(porcentagem, self.CORES_OCUPADO, date)
-        """ 
-        for i, reserva in enumerate(reservas):
-            reserva = dict(reserva)
-            if reserva['data_reserva'] != date:
-                if reservas_do_dia != []:
-                    # date_dict = getDicionarioReservasDia(id_espaco=self.id_espaco, dia=date, reservas=reservas_do_dia)
-                    # porcentagem = getPorcentagemOcupadaDia(date_dict, max_vaga=self.vagas)
-                    # response.data['event_list'].append(getEventoMes(porcentagem, self.CORES_OCUPADO, date))
-                    response.data['event_list'].append(get_evento(date, reservas_do_dia))
-                if i == len(reservas)-1 and reserva['id_cliente'] != self.id_cliente:
-                    date = reserva['data_reserva']
-                    reservas_do_dia.append(reserva)
-                    # date_dict = getDicionarioReservasDia(id_espaco=self.id_espaco, dia=date, reservas=reservas_do_dia)
-                    # porcentagem = getPorcentagemOcupadaDia(date_dict, max_vaga=self.vagas)
-                    # response.data['event_list'].append(getEventoMes(porcentagem, self.CORES_OCUPADO, date))
-                    response.data['event_list'].append(get_evento(date, reservas_do_dia))
-                    continue
-                reservas_do_dia = []
-
-            # if waiting_another_date is False and reserva['data_reserva'] == date:
-            if reserva['id_cliente'] == self.id_cliente:
-                waiting_another_date = True
-                response.data['event_list'].append( {
-                # 'title': _('Sem vagas'),
-                'start': f'{date}T01:00:00',
-                'end': f'{date}T23:00:00',
-                'color': self.COR_RESERVA_USUARIO[0],
-                'textColor': self.COR_RESERVA_USUARIO[1],
-                })
-                reservas_do_dia = []
-                date = reserva['data_reserva']
-                continue
-            reservas_do_dia.append(reserva)
-            date = reserva['data_reserva']
-
-        """
-
-        # date = datetime.datetime.today().date()
-        # while date.month == self.mes+1:
-        #     reservas = []
-        #     reservas += ReservaModel.objects.filter(id_espaco=self.id_espaco, data_reserva=date)
-        #     for reserva in reservas:
-
-        #     date += datetime.timedelta(days=1)
-        # for reserva in reservas:
-
         return response
 
 
@@ -385,6 +311,36 @@ class ReservaValidationViewset(generics.ListAPIView):
         response.data = reserva
         return response
 
+class IniciaReservaViewSet(generics.ListAPIView):
+    serializer_class = serializers.IniciaReservaSerializer
+
+    def get_queryset(self):
+       
+        self.id_reserva = self.kwargs['id_reserva']
+        #self.hora_saida_real = self.kwargs['hora_saida_real']
+        return ReservaModel.objects.filter(
+            id_reserva=self.id_reserva
+        )
+
+    def list(self, request, *args, **kwargs):
+        # call the original 'list' to get the original response
+        response = super(IniciaReservaViewSet, self).list(request, *args, **kwargs)
+        lista = response.data
+        reserva = {}
+        try:
+            reserva = lista[0]
+        except IndexError:
+            response.data = {'valido':False}
+            return response
+        if reserva['hora_entrada_real'] is None and reserva['data_reserva'] == datetime.now().strftime("%Y-%m-%d"):
+            reserva['valido'] = True
+            ReservaModel.objects.filter(id_reserva=self.id_reserva).update(hora_entrada_real = datetime.now().strftime("%H:%M:%S"))           
+        else:
+            reserva['valido'] = False
+
+        response.data = reserva
+        return response
+
 
 class FinalizaReservaViewset(generics.ListAPIView):
     serializer_class = serializers.FinalizarReservaSerializer
@@ -403,14 +359,18 @@ class FinalizaReservaViewset(generics.ListAPIView):
         lista = response.data
         reserva = {}
         try:
+            print("Passo 1")
             reserva = lista[0]
         except IndexError:
+            print("Passo 2")
             response.data = {'valido':False}
             return response
         if reserva['hora_entrada_real'] is not None:
+            print("Passo 3")
             reserva['valido'] = True
             ReservaModel.objects.filter(id_reserva=self.id_reserva).update(hora_saida_real = datetime.now().strftime("%H:%M:%S"))           
         else:
+            print("Passo 4")
             reserva['valido'] = False
 
         response.data = reserva

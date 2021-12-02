@@ -1,17 +1,16 @@
 {% extends 'cria/base.html' %}
 {% load static %}
 {% load i18n %}
-{% load hosts %}
 {% block title %}{% translate "NewGen" %}{% endblock %}
+{% load hosts %}
 
 
 {% block content %}
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>{% translate "Bem vindo à" %} <span>NewGen</span></h1>
-      <h2>{% translate ">Somos um sistema de gerencimento de coworking, que vai ajudar você e seu negócio 
-        a prosperarem neste ramo!" %}</h2>
+      <h1>{% translate "Bem vindo à" %} <span>{% translate "NewGen" %}</span></h1>
+      <h2>{% translate "Somos um sistema de gerencimento de coworking, que vai ajudar você e seu negócio a prosperarem neste ramo!" %}</h2>
       <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">{% translate "Saiba mais" %}</a>
       </div>
@@ -31,8 +30,7 @@
             <img src="{% static 'img/logoGif.gif' %}" class="img-fluid" alt="">
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="100">
-            <h3>{% translate "Nossa empresa disponiliza um sistema com a sua identidade, com seus valores e princícipos. 
-              Tornamos a tarefa de administrar um coworking muito mais acessível para você." %}</h3>
+            <h3>{% translate "Nossa empresa disponiliza um sistema com a sua identidade, com seus valores e princícipos. Tornamos a tarefa de administrar um coworking muito mais acessível para você." %}</h3>
             <ul>
               <li>
                 <i class="bi bi-upc-scan"></i>
@@ -76,7 +74,7 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-clipboard-data"></i></div>
-              <h4><a>{5 Translate "Relatórios Analíticos" %}</a></h4>
+              <h4><a>{% translate "Relatórios Analíticos" %}</a></h4>
               <p>{% translate "Obtenha as métricas do seu coworking e desenvolva maior conhecimento sobre seu público." %}</p>
             </div>
           </div>
@@ -108,8 +106,8 @@
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
             <div class="icon-box">
               <div class="icon"><i class="bi bi-calendar2-week"></i></div>
-              <h4><a>Agendamento Online</a></h4>
-              <p>Seu cliente tem a facilidade de marcar reuniões e encontros para toda a equipe.</p>
+              <h4><a>{% translate "Agendamento Online" %}</a></h4>
+              <p>{% translate "Seu cliente tem a facilidade de marcar reuniões e encontros para toda a equipe." %}</p>
             </div>
           </div>
 
@@ -120,79 +118,16 @@
     <!-- ======= Pricing Section ======= -->
     <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>{% translate "Preços" %}</h2>
-          <h3>{% trnaslate "Veja nossos" %}<span>{% translate "Preços" %}</span></h3>
-          <p>{% translate "Temos várias opções de assinatura para você." %}</p>
+        <h1 style="text-align: center;">
+          {% translate "Não perca tempo e registre já o seu coworking." %}</br>
+          {% translate "Escolha o plano e a forma de pagamento e assine!" %}
+        </h1>
+        <br>
+        <div class="row d-flex">
+          <a href="{% host_url 'assinatura' host 'newgen' %}" class="btn btn-primary" style="font-size: 30px;">
+            {% translate "Faça sua assinatura!" %}</a>
         </div>
-
-        <div class="row">
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="box featured">
-              <h3>{% translate "Plano Básico" %}</h3>
-              <h4><sup>R$</sup>250,00<span>{% translate " / mês" %}</span></h4>
-              <ul>
-                <li>{% translate "Gestão de clientes e funcionários" %}</li>
-                <li>{% translate "Gestão de salas e equipamentos" %}</li>
-                <li>{% translate "Agendamento On-line" %}</li>
-                <li>{% trnaslate "Checkin e Checkout via QR-Code" %}</li>
-                <li>{% translate "Customização do sistema" %}</li>
-                <li class="na">{% translate "Pacote de Horas" %}</li>
-                <li class="na">{% translate "controle de Estoque" %}</li>
-                <li class="na">{% translate "Fila de Espera" %}</li>
-                <li class="na">{% translate "Trasnferência de responsabilidade" %}</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="{% host_url 'registrarAdmin' host 'newgen' %}" class="btn-buy">Assine Agora</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
-            <div class="box">
-              <h3>{% translate "Plano Pro" %}</h3>
-              <h4><sup>R$</sup>509,00<span>{% translate " / mês" %}</span></h4>
-              <ul>
-                <li>{% translate "Gestão de clientes e funcionários" %}</li>
-                <li>{% translate "Gestão de salas e equipamentos" %}</li>
-                <li>{% translate "Agendamento On-line" %}</li>
-                <li>{% trnaslate "Checkin e Checkout via QR-Code" %}</li>
-                <li>{% translate "Customização do sistema" %}</li>
-                <li >{% translate "Pacote de Horas" %}</li>
-                <li>{% translate "controle de Estoque" %}</li>
-                <li class="na">{% translate "Fila de Espera" %}</li>
-                <li class="na">{% translate "Trasnferência de responsabilidade" %}</li>
-              </ul>
-              <div class="btn-wrap">
-                <button type="button" class="btn btn-secondary btn-md" disabled>{% translate "Em breve" %}</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
-            <div class="box">
-              <h3>Plano Prime</h3>
-              <h4><sup>R$</sup>800,00<span> / mês</span></h4>
-              <ul>
-                <li>{% translate "Gestão de clientes e funcionários" %}</li>
-                <li>{% translate "Gestão de salas e equipamentos" %}</li>
-                <li>{% translate "Agendamento On-line" %}</li>
-                <li>{% trnaslate "Checkin e Checkout via QR-Code" %}</li>
-                <li>{% translate "Customização do sistema" %}</li>
-                <li>{% translate "Pacote de Horas" %}</li>
-                <li>{% translate "controle de Estoque" %}</li>
-                <li>{% translate "Fila de Espera" %}</li>
-                <li>{% translate "Trasnferência de responsabilidade" %}</li>
-              </ul>
-              <div class="btn-wrap">
-                <button type="button" class="btn btn-secondary btn-md" disabled>{% translate "Em breve" %}</button>
-              </div>
-            </div>
-          </div>
-
-        </div>
+        
 
       </div>
     </section><!-- End Pricing Section -->
@@ -202,9 +137,9 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>{% translate "Contato" %}</h2>
-          <h3><span>{% translate "Entre em contato" %}</span></h3>
-          <p>{% translate "Entre em contato para saber mais!" %}</p>
+          <h2>Contato</h2>
+          <h3><span>Entre em contato</span></h3>
+          <p>Entre em contato para saber mais!</p>
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
@@ -219,17 +154,18 @@
           <div class="col-lg-6 col-md-6">
             <div class="info-box  mb-4">
               <i class="bx bx-envelope"></i>
-              <h3>Email</h3>
-              <p>newgenoficial@gmail.com</p>
+              <h3>{% translate "Email" %}</h3>
+              <p>{% translate "newgenoficial2021@gmail.com" %}</p>
             </div>
           </div>
 
         </div>
 
         <div class="row" data-aos="fade-up" data-aos-delay="100">
-
+         
           <div class="col-lg-12">
-            <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <form method="post" action="{% host_url 'index_cria' host 'newgen' %}" role="form" class="php-email-form">
+              {% csrf_token %}
               <div class="row">
                 <div class="col form-group">
                   <input type="text" name="name" class="form-control" id="name" placeholder="Seu nome" required>
@@ -247,7 +183,7 @@
               <div class="my-3">
                 <div class="loading">{% translate "Carregando" %}</div>
                 <div class="error-message"></div>
-                <div class="sent-message">{% trnaslate "Sua mensagem foi enviada. Obrigada!" %}</div>
+                <div class="sent-message">{% translate "Sua mensagem foi enviada. Obrigada!" %}</div>
               </div>
               <div class="text-center"><button type="submit">{% translate "Enviar" %}</button></div>
             </form>
@@ -262,3 +198,25 @@
 
   {% endblock content %}
   
+
+<script>
+  var hora = data['hora_saida_real']
+  var btn_valido = document.getElementById("btn_valido");
+  var campos = document.getElementById("campos");
+  function Finaliza() {
+    if (hora = ! null) {
+      fetch(`{{ domain }}api/finaliza_reserva/{{ campo.id_reserva }}?format=json`)
+        .then(function (content) {
+          return content.json()
+        })
+        .then(function (resposta) {
+          alert("A reserva foi finalizada!");
+          btn_finaliza.innerHTML = "Finalizado"
+          if (btn_finaliza.value = "Finalizado") {
+            campos.style.color = "red"
+            btn_valido.disabled = true;
+          }
+        })
+    }
+  }
+</script>

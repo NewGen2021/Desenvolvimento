@@ -49,22 +49,51 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="{% host_url 'index' host 'newgen' %}">NewGen<span>.</span></a></h1>
+      <h1 class="logo"><a href="{% host_url 'index_cria' host 'newgen' %}">NewGen<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="{% static 'img/logo.png" alt=""></a>-->
+      <!-- <a href="index_cria.html" class="logo"><img src="{% static 'img/logo.png" alt=""></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto" href="{% host_url 'index' host 'newgen' %}">{% translate "Inicio" %}</a></li>
+          <li><a class="nav-link scrollto {% if is_index %}active{% endif %}" href="{% host_url 'index_cria' host 'newgen' %}">Inicio</a></li>
           <li><a class="nav-link scrollto" href="#about">{% translate "Sobre Nós" %}</a></li>
           <li><a class="nav-link scrollto" href="#services">{% translate "Serviços" %}</a></li>
           <li><a class="nav-link scrollto" href="#contact">{% translate "Contato" %}</a></li>
-          <li><a class="nav-link scrollto" href="#pricing">{% translate "Cadastre já seu Coworking" %}</a></li>
-          <li><a class="nav-link scrollto" href="{% host_url 'loginNewgen' host 'newgen' %}">{translate "Logar" }</a></li>
+          <li><a class="nav-link scrollto" href="{% host_url 'registrarAdmin' host 'newgen' %}">{% translate "Cadastre" %}</a></li>
+          {% if user.is_authenticated %}
+          
+          </li>
+          <li class="dropdown">
+            <a href="#" 
+            class="nav-link scrollto" 
+            id="loggedAs">{% translate "Logado como: "%} {{ showing_username }}</a>
+            <ul>
+              <li><a href="{% host_url 'gerenciar_plano' host 'newgen' %}">{% translate "Gerenciar dados" %}</a></li>
+              <li><a href="{% host_url 'loginNewgen' host 'newgen' %}">{% translate "Outra conta" %}</a></li>
+              <li><a href="/logout" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Deslogar" %}</a></li>
+            </ul>
+          </li>
+
+        {% else %}
+        <li><a class="nav-link scrollto" href="{% host_url 'loginNewgen' host 'newgen' %}">
+         {% translate "Já sou Cliente" %} 
+        </a></li>      
+          
+        {% endif %}       
           <li class="dropdown"><a href="#"><span>{% translate "Idioma" %}</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">{% translate "Português (br)" %}</a></li>
-              <li><a href="#">{% translate "Inglês" %}</a></li>
+              {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            {% for lang in languages %}
+
+            <li>
+              <a class="nav-link scrollto" href="/{{ lang.code }}/{{ turl }}">
+              {{ lang.name_local }}
+              </a>
+            </li>
+
+            {% endfor %}
             </ul>
           </li>
         </ul>
@@ -91,18 +120,18 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>NewGen<span>.</span></h3>
             <p>
-              {% translate "Rua Pedro Vicente  <br>
-              Canindé 01109-010, SP" %}<br><br>
-              <strong>Email:</strong>newgenoficial2021@gmail.com<br>
+              Rua Pedro Vicente <br>
+              Canindé 01109-010, SP<br><br>
+              <strong>Email:</strong> newgenoficial2021@gmail.com<br>
             </p>
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>{% translate "Links Uteis" %}</h4>
+            <h4>Links Uteis</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Inicio" %}</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Sobre Nós" %}</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Serviços" %}</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">{% translate "Cadastre seu Coworking" %}</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Inicio</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Sobre Nós</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Serviços</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Cadastre seu Coworking</a></li>
             </ul>
           </div>
         </div>
@@ -111,7 +140,7 @@
 
     <div class="container py-4">
       <div class="copyright">
-        &copy; Copyright <strong><span>NewGen</span></strong>{% translate ". Todos os direitos reservados." %}
+        &copy; Copyright <strong><span>NewGen</span></strong>. Todos os direitos reservados.
       </div>
       </div>
     </div>

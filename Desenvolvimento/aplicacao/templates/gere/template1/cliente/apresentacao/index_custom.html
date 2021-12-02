@@ -1,14 +1,14 @@
-{% extends base_template %}
+{% templatetag openblock %} extends base_template {% templatetag closeblock %}
 {% load static %}
 {% load i18n %}
 {% load client_translation %}
-
-{% block content %}
 
 {% templatetag openblock %} block title {% templatetag closeblock %}
 {% templatetag openblock %} load i18n {% templatetag closeblock %}
 {% templatetag openblock %} translate "Início" {% templatetag closeblock %}
 {% templatetag openblock %} endblock {% templatetag closeblock %}
+
+{% templatetag openblock %} block content {% templatetag closeblock %}
 <!-- ======= Hero Section ======= -->
 <section id="hero">
   <div class="hero-container">
@@ -28,7 +28,7 @@
               {% templatetag openblock %} if "{{lang}}" == request.LANGUAGE_CODE {% templatetag closeblock %}
                   
                     <a href="{{value.href}}"
-                      class="btn {{ button_color }} animateanimated animatefadeInUp scrollto">
+                      class="btn {% templatetag openvariable %} button_color {% templatetag closevariable %} animate__animated animate__fadeInUp scrollto">
                       {{value.title}}
                     </a>
                   
@@ -152,7 +152,7 @@
               <div class="error-message"></div>
               <div class="sent-message">{% templatetag openblock %} translate "Sua mensagem foi enviada. Obrigado!" {% templatetag closeblock %}</div>
             </div>
-            <div class="text-center"><a type="submit" id="enviar_form_pessoa" class="btn {{ button_color  }}">{% templatetag openblock %} translate "Enviar Mensagem" {% templatetag closeblock %}</a></div>
+            <div class="text-center"><a type="submit" id="enviar_form_pessoa" class="btn {% templatetag openvariable %} button_color {% templatetag closevariable %}">{% templatetag openblock %} translate "Enviar Mensagem" {% templatetag closeblock %}</a></div>
           </form>
         </div>
       </div>
@@ -160,4 +160,4 @@
   </section><!-- End Contact Us Section -->
 
 </main><!-- End #main -->
-{% endblock content %}
+{% templatetag openblock %} endblock content {% templatetag closeblock %}

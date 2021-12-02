@@ -1,0 +1,154 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+
+{% block title %}{% translate "teste" %}{% endblock %}
+
+{% block css %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+
+<style>
+    .blog .carousel-indicators {
+	left: 0;
+	top: auto;
+    bottom: -40px;
+
+}
+
+/* The colour of the indicators */
+.blog .carousel-indicators li {
+    background: #a3a3a3;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+}
+
+.blog .carousel-indicators .active {
+background: #707070;
+}
+</style>
+{% endblock css %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 style="margin-top: 10%;">Olá mundo</h1>
+    {% for espaco in espacos %}
+    <h2>{{espaco}}</h2>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="container" style='margin-bottom: 10%;'>
+            <div class="row">
+                <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseEscolherSala" aria-expanded="true" aria-controls="collapseEscolherSala">
+                    {% translate "Escolher " %}{{tipo_espaco}}
+                </button>
+            </div>
+            <div class="row blog">
+                <div class="col-md-12">
+                    <hr>
+                    <div class="collapse" id="collapseEscolherSala">
+                    <div id="blogCarousel" class="carousel slide" data-ride="carousel">
+
+                        <ol class="carousel-indicators">
+                            {% for page in pages %}
+                            <li data-target="#blogCarousel" data-slide-to="{{page.number|sub:1}}" {% if not page.has_previous %} class="active" {% endif %}></li>
+                            {% endfor %}
+                        </ol>
+
+                        <!-- Carousel items -->
+                        <div class="carousel-inner" style="margin-bottom: 5%;">
+
+                            {% for page in pages %}
+                            <div class="carousel-item {% if not page.has_previous %} active {% endif %}">
+                                <div class="row">
+                                    {% for espaco in page %}
+                                    <div class="col-md-{% if page.num_items == 3 %}4{% elif page.num_items == 2 %}6{% else %}12{% endif %}"
+                                     style="text-align: center;">
+                                        <a class='btn btn-outline-light btn-lg botao_escolher_espaco' role="button" onclick="selecionar(this)" id="espaco_{{espaco.id_espaco}}">
+                                            <img src="{{espaco.get_image_url}}"
+                                            alt="Image" style="max-height:15vw; width:auto;">
+                                            <br>
+                                            <p>{% translate "Escolher" %}</p>
+                                        </a>
+                                        <p>{{espaco}}</p>
+                                        <p>{{espaco.get_preco}}</p>
+                                        <p>{% translate "Capacidade: " %}{{espaco.vagas}} {% translate "pessoas" %}</p>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <hr>
+                    </div>
+
+                </div>
+            </div>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+<script>
+// optional
+
+// $('#blogCarousel').carousel({
+// 				interval: 5000
+// 		});
+function selecionar(botao){
+    console.log(botao);
+    if (document.getElementsByClassName('botao_escolher_espaco active')[0]){
+        let botao_ativo = document.getElementsByClassName('botao_escolher_espaco active')[0];
+        botao_ativo.classList.remove('active');
+        botao_ativo.classList.add('btn-outline-light');
+        botao_ativo.classList.remove('{{ button_color }}');
+        botao_ativo.children[2].innerHTML = '{% translate "Escolher" %}'
+    }
+    botao.classList.add('active');
+    botao.classList.remove('btn-outline-light');
+    botao.classList.add('{{ button_color}}');
+    botao.children[2].innerHTML = '{% translate "Escolhido" %}'
+}
+</script>
+{% endblock js %}

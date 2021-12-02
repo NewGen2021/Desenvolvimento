@@ -48,6 +48,7 @@
           <th scope="col">{% translate "ESPAÇO" %}</th>
           <th scope="col">{% translate "RESPONSÁVEL" %}</th>
           <th scope="col">{% translate "QR CODE" %}</th>
+          <th scope="col">{% translate "Pagar reservas" %}</th>
         </tr>
       </thead>
       <tbody>
@@ -59,7 +60,10 @@
           <td>{{ item.id_cliente.nome }}</td>
           {% if item.is_aluguel == 1 %}
           <td><a href="{% host_url 'qrcode_envio' id_reserva=item.id_reserva host 'custom_host' domain %}" id="btn_qrcode" class="btn {{ button_color  }} btn-sm">Gerar</a></td>
+          <td></td>
           {% else %}
+          <td></td>
+          <td><a href="{% host_url 'pagamento_reserva' id_reserva=item.id_reserva host 'custom_host' domain %}" id="btn_qrcode" class="btn {{ button_color  }} btn-sm">Pagar</a></td>
           {% endif %}
         </tr>
       {% endfor %}

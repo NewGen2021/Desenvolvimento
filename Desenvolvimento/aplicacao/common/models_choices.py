@@ -1,6 +1,6 @@
-'''
+"""
     ('O QUE É GRAVADO NO BANCO', 'O QUE APARECE DE ESCOLHA PRO USUÁRIO')
-'''
+"""
 from django.utils.translation import gettext as _
 
 SEXO_CHOICES = (

@@ -2,7 +2,7 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}{% translate "Cadastro de Administrador" %}{% endblock %}
+{% block title %}{% translate "Cadastro de Informações" %}{% endblock %}
 
 {% load crispy_forms_tags %}
 
@@ -18,14 +18,14 @@
   <div class="container-fluid">
 
       <div class="topRegister">
-          <h1>{% translate "Administrador" %}</h1>    
+          <h1>{% translate "Criar uma conta" %}</h1>    
       </div>
       
       <div id="BodyRegister">
         <form method="POST" class="form-group">
           {% csrf_token %}
           {{ administradorForm|crispy }}
-          <button type="submit" class="btn {{ button_color  }}" id="enviar_form_administrador">{% translate "Registrar" %}</button>           
+          <button type="submit" class="btn btn-primary" id="enviar_form_administrador">{% translate "Registrar" %}</button>           
         </form>
       </div>
   </div>

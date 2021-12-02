@@ -99,6 +99,20 @@ class GetMatchingDatabase(MiddlewareMixin):
             return
         set_database_by_json(request)
 
+""" def multidb_middleware(get_response):
+   def middleware(request):
+       subdomain = get_subdomain(request)
+       customer = get_customer(subdomain)
+       request.customer = customer
+
+       @thread_local(using_db=customer.name)
+       def execute_request(request):
+           return get_response(request)
+
+       response = execute_request(request)
+       return response
+   return middleware """
+
 # class RouterMiddleware (object):
 
 #     def process_view( self, request, view_func, args, kwargs ):

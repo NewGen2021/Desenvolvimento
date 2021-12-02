@@ -1,7 +1,7 @@
-'''
+"""
     * Classe para pegar dados de um determinado cep
     * Favor manter em ordem alfabética
-'''
+"""
 
 import requests
 import ast

@@ -158,7 +158,7 @@ class RegistrarAdministradorInfosPessoaisForm(forms.ModelForm):
     def clean_email(self):
         email = self.cleaned_data.get("email")
         if Administrador.objects.filter(email=email).exists():
-            raise forms.ValidationError(message=_("O Email informado já está sendo usado."), code='duplicated')
+            raise forms.ValidationError(message=_("O e-mail informado já está sendo usado."), code='duplicated')
         return email
         
     def clean_numero(self):
@@ -204,9 +204,9 @@ class CriaCoworkingFormPagamento(forms.Form):
     # data_vencimento = forms.CharField(widget=forms.TextInput(
     #     attrs={'required': 'true', 'data-mask':"00/00"}), label=_("Data vencimento"))
     mes_vencimento = forms.CharField(widget=forms.TextInput(
-        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_mes_vencimento'}), label=_("Mês vencimento"))
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_mes_vencimento'}), label=_("Mês de vencimento"))
     ano_vencimento = forms.CharField(widget=forms.TextInput(
-        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_ano_vencimento'}), label=_("Ano vencimento"))
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_ano_vencimento'}), label=_("Ano de vencimento"))
     codigo_seguranca = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'data-mask':"000", 'id': 'id_codigo_seguranca'}), label=_("Código de segurança")) 
     # parcelas = forms.IntegerField(widget=forms.NumberInput(

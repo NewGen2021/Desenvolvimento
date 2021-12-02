@@ -53,13 +53,18 @@ def custom_index(request, context):
     else:
         base_template = "gere/template1/base.html"
     context["base_template"] = base_template
+    Administrador = common.selectors.get_administrador_by_request(request)
     
     if request.method == 'POST':
         valid = s.process_post_custom_view(request, context)
         if valid:
+            s.mount_all_customs(Administrador, context)
             ...
             # return redirect('menuAdmin')
-    context = s.get_context_custom_index(request, context)
+    print('O QUE É VOCÊ ADMINISTRADOR?????')
+    print(type(Administrador))
+    print(Administrador)
+    context = s.get_context_custom_index(Administrador, context)
 
     return render(request, 'gere/template1/adm/customizar_templates/custom_index.html', context)
 

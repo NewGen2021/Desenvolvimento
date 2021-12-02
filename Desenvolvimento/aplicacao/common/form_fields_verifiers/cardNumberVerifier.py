@@ -4,7 +4,7 @@ def verify_card_number(card_number):
 
     total=0
     card_number = card_number.replace('.', '')
-    if (len(card_number) != 16):
+    if len(card_number) != 16:
         return False
     
     # for i in range(0,16,2):

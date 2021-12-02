@@ -455,9 +455,9 @@ class FormPagamento(forms.Form):
     # data_vencimento = forms.CharField(widget=forms.TextInput(
     #     attrs={'required': 'true', 'data-mask':"00/00"}), label=_("Data vencimento"))
     mes_vencimento = forms.CharField(widget=forms.TextInput(
-        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_mes_vencimento'}), label=_("Mês vencimento"))
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_mes_vencimento'}), label=_("Mês"))
     ano_vencimento = forms.CharField(widget=forms.TextInput(
-        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_ano_vencimento'}), label=_("Ano vencimento"))
+        attrs={'required': 'true', 'data-mask':"00", 'id': 'id_ano_vencimento'}), label=_("Ano"))
     codigo_seguranca = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'data-mask':"000", 'id': 'id_codigo_seguranca'}), label=_("Código de segurança")) 
     # parcelas = forms.IntegerField(widget=forms.NumberInput(

@@ -9,15 +9,18 @@ from domains.models import Domain
 class NotRunningInTTYException(Exception):
     pass
 
+
 class Command(BaseCommand):
     help = 'Used to create a domain.'
     requires_migrations_checks = True
     stealth_options = ('stdin',)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.DomainModel = Domain
         self.domain_field = self.DomainModel._meta.get_field('domain')
         self.name_field = self.DomainModel._meta.get_field('name')
+
     def add_arguments(self, parser):
         parser.add_argument(
             '--%s' % 'domain',
@@ -33,9 +36,11 @@ class Command(BaseCommand):
             '--%s' % 'name', dest='name', default=None,
             help='Specifies the name',
         )
+
     def execute(self, *args, **options):
         self.stdin = options.get('stdin', sys.stdin)  # Used for testing
         return super().execute(*args, **options)
+
     def handle(self, *args, **options):
         domain = options['domain']
         name = options['name']
@@ -84,6 +89,7 @@ class Command(BaseCommand):
             self.DomainModel(**domain_data).save()
             if options['verbosity'] >= 1:
                 self.stdout.write("Domain created successfully.")
+
     def get_input_data(self, field, message, default=None):
         """
         Override this method if you want to customize data inputs or

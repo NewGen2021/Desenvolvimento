@@ -73,6 +73,7 @@ def verify_view(request, criaCoworking: bool, adm_page: bool, func_page: bool):
     response['context']['is_cliente'] = is_cliente
     response['context']['is_adm'] = is_adm
     response['context']['is_func'] = is_func
+    response['context']['protocol'] = 'http'
     
     if request.domain['domain'] != MAIN_HOST:
         response['context']['button_color'] = get_button_by_administrador(adm)

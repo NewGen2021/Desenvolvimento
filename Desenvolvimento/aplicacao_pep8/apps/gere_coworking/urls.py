@@ -60,7 +60,7 @@ urlpatterns = [
     path('testarLayout2', testarLayout2, name="testarLayout2"),
     path('render_view', render_view, name='render_view'),
     path('teste_render', teste_render, name='teste_render'),
-    path('custom_index', custom_index, name='custom_index'),
+    # path('custom_index', custom_index, name='custom_index'),
     path('base_funcionario', base_funcionario, name='base_funcionario'),
     path('menuFunc', menuFunc, name='menuFunc'),
     path("leitor_qrcode", leitor_qrcode, name='leitor_qrcode'),
@@ -68,10 +68,14 @@ urlpatterns = [
     path('custom_personal_info', custom_personal_info, name='custom_personal_info'),
     path('custom_cowork_info', custom_cowork_info, name='custom_cowork_info'),
     path('custom_index', custom_index, name='custom_index'),
-    path('advertencia', advertencia, name='advertencia'),
+    path('relatorio/advertencia/<int:id_reserva>', advertencia, name='relatorio/advertencia'),
+    path('relatorio_view/', tela_relatorio, name='relatorio_view/'),
 
-    path('relatorios/reservas', ReservaList.as_view(), name='relatorios/reservas'),
-    path('relatorios/pagamentos', PagamentoList.as_view(), name="relatorios/pagamentos"),
+    path('comentarios', ComentarioList.as_view(), name="comentarios"),
+    path('relatorio_view/alugueis', AluguelList.as_view(), name='relatorios/aluguel'),
+    path('relatorio_view/reservas_geral', Todas_Resrvas.as_view(), name='relatorios_view/reservas_geral'),
+    path('relatorio/reservas', ReservaList.as_view(), name='relatorios/reservas'),
+    path('relatorio_view/pagamentos', PagamentoList.as_view(), name="relatorios/pagamentos"),
     path('testar_bootstrap', testar_bootstrap, name='testar_bootstrap'),
 ]
 

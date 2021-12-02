@@ -1,7 +1,7 @@
-'''
+"""
     * Métodos focados na verificação de CNPJ válido
     * Favor manter em ordem alfabética
-'''
+"""
 
 def formatCNPJ(cnpj):
     return cnpj.replace('.', '').replace('/', '').replace('-', '')

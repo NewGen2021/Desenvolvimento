@@ -1,8 +1,9 @@
-'''
+"""
     * Métodos focados na verificação de campos de texto (e.g. nome e endereço)
     * Favor manter em ordem alfabética
-'''
+"""
 from django.utils.translation import gettext as _
+
 
 def get_address_errors(address):
     address = address.replace(' ', '')
@@ -45,7 +46,7 @@ def get_name_errors(name, pessoa=True):
 
 def randomness_analysis(name):
     random_container = ['aaa', 'bbb', 'ccc', 'ddd', 'eee', 'fff', 'ggg', 'hhh', 'iii', 'jjj', 'kkk', 'lll', 'mmm',
-                        'nnn', 'ooo', 'ppp', 'qqq', 'rrr', 'sss', 'ttt', 'uuu', 'vvv', 'www', 'xxx', 'yyy', 'zzz',]
+                        'nnn', 'ooo', 'ppp', 'qqq', 'rrr', 'sss', 'ttt', 'uuu', 'vvv', 'www', 'xxx', 'yyy', 'zzz', ]
     for expression in random_container:
         if name.replace(' ', '').__contains__(expression):
             return True

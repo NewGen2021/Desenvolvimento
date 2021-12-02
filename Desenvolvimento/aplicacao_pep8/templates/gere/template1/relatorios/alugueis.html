@@ -1,0 +1,72 @@
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+
+<link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
+{% block content %}
+<h3 style="margin:40px;">{% translate 'Aluguel' %}</h3>
+<hr>
+<div class="table-responsive" style="margin:40px;">
+    <table class="table table-striped" id="tabela_listar" style="margin:auto">
+        <thead>
+            <tr>
+                <th>{% translate 'Cliente' %}</th>
+                <th>{% translate 'Data' %}</th>
+                <th>{% translate 'Hora' %}</th>
+                <th>{% translate 'Espaço' %}</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for campo in object_list %}
+            <tr id="campos">
+                <td>{{ campo.id_cliente.nome }}</td>
+                <td>{{ campo.data_reserva }}</td>
+                <td>{{ campo.hora_entrada }}</td>
+                <td>{{ campo.id_espaco }}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">{% translate 'Nenhum registro encontrado' %}</td>
+            </tr>
+
+            {% endfor %}
+       </tbody>
+    </table>
+
+    <nav>
+        <ul class="pagination justify-content-center" style="margin-top: 10px;">
+
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number}}" style="margin-right:10px">{% translate 'Voltar' %}</a>
+            {% endif %}
+    
+            <span>{{ page_obj.number}}</span>
+           
+    
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" style="margin-left:10px">{% translate 'Próximo' %}</a>
+    
+            {% endif %}
+    
+        </ul>
+       
+    </nav>
+   
+</div>
+
+
+
+
+{% endblock content %}

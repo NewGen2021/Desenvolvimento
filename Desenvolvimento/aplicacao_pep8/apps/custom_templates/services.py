@@ -228,6 +228,8 @@ def get_endereco(cliente: Administrador) -> str:
 
 def get_context_custom_index(cliente: Administrador, context: dict) -> dict:
     # cliente = selectors.get_current_adm_by_request(request)
+    print('CLIENTE VOCÊ É OQ ?????????????????????????')
+    print(cliente)
     context['slides'] = ResourceCarouselSlide.objects.using('default').filter(client_id=cliente)
     context['instance'] = InstanceConfig.objects.using('default').filter(client_id=cliente)[0]
     context['template_customs'] = TemplateIndex.objects.using('default').filter(client_id=cliente)[0]

@@ -1,7 +1,7 @@
-''' 
+"""
     * PARA ARMAZENAR CÓDIGOS LEGADOS COMENTADOS,
     * OBS: ESTE DOCUMENTO NÃO TEM FUNÇÃO NENHUMA DENTRO DO CÓDIGO
-'''
+"""
 
 # forms.py
 

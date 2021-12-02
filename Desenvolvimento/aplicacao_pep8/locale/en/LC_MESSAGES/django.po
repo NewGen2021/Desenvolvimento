@@ -5,7 +5,7 @@
 #
 # PARA VERIFICAR SE HÁ EDIÇOES:           Ctrl + F, fuzzy
 # PARA VERIFICAR SE HÁ NOVAS TRADUÇÕES:   Ctrl + F, msgstr ""
-# QUANTIDADE ATUAL DE MSGSTR:             38
+# QUANTIDADE ATUAL DE MSGSTR:             41
 #
 #
 #, fuzzy
@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-11-29 12:15-0300\n"
+"POT-Creation-Date: 2021-12-01 22:06-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,7 +35,7 @@ msgid "CNPJ"
 msgstr "CNPJ"
 
 #: .\apps\cria_coworking\forms.py:161
-msgid "O Email informado já está sendo usado."
+msgid "O e-mail informado já está sendo usado."
 msgstr "The informed e-mail is already being used."
 
 #: .\apps\cria_coworking\forms.py:176 .\apps\gere_coworking\forms.py:427
@@ -126,12 +126,14 @@ msgstr "Installments"
 msgid "Número do cartão"
 msgstr "Card number"
 
-#: .\apps\cria_coworking\forms.py:207 .\apps\gere_coworking\forms.py:458
-msgid "Mês vencimento"
+#: .\apps\cria_coworking\forms.py:207
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:199
+msgid "Mês de vencimento"
 msgstr "Expiration month"
 
-#: .\apps\cria_coworking\forms.py:209 .\apps\gere_coworking\forms.py:460
-msgid "Ano vencimento"
+#: .\apps\cria_coworking\forms.py:209
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:203
+msgid "Ano de vencimento"
 msgstr "Expiration year"
 
 #: .\apps\cria_coworking\forms.py:211 .\apps\gere_coworking\forms.py:462
@@ -191,7 +193,7 @@ msgstr "Color palette"
 
 #: .\apps\cria_coworking\forms.py:326 .\apps\custom_templates\forms.py:27
 msgid "Nome de exibição"
-msgstr "Exhibition"
+msgstr "Exhibition name"
 
 #: .\apps\cria_coworking\forms.py:327
 msgid "Logo da empresa"
@@ -359,6 +361,14 @@ msgstr "Comments: "
 msgid "Não pode ter número no nome"
 msgstr "Cannot have numbers on the name"
 
+#: .\apps\gere_coworking\forms.py:458
+msgid "Mês"
+msgstr "Month"
+
+#: .\apps\gere_coworking\forms.py:460
+msgid "Ano"
+msgstr "Year"
+
 #: .\apps\gere_coworking\forms.py:477
 msgid "Insira um número de cartão válido"
 msgstr "Insert a valid card number"
@@ -422,75 +432,81 @@ msgstr "Disabled"
 msgid "Indefinido"
 msgstr "Undefined"
 
-#: .\apps\gere_coworking\services\reserva.py:187
-#: .\apps\rest_api\viewsets.py:202
+#: .\apps\gere_coworking\services\reserva.py:194
+#: .\apps\rest_api\viewsets.py:189
 msgid "Sua reserva"
 msgstr "Your booking"
 
-#: .\apps\gere_coworking\services\reserva.py:257
-#: .\apps\gere_coworking\services\reserva.py:307
+#: .\apps\gere_coworking\services\reserva.py:261
+#: .\apps\gere_coworking\services\reserva.py:337
 msgid "Sem vagas"
 msgstr "No seats"
 
-#: .\apps\gere_coworking\services\reserva.py:362
-msgid "ERRO! A hora de entra não pode ser menor que a hora de saída."
+#: .\apps\gere_coworking\services\reserva.py:389
+#: .\apps\gere_coworking\services\reserva.py:447
+msgid "ERRO! A hora de entrada não pode ser menor que a hora de saída."
 msgstr "ERROR! The check-in time cannot be shorter than the check-out time."
 
-#: .\apps\gere_coworking\services\reserva.py:365
+#: .\apps\gere_coworking\services\reserva.py:392
+#: .\apps\gere_coworking\services\reserva.py:450
 msgid "ERRO! A data informada já passou!"
 msgstr "ERROR! The entered date has passed!"
 
-#: .\apps\gere_coworking\services\reserva.py:368
+#: .\apps\gere_coworking\services\reserva.py:395
+#: .\apps\gere_coworking\services\reserva.py:453
 msgid "ERRO! O tempo mínimo de reserva é 30 minutos."
-msgstr "ERROR! Minimum reservation time is 30 minutes."
+msgstr "ERROR! Minimum booking time is 30 minutes."
 
-#: .\apps\gere_coworking\services\reserva.py:372
+#: .\apps\gere_coworking\services\reserva.py:399
+#: .\apps\gere_coworking\services\reserva.py:457
 msgid ""
-"ERRO! Não é possível realizar reservas de forma programática para mais de 30 "
+"ERRO! Não é possível realizar reservas de forma programática para mais de 60 "
 "dias. Entre em contato conosco."
 msgstr ""
-"ERROR! It is not possible to programmatically make reservations for more "
-"than 30 days. Please contact us."
+"ERROR! It is not possible to programmatically make bookings for more than 60 "
+"days. Please contact us."
 
-#: .\apps\gere_coworking\services\reserva.py:385
+#: .\apps\gere_coworking\services\reserva.py:412
+#: .\apps\gere_coworking\services\reserva.py:476
 msgid "Horário já reservado. Escolha outro."
 msgstr "Time already booked. Choose another one."
 
-#: .\apps\gere_coworking\services\reserva.py:402
+#: .\apps\gere_coworking\services\reserva.py:429
+#: .\apps\gere_coworking\services\reserva.py:493
 msgid "Fora de horário comercial, tente outro horário."
 msgstr "Outside business hours, try another time."
 
-#: .\apps\gere_coworking\views.py:309 .\apps\gere_coworking\views.py:348
+#: .\apps\gere_coworking\views.py:335 .\apps\gere_coworking\views.py:374
 msgid "Sua reserva está marcada para dia "
-msgstr "Your reservation is scheduled for "
+msgstr "Your booking is scheduled for "
 
-#: .\apps\gere_coworking\views.py:386
+#: .\apps\gere_coworking\views.py:412
 msgid "mundo"
 msgstr "world"
 
-#: .\apps\gere_coworking\views.py:418
+#: .\apps\gere_coworking\views.py:444
 msgid "WORLD"
 msgstr "WORLD"
 
-#: .\apps\gere_coworking\views.py:510
+#: .\apps\gere_coworking\views.py:536
 msgid "Redefinição de senha concluida"
 msgstr "Password reset finished"
 
-#: .\apps\gere_coworking\views.py:638
+#: .\apps\gere_coworking\views.py:664
 #, python-format
 msgid "O preço padrão para %s é R$%s."
 msgstr "The standard price for %s is R$%s."
 
-#: .\apps\gere_coworking\views.py:651
+#: .\apps\gere_coworking\views.py:675
 msgid "Tipo de espaço já cadastrado com este Nome !"
 msgstr "Space type already registered with this name!"
 
-#: .\apps\gere_coworking\views.py:681
+#: .\apps\gere_coworking\views.py:705
 #, python-format
 msgid "Tipo de espaço \"%s\" excluído com sucesso !"
 msgstr "Space type \"%s\" deleted with sucess!"
 
-#: .\apps\gere_coworking\views.py:690
+#: .\apps\gere_coworking\views.py:714
 #, python-format
 msgid "Espaço \"%s\" excluído com sucesso !"
 msgstr "Space \"%s\" deleted with sucess!"
@@ -503,7 +519,7 @@ msgstr "Portuguese"
 msgid "Inglês"
 msgstr "English"
 
-#: .\apps\rest_api\viewsets.py:202
+#: .\apps\rest_api\viewsets.py:189
 msgid "Reservado"
 msgstr "Reserved"
 
@@ -686,7 +702,6 @@ msgstr "Unknown"
 
 #: .\templates\cria\apresentacao.html:6
 #: .\templates\cria\cadastro_novo_coworking.html:5
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:7
 #: .\templates\gere\template1\cliente\apresentacao\teste.html:5
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:6
 #: .\templates\gere\template1\cliente\apresentacao\teste_form.html:6
@@ -899,7 +914,7 @@ msgid "Registrar"
 msgstr "Register"
 
 #: .\templates\cria\cadastro_novo_coworking.html:25
-msgid "Limpar e tentar de novo"
+msgid "Limpar e tentar novamente"
 msgstr "Clean and try again"
 
 #: .\templates\cria\gerenciar_plano.html:4
@@ -928,7 +943,7 @@ msgid ""
 msgstr "Return in some moments to this page to see the state of creation."
 
 #: .\templates\cria\gerenciar_plano.html:41
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:217
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:284
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:230
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:250
 msgid "Fechar"
@@ -943,6 +958,8 @@ msgid "Empresa de Coworking"
 msgstr "Coworking Company"
 
 #: .\templates\cria\gerenciar_plano.html:87
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:71
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:64
 msgid "Informações pessoais"
 msgstr "Personal Information"
 
@@ -1057,10 +1074,9 @@ msgstr "Scheduling Confirmation"
 msgid ""
 "O sistema envia um aviso para que seu cliente não esqueça de nenhum "
 "agendamento"
-msgstr ""
-"The system sends a reminder so your client won't forget any reservation."
+msgstr "The system sends a reminder so your client won't forget any bookings."
 
-#: .\templates\cria\index.html:77
+#: .\templates\cria\index.html:77 .\templates\gere\template1\base_admin.html:51
 msgid "Relatórios Analíticos"
 msgstr "Analytical Reports"
 
@@ -1207,8 +1223,10 @@ msgstr "Forgot password"
 
 #: .\templates\cria\pagamento.html:5
 #: .\templates\gere\template1\adm\espacos\registrarEspaco2.html:5
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:5
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:20
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:7
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:7
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:5
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:20
 msgid "Formulário de pagamento"
 msgstr "Payment form"
 
@@ -1217,12 +1235,14 @@ msgid "Pagar plano"
 msgstr "Pay for plan"
 
 #: .\templates\cria\pagamento.html:30
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:50
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:215
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:50
 msgid "Pagar"
 msgstr "Pay"
 
 #: .\templates\cria\pagamento.html:32
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:52
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:219
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:52
 msgid "Erro!"
 msgstr "Error!"
 
@@ -1677,7 +1697,7 @@ msgid ""
 "espaço que entra em consideração na hora das reservas das salas. "
 msgstr ""
 "The system understands that there is a timeslot for the cleaning of a "
-"certain space that must be considered on the reservation timeslot."
+"certain space that must be considered on the booking timeslot."
 
 #: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:71
 #: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:85
@@ -1719,7 +1739,7 @@ msgstr "Create space type"
 
 #: .\templates\gere\template1\adm\espacos\editar_espaco.html:111
 #: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:123
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:218
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:285
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:231
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:251
 #: .\templates\old\editar_espaco.html:93
@@ -1756,7 +1776,9 @@ msgid "Tipo de espaço"
 msgstr "Space type"
 
 #: .\templates\gere\template1\adm\espacos\listar_espacos.html:59
+#: .\templates\gere\template1\relatorios\alugueis.html:27
 #: .\templates\gere\template1\relatorios\reservas.html:27
+#: .\templates\gere\template1\relatorios\todas_reserva.html:27
 msgid "Espaço"
 msgstr "Space"
 
@@ -1880,11 +1902,6 @@ msgstr "Begginning"
 msgid "Todos os direitos reservados"
 msgstr "All rights reserved"
 
-#: .\templates\gere\template1\base_admin.html:51
-#: .\templates\gere\template1\base_include_admin.html:9
-msgid "Acompanhamento de Reservas"
-msgstr "Reservation Monitoring"
-
 #: .\templates\gere\template1\base_admin.html:52
 #: .\templates\gere\template1\base_include_admin.html:12
 msgid "Cadastro de Funcionários"
@@ -1932,6 +1949,10 @@ msgstr "Personal Information"
 msgid "Ir para Site"
 msgstr "Go to Website"
 
+#: .\templates\gere\template1\base_include_admin.html:9
+msgid "Acompanhamento de Reservas"
+msgstr "Reservation Monitoring"
+
 #: .\templates\gere\template1\cliente\agendamento\listarReservas.html:5
 #: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:6
 #: .\templates\old\qrcode.html:5 .\templates\old\qrcode2.html:5
@@ -1967,6 +1988,10 @@ msgstr "RESPONSIBLE"
 msgid "QR CODE"
 msgstr "QR CODE"
 
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:51
+msgid "Pagar reservas"
+msgstr "Pay booking"
+
 #: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:6
 msgid "Escolher Espaço"
 msgstr "Choose the space"
@@ -1991,6 +2016,8 @@ msgstr ""
 #: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:52
 #: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:62
 #: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:78
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:97
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:90
 msgid "Reservar"
 msgstr "Reserve"
 
@@ -2026,96 +2053,102 @@ msgstr "Common price:"
 msgid "Passo 1 de 3"
 msgstr "Step 1 of 3"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:56
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:7
+msgid "Agendar horário"
+msgstr "Schedule Time"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:63
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:101
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:83
 msgid "Escolher "
 msgstr "Choose "
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:87
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:670
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:94
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:588
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:130
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:111
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:146
 msgid "Escolher"
 msgstr "Choose"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:92
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:98
+msgid "/hr"
+msgstr "/hour"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:99
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:134
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:115
 msgid "Capacidade: "
 msgstr "Capacity: "
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:92
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:99
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:134
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:115
 msgid "pessoas"
 msgstr "people"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:114
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:124
+msgid "Escolher Quantidade de Reservas"
+msgstr "Choose Quantity of Bookings:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:131
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:180
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:200
+#: .\templates\gere\template1\relatorios\todas_reserva.html:18
+msgid "Reservas"
+msgstr "Bookings"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:135
+msgid "Atualizar"
+msgstr "Update"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:212
 msgid "Escolher Horário"
 msgstr "Choose Time"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:122
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:220
 msgid "Calendário não iniciado. Escolha um espaço primeiro."
 msgstr "Calendar not started. Choose a space first."
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:135
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:233
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:152
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:172
 msgid "Novo agendamento"
-msgstr "New reservation"
+msgstr "New booking"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:150
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:166
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:186
-msgid "Titulo do Evento:"
-msgstr "Event title:"
-
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:156
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:248
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:172
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:192
 msgid "Dia:"
 msgstr "Day:"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:163
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:178
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:198
-msgid "Quantidade de reservas:"
-msgstr "Quantity of reservations:"
-
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:165
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:180
-#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:200
-msgid "Reservas"
-msgstr "Reservations"
-
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:191
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:258
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:206
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:226
 msgid "Hora de entrada:"
 msgstr "Start time:"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:198
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:265
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:212
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:232
 msgid "Hora de saída:"
 msgstr "End Time:"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:233
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:300
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:239
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:259
 msgid "Passo 2 de 3"
 msgstr "Step 2 of 3"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:234
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:301
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:240
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:260
 msgid "VOLTAR"
 msgstr "BACK"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:520
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:578
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:361
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:506
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:538
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:593
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:651
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:613
@@ -2123,19 +2156,19 @@ msgstr "BACK"
 msgid "Não foi possível ler as reservas do dia"
 msgstr "Unable to read the resevations of the day"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:524
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:457
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:597
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:617
 msgid "Este dia já passou."
 msgstr "This day is unavaliable."
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:541
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:469
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:614
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:634
 msgid "Este horário está reservado!"
 msgstr "This time is booked!"
 
-#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:675
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:598
 #: .\templates\gere\template1\cliente\apresentacao\teste2.html:151
 msgid "Escolhido"
 msgstr "Chosen"
@@ -2160,6 +2193,16 @@ msgstr "Seats: "
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:153
 msgid "Escolha um horário"
 msgstr "Choose a time"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:166
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:186
+msgid "Titulo do Evento:"
+msgstr "Event title:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:178
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:198
+msgid "Quantidade de reservas:"
+msgstr "Quantity of bookings:"
 
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:269
 #: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:311
@@ -2194,17 +2237,16 @@ msgid "Infraestrutura"
 msgstr "Infrastructure"
 
 #: .\templates\gere\template1\cliente\apresentacao\index.html:42
-msgid "O Coworking elaborado é o lugar perfeito para você reder ao máximo."
+msgid "O Coworking adequado é o lugar perfeito para você render ao máximo."
 msgstr ""
-"The elaborate Coworking is the perfect place for you to network to the "
-"fullest."
+"The adequate Coworking is the perfect place for you to yield your maximum."
 
 #: .\templates\gere\template1\cliente\apresentacao\index.html:74
 msgid ""
 "Somos mais que um simples coworking, nascemos com um propósito muito maior, "
 "o de apoiar pequenos e médios empresários, profissionais autônomos, "
-"empreendedores, startup e todos aqueles sonhadores que merecem um espaço com "
-"toda infra estrutura necessária para seu projeto decolar."
+"empreendedores, startups e todos aqueles sonhadores que merecem um espaço "
+"com toda a infraestrutura necessária para seu projeto decolar."
 msgstr ""
 "We are more than a simple coworking, we were born with a much greater "
 "purpose, that of supporting small and medium bussiness owners, self-employed "
@@ -2278,6 +2320,91 @@ msgstr "Whether you are starting or not, we give you the help you need!"
 msgid "Sua mensagem foi enviada. Obrigado!"
 msgstr "Your message has been sent. Thank you!"
 
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:66
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:59
+msgid "Passo 1"
+msgstr "Step 1"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:67
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:60
+msgid "Escolher modo de agendamento"
+msgstr "Choose scheduling mode"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:70
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:63
+msgid "Passo 2"
+msgstr "Step 2"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:74
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:67
+msgid "Passo 3"
+msgstr "Step 3"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:75
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:68
+msgid "Informações bancárias"
+msgstr "Banking Information"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:92
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:85
+msgid ""
+"Faltam menos de 96 horas para esta reserva começar, não é possível efetuar "
+"uma reserva."
+msgstr ""
+"This booking starts in less than 96 hours, we cannot finish this booking."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:104
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:97
+msgid "Alugar"
+msgstr "Rent"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:111
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:104
+msgid "Reservar:"
+msgstr "Reserve:"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:111
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:104
+msgid ""
+"Pagar uma taxa pequena para já reservar o espaço desejado e depois pagar o "
+"valor integral quando tiver o dinheiro."
+msgstr ""
+"Pay a smaller ammount to book the desired space, then pay for the rest of "
+"the value at a later date."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:112
+msgid ""
+"Atenção: Depois de 3 dias se o valor integral não for pago, o valor é "
+"perdido e o espaço se torna disponível para outro cliente."
+msgstr ""
+"Attention: If the full value isn't paid after 3 days, the paid value is lost "
+"and the space becomes avaliable for other clients."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:116
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:109
+msgid "Alugar:"
+msgstr "Rent:"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:116
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:109
+msgid "Pagar o valor integral da reserva e já garantir o seu espaço agora."
+msgstr "Pay the full value for the booking and guarantee your space now."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:145
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:176
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:138
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:169
+msgid "Avançar"
+msgstr "Proceed"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:206
+msgid "Mês vencimento"
+msgstr "Expiration month"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:210
+msgid "Ano vencimento"
+msgstr "Expiration year"
+
 #: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:5
 #: .\templates\gere\template1\cliente\cadastro_e_login\password_reset.html:5
 #: .\templates\gere\template1\cliente\cadastro_e_login\password_reset_done.html:5
@@ -2293,7 +2420,9 @@ msgid "Administrador"
 msgstr "Administrator"
 
 #: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:22
+#: .\templates\gere\template1\relatorios\alugueis.html:24
 #: .\templates\gere\template1\relatorios\reservas.html:24
+#: .\templates\gere\template1\relatorios\todas_reserva.html:24
 msgid "Cliente"
 msgstr "Client"
 
@@ -2322,16 +2451,24 @@ msgstr "Phisical Person"
 msgid "Pessoa jurídica "
 msgstr "Legal Person"
 
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:25
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:105
+msgid ""
+"Atenção: Depois de 3 dias se o valor integral não for pago, o valor é "
+"perdido e o espaço se torna disponível para outros clientes."
+msgstr ""
+"Attention: If the full value isn't paid after 3 days, the paid value is lost "
+"and the space becomes avaliable for other clients."
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:25
 #, python-format
 msgid "Pagar 10%%"
 msgstr "Pay 10%%"
 
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:28
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:28
 msgid "Pagamento total "
 msgstr "Total payment "
 
-#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:31
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:31
 msgid "Total:"
 msgstr "Total:"
 
@@ -2357,6 +2494,12 @@ msgstr ""
 "typed in the correct e-mail!"
 
 #: .\templates\gere\template1\cliente\pagamento\qrcode_envio.html:27
+#: .\templates\gere\template1\relatorios\alugueis.html:52
+#: .\templates\gere\template1\relatorios\alugueis.html:64
+#: .\templates\gere\template1\relatorios\pagamentos.html:51
+#: .\templates\gere\template1\relatorios\pagamentos.html:63
+#: .\templates\gere\template1\relatorios\todas_reserva.html:52
+#: .\templates\gere\template1\relatorios\todas_reserva.html:64
 msgid "Voltar"
 msgstr "Return"
 
@@ -2382,7 +2525,7 @@ msgstr ""
 
 #: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:28
 msgid "Informe o e-mail do novo titular da reserva"
-msgstr "Inform the e-mail of the new reservation holder"
+msgstr "Inform the e-mail of the new booking holder"
 
 #: .\templates\gere\template1\cliente\pagamento\transfere_titular_envio.html:5
 msgid "Transferência Enviada"
@@ -2422,11 +2565,11 @@ msgstr "Register, edit and delete rooms"
 
 #: .\templates\gere\template1\funcionario\menuFuncionario.html:25
 msgid "Acompanhar Reservas"
-msgstr "Monitor Reservations"
+msgstr "Monitor Bookings"
 
 #: .\templates\gere\template1\funcionario\menuFuncionario.html:26
 msgid "Visualize todas as reservas feitas no dia!"
-msgstr "Visualize all the reservations made on the day!"
+msgstr "Visualize all the bookings made on the day!"
 
 #: .\templates\gere\template1\funcionario\menuFuncionario.html:35
 msgid "Validação de Entrada."
@@ -2444,25 +2587,48 @@ msgstr "Reviews"
 msgid "Informe o estado em que o espaço foi deixado após o uso."
 msgstr "Inform the state of the space after usage."
 
-#: .\templates\gere\template1\relatorios\reservas.html:20
-msgid "Reservas do dia"
-msgstr "Today's bookings"
+#: .\templates\gere\template1\relatorios\alugueis.html:18
+msgid "Aluguel"
+msgstr "Booking"
 
+#: .\templates\gere\template1\relatorios\alugueis.html:25
 #: .\templates\gere\template1\relatorios\reservas.html:25
+#: .\templates\gere\template1\relatorios\todas_reserva.html:25
 msgid "Data"
 msgstr "Date"
 
+#: .\templates\gere\template1\relatorios\alugueis.html:26
 #: .\templates\gere\template1\relatorios\reservas.html:26
+#: .\templates\gere\template1\relatorios\todas_reserva.html:26
 msgid "Hora"
 msgstr "Time"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:41
+#: .\templates\gere\template1\relatorios\todas_reserva.html:41
+msgid "Nenhum registro encontrado"
+msgstr "No register found"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:59
+#: .\templates\gere\template1\relatorios\pagamentos.html:58
+#: .\templates\gere\template1\relatorios\todas_reserva.html:59
+msgid "Próximo"
+msgstr "Next"
+
+#: .\templates\gere\template1\relatorios\pagamentos.html:19
+msgid "Gerar PDF"
+msgstr "Generate PDF"
+
+#: .\templates\gere\template1\relatorios\reservas.html:20
+msgid "Reservas do dia"
+msgstr "Today's bookings"
 
 #: .\templates\gere\template1\relatorios\reservas.html:28
 msgid "Opções"
 msgstr "Options"
 
 #: .\templates\gere\template1\relatorios\reservas.html:40
-msgid "Validar Entrada"
-msgstr "Validate Entrance"
+msgid "Deixar comentario"
+msgstr "Leave commentary"
 
 #: .\templates\gere\template1\relatorios\reservas.html:41
 msgid "Finalizar Reserva"
@@ -2561,6 +2727,9 @@ msgstr ""
 "Select here the ammount of time this space needs after usage, before it's "
 "ready to be used by the next client."
 
+#~ msgid "Validar Entrada"
+#~ msgstr "Validate Entrance"
+
 #~ msgid "Nome amostral"
 #~ msgstr "Default name"
 
@@ -2572,9 +2741,6 @@ msgstr ""
 
 #~ msgid "Informe a quantidade de convidados."
 #~ msgstr "Inform the quantity of guest."
-
-#~ msgid "Gerar"
-#~ msgstr "Generate"
 
 #~ msgid "Gere. Salas e Recursos"
 #~ msgstr "Manage Rooms and Resources"

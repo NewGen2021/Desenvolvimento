@@ -31,3 +31,11 @@ def get_button_by_administrador(adm: Administrador) -> str:
     print(configs)
     button = json.loads(configs.replace("'", "\""))['button']
     return button
+
+def get_administrador_logado_in_cria(request):
+    ''' NÃO USAR FORA DO CRIA COWORKING!'''
+    if request.user.is_authenticated:
+        usuario = request.user
+        cpf_cnpj = usuario.username
+        return Administrador.objects.get(cnpj = cpf_cnpj)
+    return None

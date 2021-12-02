@@ -7,7 +7,6 @@ from django.conf import settings
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ('gere_coworking', '0001_manual_migration'),
     ]
@@ -18,31 +17,32 @@ class Migration(migrations.Migration):
             model_name='AdvertenciasModel',
             name='id_funcionario',
             field=models.ForeignKey(blank=False, db_column='id_funcionario', null=False,
-                 on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.FuncionariosModel'),
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.FuncionariosModel'),
         ),
         migrations.AddField(
             model_name='AdvertenciasModel',
             name='id_reserva',
             field=models.ForeignKey(blank=False, db_column='id_reserva', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
         ),
         migrations.AlterModelTable(
             name='AdvertenciasModel',
             table='advertencias',
         ),
-        
+
         ### TABELA CONVIDADOS ###
         migrations.AddField(
             model_name='ConvidadosModel',
             name='id_reserva',
             field=models.ForeignKey(blank=False, db_column='id_reserva', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
         ),
         migrations.AddField(
             model_name='ConvidadosModel',
             name='id_cliente',
             field=models.ForeignKey(blank=True, db_column='id_cliente', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
         ),
         migrations.AlterModelTable(
             name='ConvidadosModel',
@@ -54,13 +54,14 @@ class Migration(migrations.Migration):
             model_name='EspacosModel',
             name='id_tipo_espaco',
             field=models.ForeignKey(blank=False, db_column='id_tipo_espaco', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.TipoespacoModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.TipoespacoModel')
         ),
         migrations.AddField(
             model_name='EspacosModel',
             name='id_funcionario',
             field=models.ForeignKey(blank=True, db_column='ultima_alteracao', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.FuncionariosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.FuncionariosModel')
         ),
         migrations.AlterModelTable(
             name='EspacosModel',
@@ -72,7 +73,8 @@ class Migration(migrations.Migration):
             model_name='EquipamentosModel',
             name='id_funcionario',
             field=models.ForeignKey(blank=True, db_column='ultima_alteracao', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.FuncionariosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.FuncionariosModel')
         ),
         migrations.AlterModelTable(
             name='EquipamentosModel',
@@ -84,19 +86,20 @@ class Migration(migrations.Migration):
             model_name='EquipamentoreservaModel',
             name='id_reserva',
             field=models.ForeignKey(blank=False, db_column='id_reserva', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ReservaModel')
         ),
         migrations.AddField(
             model_name='EquipamentoreservaModel',
             name='id_equipamento',
             field=models.ForeignKey(blank=False, db_column='id_equipamento', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.EquipamentosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.EquipamentosModel')
         ),
         migrations.AddField(
             model_name='EquipamentoreservaModel',
             name='id_pagamento',
             field=models.ForeignKey(blank=True, db_column='id_pagamento', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.PagamentoModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.PagamentoModel')
         ),
         migrations.AlterModelTable(
             name='EquipamentoreservaModel',
@@ -108,13 +111,13 @@ class Migration(migrations.Migration):
             model_name='PacotehorasModel',
             name='id_cliente',
             field=models.ForeignKey(blank=False, db_column='id_cliente', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
         ),
         migrations.AddField(
             model_name='PacotehorasModel',
             name='id_cliente',
             field=models.ForeignKey(blank=True, db_column='id_empresa', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
         ),
         migrations.AlterModelTable(
             name='PacotehorasModel',
@@ -132,7 +135,8 @@ class Migration(migrations.Migration):
             model_name='PagamentoModel',
             name='id_equipamento',
             field=models.ForeignKey(blank=True, db_column='id_equipamento', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.EquipamentosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.EquipamentosModel')
         ),
         migrations.AlterModelTable(
             name='PagamentoModel',
@@ -144,25 +148,26 @@ class Migration(migrations.Migration):
             model_name='ReservaModel',
             name='id_cliente',
             field=models.ForeignKey(blank=False, db_column='id_cliente', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.ClienteModel')
         ),
         migrations.AddField(
             model_name='ReservaModel',
             name='id_pagamento',
             field=models.ForeignKey(blank=True, db_column='id_pagamento', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.PagamentoModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.PagamentoModel')
         ),
         migrations.AddField(
             model_name='ReservaModel',
             name='id_espaco',
             field=models.ForeignKey(blank=False, db_column='id_espaco', null=False,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.EspacosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.EspacosModel')
         ),
         migrations.AddField(
             model_name='ReservaModel',
             name='id_pacote_horas',
             field=models.ForeignKey(blank=True, db_column='id_pacote_horas', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.PacotehorasModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.PacotehorasModel')
         ),
         migrations.AlterModelTable(
             name='ReservaModel',
@@ -174,7 +179,8 @@ class Migration(migrations.Migration):
             model_name='TipoespacoModel',
             name='id_funcionario',
             field=models.ForeignKey(blank=True, db_column='ultima_alteracao', null=True,
-                on_delete=django.db.models.deletion.DO_NOTHING, to='gere_coworking.FuncionariosModel')
+                                    on_delete=django.db.models.deletion.DO_NOTHING,
+                                    to='gere_coworking.FuncionariosModel')
         ),
         migrations.AlterModelTable(
             name='TipoespacoModel',

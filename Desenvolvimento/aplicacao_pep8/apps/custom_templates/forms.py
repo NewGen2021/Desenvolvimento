@@ -25,9 +25,12 @@ from django.utils.translation import gettext as _
 
 class FormInstanceConfig(forms.ModelForm):
     showing_company_name = forms.CharField(label=_("Nome de exibição"))
-    paleta1 = forms.CharField(label=_("Cor 1"), widget=forms.TextInput(attrs={'type': 'color'}))
-    paleta2 = forms.CharField(label=_("Cor 2"), widget=forms.TextInput(attrs={'type': 'color'}))
-    paleta3 = forms.CharField(label=_("Cor 3"), widget=forms.TextInput(attrs={'type': 'color'}))
+    paleta1 = forms.CharField(label=_("Cor 1"), widget=forms.TextInput(attrs={'type': 'color', 
+    'class':"tooltip-test", 'title':_('Cor de destaque')}))
+    paleta2 = forms.CharField(label=_("Cor 2"), widget=forms.TextInput(attrs={'type': 'color',
+    'class':"tooltip-test", 'title':_('Cor do fundo')}))
+    paleta3 = forms.CharField(label=_("Cor 3"), widget=forms.TextInput(attrs={'type': 'color',
+    'class':"tooltip-test", 'title':_('Cor do rodapé')}))
     color_palette = forms.CharField(label=_("Paleta de cor"), required=False,
                                     widget=forms.TextInput(attrs={'type': 'hidden'}))
     client_logo = forms.ImageField(required=True)

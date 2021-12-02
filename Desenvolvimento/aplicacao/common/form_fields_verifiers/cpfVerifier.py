@@ -1,7 +1,7 @@
-'''
+"""
     * Métodos focados na verificação de CPF válido
     * Favor manter em ordem alfabética
-'''
+"""
 
 def formatCpf(cpf):
     if len(cpf) == 11:

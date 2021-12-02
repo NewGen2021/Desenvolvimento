@@ -38,3 +38,8 @@ class FinalizarReservaSerializer(serializers.ModelSerializer):
     class Meta:
         model= ReservaModel
         fields = ('id_reserva', 'hora_saida_real', 'hora_entrada_real')
+
+class IniciaReservaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model= ReservaModel
+        fields = ('id_reserva', 'hora_entrada_real', 'data_reserva')

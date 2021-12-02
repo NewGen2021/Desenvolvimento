@@ -91,7 +91,7 @@ class TipoespacoModel(models.Model):
             return _(f"%s seg{'s' if self.tempo_limpeza.second != 1 else ''}") % self.tempo_limpeza.second
     
     def get_preco(self):
-        preco_formatado = f"R$ {self.preco:.2f}".replace('.', ',')
+        preco_formatado = f"{self.preco:.2f}".replace('.', ',')
         return f"{preco_formatado:>13}"
     
     def get_compartilhado(self):
@@ -161,7 +161,7 @@ class EspacosModel(models.Model):
     def get_preco(self):
         if self.preco is None:
             self.preco = self.id_tipo_espaco.preco
-        preco_formatado = f"R$ {self.preco:.2f}".replace('.', ',')
+        preco_formatado = f"{self.preco:.2f}".replace('.', ',')
         return f"{preco_formatado:>13}"
     
     def get_tipo_espaco(self):

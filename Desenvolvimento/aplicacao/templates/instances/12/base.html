@@ -1447,7 +1447,7 @@ section {
 }
 
 #footer {
-  background: #587187;
+  background: #367dbf;
   padding: 0 0 20px 0;
   color: #fff;
   font-size: 14px;
@@ -1653,6 +1653,7 @@ section {
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
+    {% if not user.is_authenticated or is_cliente or client_page %}
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
@@ -1694,8 +1695,10 @@ section {
               <li><a href="{% host_url 'listarReservasIndex' host 'custom_host' domain%}">{% translate "Minhas próximas reservas"%}</a></li>
               <li><a href="{% host_url 'loginSystem' host 'custom_host' domain%}">{% translate "Outra conta"%}</a></li>
               <li><a href="/logout" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Deslogar"%}</a></li>
-              {% if user.is_superuser %}
+              {% if is_adm %}
               <li><a href="{% host_url 'menuAdmin' host 'custom_host' domain%}">{% translate "Menu Administrador"%}</a></li>
+              {% elif is_func %}
+              <li><a href="{% host_url 'menuFunc' host 'custom_host' domain%}">{% translate "Menu Funcionário"%}</a></li>
               {% endif%}
 
             </ul>
@@ -1715,7 +1718,102 @@ section {
       </nav><!-- .navbar -->
 
     </div>
+    {% elif is_adm %}
+    &lt;div class=&quot;container d-flex align-items-center&quot;&gt;
+
+    &lt;div class=&quot;logo me-auto&quot;&gt;
+        &lt;h1&gt;&lt;a href=&quot;{%templatetag openblock%} host_url &#x27;menuAdmin&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;&gt;{%templatetag openblock%} translate &quot;Coworking&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;nav id=&quot;navbar&quot; class=&quot;navbar&quot;&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a class=&quot;nav-link scrollto&quot; href=&quot;relatorios/reservas&quot;&gt;{%templatetag openblock%} translate &quot;Acompanhamento de Reservas&quot;{%templatetag closeblock%}&lt;/a&gt;
+            &lt;/li&gt;
+            &lt;li&gt;&lt;a class=&quot;nav-link scrollto&quot; href=&quot;{%templatetag openblock%} host_url &#x27;registrarFuncionario&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;&gt;
+                {%templatetag openblock%} translate &quot;Cadastro de Funcionários&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+            &lt;li class=&quot;dropdown&quot;&gt;&lt;a href=&quot;#&quot;&gt;&lt;span&gt;{%templatetag openblock%} translate &quot;Configurações&quot;{%templatetag closeblock%}&lt;/span&gt; &lt;i
+                        class=&quot;bi bi-chevron-down&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;listar_espacos&quot;&gt;{%templatetag openblock%} translate &quot;Salas&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;#&quot;&gt;{%templatetag openblock%} translate &quot;Recusos&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                    &lt;li class=&quot;dropdown&quot;&gt;&lt;a href=&quot;#&quot;&gt;{%templatetag openblock%} translate &quot;Customização&quot;{%templatetag closeblock%}&lt;i
+                                class=&quot;bi bi-chevron-down&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+                        &lt;ul&gt;
+                            &lt;li&gt;&lt;a href=&quot;custom_cowork_info&quot;&gt;{%templatetag openblock%} translate &#x27;Informações Site&#x27;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;custom_index&quot;&gt;{%templatetag openblock%} translate &#x27;Página Principal&#x27;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                            &lt;li&gt;&lt;a href=&quot;custom_personal_info&quot;&gt;{%templatetag openblock%} translate &#x27;Informações Pessoais&#x27;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+            {%templatetag openblock%} if user.is_authenticated{%templatetag closeblock%}
+
+            &lt;/li&gt;
+            &lt;li class=&quot;dropdown&quot;&gt;
+                &lt;a href=&quot;{%templatetag openblock%} host_url &#x27;loginSystem&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;
+                    class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot; id=&quot;loggedAs&quot;&gt;Olá {%templatetag openvariable%}
+                    user.first_name{%templatetag closevariable%}&lt;/a&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;&lt;a href=&quot;{%templatetag openblock%} host_url &#x27;index&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;&gt;{%templatetag openblock%} translate &quot;Ir para Site&quot;{%templatetag closeblock%}&lt;/a&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;&lt;a href=&quot;/logout&quot; class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot;&gt;{%templatetag openblock%}
+                            translate &quot;Deslogar&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/li&gt;
+
+            {%templatetag openblock%} else{%templatetag closeblock%}
+            &lt;li&gt;
+                &lt;a href=&quot;{%templatetag openblock%} host_url &#x27;loginSystem&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;
+                    class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot;&gt;{%templatetag openblock%} translate &quot;Login&quot;{%templatetag closeblock%}&lt;/a&gt;
+            &lt;/li&gt;
+
+            {%templatetag openblock%} endif{%templatetag closeblock%}
+            &lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;i class=&quot;bi bi-list mobile-nav-toggle&quot;&gt;&lt;/i&gt;
+
+
+    &lt;/nav&gt;&lt;!-- .navbar --&gt;
+
+&lt;/div&gt;
+    {% else %}
+    &lt;div class=&quot;container d-flex align-items-center&quot;&gt;
+
+    &lt;div class=&quot;logo me-auto&quot;&gt;
+    &lt;h1&gt;&lt;a href=&quot;{%templatetag openblock%} host_url &#x27;menuFunc&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;&gt;{%templatetag openblock%} translate &quot;Coworking&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/h1&gt;
+    &lt;/div&gt;
+    {%templatetag openblock%} if user.is_authenticated{%templatetag closeblock%}
+    
+    &lt;nav id=&quot;navbar&quot; class=&quot;navbar&quot;&gt;
+    &lt;ul&gt;
+        &lt;li class=&quot;dropdown&quot;&gt;
+        &lt;a href=&quot;{%templatetag openblock%} host_url &#x27;loginSystem&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot; 
+        class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot; 
+        id=&quot;loggedAs&quot;&gt;Olá {%templatetag openvariable%} user.first_name{%templatetag closevariable%}&lt;/a&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&quot;{%templatetag openblock%} host_url &#x27;index&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot;&gt;{%templatetag openblock%} translate &quot;Ir para Site&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&quot;/logout&quot; class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot;&gt;{%templatetag openblock%} translate &quot;Deslogar&quot;{%templatetag closeblock%}&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+        &lt;/li&gt;
+        
+    {%templatetag openblock%} else{%templatetag closeblock%}
+        &lt;li&gt;
+        &lt;a href=&quot;{%templatetag openblock%} host_url &#x27;loginSystem&#x27; host &#x27;custom_host&#x27; domain{%templatetag closeblock%}&quot; class=&quot;btn-get-started animate__animated animate__fadeInUp scrollto&quot;&gt;{%templatetag openblock%} translate &quot;Login&quot;{%templatetag closeblock%}&lt;/a&gt;
+        &lt;/li&gt;
+        
+    {%templatetag openblock%} endif{%templatetag closeblock%}
+        &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;i class=&quot;bi bi-list mobile-nav-toggle&quot;&gt;&lt;/i&gt;
+    &lt;/nav&gt;&lt;!-- .navbar --&gt;
+
+&lt;/div&gt;
+
+
+    {% endif %}
   </header><!-- End Header -->
+
 
   {% block content%}
   

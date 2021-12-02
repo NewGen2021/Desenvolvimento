@@ -1447,7 +1447,7 @@ section {
 }
 
 #footer {
-  background: #587187;
+  background: {{ cor3 }};
   padding: 0 0 20px 0;
   color: #fff;
   font-size: 14px;
@@ -1653,6 +1653,7 @@ section {
 <body>
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-center">
+    {% templatetag openblock%} if not user.is_authenticated or is_cliente or client_page {%templatetag closeblock%}
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto">
@@ -1694,8 +1695,10 @@ section {
               <li><a href="{% templatetag openblock%} host_url 'listarReservasIndex' host 'custom_host' domain{%templatetag closeblock%}">{% templatetag openblock%} translate "Minhas próximas reservas"{%templatetag closeblock%}</a></li>
               <li><a href="{% templatetag openblock%} host_url 'loginSystem' host 'custom_host' domain{%templatetag closeblock%}">{% templatetag openblock%} translate "Outra conta"{%templatetag closeblock%}</a></li>
               <li><a href="/logout" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% templatetag openblock%} translate "Deslogar"{%templatetag closeblock%}</a></li>
-              {% templatetag openblock%} if user.is_superuser {%templatetag closeblock%}
+              {% templatetag openblock%} if is_adm {%templatetag closeblock%}
               <li><a href="{% templatetag openblock%} host_url 'menuAdmin' host 'custom_host' domain{%templatetag closeblock%}">{% templatetag openblock%} translate "Menu Administrador"{%templatetag closeblock%}</a></li>
+              {% templatetag openblock%} elif is_func {%templatetag closeblock%}
+              <li><a href="{% templatetag openblock%} host_url 'menuFunc' host 'custom_host' domain{%templatetag closeblock%}">{% templatetag openblock%} translate "Menu Funcionário"{%templatetag closeblock%}</a></li>
               {% templatetag openblock%} endif{%templatetag closeblock%}
 
             </ul>
@@ -1715,7 +1718,13 @@ section {
       </nav><!-- .navbar -->
 
     </div>
+    {% templatetag openblock%} elif is_adm {%templatetag closeblock%}
+    {{ menu_administrador }}
+    {% templatetag openblock%} else {%templatetag closeblock%}
+    {{ menu_funcionario }}
+    {% templatetag openblock%} endif {%templatetag closeblock%}
   </header><!-- End Header -->
+
 
   {% templatetag openblock%} block content{%templatetag closeblock%}
   

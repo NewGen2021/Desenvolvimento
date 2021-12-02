@@ -1,7 +1,7 @@
-'''
+"""
     * Métodos focados na verificação de datas
     * Favor manter em ordem alfabética
-'''
+"""
 
 import datetime
 from django.utils.translation import gettext as _
