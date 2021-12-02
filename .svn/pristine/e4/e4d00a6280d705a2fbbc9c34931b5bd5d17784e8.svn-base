@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Coverage report</title>
+    <link rel="icon" sizes="32x32" href="favicon_32.png">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.ba-throttle-debounce.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="jquery.hotkeys.js"></script>
+    <script type="text/javascript" src="coverage_html.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(coverage.index_ready);
+    </script>
+</head>
+<body class="indexfile">
+<div id="header">
+    <div class="content">
+        <h1>Coverage report:
+            <span class="pc_cov">69%</span>
+        </h1>
+        <img id="keyboard_icon" src="keybd_closed.png" alt="Show keyboard shortcuts" />
+        <form id="filter_container">
+            <input id="filter" type="text" value="" placeholder="filter..." />
+        </form>
+    </div>
+</div>
+<div class="help_panel">
+    <img id="panel_icon" src="keybd_open.png" alt="Hide keyboard shortcuts" />
+    <p class="legend">Hot-keys on this page</p>
+    <div>
+    <p class="keyhelp">
+        <span class="key">n</span>
+        <span class="key">s</span>
+        <span class="key">m</span>
+        <span class="key">x</span>
+        <span class="key">c</span> &nbsp; change column sorting
+    </p>
+    </div>
+</div>
+<div id="index">
+    <table class="index">
+        <thead>
+            <tr class="tablehead" title="Click to sort">
+                <th class="name left headerSortDown shortkey_n">Module</th>
+                <th class="shortkey_s">statements</th>
+                <th class="shortkey_m">missing</th>
+                <th class="shortkey_x">excluded</th>
+                <th class="right shortkey_c">coverage</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr class="total">
+                <td class="name left">Total</td>
+                <td>2194</td>
+                <td>681</td>
+                <td>0</td>
+                <td class="right" data-ratio="1513 2194">69%</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f___init___py.html">cria_coworking\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f_apps_py.html">cria_coworking\apps.py</a></td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f_forms_py.html">cria_coworking\forms.py</a></td>
+                <td>72</td>
+                <td>31</td>
+                <td>0</td>
+                <td class="right" data-ratio="41 72">57%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_797070d14acfa9eb_0001_manual_migration_py.html">cria_coworking\migrations\0001_manual_migration.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_797070d14acfa9eb___init___py.html">cria_coworking\migrations\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f_models_py.html">cria_coworking\models.py</a></td>
+                <td>22</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="22 22">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f_urls_py.html">cria_coworking\urls.py</a></td>
+                <td>13</td>
+                <td>4</td>
+                <td>0</td>
+                <td class="right" data-ratio="9 13">69%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_58d8f3b8e97f082f_views_py.html">cria_coworking\views.py</a></td>
+                <td>132</td>
+                <td>85</td>
+                <td>0</td>
+                <td class="right" data-ratio="47 132">36%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_ca189dd88a13ab52___init___py.html">domains\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_ca189dd88a13ab52_apps_py.html">domains\apps.py</a></td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_ca189dd88a13ab52_middleware_py.html">domains\middleware.py</a></td>
+                <td>44</td>
+                <td>14</td>
+                <td>0</td>
+                <td class="right" data-ratio="30 44">68%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_41f2863339a9e880_0001_initial_py.html">domains\migrations\0001_initial.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_41f2863339a9e880_0002_manual_migration_py.html">domains\migrations\0002_manual_migration.py</a></td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_41f2863339a9e880___init___py.html">domains\migrations\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_ca189dd88a13ab52_models_py.html">domains\models.py</a></td>
+                <td>44</td>
+                <td>21</td>
+                <td>0</td>
+                <td class="right" data-ratio="23 44">52%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a29726d6098541d2___init___py.html">gere_coworking\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a29726d6098541d2_apps_py.html">gere_coworking\apps.py</a></td>
+                <td>4</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="4 4">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_cea886ec83086ee5_forms_py.html">gere_coworking\forms\forms.py</a></td>
+                <td>193</td>
+                <td>22</td>
+                <td>0</td>
+                <td class="right" data-ratio="171 193">89%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_cea886ec83086ee5_forms_helper_py.html">gere_coworking\forms\forms_helper.py</a></td>
+                <td>77</td>
+                <td>14</td>
+                <td>0</td>
+                <td class="right" data-ratio="63 77">82%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_cepVerifier_py.html">gere_coworking\forms\verifiers\cepVerifier.py</a></td>
+                <td>27</td>
+                <td>3</td>
+                <td>0</td>
+                <td class="right" data-ratio="24 27">89%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_cnpjVerifier_py.html">gere_coworking\forms\verifiers\cnpjVerifier.py</a></td>
+                <td>42</td>
+                <td>4</td>
+                <td>0</td>
+                <td class="right" data-ratio="38 42">90%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_cpfVerifier_py.html">gere_coworking\forms\verifiers\cpfVerifier.py</a></td>
+                <td>43</td>
+                <td>4</td>
+                <td>0</td>
+                <td class="right" data-ratio="39 43">91%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_dateVerifier_py.html">gere_coworking\forms\verifiers\dateVerifier.py</a></td>
+                <td>40</td>
+                <td>17</td>
+                <td>0</td>
+                <td class="right" data-ratio="23 40">58%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_phoneVerifier_py.html">gere_coworking\forms\verifiers\phoneVerifier.py</a></td>
+                <td>24</td>
+                <td>4</td>
+                <td>0</td>
+                <td class="right" data-ratio="20 24">83%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_40b941a497d9f14b_textVerifiers_py.html">gere_coworking\forms\verifiers\textVerifiers.py</a></td>
+                <td>40</td>
+                <td>13</td>
+                <td>0</td>
+                <td class="right" data-ratio="27 40">68%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_816261c4f6a2a238_0001_manual_migration_py.html">gere_coworking\migrations\0001_manual_migration.py</a></td>
+                <td>7</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="7 7">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_816261c4f6a2a238_0002_manual_migration_py.html">gere_coworking\migrations\0002_manual_migration.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_816261c4f6a2a238___init___py.html">gere_coworking\migrations\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_50a9ab4e05c71031___init___py.html">gere_coworking\models\__init__.py</a></td>
+                <td>1</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="1 1">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_50a9ab4e05c71031_models_py.html">gere_coworking\models\models.py</a></td>
+                <td>150</td>
+                <td>1</td>
+                <td>0</td>
+                <td class="right" data-ratio="149 150">99%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_50a9ab4e05c71031_models_choice_py.html">gere_coworking\models\models_choice.py</a></td>
+                <td>8</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="8 8">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_50a9ab4e05c71031_models_helper_py.html">gere_coworking\models\models_helper.py</a></td>
+                <td>36</td>
+                <td>23</td>
+                <td>0</td>
+                <td class="right" data-ratio="13 36">36%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a29726d6098541d2_urls_py.html">gere_coworking\urls.py</a></td>
+                <td>5</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="5 5">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_d6b2598f60c19df0_cadastro_py.html">gere_coworking\views\businessLayer\cadastro.py</a></td>
+                <td>89</td>
+                <td>20</td>
+                <td>0</td>
+                <td class="right" data-ratio="69 89">78%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_d6b2598f60c19df0_reserva_py.html">gere_coworking\views\businessLayer\reserva.py</a></td>
+                <td>171</td>
+                <td>152</td>
+                <td>0</td>
+                <td class="right" data-ratio="19 171">11%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_1347e438e378e2f2_views_py.html">gere_coworking\views\views.py</a></td>
+                <td>272</td>
+                <td>147</td>
+                <td>0</td>
+                <td class="right" data-ratio="125 272">46%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_1347e438e378e2f2_views_helper_py.html">gere_coworking\views\views_helper.py</a></td>
+                <td>77</td>
+                <td>50</td>
+                <td>0</td>
+                <td class="right" data-ratio="27 77">35%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_1347e438e378e2f2_views_manager_py.html">gere_coworking\views\views_manager.py</a></td>
+                <td>38</td>
+                <td>10</td>
+                <td>0</td>
+                <td class="right" data-ratio="28 38">74%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="manage_py.html">manage.py</a></td>
+                <td>12</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="10 12">83%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848___init___py.html">newgen\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848_databases_py.html">newgen\databases.py</a></td>
+                <td>46</td>
+                <td>33</td>
+                <td>0</td>
+                <td class="right" data-ratio="13 46">28%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848_hosts_py.html">newgen\hosts.py</a></td>
+                <td>6</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="6 6">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848_routers_py.html">newgen\routers.py</a></td>
+                <td>17</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="15 17">88%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848_settings_py.html">newgen\settings.py</a></td>
+                <td>45</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="45 45">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_7d128eea4ffbf848_urls_py.html">newgen\urls.py</a></td>
+                <td>16</td>
+                <td>2</td>
+                <td>0</td>
+                <td class="right" data-ratio="14 16">88%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531___init___py.html">tests\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_conf_tests_py.html">tests\conf_tests.py</a></td>
+                <td>20</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="20 20">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_4603a19d5b942ae4___init___py.html">tests\functional_tests\__init__.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_4603a19d5b942ae4_test_login_py.html">tests\functional_tests\test_login.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_forms_py.html">tests\test_forms.py</a></td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="0 0">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_models_py.html">tests\test_models.py</a></td>
+                <td>119</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="119 119">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_urls_py.html">tests\test_urls.py</a></td>
+                <td>71</td>
+                <td>0</td>
+                <td>0</td>
+                <td class="right" data-ratio="71 71">100%</td>
+            </tr>
+            <tr class="file">
+                <td class="name left"><a href="d_a44f0ac069e85531_test_views_py.html">tests\test_views.py</a></td>
+                <td>141</td>
+                <td>3</td>
+                <td>0</td>
+                <td class="right" data-ratio="138 141">98%</td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="no_rows">
+        No items found using the specified filter.
+    </p>
+</div>
+<div id="footer">
+    <div class="content">
+        <p>
+            <a class="nav" href="https://coverage.readthedocs.io">coverage.py v6.0.1</a>,
+            created at 2021-10-08 16:08 -0300
+        </p>
+    </div>
+</div>
+</body>
+</html>

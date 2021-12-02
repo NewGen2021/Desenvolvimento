@@ -1,0 +1,299 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% block title %}{% translate "Customização da página inicial" %}{% endblock %}
+
+{% block css %}
+<style>
+  body{
+    text-align: center;
+  }
+</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/2.3.1/css/flag-icon.min.css" rel="stylesheet"/>
+{% endblock css %}
+
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<form method="POST" class="form-group" name="formFuncionario" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% load client_translation %}
+  {% load hosts %}
+  <div class='row' style="margin-top: 7%; align-items: center; justify-content: center;">
+    <h1 class='card-header'>{% translate 'Customização da página inicial' %}</h1>
+    <h6> {% translate "Idioma selecionado: " %} <strong>{{request.LANGUAGE_CODE}}</strong> <span class="flag-icon flag-icon-{% get_flag request.LANGUAGE_CODE %}"></span></h6>
+    <p>{% translate 'Para editar em outro idioma, selecione no menu ' %}{% translate '"Escolha seu idioma"' %}</p>
+    <a href="{% host_url 'menuAdmin' host 'custom_host' domain %}" style="max-width: 12em; margin-bottom: 2%;"
+    id="enviar_form_empresa" class="btn {{ button_color  }}">{% translate "← Voltar" %}</a>
+    <button type="submit" id="form-checkout__submit" class="btn {{ button_color  }}">{% translate "Salvar alterações" %}</button>
+  </div>
+<section id="hero">
+  <div class="hero-container">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+      <div class="carousel-inner" role="listbox">
+        {% for slide in slides %}
+        <div class="carousel-item {{slide.active}}" style="background-image: url({{ slide.image.url }});">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <div class="">
+                <div class="col-6 form-floating mb-3">
+                  <input type="text" id='slide_title_{{slide.id}}' name='slide/{{slide.id}}/slide_title' class="form-control" required
+                  value="{{ slide.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}">
+                  <label for="slide_title_{{slide.id}}">{% translate 'Título' %}</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" id='slide_description_{{slide.id}}' name='slide/{{slide.id}}/slide_description' class="form-control" required
+                value="{{ slide.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}">
+                <label for="slide_description_{{slide.id}}">{% translate 'Descrição' %}</label>
+                </div>
+              </div>
+              <div class="col d-flex justify-content-left align-items-center">
+                <div class="col card bg-light mb-3" style="max-width: 18rem; max-height: 12rem;">
+                  <div class="card-header"><h5>{% translate 'Botão' %}</h5></div>
+                  <div class="card-body">
+                    <div class="col form-floating mb-1">
+                      <select class="form-select" id="floatingSelectBotao_{{slide.id}}" aria-label="Floating label select example"
+                      name='slide/{{slide.id}}/slide_button_tipo'>
+                        <option {% if not slide.id_button %} selected {% endif %}
+                        value="0">{% translate "Nenhum" %}</option>
+                        <option {% if slide.id_button.button_tipo == botoes.0.button_tipo %} selected {% endif %}
+                        value="{{ botoes.0.button_tipo }}">{{ botoes.0 }}</option>
+                      </select>
+                      <label for="floatingSelectBotao_{{slide.id}}">{% translate "Tipo do botão" %}</label>
+                    </div>
+                    
+                    <div class="col form-floating" id="button_div_text_{{slide.id}}"
+                    style="display: {% if slide.id_button %} block {% else %} none {% endif %};">
+                        <input type="text" class="form-control button_type_{{ slide.get_button_type }}" id="button_text_{{slide.id}}" name='slide/{{slide.id}}/slide_button_text'
+                        value="{{ slide.get_button_json | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}">
+                        
+                        <label for="button_text_{{slide.id}}">{% translate "Mudar texto do botão" %}</label>
+                    </div>
+                    <script>
+                      document.getElementById('floatingSelectBotao_{{slide.id}}').addEventListener('change', function() {
+                        // alert('MUDOU DE VALOR');
+                        let valor = this.value;
+                        let botao = document.getElementById('button_div_text_{{slide.id}}');
+                        if (valor == 0){
+                          botao.style.display = 'none';
+                        }
+                        else{
+                          botao.style.display = 'block';
+                          let input = document.getElementById('button_text_{{slide.id}}');
+                          classe_tipo_do_botao = `button_type_${valor}`;
+                          let botoesDoMesmoTipo = document.getElementsByClassName(classe_tipo_do_botao);
+                          if (botoesDoMesmoTipo.length)
+                          input.value = botoesDoMesmoTipo[0].value;
+                          input.classList.add(classe_tipo_do_botao);
+                        }
+                      });
+                      document.getElementById('button_text_{{slide.id}}').addEventListener('change', function() {
+                        // alert('MUDOU DE VALOR');
+                        let tipoBotao = document.getElementById('floatingSelectBotao_{{slide.id}}').value;
+                        console.log(`button_type_${tipoBotao}`);
+                        let botoesDoMesmoTipo = document.getElementsByClassName(`button_type_${tipoBotao}`);
+                        for(let i = 0; i < botoesDoMesmoTipo.length; i++)
+                        botoesDoMesmoTipo[i].value = this.value;
+                      });
+                    </script>
+
+                  </div>
+                </div>
+                <div class="col card bg-light mb-3" style="margin-left: 1.7%; max-height: 12rem;">
+                  <div class="card-header"><label for="slide_image_{{slide.id}}"><h5>{% translate "Selecionar imagem de fundo" %}</h5></label></div>
+                  <div class="card-body">
+                    <input type="file" class="form-control-file" id="slide_image_{{slide.id}}" name='slide/{{slide.id}}/slide_image'>
+                  </div>
+                  
+                </div>
+                <div class="col">
+                  {% if slide.id_button %}
+                    {% for lang, value in slide.id_button.text.items %} 
+                      {% if lang == request.LANGUAGE_CODE %}
+                        <a href="{{value.href}}"
+                          class="btn-get-started animateanimated animatefadeInUp scrollto">
+                          {{value.title}}
+                        </a>
+                      {% endif %}  
+                    {% endfor %}
+                  {% endif %}
+                </div>
+              </div>
+              
+              
+              
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row no-gutters">
+        <div class="col-6 video-box">
+          <img src="{{ instance.client_logo.url }}" class="img-fluid" alt="">
+          <div class="col card bg-light mb-3">
+            <div class="card-header"><label for="select_logo_image"><h5>{% translate "Selecionar imagem para logo" %}</h5></label></div>
+            <div class="card-body">
+              <input type="file" class="form-control-file" id="select_logo_image" name='logo_image'>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 d-flex flex-column justify-content-center about-content">
+
+          <div class="section-title">
+            <h2>{% translate "Sobre Nós" %}</h2>
+              <div class="form-floating mb-3">
+                
+              <input type="text" id='about_us_description' class="form-control" placeholder="{% translate 'Descrição' %}" required name='about_us_description'
+                  value="{{ template_customs.about_us | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}">
+                  <label for="about_us_description">{% translate 'Descrição' %}</label>
+                </div>
+                <!-- <div class="form-floating">
+                  <textarea id='about_us_description' class="form-control" placeholder="" style="height: 200px">
+                    {{ template_customs.about_us | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+                </textarea>
+                <label for="about_us_description">{% translate 'Descrição' %}</label>
+                  
+                </div> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% translate "Serviços" %}</h2>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        {% for service in services %}
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" {% if service.fade %} data-aos-delay="{{service.fade}}" {% endif %}>
+          <div class="icon"><i class="bi bi-{{service.bootstrap_icon}}" id="service_icon_preview_{{service.id}}"></i></div>
+          <div><a href="https://icons.getbootstrap.com/" class="link-primary">{% translate "Lista de ícones" %}</a></div>
+          <div class="form-floating mb-3">
+            <input type="text" id='service_icon_{{service.id}}' class="form-control" name='service/{{service.id}}/service_icon' required
+            value="{{service.bootstrap_icon}}">
+            <label for="service_icon_{{service.id}}">{% translate 'Ícone bootstrap' %}</label>
+          </div>
+          <script>
+            const icon_input_{{service.id}} = document.getElementById('service_icon_{{service.id}}');
+            const icon_preview_{{service.id}} = document.getElementById('service_icon_preview_{{service.id}}');
+            const inputHandler{{service.id}} = function(e) {
+              icon_preview_{{service.id}}.className = `bi bi-${e.target.value}`;
+              // icon_preview_{{service.id}}.innerHTML = e.target.value;
+            }
+            icon_input_{{service.id}}.addEventListener('input', inputHandler{{service.id}});
+          </script>
+          <div class="form-floating mb-3">
+            <input type="text" id='service_title_{{service.id}}' class="form-control" required name='service/{{service.id}}/service_title'
+            value="{{ service.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}">
+            <label for="service_title_{{service.id}}">{% translate 'Título' %}</label>
+          </div>
+          <!-- <h4 class="title">
+{{ service.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4> -->
+          <div class="form-floating mb-3">
+                
+            <input type="text" id='service_description_{{service.id}}' class="form-control" placeholder="{% translate 'Descrição' %}" required
+            name='service/{{service.id}}/service_description'
+            value="{{ service.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}">
+            <label for="service_description_{{service.id}}">{% translate 'Descrição' %}</label>
+          </div>
+          <!-- <p class="description">
+{{ service.text | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p> -->
+        </div>
+        {% endfor %}
+      </div>
+      
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% translate "Entre e contato" %}</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>{% translate "Endereço" %}</h3>
+            <a href="{% host_url 'custom_personal_info' host 'custom_host' domain %}" class="link-primary">{% translate "Mudar endereço" %}</a>
+            <p>
+              
+              {{endereco}}
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>{% translate "Email" %}</h3>
+            <div class="form-floating mb-3">
+              <input type="text" id='select_email' class="form-control" required
+              value="{{email}}" name='select_email'>
+              <label for="select_email">{% translate 'Email' %}</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-lg-6 form-group">
+                <input data-tag ="nome" type="text" name="contato_name" class="form-control" id="name" placeholder="{% translate 'Nome' %}">
+              </div>
+              <div class="col-lg-6 form-group">
+                <input type="email" class="form-control" name="contato_email" id="email" placeholder="{% translate 'Email' %}">
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="contato_subject" id="subject" placeholder="{% translate 'Assunto' %}">
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="contato_message" rows="5" placeholder="{% translate 'Messagem' %}"></textarea>
+            </div>
+            <div class="text-center"><button type="submit">{% translate "Enviar Mensagem" %}</button></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Contact Us Section -->
+
+</main><!-- End #main -->
+<div class='row' style="margin-top: 1%;">
+  <a href='#' class="btn {{ button_color  }}">{% translate "Ir para o topo" %}</a>
+</div>
+</form>
+{% endblock content %}

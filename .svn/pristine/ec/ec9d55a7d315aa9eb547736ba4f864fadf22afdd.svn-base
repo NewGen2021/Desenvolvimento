@@ -1,0 +1,46 @@
+{% extends 'gere/template1/base_func.html' %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+{% block title %}{% translate "Comentários" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+{% endblock css %}
+
+{% block content %}
+<div class="table-responsive" style="margin: 20px;">
+   <h3>Advertências</h3>
+   <hr>
+    <form id="form-advertencia" method="POST">
+      {% csrf_token %}
+        <p>
+            <label for="from">Comentário:</label>
+         <br/>
+            <textarea name="message" id="message" style="height: 200px; width: 1100px;" placeholder="Digite seu comentário aqui..."></textarea>
+         </p>  
+        <button type="submit" id="enviar_form_advertencia" class="btn {{ button_color }}">{% translate "Enviar" %}</button>
+        <progress value="0" class="progress-bar">Carregando...</progress>
+     </form>
+</div>
+
+{% endblock content %}
+
+{% block js %}
+
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+
+
+{% endblock js %}
+

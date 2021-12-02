@@ -1,0 +1,69 @@
+
+{% load static %}
+{% load i18n %}
+<link href="{% static 'css/style2.css' %}" rel="stylesheet">
+
+<link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.css"/>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.11.3/datatables.min.js"></script>
+
+{% block content %}
+
+<div class="table-responsive" style="margin: 40px;">
+    <h3>Pagamentos</h3>
+    <button type="button" class="btn btn-primary btn-sm">{% translate 'Gerar PDF'%}</button>
+    <hr>
+    <table class="table table-striped" id="tabela_listar" style="margin: auto;">
+        <thead>
+            <tr>
+                <th>Método</th>
+                <th>Data</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for campo in object_list %}
+            <tr>
+                <td>{{ campo.id_pagamento.metodo }}</td>
+                <td>{{ campo.datahora_log }}</td>
+                <td>{{ campo.preco_total}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4">Nenhum campo registrado</td>
+            </tr>
+
+            {% endfor %}
+       </tbody>
+    </table>
+    <nav>
+        <ul class="pagination justify-content-center" style="margin-top: 10px;">
+
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number}}" style="margin-right:10px">{% translate 'Voltar' %}</a>
+            {% endif %}
+    
+            <span>{{ page_obj.number}}</span>
+           
+    
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" style="margin-left:10px">{% translate 'Próximo' %}</a>
+    
+            {% endif %}
+    
+        </ul>
+      
+    </nav>
+</div>
+
+
+{% endblock content %}
+
+
+

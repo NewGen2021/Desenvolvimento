@@ -1,0 +1,607 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - July 2021 Commit Log</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+  </head>
+
+<body>
+
+<h1>July 2021 Commit Log</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for NewGen</a></div>
+
+<div id="nav" class="section">
+<h2>Commit Logs</h2>
+<ul>
+    <li><span class="here">July 2021</span></li>
+    <li><a href="2021-06.html">June 2021</a></li>
+    <li><a href="2021-05.html">May 2021</a></li>
+</ul>
+</div><dl class="attributes">
+    <dt>Number of Commits:</dt>
+    <dd>9</dd>
+    <dt>Number of Active Developers:</dt>
+    <dd>3</dd>
+</dl>
+<dl class="commitlist">
+  <dt><a name="9"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-12 19:05</span>
+    <a class="permalink" title="Permalink to this commit" href="#9">#9</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70205</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Atualizado statSVN: trocou os prontuários pelos nomes dos integrantes
+    </p>
+    <p class="commitdetails"><strong>1512</strong> lines of code changed in <span class="files">126 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>statSVN/relatorio__2021.07.12</strong>:
+        2021-06.html&#160;<span class="change">(changed)</span>,
+        cloud.html&#160;<span class="new">(new)</span>,
+        commitlog.html&#160;<span class="change">(changed)</span>,
+        developers.html&#160;<span class="new">(new)</span>,
+        dir.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_templates.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_register.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_registration.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_layouts_poc.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_layouts_poc_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_templates.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_newgen_templates_registration.html&#160;<span class="new">(new)</span>,
+        dir_sizes.html&#160;<span class="change">(changed)</span>,
+        dir_statSVN.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_statSVN_relatorio__2021.07.12.html&#160;<span class="new">(new&#160;175)</span>,
+        file_sizes.html&#160;<span class="new">(new)</span>,
+        index.html&#160;<span class="change">(changed)</span>,
+        loc.html&#160;<span class="new">(new)</span>,
+        repomap.html&#160;<span class="new">(new)</span>,
+        user_Beatriz.html&#160;<span class="new">(new&#160;82)</span>,
+        user_Bruna.html&#160;<span class="new">(new&#160;343)</span>,
+        user_Gabriel.html&#160;<span class="new">(new&#160;543)</span>,
+        user_Lucas.html&#160;<span class="new">(new&#160;338)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-12 15:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#8">#8</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70181</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+criacao do diretorio statSVN para geracao de relatorios
+    </p>
+    <p class="commitdetails"><strong>8558</strong> lines of code changed in <span class="files">93 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>statSVN/relatorio__2021.07.12</strong>:
+        2021-05.html&#160;<span class="new">(new&#160;31)</span>,
+        2021-06.html&#160;<span class="change">(+298)</span>,
+        churn.html&#160;<span class="new">(new&#160;22)</span>,
+        cloud.html&#160;<span class="change">(+98)</span>,
+        commitlog.html&#160;<span class="change">(+412)</span>,
+        developers.html&#160;<span class="change">(+236)</span>,
+        dir.html&#160;<span class="change">(+259)</span>,
+        dir_Desenvolvimento.html&#160;<span class="new">(new&#160;157)</span>,
+        dir_Desenvolvimento_Lucas.html&#160;<span class="new">(new&#160;124)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout.html&#160;<span class="change">(+128)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao.html&#160;<span class="new">(new&#160;73)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp.html&#160;<span class="new">(new&#160;70)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html&#160;<span class="change">(+94)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc.html&#160;<span class="change">(+93)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout.html&#160;<span class="change">(+128)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_aplicacao.html&#160;<span class="new">(new&#160;85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp.html&#160;<span class="new">(new&#160;70)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_js.html&#160;<span class="change">(+151)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="change">(+89)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_templates.html&#160;<span class="change">(+190)</span>,
+        dir_Desenvolvimento_aplicacao_register.html&#160;<span class="new">(new&#160;37)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates.html&#160;<span class="change">(+111)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_register.html&#160;<span class="change">(+107)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_registration.html&#160;<span class="change">(+105)</span>,
+        dir_Desenvolvimento_layouts_poc.html&#160;<span class="change">(+111)</span>,
+        dir_Desenvolvimento_layouts_poc_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_newgen.html&#160;<span class="new">(new&#160;46)</span>,
+        dir_Desenvolvimento_newgen_newgenapp.html&#160;<span class="new">(new&#160;37)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static_js.html&#160;<span class="change">(+123)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_templates.html&#160;<span class="change">(+230)</span>,
+        dir_Desenvolvimento_newgen_templates.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_newgen_templates_registration.html&#160;<span class="change">(+104)</span>,
+        dir_sizes.html&#160;<span class="change">(+296)</span>,
+        file_sizes.html&#160;<span class="change">(+263)</span>,
+        index.html&#160;<span class="change">(+316)</span>,
+        loc.html&#160;<span class="change">(+23)</span>,
+        repomap.html&#160;<span class="change">(+23)</span>,
+        user_Beatriz.html&#160;<span class="change">(changed)</span>,
+        user_Bruna.html&#160;<span class="change">(changed)</span>,
+        user_Gabriel.html&#160;<span class="change">(changed)</span>,
+        user_Lucas.html&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-11 19:56</span>
+    <a class="permalink" title="Permalink to this commit" href="#7">#7</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70145</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo js na pasta static
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        script.js&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-11 19:55</span>
+    <a class="permalink" title="Permalink to this commit" href="#6">#6</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70144</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo alteracao de templates
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        regAdministrator.html&#160;<span class="new">(new)</span>,
+        regUsers.html&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-08 00:10</span>
+    <a class="permalink" title="Permalink to this commit" href="#5">#5</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70068</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo internacionalizao
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        internacionalizacao.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        index.html&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_Lucas.html" class="author">Lucas</a>
+    <span class="date">2021-07-07 00:24</span>
+    <a class="permalink" title="Permalink to this commit" href="#4">#4</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70030</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+desenvolvimento lucas
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">62 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout</strong>:
+        agendamento.html&#160;<span class="new">(new)</span>,
+        assinatura.html&#160;<span class="new">(new)</span>,
+        index.html&#160;<span class="new">(new)</span>,
+        inner-page.html&#160;<span class="new">(new)</span>,
+        loginSystem.html&#160;<span class="new">(new)</span>,
+        portfolio-details.html&#160;<span class="new">(new)</span>,
+        reserva.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/js</strong>:
+        main.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new)</span>,
+        bootstrap.js&#160;<span class="new">(new)</span>,
+        bootstrap.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new)</span>,
+        glightbox.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/Newgen_novoLayout/assets/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/js</strong>:
+        internacionalizacao.js&#160;<span class="new">(new)</span>,
+        main.js&#160;<span class="new">(new)</span>,
+        script.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new)</span>,
+        bootstrap.js&#160;<span class="new">(new)</span>,
+        bootstrap.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new)</span>,
+        glightbox.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/static/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/aplicacao/newgenapp/templates</strong>:
+        agendamento.html&#160;<span class="new">(new)</span>,
+        assinatura.html&#160;<span class="new">(new)</span>,
+        configAdmin.html&#160;<span class="new">(new)</span>,
+        escolherCadastro.html&#160;<span class="new">(new)</span>,
+        home.html&#160;<span class="new">(new)</span>,
+        index.html&#160;<span class="new">(new)</span>,
+        loginSystem.html&#160;<span class="new">(new)</span>,
+        loginUser.html&#160;<span class="new">(new)</span>,
+        regAdministrator.html&#160;<span class="new">(new)</span>,
+        regEmployee.html&#160;<span class="new">(new)</span>,
+        regUsers.html&#160;<span class="new">(new)</span>,
+        reserva.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/layouts_poc</strong>:
+        configAdmin.html&#160;<span class="new">(new)</span>,
+        home.html&#160;<span class="new">(new)</span>,
+        homeReg.html&#160;<span class="new">(new)</span>,
+        loginSystem.html&#160;<span class="new">(new)</span>,
+        loginUser.html&#160;<span class="new">(new)</span>,
+        regAdministrator.html&#160;<span class="new">(new)</span>,
+        regEmployee.html&#160;<span class="new">(new)</span>,
+        regUsers.html&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento_Lucas/layouts_poc/js</strong>:
+        teste.js&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-06 20:17</span>
+    <a class="permalink" title="Permalink to this commit" href="#3">#3</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70010</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+alterações na pagina de assinatura
+    </p>
+    <p class="commitdetails"><strong>38</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        agendamento.html&#160;<span class="new">(new)</span>,
+        assinatura.html&#160;<span class="change">(+35&#160;-7)</span>,
+        index.html&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-06 19:16</span>
+    <a class="permalink" title="Permalink to this commit" href="#2">#2</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70007</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+- Lapidando o código, tirando os debugs<br />
+- Integrando os novos fronts na aplicação (ainda sem a lógica de negócio)
+    </p>
+    <p class="commitdetails"><strong>30601</strong> lines of code changed in <span class="files">28 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        main.js&#160;<span class="new">(new&#160;239)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new&#160;5527)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new&#160;6727)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new&#160;4946)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.js&#160;<span class="new">(new&#160;4995)</span>,
+        bootstrap.min.js&#160;<span class="new">(new&#160;7)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new&#160;3675)</span>,
+        glightbox.min.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new&#160;3563)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new&#160;12)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new&#160;85)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new&#160;14)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        agendamento.html&#160;<span class="change">(+169)</span>,
+        assinatura.html&#160;<span class="change">(+145)</span>,
+        index.html&#160;<span class="change">(+339)</span>,
+        loginSystemaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regAdministratoraaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regEmployeeaaaaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regUsersaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        reserva.html&#160;<span class="new">(new&#160;141)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates</strong>:
+        base.html&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/register</strong>:
+        register.html&#160;<span class="del">(del)</span>,
+        registeraa.html&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/registration</strong>:
+        login.html&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-06 15:10</span>
+    <a class="permalink" title="Permalink to this commit" href="#1">#1</a>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70002</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Novo layout da aplicação, incluindo cadastro, login e interação com usuario
+    </p>
+    <p class="commitdetails"><strong>31119</strong> lines of code changed in <span class="files">23 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout</strong>:
+        agendamento.html&#160;<span class="new">(new&#160;166)</span>,
+        assinatura.html&#160;<span class="new">(new&#160;144)</span>,
+        index.html&#160;<span class="new">(new&#160;338)</span>,
+        inner-page.html&#160;<span class="new">(new&#160;214)</span>,
+        loginSystem.html&#160;<span class="new">(new&#160;53)</span>,
+        portfolio-details.html&#160;<span class="new">(new&#160;257)</span>,
+        reserva.html&#160;<span class="new">(new&#160;140)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/js</strong>:
+        main.js&#160;<span class="new">(new&#160;239)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new&#160;5527)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new&#160;6727)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new&#160;4946)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.js&#160;<span class="new">(new&#160;4995)</span>,
+        bootstrap.min.js&#160;<span class="new">(new&#160;7)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new&#160;3675)</span>,
+        glightbox.min.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new&#160;3563)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new&#160;12)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new&#160;85)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new&#160;14)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+<p class="previous"><a href="2021-06.html">June 2021</a> &#187; </p>
+<div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>

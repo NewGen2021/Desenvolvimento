@@ -1,0 +1,169 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+{% load hosts %}
+
+{% block title %}{% translate "Cadastrar espaço" %}{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+<style>
+    small{
+        display: none;
+    }
+    input:hover + small {
+        display: block;
+    }
+    .form-control:hover + small {
+        display: block;
+    }
+</style>
+{% endblock css %}
+
+{% block content %}
+<section>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1>{% translate "Criar espaço" %}</h1>    
+        </div>
+
+        <div id="BodyRegister">
+
+            <form method="POST" class="form-group" name="formFuncionario" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div class="form-group">
+                      {{ form.id_tipo_espaco|as_crispy_field }}
+                      <small class="form-text text-muted">
+                        {% translate "Selecione o tipo deste espaço. " %}{% translate "(para editar tipos de espaço, vá para categoria)" %} 
+                      </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.status_espaco|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "A escolha do estado é importante para definir se este espaço está apto para reserva." %}
+                            {% translate "Um espaço desativado não aparece para o usuário na hora de reservar." %}
+                        </small>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.preco|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Defina um preço específico apenas a este espaço. " %}
+                            {% translate "OBS: por padrão o preço selecionado é o do próprio tipo espaço. " %}
+                        </small>
+                      </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.vagas|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Defina a capacidade máxima de pessoas para este espaço." %}
+                            
+                        </small>
+                        <small class="form-text text-muted">
+                            <strong id="is_compartilhado_info_negrito"></strong>
+                        </small>
+                      </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        {{ form.imagem|as_crispy_field }}
+                        <small class="form-text text-muted">
+                            {% translate "Selecione a imagem a ser mostrada para o cliente quando ele for selecionar um tipo de espaço para escolher." %}
+                        </small>
+                    </div>
+                </div>
+                <!-- <div class="form-row">
+                    <p style="margin-left: 2.5%;"><strong>{% translate "OBS: O valor padrão é do tipo de espaço" %}</strong></p>
+                </div> -->
+                
+                <div class="d-flex flex-row">
+                    <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1&page=1">{% translate "← Voltar" %}</a>
+                    <button type="submit" id="enviar_form_funcionario" class="btn {{ button_color  }}" style="margin-left: 2%;">{% translate "Criar espaço" %}</button>
+                </div>
+
+            {% if messages %}
+            <div class="alert alert-warning">
+                {% for m in messages %}
+                <p {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ m }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+              
+            </form>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+<script>
+
+    // Reajusta itens para dentro da div form gerada pelo django
+    $( document ).ready(function() {
+        var smalls = document.getElementsByTagName('small');
+        const array_smalls = Array.from(smalls);
+        for (let item of array_smalls) {
+            form_div = item.parentNode.children[0].children[1]
+            form_div.insertAdjacentElement('beforeend', item)
+        }
+    });
+    // alert('A')
+    // alert('OLÁ');
+    if (!parseInt("{{ existe_tipos_espacos }}"))    
+    alert('{% translate "Você não possui tipos de espaços registrados, por favor registre um tipo de espaço antes de continuar com o cadastro de espaço" %}');
+
+    var selecionar_tipo = document.querySelector("#id_id_tipo_espaco");
+    var alterar_preco = function(){
+        document.getElementById(`id_preco`).value = null;
+        preco_field.setAttribute('placeholder', '{% translate "Pegando preço do tipo de espaço..." %}');
+        fetch(`http://{{domain}}/api/tipo_espaco/get_preco/${selecionar_tipo.value}?format=json`)
+        .then(function(response){
+            return response.json()
+        })
+        .then(function(json){
+            if (json != [])
+            if (json[0].preco != undefined){
+                document.getElementById(`id_preco`).value = json[0].preco;
+                if (json[0].compartilhado){
+                    document.getElementById('is_compartilhado_info_negrito').textContent = '{% translate "Este é um espaço compartilhado" %}'
+                    document.getElementById('is_compartilhado_info_negrito').textContent += '{% translate ", então o número de vagas pode ser dividida entre diversos clientes em um mesmo horário." %}'
+                }
+                else{
+                    document.getElementById('is_compartilhado_info_negrito').textContent = '{% translate "Este é um espaço não compartilhado, " %}'
+                    document.getElementById('is_compartilhado_info_negrito').textContent += '{% translate "então o número de vagas descreve a quantidade máxima de convidados que um cliente pode chamar em uma determinada reserva." %}'
+                }
+                preco_field.setAttribute('placeholder', json[0].preco);
+            }
+        })
+    }
+
+    
+    selecionar_tipo.addEventListener("change", e => {alterar_preco('pessoa')});
+
+    // Atualiza o placeholder de preço
+    let preco_field = document.getElementById('id_preco') // form > image field
+    
+    preco_field.setAttribute('placeholder', "{{ preco }}")
+    preco_field.setAttribute('value', parseFloat("{{ preco }}"))
+ </script>
+
+{% endblock js %}
+

@@ -1,0 +1,128 @@
+{% extends 'gere/template1/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load hosts %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "Edição de espaço" %}{% endblock %}
+
+{% block css %}
+
+<style>
+    #img_tipo {
+    height: auto; 
+    width: auto; 
+    max-width: 600px; 
+    max-height: 600px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">{% translate "Alterar espaço" %}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if nao_existe %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <strong>{% translate "ERRO!" %}</strong> {% translate "Não foi possível encontrar esse tipo de espaço, volte à tela de listar espaços e selecione ou crie um válido!" %}
+                </div>
+                <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1?page=1">{% translate "← Voltar" %}</a>
+                {% else %}
+                
+                {% if imagem %}
+                <img div="imagem_layout_cima">
+                {% endif %}
+                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+                    <!-- {# {% for field in espaco_form %}
+                    <div class="fieldWrapper">
+                        {# uncomment to display field errors #}
+                        {# {{ field.errors }} #} 
+
+                        {# {{ field.label_tag }} #} {{ field|as_crispy_field }}
+                    </div>
+                    {% endfor %} #} -->
+                    <p>{{ action_link }}</p>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Tipo espaço" %} | </strong> {% translate "Selecione o tipo deste espaço." %} <br> 
+                        {% translate "Para editar tipos de espaço, vá para categoria " %} 
+                        <a href="{% host_url 'listar_espacos' host 'custom_host' domain %}?tipo_espaco=1?page=1">{% translate "Editar tipos de espaço" %}</a>.<hr>
+                        {{ espaco_form.id_tipo_espaco|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Vagas" %} | </strong> {% translate "Defina a capacidade máxima de pessoas para este espaço." %} <br> 
+                        {% if compartilhado %}
+                        <p><strong>{% translate "Este é um espaço compartilhado, " %}</strong>{% translate "então o número de vagas pode ser dividida entre diversos clientes em um mesmo horário." %}</p>
+                        {% else %}
+                        <p><strong>{% translate "Este é um espaço não compartilhado, " %}</strong>{% translate "então o número de vagas descreve a quantidade máxima de convidados que um cliente pode chamar em uma determinada reserva." %}</p>
+                        {% endif %}
+                        <hr>
+                        {{ espaco_form.vagas|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Preço" %} | </strong> {% translate "Defina um preço específico apenas a este espaço." %} <br> 
+                        <p>{% translate "OBS: por padrão o preço selecionado é o do próprio tipo espaço. " %}{{preco_padrao}}</p>
+                        <hr>
+                        {{ espaco_form.preco|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Status do espaço" %} | </strong> {% translate "A escolha do estado é importante para definir se este espaço está apto para reserva." %}
+                        {% translate "Um espaço desativado não aparece para o usuário na hora de reservar." %} <br> 
+                         <hr>
+                        {{ espaco_form.status_espaco|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Imagem" %} | </strong> {% translate "Selecione a imagem a ser mostrada para o cliente quando ele for selecionar um tipo de espaço para escolher." %}
+                        {% translate "Por padrão será usado uma imagem genérica caso não nenhuma imagem seja atribuída." %}
+                        <hr>
+                        <div>
+                            <h3 style="text-align: center;">{% translate "Imagem atual" %}</h3>
+                            <div style="text-align: center;">
+                                <div id="image_field"></div> <br>
+                            </div>
+                        </div>
+                        <hr>
+                        {{ espaco_form.imagem|as_crispy_field }}
+                    </div>
+                    <div class="d-flex flex-row">
+                        <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1?page=1">{% translate "← Voltar" %}</a>
+                        <button type="submit" id="form-checkout__submit" class="btn {{ button_color  }}" style="margin-left: 2%;">{% translate "Salvar" %}</button>
+                    </div>
+                    
+                </form>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    // Atualiza o placeholder de preço
+    let preco_field = document.getElementById('id_preco') // form > image field
+    preco_field.setAttribute('placeholder', "{{ preco }}")
+    preco_field.setAttribute('value', parseFloat("{{ preco }}"))
+
+    // Coloca a imagem para visualização
+    let image_field = document.getElementById('image_field') // form > image field
+    let load_image = document.createElement('img')
+    
+    load_image.setAttribute('src', "/media/{{imagem}}")
+    if ("{{imagem}}"!="")
+    load_image.setAttribute('alt', "Image Atual")
+    else
+    load_image.setAttribute('alt', "Não definida")
+    load_image.setAttribute('id', "img_tipo")
+    image_field.parentNode.insertBefore(load_image, image_field.nextSibling)
+
+document.getElementById('id_imagem').onchange = function() {
+    document.getElementById('img_tipo') = input.value;
+};
+ </script>
+{% endblock %}

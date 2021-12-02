@@ -1,0 +1,30 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Escolher cadastro" %}{% endblock %}
+<!-- Bruna - 20-10 -->
+{% block css %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+<section class="bodyHome">
+    <div class="topLogin">
+        <h1>{% translate "Escolha o Perfil:" %}</h1> 
+    </div>
+
+    <div class="list-group">
+      <a href="registrarAdmin" class="list-group-item list-group-item-action active" aria-current="true">
+        {% translate "Administrador" %}
+      </a>
+      <a href="registrarUsuario" class="list-group-item list-group-item-action">{% translate "Cliente" %}</a>
+      <a href="registrarFuncionario" class="list-group-item list-group-item-action">{% translate "Funcionários" %}</a>
+    </div>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock js %}

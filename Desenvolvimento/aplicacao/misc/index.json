@@ -1,0 +1,170 @@
+{
+    "csrfmiddlewaretoken": [
+        "3PZINsoePhu1nBfczVrTuN7REpadgghbivxE1JfW6QmogrpdfjvjPLO9pTDaZX7s"
+    ],
+    "slide/31/slide_title": [
+        "Networking e Economia"
+    ],
+    "slide/31/slide_description": [
+        "Reduzindo custos para sua empresa e proporcionando colaboração mútua."
+    ],
+    "slide/31/slide_button_tipo": [
+        "0"
+    ],
+    "slide/31/slide_button_text": [
+        ""
+    ],
+    "slide/32/slide_title": [
+        "Agendamento On-line"
+    ],
+    "slide/32/slide_description": [
+        "Encontre o melhor espaço para você trabalhar."
+    ],
+    "slide/32/slide_button_tipo": [
+        "1"
+    ],
+    "slide/32/slide_button_text": [
+        "Faça seu agendamento"
+    ],
+    "slide/32/slide_image": [
+        ""
+    ],
+    "slide/33/slide_title": [
+        "Infraestrutura"
+    ],
+    "slide/33/slide_description": [
+        "O Coworking elaborado é o lugar perfeito para  você reder ao máximo."
+    ],
+    "slide/33/slide_button_tipo": [
+        "0"
+    ],
+    "slide/33/slide_button_text": [
+        ""
+    ],
+    "slide/33/slide_image": [
+        ""
+    ],
+    "logo_image": [
+        ""
+    ],
+    "about_us_description": [
+        "Somos mais que um simples coworking, nascemos com um propósito muito maior, o de apoiar pequenos e médios empresários, profissionais autônomos, empreendedores, startup e todos aqueles sonhadores que merecem um espaço com toda infra estrutura necessária para seu projeto decolar."
+    ],
+    "service/1/service_icon": [
+        "easel"
+    ],
+    "service/1/service_title": [
+        "Auditório"
+    ],
+    "service/1/service_description": [
+        "O espaço perfeito para as suas palestras ou treinamentos serem um sucesso!"
+    ],
+    "service/2/service_icon": [
+        "people-fill"
+    ],
+    "service/2/service_title": [
+        "Estações de Trabalho"
+    ],
+    "service/2/service_description": [
+        "Reduza os custos com sabedoria! Conheça as nossas estações de trabalho e  faça parte do time."
+    ],
+    "service/3/service_icon": [
+        "door-open"
+    ],
+    "service/3/service_title": [
+        "Salas Executivas"
+    ],
+    "service/3/service_description": [
+        "Amplo espaço para os seus eventos ou reuniões com uma grande demanda."
+    ],
+    "service/4/service_icon": [
+        "shield-check"
+    ],
+    "service/4/service_title": [
+        "Salas de reuniões exclusivas"
+    ],
+    "service/4/service_description": [
+        "Desejando um pouco mais de privacidade para as suas reuniões? Nós temos a solução!"
+    ],
+    "service/5/service_icon": [
+        "person-circle"
+    ],
+    "service/5/service_title": [
+        "Secretária compartilhada"
+    ],
+    "service/5/service_description": [
+        "Deixe a comodidade conosco! Contamos com uma equipe capacitada para a recepção."
+    ],
+    "service/6/service_icon": [
+        "geo-alt"
+    ],
+    "service/6/service_title": [
+        "Endereço fiscal e comercial"
+    ],
+    "service/6/service_description": [
+        "Seja para quem está começando ou não, nós te damos  o auxílio que você precisa!"
+    ],
+    "select_endereco": [
+        "Rua Santo Antônio, 561, São Pedro, Vitória - ES, 29030-035"
+    ],
+    "select_email": [
+        "juliacarvalhomelo@dayrep.com"
+    ],
+    "contato_name": [
+        ""
+    ],
+    "contato_email": [
+        ""
+    ],
+    "contato_subject": [
+        ""
+    ],
+    "contato_message": [
+        ""
+    ],
+    "services": {
+        "language": "pt-br",
+        "service/1/service_icon": "easel",
+        "service/1/service_title": "Auditório",
+        "service/1/service_description": "O espaço perfeito para as suas palestras ou treinamentos serem um sucesso!",
+        "service/2/service_icon": "people-fill",
+        "service/2/service_title": "Estações de Trabalho",
+        "service/2/service_description": "Reduza os custos com sabedoria! Conheça as nossas estações de trabalho e faça parte do time.",
+        "service/3/service_icon": "door-open",
+        "service/3/service_title": "Salas Executivas",
+        "service/3/service_description": "Amplo espaço para os seus eventos ou reuniões com uma grande demanda.",
+        "service/4/service_icon": "shield-check",
+        "service/4/service_title": "Salas de reuniões exclusivas",
+        "service/4/service_description": "Desejando um pouco mais de privacidade para as suas reuniões? Nós temos a solução!",
+        "service/5/service_icon": "person-circle",
+        "service/5/service_title": "Secretária compartilhada",
+        "service/5/service_description": "Deixe a comodidade conosco! Contamos com uma equipe capacitada para a recepção.",
+        "service/6/service_icon": "geo-alt",
+        "service/6/service_title": "Endereço fiscal e comercial",
+        "service/6/service_description": "Seja para quem está começando ou não, nós te damos o auxílio que você precisa!"
+    },
+    "slides": {
+        "language": "pt-br",
+        "slide/31/slide_title": "Networking e Economia",
+        "slide/31/slide_description": "Reduzindo custos para sua empresa e proporcionando colaboração mútua.",
+        "slide/31/slide_button_tipo": "0",
+        "slide/31/slide_button_text": "",
+        "slide/32/slide_title": "Agendamento On-line",
+        "slide/32/slide_description": "Encontre o melhor espaço para você trabalhar.",
+        "slide/32/slide_button_tipo": "1",
+        "slide/32/slide_button_text": "Faça seu agendamento",
+        "slide/32/slide_image": "",
+        "slide/33/slide_title": "Infraestrutura",
+        "slide/33/slide_description": "O Coworking elaborado é o lugar perfeito para você reder ao máximo.",
+        "slide/33/slide_button_tipo": "0",
+        "slide/33/slide_button_text": "",
+        "slide/31/slide_image": <InMemoryUploadedFile: Sala de reunião pequena.jpg (image/jpeg)>,
+        "slide/33/slide_image": <InMemoryUploadedFile: Mesa compartilhada2.jpg (image/jpeg)>
+    },
+    "index": {
+        "language": "pt-br",
+        "logo_image": "",
+        "about_us_description": "Somos mais que um simples coworking, nascemos com um propósito muito maior, o de apoiar pequenos e médios empresários, profissionais autônomos, empreendedores, startup e todos aqueles sonhadores que merecem um espaço com toda infra estrutura necessária para seu projeto decolar.",
+        "select_email": "juliacarvalhomelo@dayrep.com"
+    }
+}

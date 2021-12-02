@@ -1,0 +1,626 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - NewGen Developers: Gabriel</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+  </head>
+
+<body>
+
+<h1>NewGen Developers: Gabriel</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for NewGen</a> &#171; <a href="developers.html">Developers</a></div>
+<dl class="attributes">
+    <dt>Login name:</dt>
+    <dd>Gabriel</dd>
+    <dt>Total Commits:</dt>
+    <dd>304 (60,1%)</dd>
+    <dt>Lines of Code:</dt>
+    <dd>42.342 (57,1%)</dd>
+    <dt>Most Recent Commit:</dt>
+    <dd><span class="date">2021-07-12 19:05</span></dd>
+</dl>
+
+<div class="section">
+<h2>Activity by Clock Time</h2>
+<p class="chart"><img src="activity_time_Gabriel.png" alt="Activity by Hour of Day for Gabriel" width="800" height="500" /></p><p class="chart"><img src="activity_day_Gabriel.png" alt="Activity by Day of Week for Gabriel" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Activity in Directories</h2>
+  <table  rules="groups" summary="Overview of this author's activities in different directories">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Directory</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Totals</th>
+        <td>304 (100.0%)</td>
+        <td>42342 (100.0%)</td>
+        <td>139.2</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap/js/</a></th>
+        <td>6 (2.0%)</td>
+        <td>16689 (39.4%)</td>
+        <td>2781.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_statSVN_relatorio__2021.07.12.html" class="directory">statSVN/relatorio__2021.07.12/</a></th>
+        <td>219 (72.0%)</td>
+        <td>10070 (23.8%)</td>
+        <td>45.9</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap-icons/</a></th>
+        <td>1 (0.3%)</td>
+        <td>5527 (13.1%)</td>
+        <td>5527.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/glightbox/js/</a></th>
+        <td>2 (0.7%)</td>
+        <td>3676 (8.7%)</td>
+        <td>1838.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/isotope-layout/</a></th>
+        <td>2 (0.7%)</td>
+        <td>3575 (8.4%)</td>
+        <td>1787.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_templates.html" class="directory">Desenvolvimento/aplicacao/newgenapp/templates/</a></th>
+        <td>20 (6.6%)</td>
+        <td>1633 (3.9%)</td>
+        <td>81.6</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_newgen_newgenapp_templates.html" class="directory">Desenvolvimento/newgen/newgenapp/templates/</a></th>
+        <td>33 (10.9%)</td>
+        <td>507 (1.2%)</td>
+        <td>15.3</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_js.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/js/</a></th>
+        <td>2 (0.7%)</td>
+        <td>258 (0.6%)</td>
+        <td>129.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_register_templates_register.html" class="directory">Desenvolvimento/aplicacao/register/templates/register/</a></th>
+        <td>4 (1.3%)</td>
+        <td>184 (0.4%)</td>
+        <td>46.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/php-email-form/</a></th>
+        <td>1 (0.3%)</td>
+        <td>85 (0.2%)</td>
+        <td>85.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_register_templates.html" class="directory">Desenvolvimento/aplicacao/register/templates/</a></th>
+        <td>2 (0.7%)</td>
+        <td>66 (0.2%)</td>
+        <td>33.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_newgen_newgenapp_static_js.html" class="directory">Desenvolvimento/newgen/newgenapp/static/js/</a></th>
+        <td>5 (1.6%)</td>
+        <td>38 (0.1%)</td>
+        <td>7.6</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_register_templates_registration.html" class="directory">Desenvolvimento/aplicacao/register/templates/registration/</a></th>
+        <td>2 (0.7%)</td>
+        <td>17 (0.0%)</td>
+        <td>8.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/swiper/</a></th>
+        <td>1 (0.3%)</td>
+        <td>14 (0.0%)</td>
+        <td>14.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_newgen_templates_registration.html" class="directory">Desenvolvimento/newgen/templates/registration/</a></th>
+        <td>2 (0.7%)</td>
+        <td>1 (0.0%)</td>
+        <td>0.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/purecounter/</a></th>
+        <td>1 (0.3%)</td>
+        <td>1 (0.0%)</td>
+        <td>1.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/vendor/aos/</a></th>
+        <td>1 (0.3%)</td>
+        <td>1 (0.0%)</td>
+        <td>1.0</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p class="chart"><img src="directory_sizes_Gabriel.png" alt="Activity of Gabriel" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="9"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-12 19:05</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70205</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Atualizado statSVN: trocou os prontuários pelos nomes dos integrantes
+    </p>
+    <p class="commitdetails"><strong>1512</strong> lines of code changed in <span class="files">126 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>statSVN/relatorio__2021.07.12</strong>:
+        2021-06.html&#160;<span class="change">(changed)</span>,
+        cloud.html&#160;<span class="new">(new)</span>,
+        commitlog.html&#160;<span class="change">(changed)</span>,
+        developers.html&#160;<span class="new">(new)</span>,
+        dir.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_templates.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_register.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_registration.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_layouts_poc.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_layouts_poc_js.html&#160;<span class="new">(new)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static_js.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_templates.html&#160;<span class="change">(changed)</span>,
+        dir_Desenvolvimento_newgen_templates_registration.html&#160;<span class="new">(new)</span>,
+        dir_sizes.html&#160;<span class="change">(changed)</span>,
+        dir_statSVN.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_statSVN_relatorio__2021.07.12.html&#160;<span class="new">(new&#160;175)</span>,
+        file_sizes.html&#160;<span class="new">(new)</span>,
+        index.html&#160;<span class="change">(changed)</span>,
+        loc.html&#160;<span class="new">(new)</span>,
+        repomap.html&#160;<span class="new">(new)</span>,
+        user_Beatriz.html&#160;<span class="new">(new&#160;82)</span>,
+        user_Bruna.html&#160;<span class="new">(new&#160;343)</span>,
+        user_Gabriel.html&#160;<span class="new">(new&#160;543)</span>,
+        user_Lucas.html&#160;<span class="new">(new&#160;338)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="8"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-12 15:56</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70181</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+criacao do diretorio statSVN para geracao de relatorios
+    </p>
+    <p class="commitdetails"><strong>8558</strong> lines of code changed in <span class="files">93 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>statSVN/relatorio__2021.07.12</strong>:
+        2021-05.html&#160;<span class="new">(new&#160;31)</span>,
+        2021-06.html&#160;<span class="change">(+298)</span>,
+        churn.html&#160;<span class="new">(new&#160;22)</span>,
+        cloud.html&#160;<span class="change">(+98)</span>,
+        commitlog.html&#160;<span class="change">(+412)</span>,
+        developers.html&#160;<span class="change">(+236)</span>,
+        dir.html&#160;<span class="change">(+259)</span>,
+        dir_Desenvolvimento.html&#160;<span class="new">(new&#160;157)</span>,
+        dir_Desenvolvimento_Lucas.html&#160;<span class="new">(new&#160;124)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout.html&#160;<span class="change">(+128)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao.html&#160;<span class="new">(new&#160;73)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp.html&#160;<span class="new">(new&#160;70)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_js.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Lucas_aplicacao_newgenapp_templates.html&#160;<span class="change">(+94)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc.html&#160;<span class="change">(+93)</span>,
+        dir_Desenvolvimento_Lucas_layouts_poc_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout.html&#160;<span class="change">(+128)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html&#160;<span class="change">(+88)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_aplicacao.html&#160;<span class="new">(new&#160;85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp.html&#160;<span class="new">(new&#160;70)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static.html&#160;<span class="new">(new&#160;64)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_js.html&#160;<span class="change">(+151)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor.html&#160;<span class="new">(new&#160;58)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_aos.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap-icons.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_bootstrap_js.html&#160;<span class="change">(+89)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_glightbox_js.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_isotope-layout.html&#160;<span class="change">(+85)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_php-email-form.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_purecounter.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_static_vendor_swiper.html&#160;<span class="change">(+84)</span>,
+        dir_Desenvolvimento_aplicacao_newgenapp_templates.html&#160;<span class="change">(+190)</span>,
+        dir_Desenvolvimento_aplicacao_register.html&#160;<span class="new">(new&#160;37)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates.html&#160;<span class="change">(+111)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_register.html&#160;<span class="change">(+107)</span>,
+        dir_Desenvolvimento_aplicacao_register_templates_registration.html&#160;<span class="change">(+105)</span>,
+        dir_Desenvolvimento_layouts_poc.html&#160;<span class="change">(+111)</span>,
+        dir_Desenvolvimento_layouts_poc_js.html&#160;<span class="change">(+83)</span>,
+        dir_Desenvolvimento_newgen.html&#160;<span class="new">(new&#160;46)</span>,
+        dir_Desenvolvimento_newgen_newgenapp.html&#160;<span class="new">(new&#160;37)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_static_js.html&#160;<span class="change">(+123)</span>,
+        dir_Desenvolvimento_newgen_newgenapp_templates.html&#160;<span class="change">(+230)</span>,
+        dir_Desenvolvimento_newgen_templates.html&#160;<span class="new">(new&#160;31)</span>,
+        dir_Desenvolvimento_newgen_templates_registration.html&#160;<span class="change">(+104)</span>,
+        dir_sizes.html&#160;<span class="change">(+296)</span>,
+        file_sizes.html&#160;<span class="change">(+263)</span>,
+        index.html&#160;<span class="change">(+316)</span>,
+        loc.html&#160;<span class="change">(+23)</span>,
+        repomap.html&#160;<span class="change">(+23)</span>,
+        user_Beatriz.html&#160;<span class="change">(changed)</span>,
+        user_Bruna.html&#160;<span class="change">(changed)</span>,
+        user_Gabriel.html&#160;<span class="change">(changed)</span>,
+        user_Lucas.html&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="7"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-07-06 19:16</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70007</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+- Lapidando o código, tirando os debugs<br />
+- Integrando os novos fronts na aplicação (ainda sem a lógica de negócio)
+    </p>
+    <p class="commitdetails"><strong>30601</strong> lines of code changed in <span class="files">28 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        main.js&#160;<span class="new">(new&#160;239)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new&#160;5527)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new&#160;6727)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new&#160;4946)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.js&#160;<span class="new">(new&#160;4995)</span>,
+        bootstrap.min.js&#160;<span class="new">(new&#160;7)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new&#160;3675)</span>,
+        glightbox.min.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new&#160;3563)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new&#160;12)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new&#160;85)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new&#160;14)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        agendamento.html&#160;<span class="change">(+169)</span>,
+        assinatura.html&#160;<span class="change">(+145)</span>,
+        index.html&#160;<span class="change">(+339)</span>,
+        loginSystemaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regAdministratoraaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regEmployeeaaaaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        regUsersaaaaaaaa.html&#160;<span class="del">(del)</span>,
+        reserva.html&#160;<span class="new">(new&#160;141)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates</strong>:
+        base.html&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/register</strong>:
+        register.html&#160;<span class="del">(del)</span>,
+        registeraa.html&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/registration</strong>:
+        login.html&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-29 13:31</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69836</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sistema poc concluído<br />
+(Debuggers on)
+    </p>
+    <p class="commitdetails"><strong>1125</strong> lines of code changed in <span class="files">28 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        script.js&#160;<span class="change">(+19)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        configAdmin.html&#160;<span class="new">(new&#160;42)</span>,
+        escolherCadastro.html&#160;<span class="new">(new&#160;45)</span>,
+        home.html&#160;<span class="new">(new&#160;52)</span>,
+        loginSystem.html&#160;<span class="new">(new&#160;70)</span>,
+        loginSystemaaaaaaaa.html&#160;<span class="new">(new&#160;67)</span>,
+        loginUser.html&#160;<span class="new">(new&#160;54)</span>,
+        regAdministrator.html&#160;<span class="change">(+49)</span>,
+        regAdministratoraaaaaaaaa.html&#160;<span class="new">(new&#160;79)</span>,
+        regEmployee.html&#160;<span class="new">(new&#160;49)</span>,
+        regEmployeeaaaaaaaaaaa.html&#160;<span class="new">(new&#160;129)</span>,
+        regUsers.html&#160;<span class="change">(+54)</span>,
+        regUsersaaaaaaaa.html&#160;<span class="new">(new&#160;149)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates</strong>:
+        base.html&#160;<span class="new">(new&#160;66)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/register</strong>:
+        register.html&#160;<span class="new">(new&#160;173)</span>,
+        registeraa.html&#160;<span class="new">(new&#160;11)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/register/templates/registration</strong>:
+        login.html&#160;<span class="new">(new&#160;17)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/static/js</strong>:
+        script.js&#160;<span class="del">(del)</span>,
+        teste.js&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        configAdmin.html&#160;<span class="del">(del)</span>,
+        home.html&#160;<span class="del">(del)</span>,
+        homeReg.html&#160;<span class="del">(del)</span>,
+        loginSystem.html&#160;<span class="del">(del)</span>,
+        loginUser.html&#160;<span class="del">(del)</span>,
+        regAdministrator.html&#160;<span class="del">(del)</span>,
+        regEmployee.html&#160;<span class="del">(del)</span>,
+        regUsers.html&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/templates/registration</strong>:
+        login.html&#160;<span class="del">(del)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-29 00:20</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69827</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Sistema mais recente 
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        regUsers.html&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-28 22:12</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69809</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Cadastro com defeito<br />
+Outras telas parcialmente conectadas
+    </p>
+    <p class="commitdetails"><strong>43</strong> lines of code changed in <span class="files">7 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/static/js</strong>:
+        script.js&#160;<span class="new">(new&#160;19)</span>,
+        teste.js&#160;<span class="del">(del)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        home.html&#160;<span class="change">(+3&#160;-3)</span>,
+        loginSystem.html&#160;<span class="change">(+1&#160;-1)</span>,
+        regUsers.html&#160;<span class="change">(+20&#160;-5)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-27 22:31</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69784</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Pequenas alterações para subir o sistema
+    </p>
+    <p class="commitdetails"><strong>10</strong> lines of code changed in <span class="files">9 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        configAdmin.html&#160;<span class="new">(new)</span>,
+        home.html&#160;<span class="change">(+1)</span>,
+        homeReg.html&#160;<span class="new">(new)</span>,
+        regAdministrator.html&#160;<span class="change">(+2)</span>,
+        regEmployee.html&#160;<span class="change">(+2)</span>,
+        regUsers.html&#160;<span class="change">(+3&#160;-1)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-27 21:32</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69781</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+templates html modificados com os fields dos forms
+    </p>
+    <p class="commitdetails"><strong>317</strong> lines of code changed in <span class="files">6 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        configAdmin.html&#160;<span class="change">(+41)</span>,
+        home.html&#160;<span class="change">(+44)</span>,
+        homeReg.html&#160;<span class="change">(+3&#160;-3)</span>,
+        regAdministrator.html&#160;<span class="change">(+77)</span>,
+        regEmployee.html&#160;<span class="change">(+79)</span>,
+        regUsers.html&#160;<span class="change">(+73)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_Gabriel.html" class="author">Gabriel</a>
+    <span class="date">2021-06-27 15:47</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69776</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Introdução inicial do login (sem lógica de logar ainda)
+    </p>
+    <p class="commitdetails"><strong>176</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/static/js</strong>:
+        teste.js&#160;<span class="new">(new&#160;19)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/newgenapp/templates</strong>:
+        homeReg.html&#160;<span class="change">(+46)</span>,
+        loginSystem.html&#160;<span class="change">(+56)</span>,
+        loginUser.html&#160;<span class="new">(new&#160;54)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/newgen/templates/registration</strong>:
+        login.html&#160;<span class="new">(new&#160;1)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>

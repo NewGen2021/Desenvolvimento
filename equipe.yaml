@@ -1,0 +1,11 @@
+- disciplina: PI1A5
+  turma: TER
+  periodo: 2021-01
+  equipe: New Gen
+  projeto: Sistema de gerenciamento de Coworking
+  blog: https://newgenprogetointegrado.blogspot.com
+  youtube: https://www.youtube.com/channel/UC9A-UDhQaV02D1hScVekA3w
+  repo: /S202101-PI/NewGen/
+  tags: ['coworking', 'aws', 'gerenciamento', 'locacao']
+  descr: >-
+    Sistema web de gerenciamento e agendamento de Coworking.

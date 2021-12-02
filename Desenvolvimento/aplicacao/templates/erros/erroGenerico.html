@@ -1,0 +1,20 @@
+{% extends "cria/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Em produção" %}{% endblock %}
+
+{% block css %} 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+{% endblock css %}
+
+{% block content %}
+<section style="text-align: center; font-size: 30px; margin-bottom: 80px;">
+    <h1>{{ error_message }}</h1>
+</section>
+{% endblock content %}
+
+{% block js %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% endblock js %}

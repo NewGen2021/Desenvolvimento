@@ -1,0 +1,2779 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+# PARA VERIFICAR SE HÁ EDIÇOES:           Ctrl + F, fuzzy
+# PARA VERIFICAR SE HÁ NOVAS TRADUÇÕES:   Ctrl + F, msgstr ""
+# QUANTIDADE ATUAL DE MSGSTR:             41
+#
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-12-02 14:41-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\apps\cria_coworking\forms.py:32 .\apps\cria_coworking\forms.py:102
+#: .\apps\gere_coworking\forms.py:96
+msgid "Razão social"
+msgstr "Corporate name"
+
+#: .\apps\cria_coworking\forms.py:36 .\apps\cria_coworking\forms.py:106
+#: .\apps\cria_coworking\forms.py:336 .\apps\gere_coworking\forms.py:100
+#: .\apps\gere_coworking\forms.py:203 .\templates\cria\gerenciar_plano.html:136
+msgid "CNPJ"
+msgstr "CNPJ"
+
+#: .\apps\cria_coworking\forms.py:161
+msgid "O e-mail informado já está sendo usado."
+msgstr "The informed e-mail is already being used."
+
+#: .\apps\cria_coworking\forms.py:176 .\apps\gere_coworking\forms.py:427
+msgid "RG"
+msgstr "RG"
+
+#: .\apps\cria_coworking\forms.py:176 .\apps\gere_coworking\forms.py:148
+#: .\apps\gere_coworking\forms.py:252 .\apps\gere_coworking\forms.py:427
+#: .\apps\gere_coworking\models.py:19 .\apps\gere_coworking\models.py:46
+msgid "CPF"
+msgstr "CPF"
+
+#: .\apps\cria_coworking\forms.py:177 .\apps\gere_coworking\forms.py:428
+msgid "À vista"
+msgstr "Cash"
+
+#: .\apps\cria_coworking\forms.py:178 .\apps\gere_coworking\forms.py:429
+msgid "2x parcelas"
+msgstr "2 installments"
+
+#: .\apps\cria_coworking\forms.py:179 .\apps\gere_coworking\forms.py:430
+msgid "3x parcelas"
+msgstr "3 installments"
+
+#: .\apps\cria_coworking\forms.py:180 .\apps\gere_coworking\forms.py:431
+msgid "4x parcelas"
+msgstr "4 installments"
+
+#: .\apps\cria_coworking\forms.py:181 .\apps\gere_coworking\forms.py:432
+msgid "5x parcelas"
+msgstr "5 installments"
+
+#: .\apps\cria_coworking\forms.py:182 .\apps\gere_coworking\forms.py:433
+msgid "6x parcelas"
+msgstr "6 installments"
+
+#: .\apps\cria_coworking\forms.py:183 .\apps\gere_coworking\forms.py:434
+msgid "Bradesco"
+msgstr "Bradesco"
+
+#: .\apps\cria_coworking\forms.py:184 .\apps\gere_coworking\forms.py:435
+msgid "Santander"
+msgstr "Santander"
+
+#: .\apps\cria_coworking\forms.py:185 .\apps\gere_coworking\forms.py:436
+msgid "Banco do Brasil"
+msgstr "Banco do Brasil"
+
+#: .\apps\cria_coworking\forms.py:186 .\apps\gere_coworking\forms.py:437
+msgid "Nubank"
+msgstr "Nubank"
+
+#: .\apps\cria_coworking\forms.py:187 .\apps\gere_coworking\forms.py:438
+msgid "Itaú"
+msgstr "Itaú"
+
+#: .\apps\cria_coworking\forms.py:188 .\apps\gere_coworking\forms.py:439
+msgid "Inter"
+msgstr "Inter"
+
+#: .\apps\cria_coworking\forms.py:189 .\apps\gere_coworking\forms.py:440
+msgid "Insira primeiro o seu cartão"
+msgstr "Add your card first"
+
+#: .\apps\cria_coworking\forms.py:193 .\apps\gere_coworking\forms.py:444
+msgid "Nome descrito no cartão"
+msgstr "Name on card"
+
+#: .\apps\cria_coworking\forms.py:195 .\apps\gere_coworking\forms.py:446
+#: .\apps\gere_coworking\models.py:22 .\apps\gere_coworking\models.py:49
+msgid "E-mail"
+msgstr "E-mail"
+
+#: .\apps\cria_coworking\forms.py:197 .\apps\gere_coworking\forms.py:448
+msgid "Tipo do documento"
+msgstr "Document type"
+
+#: .\apps\cria_coworking\forms.py:199 .\apps\gere_coworking\forms.py:450
+msgid "Número do documento"
+msgstr "Document number"
+
+#: .\apps\cria_coworking\forms.py:201 .\apps\gere_coworking\forms.py:452
+msgid "Parcelas"
+msgstr "Installments"
+
+#: .\apps\cria_coworking\forms.py:203 .\apps\gere_coworking\forms.py:412
+#: .\apps\gere_coworking\forms.py:454
+msgid "Número do cartão"
+msgstr "Card number"
+
+#: .\apps\cria_coworking\forms.py:207
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:200
+msgid "Mês de vencimento"
+msgstr "Expiration month"
+
+#: .\apps\cria_coworking\forms.py:209
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:204
+msgid "Ano de vencimento"
+msgstr "Expiration year"
+
+#: .\apps\cria_coworking\forms.py:211 .\apps\gere_coworking\forms.py:462
+msgid "Código de segurança"
+msgstr "Security code"
+
+#: .\apps\cria_coworking\forms.py:215 .\apps\gere_coworking\forms.py:466
+msgid "Banco/Bandeira"
+msgstr "Bank/Card issuer"
+
+#: .\apps\cria_coworking\forms.py:231 .\apps\gere_coworking\forms.py:509
+#: .\templates\cria\gerenciar_plano.html:128 .\templates\cria\index.html:157
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:262
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:266
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:278
+#: .\templates\gere\template1\cliente\apresentacao\index.html:160
+#: .\templates\instances\12\cliente\apresentacao\index.html:208
+#: .\templates\instances\12\cliente\apresentacao\index.html:220
+#: .\templates\instances\21\cliente\apresentacao\index.html:544
+#: .\templates\instances\21\cliente\apresentacao\index.html:556
+#: .\templates\instances\22\cliente\apresentacao\index.html:208
+#: .\templates\instances\22\cliente\apresentacao\index.html:220
+#: .\templates\instances\23\cliente\apresentacao\index.html:544
+#: .\templates\instances\23\cliente\apresentacao\index.html:556
+#: .\templates\instances\cliente\apresentacao\index.html:299
+#: .\templates\instances\cliente\apresentacao\index.html:311
+msgid "Email"
+msgstr "Email"
+
+#: .\apps\cria_coworking\forms.py:318 .\apps\custom_templates\forms.py:28
+msgid "Cor 1"
+msgstr "Color 1"
+
+#: .\apps\cria_coworking\forms.py:319 .\apps\custom_templates\forms.py:29
+msgid "Cor de destaque"
+msgstr "Accent color"
+
+#: .\apps\cria_coworking\forms.py:320 .\apps\custom_templates\forms.py:30
+msgid "Cor 2"
+msgstr "Color 2"
+
+#: .\apps\cria_coworking\forms.py:321 .\apps\custom_templates\forms.py:31
+msgid "Cor do fundo"
+msgstr "Background color"
+
+#: .\apps\cria_coworking\forms.py:322 .\apps\custom_templates\forms.py:32
+msgid "Cor 3"
+msgstr "Color 3"
+
+#: .\apps\cria_coworking\forms.py:323 .\apps\custom_templates\forms.py:33
+msgid "Cor do rodapé"
+msgstr "Footer color"
+
+#: .\apps\cria_coworking\forms.py:324 .\apps\custom_templates\forms.py:34
+msgid "Paleta de cor"
+msgstr "Color palette"
+
+#: .\apps\cria_coworking\forms.py:326 .\apps\custom_templates\forms.py:27
+msgid "Nome de exibição"
+msgstr "Exhibition name"
+
+#: .\apps\cria_coworking\forms.py:327
+msgid "Logo da empresa"
+msgstr "Company's logo"
+
+#: .\apps\cria_coworking\forms.py:328
+msgid "Domínios disponíveis"
+msgstr "Avaliable domains"
+
+#: .\apps\cria_coworking\forms.py:338 .\apps\gere_coworking\forms.py:43
+#: .\templates\cria\login.html:38
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:41
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:38
+msgid "Senha"
+msgstr "Password"
+
+#: .\apps\cria_coworking\forms.py:340
+msgid "Confirme a senha"
+msgstr "Confirm password"
+
+#: .\apps\cria_coworking\forms.py:352
+msgid "As senhas precisam ser iguais."
+msgstr "The passwords must be identical."
+
+#: .\apps\cria_coworking\views.py:242
+msgid "Password reset complete"
+msgstr "Password reset complete"
+
+#: .\apps\custom_templates\models.py:16
+#, python-format
+msgid "Template index de %s"
+msgstr "Template index of %s"
+
+#: .\apps\custom_templates\models.py:24
+msgid "Botão de agendamento"
+msgstr "Scheduling button"
+
+#: .\apps\gere_coworking\forms.py:41 .\templates\cria\login.html:30
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:33
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:30
+msgid "CPF/CNPJ"
+msgstr "CPF/CNPJ"
+
+#: .\apps\gere_coworking\forms.py:79 .\apps\gere_coworking\forms.py:91
+#: .\common\views_util.py:91
+msgid "Usuário com o CPF informado não existe!"
+msgstr "User with informed CPF does't exist!"
+
+#: .\apps\gere_coworking\forms.py:88 .\common\views_util.py:88
+msgid "Senha incorreta, tente novamente."
+msgstr "Incorrect password, try again."
+
+#: .\apps\gere_coworking\forms.py:144 .\apps\gere_coworking\forms.py:248
+#: .\apps\gere_coworking\forms.py:410
+msgid "Nome Completo"
+msgstr "Full Name"
+
+#: .\apps\gere_coworking\forms.py:150 .\apps\gere_coworking\forms.py:254
+msgid "Data de Nascimento"
+msgstr "Birth date"
+
+#: .\apps\gere_coworking\forms.py:199
+msgid "Razão Social"
+msgstr "Corporate Name"
+
+#: .\apps\gere_coworking\forms.py:305 .\apps\gere_coworking\forms.py:307
+#: .\apps\gere_coworking\forms.py:309
+msgid "Obrigatório"
+msgstr "Required"
+
+#: .\apps\gere_coworking\forms.py:310 .\apps\gere_coworking\forms.py:327
+msgid "Compartilhado. (Deixe marcado se o espaço for compartilhado)"
+msgstr "Shared. (Mark the field if the space is a shared one)"
+
+#: .\apps\gere_coworking\forms.py:312
+msgid "hh:mm:ss | Obrigatório"
+msgstr "hh:mm:ss | Required"
+
+#: .\apps\gere_coworking\forms.py:314 .\apps\gere_coworking\forms.py:349
+#: .\apps\gere_coworking\forms.py:353
+msgid "Opcional"
+msgstr "Optional"
+
+#: .\apps\gere_coworking\forms.py:322
+msgid "Ex: Uma sala reservada para sua equipe."
+msgstr "Ex: A room reserved for your team."
+
+#: .\apps\gere_coworking\forms.py:322
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:48
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:165
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:167
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:173
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:221
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:224
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:73
+#: .\templates\old\editar_tipo_espaco.html:56
+msgid "Descrição"
+msgstr "Description"
+
+#: .\apps\gere_coworking\forms.py:324
+msgid "Ex: Sala de reunião"
+msgstr "Ex: Meeting room"
+
+#: .\apps\gere_coworking\forms.py:324
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:275
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:70
+#: .\templates\gere\template1\cliente\apresentacao\index.html:157
+#: .\templates\instances\12\cliente\apresentacao\index.html:217
+#: .\templates\instances\21\cliente\apresentacao\index.html:553
+#: .\templates\instances\22\cliente\apresentacao\index.html:217
+#: .\templates\instances\23\cliente\apresentacao\index.html:553
+#: .\templates\instances\cliente\apresentacao\index.html:308
+#: .\templates\old\editar_tipo_espaco.html:51
+msgid "Nome"
+msgstr "Name"
+
+#: .\apps\gere_coworking\forms.py:326 .\apps\gere_coworking\forms.py:364
+#: .\templates\old\editar_espaco.html:67
+#: .\templates\old\editar_tipo_espaco.html:61
+msgid "Preço"
+msgstr "Price"
+
+#: .\apps\gere_coworking\forms.py:329
+msgid "hh:mm:ss"
+msgstr "hh:mm:ss"
+
+#: .\apps\gere_coworking\forms.py:329
+msgid "Tempo limpeza"
+msgstr "Cleaning time"
+
+#: .\apps\gere_coworking\forms.py:331 .\apps\gere_coworking\forms.py:367
+#: .\templates\old\editar_espaco.html:79
+#: .\templates\old\editar_tipo_espaco.html:80
+msgid "Imagem"
+msgstr "Image"
+
+#: .\apps\gere_coworking\forms.py:351 .\apps\gere_coworking\forms.py:366
+msgid "Status de espaços"
+msgstr "Space status"
+
+#: .\apps\gere_coworking\forms.py:362
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:112
+#: .\templates\old\editar_espaco.html:57
+msgid "Vagas"
+msgstr "seats"
+
+#: .\apps\gere_coworking\forms.py:366
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:106
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:118
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:281
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:301
+msgid "Selecione"
+msgstr "Select"
+
+#: .\apps\gere_coworking\forms.py:373
+msgid "Data de Reserva"
+msgstr "Booking Date"
+
+#: .\apps\gere_coworking\forms.py:384
+msgid "Comentário: "
+msgstr "Comments: "
+
+#: .\apps\gere_coworking\forms.py:421
+msgid "Não pode ter número no nome"
+msgstr "Cannot have numbers on the name"
+
+#: .\apps\gere_coworking\forms.py:458
+msgid "Mês"
+msgstr "Month"
+
+#: .\apps\gere_coworking\forms.py:460
+msgid "Ano"
+msgstr "Year"
+
+#: .\apps\gere_coworking\forms.py:477
+msgid "Insira um número de cartão válido"
+msgstr "Insert a valid card number"
+
+#: .\apps\gere_coworking\forms.py:589
+msgid "Material"
+msgstr "Material"
+
+#: .\apps\gere_coworking\forms.py:591
+msgid "Valor"
+msgstr "Value"
+
+#: .\apps\gere_coworking\forms.py:593
+msgid "Unidades disponíveis"
+msgstr "Avaliable units"
+
+#: .\apps\gere_coworking\models.py:21 .\apps\gere_coworking\models.py:48
+msgid "Gênero"
+msgstr "Gender"
+
+#: .\apps\gere_coworking\models.py:23 .\apps\gere_coworking\models.py:50
+#: .\templates\cria\gerenciar_plano.html:144
+#: .\templates\gere\template1\cliente\apresentacao\teste.html:17
+#: .\templates\gere\template1\cliente\pagamento\pagamento.html:56
+msgid "Telefone"
+msgstr "Phone"
+
+#: .\apps\gere_coworking\models.py:87
+#, python-format
+msgid "%s hr{'s' if self.tempo_limpeza.hour != 1 else ''}"
+msgstr "%s hr{'s' if self.tempo_limpeza.hour != 1 else ''}"
+
+#: .\apps\gere_coworking\models.py:89
+#, python-format
+msgid "%s min{'s' if self.tempo_limpeza.minute != 1 else ''}"
+msgstr "%s min{'s' if self.tempo_limpeza.minute != 1 else ''}"
+
+#: .\apps\gere_coworking\models.py:91
+#, python-format
+msgid "%s seg{'s' if self.tempo_limpeza.second != 1 else ''}"
+msgstr "%s seg{'s' if self.tempo_limpeza.second != 1 else ''}"
+
+#: .\apps\gere_coworking\models.py:98
+msgid "SIM"
+msgstr "YES"
+
+#: .\apps\gere_coworking\models.py:98
+msgid "NÃO"
+msgstr "NO"
+
+#: .\apps\gere_coworking\models.py:156 .\apps\gere_coworking\models.py:189
+msgid "Ativado"
+msgstr "Activated"
+
+#: .\apps\gere_coworking\models.py:156 .\apps\gere_coworking\models.py:189
+#: .\common\models_choices.py:45 .\common\models_choices.py:81
+msgid "Desativado"
+msgstr "Disabled"
+
+#: .\apps\gere_coworking\models.py:159
+msgid "Indefinido"
+msgstr "Undefined"
+
+#: .\apps\gere_coworking\services\reserva.py:194
+#: .\apps\rest_api\viewsets.py:189
+msgid "Sua reserva"
+msgstr "Your booking"
+
+#: .\apps\gere_coworking\services\reserva.py:261
+#: .\apps\gere_coworking\services\reserva.py:337
+msgid "Sem vagas"
+msgstr "No seats"
+
+#: .\apps\gere_coworking\services\reserva.py:402
+#: .\apps\gere_coworking\services\reserva.py:471
+msgid "ERRO! A hora de entrada não pode ser menor que a hora de saída."
+msgstr "ERROR! The check-in time cannot be shorter than the check-out time."
+
+#: .\apps\gere_coworking\services\reserva.py:405
+msgid "ERRO! A data informada já passou!"
+msgstr "ERROR! The entered date has passed!"
+
+#: .\apps\gere_coworking\services\reserva.py:408
+#: .\apps\gere_coworking\services\reserva.py:477
+msgid "ERRO! O tempo mínimo de reserva é 30 minutos."
+msgstr "ERROR! Minimum booking time is 30 minutes."
+
+#: .\apps\gere_coworking\services\reserva.py:412
+#: .\apps\gere_coworking\services\reserva.py:481
+msgid ""
+"ERRO! Não é possível realizar reservas de forma programática para mais de 60 "
+"dias. Entre em contato conosco."
+msgstr ""
+"ERROR! It is not possible to programmatically make bookings for more than 60 "
+"days. Please contact us."
+
+#: .\apps\gere_coworking\services\reserva.py:425
+#: .\apps\gere_coworking\services\reserva.py:506
+msgid "Horário já reservado. Escolha outro."
+msgstr "Time already booked. Choose another one."
+
+#: .\apps\gere_coworking\services\reserva.py:442
+#: .\apps\gere_coworking\services\reserva.py:530
+msgid "Fora de horário comercial, tente outro horário."
+msgstr "Outside business hours, try another time."
+
+#: .\apps\gere_coworking\services\reserva.py:47
+msgid "ERRO! A hora informada já passou!"
+msgstr "ERROR! The entered hour has passed!"
+
+#: .\apps\gere_coworking\views.py:336 .\apps\gere_coworking\views.py:375
+msgid "Sua reserva está marcada para dia "
+msgstr "Your booking is scheduled for "
+
+#: .\apps\gere_coworking\views.py:413
+msgid "mundo"
+msgstr "world"
+
+#: .\apps\gere_coworking\views.py:445
+msgid "WORLD"
+msgstr "WORLD"
+
+#: .\apps\gere_coworking\views.py:537
+msgid "Redefinição de senha concluida"
+msgstr "Password reset finished"
+
+#: .\apps\gere_coworking\views.py:665
+#, python-format
+msgid "O preço padrão para %s é R$%s."
+msgstr "The standard price for %s is R$%s."
+
+#: .\apps\gere_coworking\views.py:676
+msgid "Tipo de espaço já cadastrado com este Nome !"
+msgstr "Space type already registered with this name!"
+
+#: .\apps\gere_coworking\views.py:706
+#, python-format
+msgid "Tipo de espaço \"%s\" excluído com sucesso !"
+msgstr "Space type \"%s\" deleted with sucess!"
+
+#: .\apps\gere_coworking\views.py:715
+#, python-format
+msgid "Espaço \"%s\" excluído com sucesso !"
+msgstr "Space \"%s\" deleted with sucess!"
+
+#: .\apps\rest_api\viewsets.py:189
+msgid "Reservado"
+msgstr "Reserved"
+
+#: .\common\form_fields_verifiers\dateVerifier.py:67
+#: .\common\form_fields_verifiers\dateVerifier.py:75
+msgid "Insira uma data válida no formato mm/yy, ex: 07/25"
+msgstr "Insert a valid date on the format mm/yy, ex: 07/25"
+
+#: .\common\form_fields_verifiers\dateVerifier.py:69
+#: .\common\form_fields_verifiers\dateVerifier.py:82
+#, python-brace-format
+msgid ""
+"Insira um ano válido no formato yy até {DIFERENCIA_ANO_MAXIMO_VENCIMENTO} "
+"anos. Ex: 07/27"
+msgstr ""
+"Inserta a valid year on the format yy until "
+"{DIFERENCIA_ANO_MAXIMO_VENCIMENTO} year. Ex: 07/27"
+
+#: .\common\form_fields_verifiers\textVerifiers.py:12
+msgid "Não são permitidos símbolos neste campo."
+msgstr "Symbols are not allowed in this field."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:14
+msgid ""
+"Não são permitidos números neste campo. Coloque o número do endereço no seu "
+"respectivo campo."
+msgstr ""
+"Numbers are not allowed in this field. Put the address number in your "
+"respective field."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:16
+#: .\common\form_fields_verifiers\textVerifiers.py:43
+msgid "Confira se alguma letra está duplicada."
+msgstr "Check if any letters are duplicated."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:22
+msgid "Números de endereço só podem ser até 5 caracteres."
+msgstr "Address numbers can only be up to 5 characters long."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:24
+msgid "Não são permitidos símbolos ou espaços no número do endereço."
+msgstr "No symbols or spaces are allowed in the address number."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:28
+msgid "Colocar complementos no formato 111a, 111b."
+msgstr "Putting add-ons in the format 111a, 111b"
+
+#: .\common\form_fields_verifiers\textVerifiers.py:35
+msgid ""
+"Certifique-se que o nome só contém letras. Números e símbolos não são "
+"permitidos."
+msgstr ""
+"Make sure the name only contains letters. Numbers and symbols are not "
+"allowed."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:37
+msgid "Nome curto demais, colocar pelo menos 5 caracteres."
+msgstr "Name too short, insert at least 5 characters."
+
+#: .\common\form_fields_verifiers\textVerifiers.py:40
+msgid "Por favor coloque nome completo."
+msgstr "Please enter full name."
+
+#: .\common\forms_util.py:80
+msgid "CEP não existe."
+msgstr "Zip code does not exist."
+
+#: .\common\forms_util.py:86 .\common\forms_util.py:94
+#: .\common\forms_util.py:101
+msgid "CNPJ inválido"
+msgstr "Invalid CNPJ"
+
+#: .\common\forms_util.py:88 .\common\forms_util.py:96
+msgid "CNPJ já registrado! Insira outro por favor."
+msgstr "CNPJ already registered! Enter another one please."
+
+#: .\common\forms_util.py:107
+msgid "CPF inválido"
+msgstr "Invalid CPF"
+
+#: .\common\forms_util.py:110
+msgid "CPF já registrado! Insira outro por favor."
+msgstr "CPF already registered! Enter another one please."
+
+#: .\common\forms_util.py:128
+msgid "Telefone inválido!"
+msgstr "Invalid phone"
+
+#: .\common\models_choices.py:7
+msgid "F"
+msgstr "F"
+
+#: .\common\models_choices.py:7
+msgid "Feminino"
+msgstr "Feminine"
+
+#: .\common\models_choices.py:8
+msgid "M"
+msgstr "M"
+
+#: .\common\models_choices.py:8
+msgid "Masculino"
+msgstr "Masculine"
+
+#: .\common\models_choices.py:9
+msgid "O"
+msgstr "O"
+
+#: .\common\models_choices.py:9
+msgid "Outro"
+msgstr "Other"
+
+#: .\common\models_choices.py:44 .\common\models_choices.py:80
+msgid "Ativo"
+msgstr "Active"
+
+#: .\common\models_choices.py:46
+msgid "Extraviado"
+msgstr "Misplaced"
+
+#: .\common\models_choices.py:50
+msgid "PIX"
+msgstr "PIX"
+
+#: .\common\models_choices.py:51
+msgid "Cartão de Crédito"
+msgstr "Credit card"
+
+#: .\common\models_choices.py:52
+msgid "Boleto"
+msgstr "Ticket"
+
+#: .\common\models_choices.py:67
+msgid "failed"
+msgstr "failed"
+
+#: .\common\models_choices.py:68
+msgid "approved"
+msgstr "approved"
+
+#: .\common\models_choices.py:69
+msgid "authorized"
+msgstr "authorized"
+
+#: .\common\models_choices.py:70 .\common\models_choices.py:76
+msgid "rejected"
+msgstr "rejected"
+
+#: .\common\models_choices.py:71
+msgid "pending"
+msgstr "pending"
+
+#: .\common\models_choices.py:72
+msgid "in_process"
+msgstr "in_process"
+
+#: .\common\models_choices.py:73
+msgid "in_mediation"
+msgstr "in_mediation"
+
+#: .\common\models_choices.py:74
+msgid "refunded"
+msgstr "refunded"
+
+#: .\common\models_choices.py:75
+msgid "charged_back"
+msgstr "charged_back"
+
+#: .\common\views_manager.py:45
+msgid "O seguinte sistema não existe."
+msgstr "The following system does not exist."
+
+#: .\common\views_manager.py:50
+msgid "O seguinte sistema atualmente está desativado."
+msgstr "The following system is currently deactivated."
+
+#: .\common\views_manager.py:60
+msgid "Desconhecido"
+msgstr "Unknown"
+
+#: .\newgen\settings.py:174
+msgid "Português"
+msgstr "Portuguese"
+
+#: .\newgen\settings.py:175
+msgid "Inglês"
+msgstr "English"
+
+#: .\templates\cria\apresentacao.html:6
+#: .\templates\cria\cadastro_novo_coworking.html:5
+#: .\templates\gere\template1\cliente\apresentacao\teste.html:5
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:6
+#: .\templates\gere\template1\cliente\apresentacao\teste_form.html:6
+#: .\templates\gere\template1\cliente\pagamento\pagamento.html:6
+msgid "teste"
+msgstr "test"
+
+#: .\templates\cria\apresentacao.html:10
+msgid "Olá, cadastre seu coworking!"
+msgstr "Hello, sign up your coworking!"
+
+#: .\templates\cria\apresentacao.html:12
+msgid "Cadastrar"
+msgstr "Register"
+
+#: .\templates\cria\assinatura.html:4 .\templates\cria\gerenciar_plano.html:92
+msgid "Assinatura"
+msgstr "Subscription"
+
+#: .\templates\cria\assinatura.html:15 .\templates\cria\assinatura.html:16
+msgid "Preços"
+msgstr "Prices"
+
+#: .\templates\cria\assinatura.html:16 .\templates\cria\index.html:62
+msgid "Veja nossos"
+msgstr "See our"
+
+#: .\templates\cria\assinatura.html:17
+msgid "Temos várias opções de assinatura para você."
+msgstr "We have many subscription options for you."
+
+#: .\templates\cria\assinatura.html:24
+msgid "Plano Básico"
+msgstr "Basic Plan"
+
+#: .\templates\cria\assinatura.html:25 .\templates\cria\assinatura.html:44
+#: .\templates\cria\assinatura.html:64
+msgid "R$"
+msgstr "R$"
+
+#: .\templates\cria\assinatura.html:25 .\templates\cria\assinatura.html:44
+#: .\templates\cria\assinatura.html:64
+msgid "/mês"
+msgstr "/month"
+
+#: .\templates\cria\assinatura.html:27 .\templates\cria\assinatura.html:46
+#: .\templates\cria\assinatura.html:66
+msgid "Gestão de clientes e funcionários"
+msgstr "Client and Employee Management"
+
+#: .\templates\cria\assinatura.html:28 .\templates\cria\assinatura.html:47
+#: .\templates\cria\assinatura.html:67
+msgid "Gestão de salas e equipamentos"
+msgstr "Room and Equipment Management"
+
+#: .\templates\cria\assinatura.html:29 .\templates\cria\assinatura.html:48
+#: .\templates\cria\assinatura.html:68 .\templates\cria\index.html:45
+#: .\templates\gere\template1\cliente\apresentacao\index.html:30
+msgid "Agendamento On-line"
+msgstr "Online Scheduling"
+
+#: .\templates\cria\assinatura.html:30 .\templates\cria\assinatura.html:49
+#: .\templates\cria\assinatura.html:69
+msgid "Checkin e Checkout via QR-Code"
+msgstr "Check-in and Check-out by QR Code"
+
+#: .\templates\cria\assinatura.html:31 .\templates\cria\assinatura.html:50
+#: .\templates\cria\assinatura.html:70
+msgid "Controle de Estoque"
+msgstr "Stock Control"
+
+#: .\templates\cria\assinatura.html:32 .\templates\cria\assinatura.html:51
+#: .\templates\cria\assinatura.html:71
+msgid "Fila de Espera"
+msgstr "Waiting List"
+
+#: .\templates\cria\assinatura.html:33 .\templates\cria\assinatura.html:52
+#: .\templates\cria\assinatura.html:72
+msgid "Pacote de Horas"
+msgstr "Hourly Package"
+
+#: .\templates\cria\assinatura.html:36
+msgid "Assine Agora"
+msgstr "Sign up now"
+
+#: .\templates\cria\assinatura.html:43
+msgid "Plano Pro"
+msgstr "Pro Plan"
+
+#: .\templates\cria\assinatura.html:56 .\templates\cria\assinatura.html:76
+msgid "Em breve"
+msgstr "Coming Soon"
+
+#: .\templates\cria\assinatura.html:63
+msgid "Plano Prime"
+msgstr "Prime Plan"
+
+#: .\templates\cria\base.html:59 .\templates\cria\index.html:25
+#: .\templates\gere\template1\adm\customizacao.html:48
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:162
+#: .\templates\gere\template1\base.html:52
+#: .\templates\gere\template1\base.html:132
+#: .\templates\gere\template1\base_admin.html:120
+#: .\templates\gere\template1\base_func.html:105
+#: .\templates\gere\template1\cliente\apresentacao\index.html:73
+#: .\templates\instances\12\base.html:1666
+#: .\templates\instances\12\base.html:1933
+#: .\templates\instances\12\cliente\apresentacao\index.html:99
+#: .\templates\instances\21\base.html:1666
+#: .\templates\instances\21\base.html:1933
+#: .\templates\instances\21\cliente\apresentacao\index.html:255
+#: .\templates\instances\22\base.html:1666
+#: .\templates\instances\22\base.html:1933
+#: .\templates\instances\22\cliente\apresentacao\index.html:99
+#: .\templates\instances\23\base.html:1666
+#: .\templates\instances\23\base.html:1933
+#: .\templates\instances\23\cliente\apresentacao\index.html:255
+#: .\templates\instances\cliente\apresentacao\index.html:190
+msgid "Sobre Nós"
+msgstr "About us"
+
+#: .\templates\cria\base.html:60 .\templates\cria\index.html:61
+#: .\templates\cria\index.html:62
+#: .\templates\gere\template1\adm\customizacao.html:52
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:189
+#: .\templates\gere\template1\base.html:133
+#: .\templates\gere\template1\base_admin.html:121
+#: .\templates\gere\template1\base_func.html:106
+#: .\templates\gere\template1\cliente\apresentacao\index.html:88
+#: .\templates\instances\12\base.html:1934
+#: .\templates\instances\12\cliente\apresentacao\index.html:116
+#: .\templates\instances\21\base.html:1934
+#: .\templates\instances\21\cliente\apresentacao\index.html:272
+#: .\templates\instances\22\base.html:1934
+#: .\templates\instances\22\cliente\apresentacao\index.html:116
+#: .\templates\instances\23\base.html:1934
+#: .\templates\instances\23\cliente\apresentacao\index.html:272
+#: .\templates\instances\cliente\apresentacao\index.html:207
+msgid "Serviços"
+msgstr "Services"
+
+#: .\templates\cria\base.html:61
+#: .\templates\gere\template1\adm\customizacao.html:56
+#: .\templates\gere\template1\base.html:53
+#: .\templates\instances\12\base.html:1667
+#: .\templates\instances\21\base.html:1667
+#: .\templates\instances\22\base.html:1667
+#: .\templates\instances\23\base.html:1667
+msgid "Contato"
+msgstr "Contact"
+
+#: .\templates\cria\base.html:62
+msgid "Cadastre"
+msgstr "Register"
+
+#: .\templates\cria\base.html:69
+msgid "Logado como: "
+msgstr "Logged as: "
+
+#: .\templates\cria\base.html:71
+msgid "Gerenciar dados"
+msgstr "Manage data"
+
+#: .\templates\cria\base.html:72 .\templates\gere\template1\base.html:82
+#: .\templates\instances\12\base.html:1696
+#: .\templates\instances\21\base.html:1696
+#: .\templates\instances\22\base.html:1696
+#: .\templates\instances\23\base.html:1696
+msgid "Outra conta"
+msgstr "Other account"
+
+#: .\templates\cria\base.html:73 .\templates\gere\template1\base.html:83
+#: .\templates\gere\template1\base_admin.html:75
+#: .\templates\gere\template1\base_func.html:60
+#: .\templates\gere\template1\base_include_func.html:16
+#: .\templates\gere\template1\cliente\apresentacao\home.html:39
+#: .\templates\instances\12\base.html:1697
+#: .\templates\instances\21\base.html:1697
+#: .\templates\instances\22\base.html:1697
+#: .\templates\instances\23\base.html:1697
+msgid "Deslogar"
+msgstr "Logout"
+
+#: .\templates\cria\base.html:79
+msgid "Já sou Cliente"
+msgstr "Already a Client"
+
+#: .\templates\cria\base.html:83
+msgid "Idioma"
+msgstr "Language"
+
+#: .\templates\cria\cadastro_novo_coworking.html:9
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:12
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:38
+#: .\templates\gere\template1\cliente\apresentacao\home.html:29
+#: .\templates\gere\template1\cliente\apresentacao\teste.html:9
+#: .\templates\gere\template1\cliente\pagamento\pagamento.html:48
+msgid "Olá"
+msgstr "Hello"
+
+#: .\templates\cria\cadastro_novo_coworking.html:14
+#: .\templates\cria\regAdministrator.html:28
+#: .\templates\cria\regContaInstancia.html:28
+#: .\templates\gere\template1\cliente\apresentacao\teste_form.html:16
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:40
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:50
+#: .\templates\gere\template1\cliente\pagamento\pagamento.html:22
+#: .\templates\gere\template1\funcionario\regEmployee.html:37
+msgid "Registrar"
+msgstr "Register"
+
+#: .\templates\cria\cadastro_novo_coworking.html:25
+msgid "Limpar e tentar novamente"
+msgstr "Clean and try again"
+
+#: .\templates\cria\gerenciar_plano.html:4
+msgid "Gerenciar plano"
+msgstr "Manage subscription"
+
+#: .\templates\cria\gerenciar_plano.html:30
+msgid "Sucesso"
+msgstr "Sucess"
+
+#: .\templates\cria\gerenciar_plano.html:36
+msgid "O seu coworking está sendo gerado."
+msgstr "Your coworking is being created."
+
+#: .\templates\cria\gerenciar_plano.html:37
+msgid ""
+"Um banco de dados novo está sendo criado para garantir a privacidade e "
+"autonomia dos dados de seu site."
+msgstr ""
+"A new database is being created to guarantee the privacy and autonomy of the "
+"data on your website."
+
+#: .\templates\cria\gerenciar_plano.html:38
+msgid ""
+"Volte em alguns instantes nesta página para conferir o estado de criação."
+msgstr "Return in some moments to this page to see the state of creation."
+
+#: .\templates\cria\gerenciar_plano.html:41
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:284
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:230
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:250
+msgid "Fechar"
+msgstr "Close"
+
+#: .\templates\cria\gerenciar_plano.html:70
+msgid "Mudar imagem"
+msgstr "Change image"
+
+#: .\templates\cria\gerenciar_plano.html:81
+msgid "Empresa de Coworking"
+msgstr "Coworking Company"
+
+#: .\templates\cria\gerenciar_plano.html:87
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:71
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:64
+msgid "Informações pessoais"
+msgstr "Personal Information"
+
+#: .\templates\cria\gerenciar_plano.html:115
+msgid "Site"
+msgstr "Website"
+
+#: .\templates\cria\gerenciar_plano.html:117
+#: .\templates\cria\gerenciar_plano.html:228
+msgid "Domínio não cadastrado"
+msgstr "Domain not registered"
+
+#: .\templates\cria\gerenciar_plano.html:118
+msgid "Empresa"
+msgstr "Company"
+
+#: .\templates\cria\gerenciar_plano.html:119
+msgid "CNPJ:"
+msgstr "CNPJ:"
+
+#: .\templates\cria\gerenciar_plano.html:120
+msgid "Endereço: "
+msgstr "Address: "
+
+#: .\templates\cria\gerenciar_plano.html:152
+msgid "Logradouro / Número"
+msgstr "Street / Number"
+
+#: .\templates\cria\gerenciar_plano.html:160
+msgid "Bairro / Cep"
+msgstr "Neighborhood / CEP"
+
+#: .\templates\cria\gerenciar_plano.html:168
+msgid "Cidade / Estado"
+msgstr "City / State"
+
+#: .\templates\cria\gerenciar_plano.html:178
+msgid "Plano atual:"
+msgstr "Current plan:"
+
+#: .\templates\cria\gerenciar_plano.html:190
+msgid "Escolher plano."
+msgstr "Choose plan."
+
+#: .\templates\cria\gerenciar_plano.html:198
+msgid "Escolha já seu plano!"
+msgstr "Choose your plan now!"
+
+#: .\templates\cria\gerenciar_plano.html:204
+msgid "Banco de dados: "
+msgstr "Database: "
+
+#: .\templates\cria\gerenciar_plano.html:211
+msgid "Solicitar dados"
+msgstr "Request data"
+
+#: .\templates\cria\gerenciar_plano.html:217
+msgid "Validade do plano:"
+msgstr "Plan expiration:"
+
+#: .\templates\cria\gerenciar_plano.html:225
+msgid "Domínio atual:"
+msgstr "Current domain:"
+
+#: .\templates\cria\index.html:4 .\templates\cria\index.html:12
+msgid "NewGen"
+msgstr "NewGen"
+
+#: .\templates\cria\index.html:12
+msgid "Bem vindo à"
+msgstr "Welcome to"
+
+#: .\templates\cria\index.html:13
+msgid ""
+"Somos um sistema de gerencimento de coworking, que vai ajudar você e seu "
+"negócio a prosperarem neste ramo!"
+msgstr ""
+"We are a coworking management system, and we'll help you and your "
+"bussinessflourish in this branch!"
+
+#: .\templates\cria\index.html:15
+msgid "Saiba mais"
+msgstr "Learn more"
+
+#: .\templates\cria\index.html:33
+msgid ""
+"Nossa empresa disponiliza um sistema com a sua identidade, com seus valores "
+"e princícipos. Tornamos a tarefa de administrar um coworking muito mais "
+"acessível para você."
+msgstr ""
+"Our company provides a system with your identity, your values and "
+"principles. We make the task of managing a coworking much more accessible "
+"for you."
+
+#: .\templates\cria\index.html:38
+msgid "Validação de Entrada"
+msgstr "Entrance Validation"
+
+#: .\templates\cria\index.html:39
+msgid "Faça a validação de entrada do seu cliente com sistema de QR Code."
+msgstr "Validate your client's entrance with a QR Code system."
+
+#: .\templates\cria\index.html:46
+msgid "Tenha o controle de sua agenda da palma da mão!"
+msgstr "Have control of your agenda in your hands!"
+
+#: .\templates\cria\index.html:69
+msgid "Confirmação de Agendamento"
+msgstr "Scheduling Confirmation"
+
+#: .\templates\cria\index.html:70
+msgid ""
+"O sistema envia um aviso para que seu cliente não esqueça de nenhum "
+"agendamento"
+msgstr "The system sends a reminder so your client won't forget any bookings."
+
+#: .\templates\cria\index.html:77 .\templates\gere\template1\base_admin.html:51
+msgid "Relatórios Analíticos"
+msgstr "Analytical Reports"
+
+#: .\templates\cria\index.html:78
+msgid ""
+"Obtenha as métricas do seu coworking e desenvolva maior conhecimento sobre "
+"seu público."
+msgstr ""
+"Obtain the measurements of your coworking and develop a bigger understanding "
+"of your clients."
+
+#: .\templates\cria\index.html:85
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:15
+msgid "Gerenciamento de Salas"
+msgstr "Room Management"
+
+#: .\templates\cria\index.html:86
+msgid "Informe as salas disponíveis e os recursos necessárias."
+msgstr "Inform the avaliable rooms and necessary resources."
+
+#: .\templates\cria\index.html:93
+msgid "Gerenciamento de Estoque"
+msgstr "Stock Management"
+
+#: .\templates\cria\index.html:94
+msgid "Tenha o controle de entrada e saíde de seus recursos e materiais."
+msgstr "Have control of your resources ins and outs."
+
+#: .\templates\cria\index.html:101
+msgid "Sistema White Label"
+msgstr "White Label System"
+
+#: .\templates\cria\index.html:102
+msgid "Customize nosso sistema com sua identidade visual."
+msgstr "Customize our system with your visual identity."
+
+#: .\templates\cria\index.html:109
+msgid "Agendamento Online"
+msgstr "Online Scheduling"
+
+#: .\templates\cria\index.html:110
+msgid ""
+"Seu cliente tem a facilidade de marcar reuniões e encontros para toda a "
+"equipe."
+msgstr ""
+"Your client can easily schedule meetings and get-togethers with the whole "
+"team."
+
+#: .\templates\cria\index.html:122
+msgid "Não perca tempo e registre já o seu coworking."
+msgstr "Don't waste time and register your coworking now."
+
+#: .\templates\cria\index.html:123
+msgid "Escolha o plano e a forma de pagamento e assine!"
+msgstr "Choose your plan and payment form and subscribe!"
+
+#: .\templates\cria\index.html:128
+msgid "Faça sua assinatura!"
+msgstr "Make your subscription!"
+
+#: .\templates\cria\index.html:149
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:250
+#: .\templates\gere\template1\cliente\apresentacao\index.html:140
+#: .\templates\instances\12\cliente\apresentacao\index.html:200
+#: .\templates\instances\21\cliente\apresentacao\index.html:536
+#: .\templates\instances\22\cliente\apresentacao\index.html:200
+#: .\templates\instances\23\cliente\apresentacao\index.html:536
+#: .\templates\instances\cliente\apresentacao\index.html:291
+msgid "Endereço"
+msgstr "Adress"
+
+#: .\templates\cria\index.html:150
+#: .\templates\gere\template1\cliente\apresentacao\index.html:141
+msgid "R. Pedro Vicente, 625 - Canindé, São Paulo - SP, 01109-010"
+msgstr "St. Pedro Vicente, 625 - Canindé, São Paulo - SP 01109-010"
+
+#: .\templates\cria\index.html:158
+msgid "newgenoficial2021@gmail.com"
+msgstr "newgenoficial2021@gmail.com"
+
+#: .\templates\cria\index.html:184
+#: .\templates\gere\template1\cliente\apresentacao\index.html:170
+#: .\templates\instances\12\cliente\apresentacao\index.html:230
+#: .\templates\instances\21\cliente\apresentacao\index.html:566
+#: .\templates\instances\22\cliente\apresentacao\index.html:230
+#: .\templates\instances\23\cliente\apresentacao\index.html:566
+#: .\templates\instances\cliente\apresentacao\index.html:321
+msgid "Carregando"
+msgstr "Loading"
+
+#: .\templates\cria\index.html:186
+msgid "Sua mensagem foi enviada. Obrigada!"
+msgstr "Your message has been sent. Thank you!"
+
+#: .\templates\cria\index.html:188
+#: .\templates\gere\template1\adm\customizacao.html:61
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:31
+#: .\templates\gere\template1\funcionario\advertencia.html:29
+msgid "Enviar"
+msgstr "Submit"
+
+#: .\templates\cria\login.html:6
+#: .\templates\cria\passaword_reset_complete.html:19
+#: .\templates\cria\password_reset.html:6
+#: .\templates\gere\template1\base.html:93
+#: .\templates\gere\template1\base_admin.html:81
+#: .\templates\gere\template1\base_func.html:66
+#: .\templates\gere\template1\base_include_admin.html:47
+#: .\templates\gere\template1\base_include_func.html:22
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:5
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:6
+#: .\templates\gere\template1\cliente\cadastro_e_login\passaword_reset_complete.html:15
+#: .\templates\instances\12\base.html:1709
+#: .\templates\instances\21\base.html:1709
+#: .\templates\instances\22\base.html:1709
+#: .\templates\instances\23\base.html:1709
+#: .\templates\registration\password_reset_complete.html:24
+#: .\templates\registration\password_reset_complete.html:31
+msgid "Login"
+msgstr "Login"
+
+#: .\templates\cria\login.html:21
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:24
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:21
+msgid "Sistema de Gerenciamento de Coworking"
+msgstr "Coworking Management System"
+
+#: .\templates\cria\login.html:25
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:25
+msgid "LOGIN"
+msgstr "LOGIN"
+
+#: .\templates\cria\login.html:47
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:50
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:47
+msgid "Primeiro Acesso"
+msgstr "First Access"
+
+#: .\templates\cria\login.html:48
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginNovo.html:51
+#: .\templates\gere\template1\cliente\cadastro_e_login\loginSystem.html:48
+msgid "Esqueceu a senha?"
+msgstr "Forgot password"
+
+#: .\templates\cria\pagamento.html:5
+#: .\templates\gere\template1\adm\espacos\registrarEspaco2.html:5
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:7
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:7
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:5
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:20
+msgid "Formulário de pagamento"
+msgstr "Payment form"
+
+#: .\templates\cria\pagamento.html:19
+msgid "Pagar plano"
+msgstr "Pay for plan"
+
+#: .\templates\cria\pagamento.html:30
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:216
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:50
+msgid "Pagar"
+msgstr "Pay"
+
+#: .\templates\cria\pagamento.html:32
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:220
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:52
+msgid "Erro!"
+msgstr "Error!"
+
+#: .\templates\cria\passaword_reset_complete.html:6
+#: .\templates\cria\password_reset_confirm.html:6
+#: .\templates\cria\password_reset_done.html:6
+#: .\templates\gere\template1\cliente\cadastro_e_login\passaword_reset_complete.html:5
+msgid "Altera Senha"
+msgstr "Change password"
+
+#: .\templates\cria\regAdministrator.html:5
+msgid "Cadastro de Informações"
+msgstr "Register Information"
+
+#: .\templates\cria\regAdministrator.html:21
+msgid "Criar uma conta"
+msgstr "Create an account"
+
+#: .\templates\cria\regContaInstancia.html:5
+msgid "Cadastro da conta na instância"
+msgstr "Account registering on the instance"
+
+#: .\templates\cria\regContaInstancia.html:21
+msgid "Configurar a conta de administrador principal do seu site"
+msgstr "Configure the main admin account of your website"
+
+#: .\templates\cria\regContaInstancia.html:21
+msgid "Criar conta superusuário do site"
+msgstr "Create superuser account for website"
+
+#: .\templates\cria\regCoworking.html:8
+msgid "Configurações iniciais do site"
+msgstr "Initial configurations for website"
+
+#: .\templates\cria\regCoworking.html:38
+msgid "Configurar Informações do Site"
+msgstr "Configure Website Info"
+
+#: .\templates\cria\regCoworking.html:44
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:44
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:44
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:41
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:41
+#: .\templates\old\editar_espaco.html:32
+#: .\templates\old\editar_tipo_espaco.html:32
+msgid "ERRO!"
+msgstr "ERROR!"
+
+#: .\templates\cria\regCoworking.html:44
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:44
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:44
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:41
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:41
+#: .\templates\old\editar_espaco.html:32
+#: .\templates\old\editar_tipo_espaco.html:32
+msgid ""
+"Não foi possível encontrar esse tipo de espaço, volte à tela de listar "
+"espaços e selecione ou crie um válido!"
+msgstr ""
+"Unable to find this space type, return to the listing space screen and "
+"select or create a valid one!"
+
+#: .\templates\cria\regCoworking.html:46 .\templates\cria\regCoworking.html:166
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:46
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:152
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:26
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:46
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:61
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:90
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:98
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:43
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:110
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:43
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:122
+#: .\templates\old\editar_espaco.html:34 .\templates\old\editar_espaco.html:92
+#: .\templates\old\editar_tipo_espaco.html:34
+#: .\templates\old\editar_tipo_espaco.html:94
+msgid "← Voltar"
+msgstr "← Return"
+
+#: .\templates\cria\regCoworking.html:77
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:72
+msgid ""
+"Escolha um estilo de botão para seu site (Os tamanhos variam com o tamanho "
+"do texto)"
+msgstr ""
+"Choose a button style for your website (The sizes change depending on the "
+"text size)"
+
+#: .\templates\cria\regCoworking.html:79
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:74
+msgid "Azul"
+msgstr "Blue"
+
+#: .\templates\cria\regCoworking.html:80
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:75
+msgid "Cinza"
+msgstr "Grey"
+
+#: .\templates\cria\regCoworking.html:81
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:76
+msgid "Verde"
+msgstr "Green"
+
+#: .\templates\cria\regCoworking.html:82
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:77
+msgid "Vermelho"
+msgstr "Red"
+
+#: .\templates\cria\regCoworking.html:83
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:78
+msgid "Amarelo"
+msgstr "Yellow"
+
+#: .\templates\cria\regCoworking.html:84
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:79
+msgid "Azul-claro"
+msgstr "Light blue"
+
+#: .\templates\cria\regCoworking.html:85
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:80
+msgid "Branco"
+msgstr "White"
+
+#: .\templates\cria\regCoworking.html:86
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:81
+msgid "Preto"
+msgstr "Black"
+
+#: .\templates\cria\regCoworking.html:167
+msgid "Criar coworking"
+msgstr "Create coworking"
+
+#: .\templates\erros\emProducao.html:5 .\templates\erros\erroGenerico.html:5
+msgid "Em produção"
+msgstr "In production"
+
+#: .\templates\erros\emProducao.html:14
+msgid "EM PRODUÇÃO"
+msgstr "IN PRODUCTION"
+
+#: .\templates\gere\template1\adm\customizacao.html:19
+msgid "SGC - Configuração"
+msgstr "SGC - Configuration"
+
+#: .\templates\gere\template1\adm\customizacao.html:26
+msgid "Escolha a cor primária:"
+msgstr "Choose the primary color:"
+
+#: .\templates\gere\template1\adm\customizacao.html:31
+msgid "Escolha a cor secundária:"
+msgstr "Choose the secondary color:"
+
+#: .\templates\gere\template1\adm\customizacao.html:36
+msgid "Visualizar página inicial"
+msgstr "Visualize main page"
+
+#: .\templates\gere\template1\adm\customizacao.html:40
+msgid "Adicionar a logomarca da empresa"
+msgstr "Add your company logo"
+
+#: .\templates\gere\template1\adm\customizacao.html:46
+msgid "Conteúdo do site"
+msgstr "Website content"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:8
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:8
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:8
+#: .\templates\old\editar_espaco.html:8
+msgid "Edição de espaço"
+msgstr "Space editing"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:38
+msgid "Editar Informações do Site"
+msgstr "Edit Website Info"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:133
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:98
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:110
+#: .\templates\old\editar_espaco.html:83
+#: .\templates\old\editar_tipo_espaco.html:84
+msgid "Imagem atual"
+msgstr "Actual image"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_cowork_info.html:153
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:27
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:62
+msgid "Salvar alterações"
+msgstr "Save edits"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:4
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:22
+msgid "Customização da página inicial"
+msgstr "Main page customization"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:23
+msgid "Idioma selecionado: "
+msgstr "Selected language:"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:24
+msgid "Para editar em outro idioma, selecione no menu "
+msgstr "To edit on another language, select on the menu "
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:24
+msgid "\"Escolha seu idioma\""
+msgstr "\"Choose your language\""
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:43
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:214
+msgid "Título"
+msgstr "Title"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:53
+msgid "Botão"
+msgstr "Button"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:59
+msgid "Nenhum"
+msgstr "None"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:63
+msgid "Tipo do botão"
+msgstr "Button type"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:71
+msgid "Mudar texto do botão"
+msgstr "Change button text"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:104
+msgid "Selecionar imagem de fundo"
+msgstr "Select backgroun image"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:152
+msgid "Selecionar imagem para logo"
+msgstr "Select background image"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:196
+msgid "Lista de ícones"
+msgstr "List of icons"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:200
+msgid "Ícone bootstrap"
+msgstr "Bootstrap icon"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:242
+#: .\templates\gere\template1\cliente\apresentacao\index.html:132
+#: .\templates\instances\12\cliente\apresentacao\index.html:192
+#: .\templates\instances\21\cliente\apresentacao\index.html:528
+#: .\templates\instances\22\cliente\apresentacao\index.html:192
+#: .\templates\instances\23\cliente\apresentacao\index.html:528
+#: .\templates\instances\cliente\apresentacao\index.html:283
+msgid "Entre e contato"
+msgstr "Contact us"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:251
+msgid "Mudar endereço"
+msgstr "Change Address"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:282
+#: .\templates\gere\template1\cliente\apresentacao\index.html:164
+#: .\templates\instances\12\cliente\apresentacao\index.html:224
+#: .\templates\instances\21\cliente\apresentacao\index.html:560
+#: .\templates\instances\22\cliente\apresentacao\index.html:224
+#: .\templates\instances\23\cliente\apresentacao\index.html:560
+#: .\templates\instances\cliente\apresentacao\index.html:315
+msgid "Assunto"
+msgstr "Subject"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:285
+#: .\templates\gere\template1\cliente\apresentacao\index.html:167
+#: .\templates\instances\12\cliente\apresentacao\index.html:227
+#: .\templates\instances\21\cliente\apresentacao\index.html:563
+#: .\templates\instances\22\cliente\apresentacao\index.html:227
+#: .\templates\instances\23\cliente\apresentacao\index.html:563
+#: .\templates\instances\cliente\apresentacao\index.html:318
+msgid "Messagem"
+msgstr "Message"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:287
+#: .\templates\gere\template1\cliente\apresentacao\index.html:174
+#: .\templates\instances\12\cliente\apresentacao\index.html:234
+#: .\templates\instances\21\cliente\apresentacao\index.html:570
+#: .\templates\instances\22\cliente\apresentacao\index.html:234
+#: .\templates\instances\23\cliente\apresentacao\index.html:570
+#: .\templates\instances\cliente\apresentacao\index.html:325
+msgid "Enviar Mensagem"
+msgstr "Send Message"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_index.html:296
+msgid "Ir para o topo"
+msgstr "Go to top"
+
+#: .\templates\gere\template1\adm\customizar_templates\custom_personal_info.html:38
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:35
+#: .\templates\old\editar_espaco.html:26
+msgid "Alterar espaço"
+msgstr "Change space"
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:6
+msgid "Cadastrar espaço"
+msgstr "Register space"
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:32
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:91
+msgid "Criar espaço"
+msgstr "Create space"
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:43
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:55
+msgid "Selecione o tipo deste espaço. "
+msgstr "Select the type of this space."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:43
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:55
+msgid "(para editar tipos de espaço, vá para categoria)"
+msgstr "(to edit the space type, go to category)"
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:51
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:63
+#: .\templates\old\editar_espaco.html:73
+msgid ""
+"A escolha do estado é importante para definir se este espaço está apto para "
+"reserva."
+msgstr ""
+"The choosing of state is important to define if this space is able to be "
+"reserved."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:52
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:64
+#: .\templates\old\editar_espaco.html:74
+msgid "Um espaço desativado não aparece para o usuário na hora de reservar."
+msgstr "A deactivated space does not appear for the user when scheduling."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:60
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:72
+msgid "Defina um preço específico apenas a este espaço. "
+msgstr "Define a specific price for this space only."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:61
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:73
+#: .\templates\old\editar_espaco.html:68
+msgid "OBS: por padrão o preço selecionado é o do próprio tipo espaço. "
+msgstr "OBS: by default, the selected price is from the own space type."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:69
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:81
+#: .\templates\old\editar_espaco.html:57
+msgid "Defina a capacidade máxima de pessoas para este espaço."
+msgstr "Define the maximum capacity for this space."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:81
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:89
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:93
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:105
+#: .\templates\old\editar_espaco.html:79
+#: .\templates\old\editar_tipo_espaco.html:80
+msgid ""
+"Selecione a imagem a ser mostrada para o cliente quando ele for selecionar "
+"um tipo de espaço para escolher."
+msgstr ""
+"Select the image to be shown to the client when they select a space type to "
+"be picked."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:86
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:106
+msgid "OBS: O valor padrão é do tipo de espaço"
+msgstr "OBS: The default value is from space type."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:131
+msgid ""
+"Você não possui tipos de espaços registrados, por favor registre um tipo de "
+"espaço antes de continuar com o cadastro de espaço"
+msgstr ""
+"You don't have registered space types, please register a space type before "
+"continuing with the space registering."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:136
+msgid "Pegando preço do tipo de espaço..."
+msgstr "Acquiring the price of the space type..."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:146
+msgid "Este é um espaço compartilhado"
+msgstr "This is a shared space"
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:147
+msgid ""
+", então o número de vagas pode ser dividida entre diversos clientes em um "
+"mesmo horário."
+msgstr ""
+", then the number of seats can be split along many clients in asingle "
+"timeslot."
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:150
+#: .\templates\old\editar_espaco.html:61
+msgid "Este é um espaço não compartilhado, "
+msgstr "This is a non-shared space, "
+
+#: .\templates\gere\template1\adm\espacos\criar_espaco.html:151
+#: .\templates\old\editar_espaco.html:61
+msgid ""
+"então o número de vagas descreve a quantidade máxima de convidados que um "
+"cliente pode chamar em uma determinada reserva."
+msgstr ""
+"then the number of seats indicates the maximum ammount of guests that a "
+"client can call in a single reservation."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:6
+msgid "Cadastrar tipo espaço"
+msgstr "Register space type"
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:33
+msgid "Criação de tipo de espaço"
+msgstr "Space type creation"
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:44
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:55
+#: .\templates\old\editar_tipo_espaco.html:51
+msgid "Coloque um nome para um tipo de espaço."
+msgstr "Add a name to the space type."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:45
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:56
+msgid " Exemplos: Sala Compartilhada, Sala de Reunião."
+msgstr " Examples: Shared Room, Meeting Room."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:53
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:65
+#: .\templates\old\editar_tipo_espaco.html:56
+msgid "Defina uma descrição para este tipo de espaço."
+msgstr "Define a description for this space type."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:54
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:66
+#: .\templates\old\editar_tipo_espaco.html:57
+msgid ""
+"Exemplo: Uma sala privada para você e seus convidados desfrutarem de "
+"privacidade e equipamentos profissionais de reunião."
+msgstr ""
+"Example: A shared room where you and your guests can enjoy privacy and "
+"professional meeting equipments."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:62
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:75
+#: .\templates\old\editar_tipo_espaco.html:61
+msgid "Defina um preço padrão para salas desse tipo de espaço."
+msgstr "Define a default price for all rooms of this space type."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:70
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:84
+msgid ""
+"O sistema entende que existe um intervalo para limpeza de um determinado "
+"espaço que entra em consideração na hora das reservas das salas. "
+msgstr ""
+"The system understands that there is a timeslot for the cleaning of a "
+"certain space that must be considered on the booking timeslot."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:71
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:85
+msgid ""
+"Selecione aqui a quantidade de intervalo que este espaço precisa depois de "
+"ser usado antes de ficar pronto novamente ao próximo cliente. "
+msgstr ""
+"Select here the ammount of time this space needs after being used, before it "
+"can be used by the next client."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:72
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:86
+#: .\templates\old\editar_tipo_espaco.html:74
+msgid "Colocar no formato (hora, minuto, segundo)"
+msgstr "Insert on the format (hour, minute, second)"
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:80
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:95
+#: .\templates\old\editar_tipo_espaco.html:66
+msgid ""
+"Espaços compartilhados entram na lógica de 'vagas' por espaço, enquanto um "
+"espaço compartilhado só permite uma vaga a ser reservada em um momento."
+msgstr ""
+"Shared spaces enter the logic of 'seats' by space, while a shared space only "
+"allows one seat to be reserved in a certain moment."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:81
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:96
+msgid ""
+"Eles permitem clientes desconhecidos alugarem aquele mesmo espaço durante um "
+"determinado período. Selecione para marcar este espaço como compartilhado."
+msgstr ""
+"They allow unknown clients to rent the same space during a certain period."
+"Click the checkbox to mark this space as a shared one."
+
+#: .\templates\gere\template1\adm\espacos\criar_tipo_espaco.html:99
+msgid "Criar tipo de espaço"
+msgstr "Create space type"
+
+#: .\templates\gere\template1\adm\espacos\editar_espaco.html:111
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:123
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:285
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:231
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:251
+#: .\templates\old\editar_espaco.html:93
+#: .\templates\old\editar_tipo_espaco.html:95
+msgid "Salvar"
+msgstr "Save"
+
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:8
+#: .\templates\old\editar_tipo_espaco.html:8
+msgid "Edição de tipo espaço"
+msgstr "Space type editing"
+
+#: .\templates\gere\template1\adm\espacos\editar_tipo_espaco.html:35
+#: .\templates\old\editar_tipo_espaco.html:26
+msgid "Alterar tipo de espaço"
+msgstr "Change space type"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:7
+msgid "Listar espaços"
+msgstr "List spaces"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:36
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:46
+msgid "Novo tipo de espaço"
+msgstr "New space type"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:42
+msgid "Novo espaço"
+msgstr "New space"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:56
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:111
+msgid "Tipo de espaço"
+msgstr "Space type"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:59
+#: .\templates\gere\template1\relatorios\alugueis.html:27
+#: .\templates\gere\template1\relatorios\reservas.html:28
+#: .\templates\gere\template1\relatorios\todas_reserva.html:27
+msgid "Espaço"
+msgstr "Space"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:71
+msgid "Limpeza"
+msgstr "Cleaning"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:72
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:114
+msgid "Preço R$"
+msgstr "Price R$"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:74
+#: .\templates\old\editar_tipo_espaco.html:66
+msgid "Compartilhado"
+msgstr "Shared"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:75
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:115
+msgid "Excluir"
+msgstr "Erase"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:76
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:116
+msgid "Editar"
+msgstr "Edit"
+
+#: .\templates\gere\template1\adm\espacos\listar_espacos.html:113
+msgid "Status"
+msgstr "Status"
+
+#: .\templates\gere\template1\adm\menuAdmin.html:5
+#: .\templates\gere\template1\base.html:85
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:5
+#: .\templates\instances\12\base.html:1699
+#: .\templates\instances\21\base.html:1699
+#: .\templates\instances\22\base.html:1699
+#: .\templates\instances\23\base.html:1699
+msgid "Menu Administrador"
+msgstr "Menu Admin"
+
+#: .\templates\gere\template1\base.html:46
+#: .\templates\gere\template1\base_admin.html:46
+#: .\templates\gere\template1\base_func.html:48
+#: .\templates\gere\template1\base_include_admin.html:4
+#: .\templates\gere\template1\base_include_func.html:4
+msgid "Coworking"
+msgstr "Coworking"
+
+#: .\templates\gere\template1\base.html:51
+#: .\templates\gere\template1\cliente\apresentacao\index.html:4
+#: .\templates\instances\12\base.html:1665
+#: .\templates\instances\12\cliente\apresentacao\index.html:8
+#: .\templates\instances\21\base.html:1665
+#: .\templates\instances\21\cliente\apresentacao\index.html:8
+#: .\templates\instances\22\base.html:1665
+#: .\templates\instances\22\cliente\apresentacao\index.html:8
+#: .\templates\instances\23\base.html:1665
+#: .\templates\instances\23\cliente\apresentacao\index.html:8
+#: .\templates\instances\cliente\apresentacao\index.html:101
+msgid "Início"
+msgstr "Home"
+
+#: .\templates\gere\template1\base.html:54
+#: .\templates\gere\template1\cliente\apresentacao\index.html:32
+#: .\templates\instances\12\base.html:1668
+#: .\templates\instances\21\base.html:1668
+#: .\templates\instances\22\base.html:1668
+#: .\templates\instances\23\base.html:1668
+msgid "Faça seu Agendamento"
+msgstr "Make your appointment"
+
+#: .\templates\gere\template1\base.html:55
+#: .\templates\instances\12\base.html:1669
+#: .\templates\instances\21\base.html:1669
+#: .\templates\instances\22\base.html:1669
+#: .\templates\instances\23\base.html:1669
+msgid "Escolha seu Idioma"
+msgstr "Choose your language"
+
+#: .\templates\gere\template1\base.html:81
+#: .\templates\instances\12\base.html:1695
+#: .\templates\instances\21\base.html:1695
+#: .\templates\instances\22\base.html:1695
+#: .\templates\instances\23\base.html:1695
+msgid "Minhas próximas reservas"
+msgstr "My next bookings"
+
+#: .\templates\gere\template1\base.html:122
+#: .\templates\gere\template1\base_admin.html:110
+#: .\templates\gere\template1\base_func.html:95
+msgid "Rua Pedro Vicente"
+msgstr "Pedro Vicente St."
+
+#: .\templates\gere\template1\base.html:129
+#: .\templates\gere\template1\base_admin.html:117
+#: .\templates\gere\template1\base_func.html:102
+#: .\templates\instances\12\base.html:1930
+#: .\templates\instances\21\base.html:1930
+#: .\templates\instances\22\base.html:1930
+#: .\templates\instances\23\base.html:1930
+msgid "Links Úteis"
+msgstr "Useful Links"
+
+#: .\templates\gere\template1\base.html:131
+#: .\templates\gere\template1\base_admin.html:119
+#: .\templates\gere\template1\base_func.html:104
+#: .\templates\instances\12\base.html:1932
+#: .\templates\instances\21\base.html:1932
+#: .\templates\instances\22\base.html:1932
+#: .\templates\instances\23\base.html:1932
+msgid "Inicio"
+msgstr "Begginning"
+
+#: .\templates\gere\template1\base.html:143
+#: .\templates\gere\template1\base_admin.html:131
+#: .\templates\gere\template1\base_func.html:116
+#: .\templates\instances\12\base.html:1944
+#: .\templates\instances\21\base.html:1944
+#: .\templates\instances\22\base.html:1944
+#: .\templates\instances\23\base.html:1944
+msgid "Todos os direitos reservados"
+msgstr "All rights reserved"
+
+#: .\templates\gere\template1\base_admin.html:52
+#: .\templates\gere\template1\base_include_admin.html:12
+msgid "Cadastro de Funcionários"
+msgstr "Employee Registration"
+
+#: .\templates\gere\template1\base_admin.html:53
+#: .\templates\gere\template1\base_include_admin.html:13
+msgid "Configurações"
+msgstr "Configurations"
+
+#: .\templates\gere\template1\base_admin.html:55
+#: .\templates\gere\template1\base_include_admin.html:16
+msgid "Salas"
+msgstr "Rooms"
+
+#: .\templates\gere\template1\base_admin.html:56
+#: .\templates\gere\template1\base_include_admin.html:18
+msgid "Customização"
+msgstr "Customization"
+
+#: .\templates\gere\template1\base_admin.html:58
+#: .\templates\gere\template1\base_include_admin.html:21
+msgid "Informações Site"
+msgstr "Website Info"
+
+#: .\templates\gere\template1\base_admin.html:59
+#: .\templates\gere\template1\base_include_admin.html:22
+msgid "Página Principal"
+msgstr "Main Page"
+
+#: .\templates\gere\template1\base_admin.html:60
+#: .\templates\gere\template1\base_include_admin.html:23
+msgid "Informações Pessoais"
+msgstr "Personal Information"
+
+#: .\templates\gere\template1\base_admin.html:74
+#: .\templates\gere\template1\base_func.html:59
+#: .\templates\gere\template1\base_include_admin.html:37
+#: .\templates\gere\template1\base_include_func.html:15
+msgid "Ir para Site"
+msgstr "Go to Website"
+
+#: .\templates\gere\template1\base_include_admin.html:9
+msgid "Acompanhamento de Reservas"
+msgstr "Reservation Monitoring"
+
+#: .\templates\gere\template1\base_include_admin.html:17
+msgid "Recusos"
+msgstr "Resources"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:5
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:6
+#: .\templates\old\qrcode.html:5 .\templates\old\qrcode2.html:5
+msgid "Listar Reservas"
+msgstr "List bookings"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:16
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:43
+msgid "Suas próximas reservas"
+msgstr "Your next bookings"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:19
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:46
+msgid "DATA"
+msgstr "DATE"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:20
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:47
+msgid "HORÁRIO"
+msgstr "TIME"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:21
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:48
+msgid "ESPAÇO"
+msgstr "SPACE"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservas.html:22
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:49
+msgid "RESPONSÁVEL"
+msgstr "RESPONSIBLE"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:50
+msgid "QR CODE"
+msgstr "QR CODE"
+
+#: .\templates\gere\template1\cliente\agendamento\listarReservasIndex.html:51
+msgid "Pagar reservas"
+msgstr "Pay booking"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:6
+msgid "Escolher Espaço"
+msgstr "Choose the space"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:33
+msgid "Escolha o seu espaço"
+msgstr "Choose your space"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:38
+msgid "Mesa compartilhada"
+msgstr "Shared Table"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:39
+msgid ""
+"Uma cadeira em uma mesa compartilhada com outros clientes. Para aqueles que "
+"querem respirar a inovação do coworking."
+msgstr ""
+"A chair at a table shared with other customers. For those who want to "
+"breathe on the innovation of coworking."
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:42
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:52
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:62
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:78
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:97
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:91
+msgid "Reservar"
+msgstr "Reserve"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:49
+msgid "Sala privada"
+msgstr "Private Room"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:50
+msgid ""
+"Uma sala privada para comportar sua equipe em um local mais reservado. Salas "
+"com tamanhos de até 20 pessoas."
+msgstr ""
+"A private room to accommodate your team in a more private location. Rooms "
+"with seats for up to 20 people."
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:59
+msgid "Sala de reuniões"
+msgstr "Meeting Room"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:60
+msgid ""
+"Uma sala privada especial com recursos extras que ajudam em apresentações ou "
+"na reunião do grupo."
+msgstr ""
+"A special private room with extra features to help with presentations or "
+"group meetings. "
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:79
+msgid "Preço comum: "
+msgstr "Common price:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva1EscolherEspaco.html:86
+msgid "Passo 1 de 3"
+msgstr "Step 1 of 3"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:7
+msgid "Agendar horário"
+msgstr "Schedule Time"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:63
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:101
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:83
+msgid "Escolher "
+msgstr "Choose "
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:94
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:615
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:130
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:111
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:146
+msgid "Escolher"
+msgstr "Choose"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:98
+msgid "/hr"
+msgstr "/hour"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:99
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:134
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:115
+msgid "Capacidade: "
+msgstr "Capacity: "
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:99
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:134
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:115
+msgid "pessoas"
+msgstr "people"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:124
+msgid "Escolher Quantidade de Reservas"
+msgstr "Choose Quantity of Bookings:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:131
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:180
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:200
+#: .\templates\gere\template1\relatorios\todas_reserva.html:18
+msgid "Reservas"
+msgstr "Bookings"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:135
+msgid "Atualizar"
+msgstr "Update"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:212
+msgid "Escolher Horário"
+msgstr "Choose Time"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:220
+msgid "Calendário não iniciado. Escolha um espaço primeiro."
+msgstr "Calendar not started. Choose a space first."
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:233
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:152
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:172
+msgid "Novo agendamento"
+msgstr "New booking"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:248
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:172
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:192
+msgid "Dia:"
+msgstr "Day:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:258
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:206
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:226
+msgid "Hora de entrada:"
+msgstr "Start time:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:265
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:212
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:232
+msgid "Hora de saída:"
+msgstr "End Time:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:300
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:239
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:259
+msgid "Passo 2 de 3"
+msgstr "Step 2 of 3"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:301
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:240
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:260
+msgid "VOLTAR"
+msgstr "BACK"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:361
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:506
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:532
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:565
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:593
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:651
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:613
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:671
+msgid "Não foi possível ler as reservas do dia"
+msgstr "Unable to read the resevations of the day"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:457
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:597
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:617
+msgid "Este dia já passou."
+msgstr "This day is unavaliable."
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:469
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:614
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:634
+msgid "Este horário está reservado!"
+msgstr "This time is booked!"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2Calendario.html:625
+#: .\templates\gere\template1\cliente\apresentacao\teste2.html:151
+msgid "Escolhido"
+msgstr "Chosen"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:7
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:8
+msgid "Calendário de agendamento"
+msgstr "Scheduling calendar"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:77
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:96
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:87
+msgid "Escolha um espaço"
+msgstr "Choose a space"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:105
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:117
+msgid "Vagas: "
+msgstr "Seats: "
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:133
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:153
+msgid "Escolha um horário"
+msgstr "Choose a time"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:166
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:186
+msgid "Titulo do Evento:"
+msgstr "Event title:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:178
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:198
+msgid "Quantidade de reservas:"
+msgstr "Quantity of bookings:"
+
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:269
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld.html:311
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:289
+#: .\templates\gere\template1\cliente\agendamento\reserva2CalendarioOld2.html:331
+msgid "Selecionado"
+msgstr "Selected"
+
+#: .\templates\gere\template1\cliente\apresentacao\home.html:17
+#: .\templates\gere\template1\cliente\apresentacao\home.html:22
+msgid "HOME"
+msgstr "HOME"
+
+#: .\templates\gere\template1\cliente\apresentacao\home.html:34
+msgid "LOGADO COMO:"
+msgstr "LOGGED AS:"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:20
+msgid "Networking e Economia"
+msgstr "Networking and Saving"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:21
+msgid "Reduzindo custos para sua empresa e proporcionando colaboração mútua."
+msgstr "Reducing costs for your company and providing mutual collaboration."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:31
+msgid "Encontre o melhor espaço para você trabalhar."
+msgstr "Find the best space for your work."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:41
+msgid "Infraestrutura"
+msgstr "Infrastructure"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:42
+msgid "O Coworking adequado é o lugar perfeito para você render ao máximo."
+msgstr ""
+"The adequate Coworking is the perfect place for you to yield your maximum."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:74
+msgid ""
+"Somos mais que um simples coworking, nascemos com um propósito muito maior, "
+"o de apoiar pequenos e médios empresários, profissionais autônomos, "
+"empreendedores, startups e todos aqueles sonhadores que merecem um espaço "
+"com toda a infraestrutura necessária para seu projeto decolar."
+msgstr ""
+"We are more than a simple coworking, we were born with a much greater "
+"purpose, that of supporting small and medium bussiness owners, self-employed "
+"professionals, entrepreneurs, startups and all those dreamers who deserve a "
+"space with all the necessary infrastructure for their project to take off."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:94
+msgid "Auditório"
+msgstr "Auditorium"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:95
+msgid ""
+"O espaço perfeito para as suas palestras ou treinamentos serem um sucesso!"
+msgstr "The perfect space for your lectures or trainings to be a success!"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:99
+msgid "Estações de Trabalho"
+msgstr "Work stations"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:100
+msgid ""
+"Reduza os custos com sabedoria! Conheça as nossas estações de trabalho e "
+"faça parte do time."
+msgstr "Reduce costs wisely! Discover our workstations and join the team."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:104
+msgid "Salas Executivas"
+msgstr "Executive Rooms"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:105
+msgid "Amplo espaço para os seus eventos ou reuniões com uma grande demanda."
+msgstr "Ample space for your events or meetings in great demand."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:109
+msgid "Salas de reuniões exclusivas"
+msgstr "Exclusive meeting rooms"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:110
+msgid ""
+"Desejando um pouco mais de privacidade para as suas reuniões? Nós temos a "
+"solução!"
+msgstr ""
+"Wishing for a little more privacy for your meetings? We have the solution!"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:114
+msgid "Secretária compartilhada"
+msgstr "Shared Secretary"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:115
+msgid ""
+"Deixe a comodidade conosco! Contamos com uma equipe capacitada para a "
+"recepção."
+msgstr "Leave the convenience to us! We have a qualified reception team."
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:119
+msgid "Endereço fiscal e comercial"
+msgstr "Tax and business address"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:120
+msgid ""
+"Seja para quem está começando ou não, nós te damos o auxílio que você "
+"precisa!"
+msgstr "Whether you are starting or not, we give you the help you need!"
+
+#: .\templates\gere\template1\cliente\apresentacao\index.html:172
+#: .\templates\instances\12\cliente\apresentacao\index.html:232
+#: .\templates\instances\21\cliente\apresentacao\index.html:568
+#: .\templates\instances\22\cliente\apresentacao\index.html:232
+#: .\templates\instances\23\cliente\apresentacao\index.html:568
+#: .\templates\instances\cliente\apresentacao\index.html:323
+msgid "Sua mensagem foi enviada. Obrigado!"
+msgstr "Your message has been sent. Thank you!"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:66
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:59
+msgid "Passo 1"
+msgstr "Step 1"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:67
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:60
+msgid "Escolher modo de agendamento"
+msgstr "Choose scheduling mode"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:70
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:63
+msgid "Passo 2"
+msgstr "Step 2"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:74
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:67
+msgid "Passo 3"
+msgstr "Step 3"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:75
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:68
+msgid "Informações bancárias"
+msgstr "Banking Information"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:92
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:86
+msgid ""
+"Faltam menos de 96 horas para esta reserva começar, não é possível efetuar "
+"uma reserva."
+msgstr ""
+"This booking starts in less than 96 hours, we cannot finish this booking."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:104
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:98
+msgid "Alugar"
+msgstr "Rent"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:111
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:105
+msgid "Reservar:"
+msgstr "Reserve:"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:111
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:105
+msgid ""
+"Pagar uma taxa pequena para já reservar o espaço desejado e depois pagar o "
+"valor integral quando tiver o dinheiro."
+msgstr ""
+"Pay a smaller ammount to book the desired space, then pay for the rest of "
+"the value at a later date."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:112
+msgid ""
+"Atenção: Depois de 3 dias se o valor integral não for pago, o valor é "
+"perdido e o espaço se torna disponível para outro cliente."
+msgstr ""
+"Attention: If the full value isn't paid after 3 days, the paid value is lost "
+"and the space becomes avaliable for other clients."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:116
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:110
+msgid "Alugar:"
+msgstr "Rent:"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:116
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:110
+msgid "Pagar o valor integral da reserva e já garantir o seu espaço agora."
+msgstr "Pay the full value for the booking and guarantee your space now."
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:145
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:176
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:139
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:170
+msgid "Avançar"
+msgstr "Proceed"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:206
+msgid "Mês vencimento"
+msgstr "Expiration month"
+
+#: .\templates\gere\template1\cliente\apresentacao\teste3.html:210
+msgid "Ano vencimento"
+msgstr "Expiration year"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:5
+#: .\templates\gere\template1\cliente\cadastro_e_login\password_reset.html:5
+#: .\templates\gere\template1\cliente\cadastro_e_login\password_reset_done.html:5
+msgid "Escolher cadastro"
+msgstr "Choose registration"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:15
+msgid "Escolha o Perfil:"
+msgstr "Choose the Profile:"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:20
+msgid "Administrador"
+msgstr "Administrator"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:22
+#: .\templates\gere\template1\relatorios\alugueis.html:24
+#: .\templates\gere\template1\relatorios\reservas.html:25
+#: .\templates\gere\template1\relatorios\todas_reserva.html:24
+msgid "Cliente"
+msgstr "Client"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\escolherCadastro.html:23
+#: .\templates\gere\template1\funcionario\regEmployee.html:20
+msgid "Funcionários"
+msgstr "Employee"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\passaword_reset_confirm.html:5
+msgid "Alteração de Senha"
+msgstr "Password change"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:5
+msgid "Cadastro de usuário"
+msgstr "User registration"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:20
+msgid "Cadastro"
+msgstr "Register"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:24
+msgid "Pessoa Física"
+msgstr "Phisical Person"
+
+#: .\templates\gere\template1\cliente\cadastro_e_login\regUsers.html:27
+msgid "Pessoa jurídica "
+msgstr "Legal Person"
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:74
+msgid "Carregando..."
+msgstr "Loading..."
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento2.html:106
+msgid ""
+"Atenção: Depois de 3 dias se o valor integral não for pago, o valor é "
+"perdido e o espaço se torna disponível para outros clientes."
+msgstr ""
+"Attention: If the full value isn't paid after 3 days, the paid value is lost "
+"and the space becomes avaliable for other clients."
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:25
+#, python-format
+msgid "Pagar 10%%"
+msgstr "Pay 10%%"
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:28
+msgid "Pagamento total "
+msgstr "Total payment "
+
+#: .\templates\gere\template1\cliente\pagamento\pagamento3.html:31
+msgid "Total:"
+msgstr "Total:"
+
+#: .\templates\gere\template1\cliente\pagamento\qrcode_envio.html:6
+#: .\templates\gere\template1\funcionario\regEmployee.html:5
+msgid "Cadastro de funcionário"
+msgstr "Employee registration"
+
+#: .\templates\gere\template1\cliente\pagamento\qrcode_envio.html:23
+msgid ""
+"Foi enviado um e-mail com o Qrcode para validação de entrada e algumas "
+"instruções, você deve recebe-lo em alguns instantes."
+msgstr ""
+"An e-mail with the QR Code for the entrance, along with instructions, has "
+"been sent. You should receive it soon."
+
+#: .\templates\gere\template1\cliente\pagamento\qrcode_envio.html:24
+msgid ""
+"Caso não tenha encontrado o e-mail, verifique a pasta de span ou se o e-mail "
+"informado está correto!"
+msgstr ""
+"If you haven't found the e-mail, please check your spam box or verify if you "
+"typed in the correct e-mail!"
+
+#: .\templates\gere\template1\cliente\pagamento\qrcode_envio.html:27
+#: .\templates\gere\template1\relatorios\alugueis.html:52
+#: .\templates\gere\template1\relatorios\pagamentos.html:49
+#: .\templates\gere\template1\relatorios\reservas.html:104
+#: .\templates\gere\template1\relatorios\todas_reserva.html:52
+msgid "Voltar"
+msgstr "Return"
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:5
+msgid "Transferência de Titularidade"
+msgstr "Ownership Transfer"
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:24
+msgid ""
+"A transferência de titularidade serve para transferir a sua reserva atual "
+"para um novo titular."
+msgstr ""
+"The ownership transfer is used to transfer your current reservation to a new "
+"holder."
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:25
+msgid ""
+"O titular deve ser previamente cadastrado no sistema. Caso não seja, o e-"
+"mail de transferência não será enviado."
+msgstr ""
+"The owner must be previously registered on the system. In the case he isn't, "
+"the transfer e-mail will not be sent."
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular.html:28
+msgid "Informe o e-mail do novo titular da reserva"
+msgstr "Inform the e-mail of the new booking holder"
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_envio.html:5
+msgid "Transferência Enviada"
+msgstr "Transfer sent"
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_envio.html:24
+msgid "O e-mail solicitado está cadastrado."
+msgstr "The requested e-mail is registered."
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_envio.html:25
+msgid "O pedido de transferência foi enviado."
+msgstr "The transfer request was sent."
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_erro.html:5
+msgid "E-mail Não Encontrado"
+msgstr "E-mail Not Found"
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_erro.html:24
+msgid "O e-mail solicitado não foi encontrado."
+msgstr "The requested e-mail was not found."
+
+#: .\templates\gere\template1\cliente\pagamento\transfere_titular_erro.html:25
+msgid "Por favor, refaça o pedido com um e-mail cadastado."
+msgstr "Please, re-do your request with a registered e-mail."
+
+#: .\templates\gere\template1\funcionario\advertencia.html:6
+msgid "Comentários"
+msgstr "Comments"
+
+#: .\templates\gere\template1\funcionario\leitor_qrcode.html:6
+msgid "Leitor QRcode"
+msgstr "QR Code Reader"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:16
+msgid "Cadastro, edição e exclusão de salas"
+msgstr "Register, edit and delete rooms"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:25
+msgid "Acompanhar Reservas"
+msgstr "Monitor Bookings"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:26
+msgid "Visualize todas as reservas feitas no dia!"
+msgstr "Visualize all the bookings made on the day!"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:35
+msgid "Validação de Entrada."
+msgstr "Entrance Validation"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:36
+msgid "Faça a leitura do QrCode para validar a entrada do cliente"
+msgstr "Do the QR Code check to authorize the client's entrance"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:45
+msgid "Avaliações"
+msgstr "Reviews"
+
+#: .\templates\gere\template1\funcionario\menuFuncionario.html:46
+msgid "Informe o estado em que o espaço foi deixado após o uso."
+msgstr "Inform the state of the space after usage."
+
+#: .\templates\gere\template1\relatorios\alugueis.html:18
+msgid "Aluguel"
+msgstr "Booking"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:25
+#: .\templates\gere\template1\relatorios\reservas.html:26
+#: .\templates\gere\template1\relatorios\todas_reserva.html:25
+msgid "Data"
+msgstr "Date"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:26
+#: .\templates\gere\template1\relatorios\reservas.html:27
+#: .\templates\gere\template1\relatorios\todas_reserva.html:26
+msgid "Hora"
+msgstr "Time"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:41
+#: .\templates\gere\template1\relatorios\todas_reserva.html:41
+msgid "Nenhum registro encontrado"
+msgstr "No register found"
+
+#: .\templates\gere\template1\relatorios\alugueis.html:59
+#: .\templates\gere\template1\relatorios\pagamentos.html:56
+#: .\templates\gere\template1\relatorios\reservas.html:111
+#: .\templates\gere\template1\relatorios\todas_reserva.html:59
+msgid "Próximo"
+msgstr "Next"
+
+#: .\templates\gere\template1\relatorios\pagamentos.html:19
+msgid "Gerar PDF"
+msgstr "Generate PDF"
+
+#: .\templates\gere\template1\relatorios\reservas.html:29
+msgid "Opções"
+msgstr "Options"
+
+#: .\templates\gere\template1\relatorios\reservas.html:42
+msgid "Validar Entrada"
+msgstr "Validate Entrance"
+
+#: .\templates\gere\template1\relatorios\reservas.html:43
+#: .\templates\gere\template1\relatorios\reservas.html:45
+msgid "Finalizar Reserva"
+msgstr "Finish Booking"
+
+#: .\templates\gere\template1\relatorios\reservas.html:94
+msgid "Nenhum campo registrado"
+msgstr "No field registered"
+
+#: .\templates\instances\12\base.html:1701
+#: .\templates\instances\21\base.html:1701
+#: .\templates\instances\22\base.html:1701
+#: .\templates\instances\23\base.html:1701
+msgid "Menu Funcionário"
+msgstr "Employee Menu"
+
+#: .\templates\instances\12\base.html:1925
+#: .\templates\instances\21\base.html:1925
+#: .\templates\instances\22\base.html:1925
+#: .\templates\instances\23\base.html:1925
+msgid "Email:"
+msgstr "Email:"
+
+#: .\templates\old\editar_espaco.html:51
+msgid "Tipo espaço"
+msgstr "Space type"
+
+#: .\templates\old\editar_espaco.html:51
+msgid "Selecione o tipo deste espaço."
+msgstr "Select the type of this space."
+
+#: .\templates\old\editar_espaco.html:52
+msgid "Para editar tipos de espaço, vá para categoria "
+msgstr "To edit space types, go to category "
+
+#: .\templates\old\editar_espaco.html:53
+msgid "Editar tipos de espaço"
+msgstr "Edit space types"
+
+#: .\templates\old\editar_espaco.html:59
+msgid "Este é um espaço compartilhado, "
+msgstr "This is a shared space, "
+
+#: .\templates\old\editar_espaco.html:59
+msgid ""
+"então o número de vagas pode ser dividida entre diversos clientes em um "
+"mesmo horário."
+msgstr ""
+"so the number of seats can be shared among many clients in the same timeslot."
+
+#: .\templates\old\editar_espaco.html:67
+msgid "Defina um preço específico apenas a este espaço."
+msgstr "Define a specific price only to this space."
+
+#: .\templates\old\editar_espaco.html:73
+msgid "Status do espaço"
+msgstr "Space status"
+
+#: .\templates\old\editar_espaco.html:80
+#: .\templates\old\editar_tipo_espaco.html:81
+msgid ""
+"Por padrão será usado uma imagem genérica caso não nenhuma imagem seja "
+"atribuída."
+msgstr "By default, a generic image will be used if no image is submitted."
+
+#: .\templates\old\editar_tipo_espaco.html:52
+msgid "Exemplos: Sala Compartilhada, Sala de Reunião."
+msgstr "Examples: Shared Room, Meeting Room."
+
+#: .\templates\old\editar_tipo_espaco.html:67
+msgid ""
+"Espaços compartilhados permitem clientes desconhecidos alugarem aquele mesmo "
+"espaço durante um determinado período. Selecione para marcar este espaço "
+"como compartilhado."
+msgstr ""
+"Shared spaces allow unknown clients to rent the same space during a set time."
+"Check the box to mark this space as a shared one."
+
+#: .\templates\old\editar_tipo_espaco.html:72
+msgid "Tempo de limpeza"
+msgstr "Cleaning time"
+
+#: .\templates\old\editar_tipo_espaco.html:72
+msgid ""
+"O sistema entende que existe um intervalo para limpeza de um determinado "
+"espaço que entra em consideração na hora das reservas das salas."
+msgstr ""
+"The system understands that there is a timeslot for the cleaning of a space "
+"that must be taken into consideration when scheduling rooms."
+
+#: .\templates\old\editar_tipo_espaco.html:73
+msgid ""
+"Selecione aqui a quantidade de intervalo que este espaço precisa depois de "
+"ser usado antes de ficar pronto novamente ao próximo cliente."
+msgstr ""
+"Select here the ammount of time this space needs after usage, before it's "
+"ready to be used by the next client."
+
+#~ msgid "Preco"
+#~ msgstr "Price"
+
+#~ msgid "Reservas do dia"
+#~ msgstr "Today's bookings"
+
+#~ msgid "Deixar comentario"
+#~ msgstr "Leave commentary"
+
+#~ msgid "Nome amostral"
+#~ msgstr "Default name"
+
+#~ msgid "Informe o e-mail para receber o QrCode"
+#~ msgstr "Insert your e-mail to receive the QR Code"
+
+#~ msgid "Deseja informar e-mail de algum convidado?"
+#~ msgstr "Would you like to inform the e-mail of any guest?"
+
+#~ msgid "Informe a quantidade de convidados."
+#~ msgstr "Inform the quantity of guest."
+
+#~ msgid "Gere. Salas e Recursos"
+#~ msgstr "Manage Rooms and Resources"
+
+#~ msgid "Entrar"
+#~ msgstr "Enter"
+
+#~ msgid "Adicionar novo evento"
+#~ msgstr "Add new event"
+
+#~ msgid "Aguardando Pagamento"
+#~ msgstr "Awaiting Payment"
+
+#~ msgid "Pagamento Negado"
+#~ msgstr "Payment Denied"
+
+#~ msgid "Cancelado pelo Cliente"
+#~ msgstr "Canceled by customer"
+
+#~ msgid "Expirado"
+#~ msgstr "Expired"
+
+#~ msgid "Cancelado via Sistema"
+#~ msgstr "Canceled by System"
+
+#~ msgid "Entrar na pagina"
+#~ msgstr "Enter the page"

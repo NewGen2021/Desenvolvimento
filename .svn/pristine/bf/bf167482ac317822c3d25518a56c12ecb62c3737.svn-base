@@ -1,0 +1,134 @@
+{% extends 'gere/template1/base_admin.html' %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load hosts %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "Edição de tipo espaço" %}{% endblock %}
+
+{% block css %}
+
+<style>
+    #img_tipo {
+    height: auto; 
+    width: auto; 
+    max-width: 600px; 
+    max-height: 600px;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<section id="tabs" class="project-tab">
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">{% translate "Alterar tipo de espaço" %}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if nao_existe %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <strong>{% translate "ERRO!" %}</strong> {% translate "Não foi possível encontrar esse tipo de espaço, volte à tela de listar espaços e selecione ou crie um válido!" %}
+                </div>
+                <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?tipo_espaco=1?page=1">{% translate "← Voltar" %}</a>
+                {% else %}
+                
+                {% if imagem %}
+                <img div="imagem_layout_cima">
+                {% endif %}
+                <form method="post" enctype="multipart/form-data"> {% csrf_token %}
+                    <!-- {# {% for field in tipo_espaco_form %}
+                    <div class="fieldWrapper">
+                        {# uncomment to display field errors #}
+                        {# {{ field.errors }} #} 
+
+                        {# {{ field.label_tag }} #} {{ field|as_crispy_field }}
+                    </div>
+                    {% endfor %} #} -->
+                    <p>{{ action_link }}</p>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Nome" %} | </strong> {% translate "Coloque um nome para um tipo de espaço." %} <br> 
+                        {% translate "Exemplos: Sala Compartilhada, Sala de Reunião." %} <hr>
+                        {{ tipo_espaco_form.nome|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Descrição" %} | </strong> {% translate "Defina uma descrição para este tipo de espaço." %} <br> 
+                        {% translate "Exemplo: Uma sala privada para você e seus convidados desfrutarem de privacidade e equipamentos profissionais de reunião." %} <hr>
+                        {{ tipo_espaco_form.descricao|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Preço" %} | </strong> {% translate "Defina um preço padrão para salas desse tipo de espaço." %} <br> 
+                        <hr>
+                        {{ tipo_espaco_form.preco|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Compartilhado" %} | </strong> {% translate "Espaços compartilhados entram na lógica de 'vagas' por espaço, enquanto um espaço compartilhado só permite uma vaga a ser reservada em um momento." %}
+                        {% translate "Espaços compartilhados permitem clientes desconhecidos alugarem aquele mesmo espaço durante um determinado período. Selecione para marcar este espaço como compartilhado." %} <br> 
+                         <hr>
+                        {{ tipo_espaco_form.compartilhado|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        <strong>{% translate "Tempo de limpeza" %} | </strong> {% translate "O sistema entende que existe um intervalo para limpeza de um determinado espaço que entra em consideração na hora das reservas das salas." %}
+                        {% translate "Selecione aqui a quantidade de intervalo que este espaço precisa depois de ser usado antes de ficar pronto novamente ao próximo cliente." %} <br> 
+                        {% translate "Colocar no formato (hora, minuto, segundo)" %} <br>
+                        <hr>
+                        {{ tipo_espaco_form.tempo_limpeza|as_crispy_field }}
+                    </div>
+                    <div class="alert alert-primary alert-dismissible fade show">
+                        
+                        <strong>{% translate "Imagem" %} | </strong> {% translate "Selecione a imagem a ser mostrada para o cliente quando ele for selecionar um tipo de espaço para escolher." %}
+                        {% translate "Por padrão será usado uma imagem genérica caso não nenhuma imagem seja atribuída." %}
+                        <hr>
+                        <div>
+                            <h3 style="text-align: center;">{% translate "Imagem atual" %}</h3>
+                            <div style="text-align: center;">
+                                <div id="image_field"></div> <br>
+                            </div>
+                        </div>
+                        
+                        <hr>
+                        {{ tipo_espaco_form.imagem|as_crispy_field }}
+                    </div>
+                    <div class="d-flex flex-row">
+                        <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?tipo_espaco=1?page=1">{% translate "← Voltar" %}</a>
+                        <button type="submit" id="form-checkout__submit" class="btn {{ button_color  }}" style="margin-left: 2%;">{% translate "Salvar" %}</button>
+                    </div>
+                    
+                </form>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script>
+    let image_field = document.getElementById('image_field') // form > image field
+    let load_image = document.createElement('img')
+
+    load_image.setAttribute('src', "/media/{{imagem}}")
+    if ("{{imagem}}"!="")
+    load_image.setAttribute('alt', "Image Atual")
+    else
+    load_image.setAttribute('alt', "Não definida")
+    load_image.setAttribute('id', "img_tipo")
+    image_field.parentNode.insertBefore(load_image, image_field.nextSibling)
+
+    let compartilhado_field = document.getElementById('id_compartilhado')
+    if ("{{compartilhado}}"=="0"){
+        compartilhado_field.value = 0
+        compartilhado_field.removeAttribute('checked')
+    }
+    else
+        compartilhado_field.value = 1
+        // compartilhado_field.setAttribute('checked')
+
+document.getElementById('id_imagem').onchange = function() {
+    // fire the upload here
+    document.getElementById('img_tipo') = input.value;
+};
+ </script>
+{% endblock %}

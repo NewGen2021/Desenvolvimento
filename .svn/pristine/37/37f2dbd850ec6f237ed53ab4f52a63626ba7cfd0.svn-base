@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>StatSVN - NewGen Developers: Bruna</title>
+ <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="Generator" content="StatSVN @VERSION@"/>
+<link rel="stylesheet" href="objectlab-statcvs.css" type="text/css"/>
+  </head>
+
+<body>
+
+<h1>NewGen Developers: Bruna</h1>
+<div id="parentlink">&#171; <a href="index.html">Development Statistics for NewGen</a> &#171; <a href="developers.html">Developers</a></div>
+<dl class="attributes">
+    <dt>Login name:</dt>
+    <dd>Bruna</dd>
+    <dt>Total Commits:</dt>
+    <dd>52 (10,3%)</dd>
+    <dt>Lines of Code:</dt>
+    <dd>31.630 (42,7%)</dd>
+    <dt>Most Recent Commit:</dt>
+    <dd><span class="date">2021-07-11 19:56</span></dd>
+</dl>
+
+<div class="section">
+<h2>Activity by Clock Time</h2>
+<p class="chart"><img src="activity_time_Bruna.png" alt="Activity by Hour of Day for Bruna" width="800" height="500" /></p><p class="chart"><img src="activity_day_Bruna.png" alt="Activity by Day of Week for Bruna" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Activity in Directories</h2>
+  <table  rules="groups" summary="Overview of this author's activities in different directories">
+    <colgroup align="left"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <colgroup align="right"/>
+    <thead>
+      <tr>
+        <th>Directory</th>
+        <th>Changes</th>
+        <th>Lines of Code</th>
+        <th>Lines per Change</th>
+      </tr>
+    </thead>
+    <tfoot>
+      <tr>
+        <th>Totals</th>
+        <td>52 (100.0%)</td>
+        <td>31630 (100.0%)</td>
+        <td>608.2</td>
+      </tr>
+    </tfoot>
+    <tbody>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap_js.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap/js/</a></th>
+        <td>6 (11.5%)</td>
+        <td>16689 (52.8%)</td>
+        <td>2781.5</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_bootstrap-icons.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap-icons/</a></th>
+        <td>1 (1.9%)</td>
+        <td>5527 (17.5%)</td>
+        <td>5527.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_glightbox_js.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/glightbox/js/</a></th>
+        <td>2 (3.8%)</td>
+        <td>3676 (11.6%)</td>
+        <td>1838.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_isotope-layout.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/isotope-layout/</a></th>
+        <td>2 (3.8%)</td>
+        <td>3575 (11.3%)</td>
+        <td>1787.5</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout.html" class="directory">Desenvolvimento/Newgen_novoLayout/</a></th>
+        <td>7 (13.5%)</td>
+        <td>1312 (4.1%)</td>
+        <td>187.4</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_layouts_poc.html" class="directory">Desenvolvimento/layouts_poc/</a></th>
+        <td>14 (26.9%)</td>
+        <td>454 (1.4%)</td>
+        <td>32.4</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_js.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/js/</a></th>
+        <td>1 (1.9%)</td>
+        <td>239 (0.8%)</td>
+        <td>239.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_php-email-form.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/php-email-form/</a></th>
+        <td>1 (1.9%)</td>
+        <td>85 (0.3%)</td>
+        <td>85.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_templates.html" class="directory">Desenvolvimento/aplicacao/newgenapp/templates/</a></th>
+        <td>11 (21.2%)</td>
+        <td>38 (0.1%)</td>
+        <td>3.4</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_layouts_poc_js.html" class="directory">Desenvolvimento/layouts_poc/js/</a></th>
+        <td>1 (1.9%)</td>
+        <td>19 (0.1%)</td>
+        <td>19.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_swiper.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/swiper/</a></th>
+        <td>1 (1.9%)</td>
+        <td>14 (0.0%)</td>
+        <td>14.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_purecounter.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/purecounter/</a></th>
+        <td>1 (1.9%)</td>
+        <td>1 (0.0%)</td>
+        <td>1.0</td>
+      </tr>
+      <tr  class="odd">
+        <th><a href="dir_Desenvolvimento_Newgen_novoLayout_assets_vendor_aos.html" class="directory">Desenvolvimento/Newgen_novoLayout/assets/vendor/aos/</a></th>
+        <td>1 (1.9%)</td>
+        <td>1 (0.0%)</td>
+        <td>1.0</td>
+      </tr>
+      <tr  class="even">
+        <th><a href="dir_Desenvolvimento_aplicacao_newgenapp_static_js.html" class="directory">Desenvolvimento/aplicacao/newgenapp/static/js/</a></th>
+        <td>3 (5.8%)</td>
+        <td>0 (0.0%)</td>
+        <td>0.0</td>
+      </tr>
+    </tbody>
+  </table>
+
+<p class="chart"><img src="directory_sizes_Bruna.png" alt="Activity of Bruna" width="800" height="500" /></p></div>
+<div class="section">
+<h2>Most Recent Commits</h2>
+<dl class="commitlist">
+  <dt><a name="7"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-11 19:56</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70145</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo js na pasta static
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">2 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        script.js&#160;<span class="change">(changed)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="6"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-11 19:55</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70144</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo alteracao de templates
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">4 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        regAdministrator.html&#160;<span class="new">(new)</span>,
+        regUsers.html&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="5"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-08 00:10</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70068</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+incluindo internacionalizao
+    </p>
+    <p class="commitdetails"><strong>0</strong> lines of code changed in <span class="files">3 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/static/js</strong>:
+        internacionalizacao.js&#160;<span class="new">(new)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        index.html&#160;<span class="new">(new)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="4"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-06 20:17</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70010</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+alterações na pagina de assinatura
+    </p>
+    <p class="commitdetails"><strong>38</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/aplicacao/newgenapp/templates</strong>:
+        agendamento.html&#160;<span class="new">(new)</span>,
+        assinatura.html&#160;<span class="change">(+35&#160;-7)</span>,
+        index.html&#160;<span class="change">(+2&#160;-2)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="3"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-07-06 15:10</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">70002</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Novo layout da aplicação, incluindo cadastro, login e interação com usuario
+    </p>
+    <p class="commitdetails"><strong>31119</strong> lines of code changed in <span class="files">23 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout</strong>:
+        agendamento.html&#160;<span class="new">(new&#160;166)</span>,
+        assinatura.html&#160;<span class="new">(new&#160;144)</span>,
+        index.html&#160;<span class="new">(new&#160;338)</span>,
+        inner-page.html&#160;<span class="new">(new&#160;214)</span>,
+        loginSystem.html&#160;<span class="new">(new&#160;53)</span>,
+        portfolio-details.html&#160;<span class="new">(new&#160;257)</span>,
+        reserva.html&#160;<span class="new">(new&#160;140)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/js</strong>:
+        main.js&#160;<span class="new">(new&#160;239)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/aos</strong>:
+        aos.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap-icons</strong>:
+        index.html&#160;<span class="new">(new&#160;5527)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/bootstrap/js</strong>:
+        bootstrap.bundle.js&#160;<span class="new">(new&#160;6727)</span>,
+        bootstrap.bundle.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.esm.js&#160;<span class="new">(new&#160;4946)</span>,
+        bootstrap.esm.min.js&#160;<span class="new">(new&#160;7)</span>,
+        bootstrap.js&#160;<span class="new">(new&#160;4995)</span>,
+        bootstrap.min.js&#160;<span class="new">(new&#160;7)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/glightbox/js</strong>:
+        glightbox.js&#160;<span class="new">(new&#160;3675)</span>,
+        glightbox.min.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/isotope-layout</strong>:
+        isotope.pkgd.js&#160;<span class="new">(new&#160;3563)</span>,
+        isotope.pkgd.min.js&#160;<span class="new">(new&#160;12)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/php-email-form</strong>:
+        validate.js&#160;<span class="new">(new&#160;85)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/purecounter</strong>:
+        purecounter.js&#160;<span class="new">(new&#160;1)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/Newgen_novoLayout/assets/vendor/swiper</strong>:
+        swiper-bundle.min.js&#160;<span class="new">(new&#160;14)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="2"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-06-26 17:48</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69770</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+Inclusão de paginas de login e alteração
+    </p>
+    <p class="commitdetails"><strong>190</strong> lines of code changed in <span class="files">10 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/layouts_poc</strong>:
+        configAdmin.html&#160;<span class="change">(changed)</span>,
+        homeReg.html&#160;<span class="new">(new&#160;46)</span>,
+        loginSystem.html&#160;<span class="change">(changed)</span>,
+        loginUser.html&#160;<span class="new">(new&#160;52)</span>,
+        regAdministrator.html&#160;<span class="change">(changed)</span>,
+        regUsers.html&#160;<span class="new">(new&#160;73)</span>
+      </li>
+      <li>
+        <strong>Desenvolvimento/layouts_poc/js</strong>:
+        teste.js&#160;<span class="new">(new&#160;19)</span>
+      </li>
+    </ul>
+  </dd>
+
+  <dt><a name="1"></a>
+    <a href="user_Bruna.html" class="author">Bruna</a>
+    <span class="date">2021-06-26 01:07</span>
+    <span class="revisionNumberOuter">Rev.: <span class="revisionNumberInner">69768</span></span>
+  </dt>
+  <dd>
+    <p class="comment">
+layouts das paginas de cadastro 
+    </p>
+    <p class="commitdetails"><strong>283</strong> lines of code changed in <span class="files">5 files</span>:</p>
+    <ul class="commitdetails">
+      <li>
+        <strong>Desenvolvimento/layouts_poc</strong>:
+        configAdmin.html&#160;<span class="change">(+33)</span>,
+        home.html&#160;<span class="new">(new&#160;44)</span>,
+        loginSystem.html&#160;<span class="change">(+53)</span>,
+        regAdministrator.html&#160;<span class="change">(+74)</span>,
+        regEmployee.html&#160;<span class="new">(new&#160;79)</span>
+      </li>
+    </ul>
+  </dd>
+
+</dl>
+
+</div><div id="generatedby">Generated by <a href="http://www.statsvn.org">StatSVN</a> @VERSION@</div>
+</body>
+</html>

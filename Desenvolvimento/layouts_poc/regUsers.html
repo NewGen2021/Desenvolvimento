@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon"/>
+
+    <title>SGC - Cadastro Administrador</title>
+</head>
+<body>
+    <div class="container-fluid">
+
+        <div class="topRegister">
+            <h1>Cadastro</h1>    
+        </div>
+        
+        <div id="BodyRegister">
+            <form method="post" action="#">
+           
+                <div class="form-group row">
+                    <label class="control-label col-sm-3" for="id_socialname">Nome:</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control" id="id_socialname" autofocus autocomplete="socialname" 
+                        required name="ocialname">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="control-label col-sm-3" for="id_cnpj">CPF/CNPJ:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" 
+                        id="id_cnpj" name="inputcnpj" placeholder="XX.XXX.XXX/0001-XX">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="control-label col-sm-3" for="id_phone">Telefone:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" 
+                        id="id_phone" name="inputcnpj" placeholder="(XX) XXXX-XXXX">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-3" for="id_phone">E-mail:</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control" 
+                        id="id_phone" name="id_phone" placeholder="exemplo@dominio">
+                    </div>
+                </div>
+                
+                <div class="form-group row">
+                    <label class="control-label col-sm-3" for="id_adress">Endereço:</label>
+                    <div class="col-sm-8">
+                        <input type="number" class="form-control" 
+                        id="id_adress" name="inputadress">
+                    </div>
+                </div>
+               
+                    <input type="submit" value="Finalizar" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

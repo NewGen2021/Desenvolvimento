@@ -1,0 +1,191 @@
+{% extends 'cria/base.html' %}
+{% load static %}
+{% load i18n %}
+{% load mathfilters %}
+{% load hosts %}
+{% load crispy_forms_tags %}
+
+{% block title %}{% translate "Configurações iniciais do site" %}{% endblock %}
+
+{% block css %}
+
+<style>
+    #img_tipo {
+    height: auto; 
+    width: auto; 
+    max-width: 600px; 
+    max-height: 600px;
+}
+small{
+        display: none;
+    }
+    input:hover + small {
+        display: block;
+    }
+    .form-control:hover + small {
+        display: block;
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"/>
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+{% endblock %}
+
+{% block content %}
+<section id="tabs" class="project-tab" style="margin-top: -7%;">
+    <div class="container">
+        <div class="row">
+            <h1 style="text-align: center;">{% translate "Configurar Informações do Site" %}</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                {% if nao_existe %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                    <strong>{% translate "ERRO!" %}</strong> {% translate "Não foi possível encontrar esse tipo de espaço, volte à tela de listar espaços e selecione ou crie um válido!" %}
+                </div>
+                <a role="button" class="btn btn-outline-primary" href="{% host_url 'listar_espacos' host 'custom_host' domain %}?espaco=1?page=1">{% translate "← Voltar" %}</a>
+                {% else %}
+                
+                {% if imagem %}
+                {% endif %}
+                <img div="imagem_layout_cima">
+                <div class="container-fluid">
+                    <div id="BodyRegister" style="margin-top: 5%;">
+                        <form method="POST" class="form-group" name="formFuncionario" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.domain|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="form-row d-flex" style="margin-bottom: -5%;">
+                                <div class="form-group col-1" style="margin-right: 5px;">
+                                    {{ form.paleta1|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-1" style="margin-right: 5px;">
+                                    {{ form.paleta2|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-1" style="margin-right: 5px;">
+                                    {{ form.paleta3|as_crispy_field }}
+                                </div>
+                                <div class="form-group col-9" style="width: 69.420%">
+                                    {{ form.showing_company_name|as_crispy_field }}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="form-row">
+                                <label>{% translate "Escolha um estilo de botão para seu site (Os tamanhos variam com o tamanho do texto)" %}</label>
+                                <br>
+                                <button id="btn1" type="button" class="pbtn btn btn-primary" style="max-width: 20%;">{% translate "Azul" %}</button>
+                                <button id="btn2" type="button" class="pbtn btn btn-secondary" style="max-width: 20%;">{% translate "Cinza" %}</button>
+                                <button id="btn3" type="button" class="pbtn btn btn-success" style="max-width: 20%;">{% translate "Verde" %}</button>
+                                <button id="btn4" type="button" class="pbtn btn btn-danger" style="max-width: 20%;">{% translate "Vermelho" %}</button>
+                                <button id="btn5" type="button" class="pbtn btn btn-warning" style="max-width: 20%;">{% translate "Amarelo" %}</button>
+                                <button id="btn6" type="button" class="pbtn btn btn-info" style="max-width: 20%;">{% translate "Azul-claro" %}</button>
+                                <button id="btn7" type="button" class="pbtn btn btn-light" style="max-width: 20%;">{% translate "Branco" %}</button>
+                                <button id="btn8" type="button" class="pbtn btn btn-dark" style="max-width: 20%;">{% translate "Preto" %}</button>
+                                <input type="hidden" name="button_design" id="button_design" value="{{button}}">
+                                <div class='flex-row d-flex' id='selected_button' style="margin-top: 3%;">
+                                    <div class='col-3'><h4 class="display"> Selecionado: </h4></div>
+                                </div>
+                            </div>
+                            <script>
+                                let disable_all_buttons = function() {
+                                    let buttons = document.getElementsByClassName('pbtn');
+                                    for(let i = 0; i < buttons.length; i++){
+                                        buttons[i].classList.remove('active');
+                                        // buttons[i].classList.remove('focus');
+                                        buttons[i].style.outlineStyle = 'none';
+                                    }
+                                    try{
+                                        document.getElementById('selected_button').children[1].remove();
+                                    } catch(e){}
+
+                                }
+                                let select_button = function(button){
+                                    button.classList.add('active');
+                                    // button.classList.add('focus');
+                                    let input = document.getElementById('button_design');
+                                    input.value = button.classList[2];
+                                    document.getElementById('selected_button').appendChild(button.cloneNode(true));
+                                }
+
+                                let event = function (e) {
+                                    disable_all_buttons();
+                                    select_button(this);
+                                }
+                                let load = function(e){
+                                    let input = document.getElementById('button_design');
+                                    let button = document.getElementsByClassName(input.value)[0];
+                                    select_button(button);
+                                }
+                                document.getElementById('btn1').addEventListener('click', event, false);
+                                document.getElementById('btn2').addEventListener('click', event, false);
+                                document.getElementById('btn3').addEventListener('click', event, false);
+                                document.getElementById('btn4').addEventListener('click', event, false);
+                                document.getElementById('btn5').addEventListener('click', event, false);
+                                document.getElementById('btn6').addEventListener('click', event, false);
+                                document.getElementById('btn7').addEventListener('click', event, false);
+                                document.getElementById('btn8').addEventListener('click', event, false);
+                                document.addEventListener("DOMContentLoaded", load, false);
+
+                            </script>
+                            <hr>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    {{ form.client_logo|as_crispy_field }}
+                                </div>
+                                <output id="list"></output>
+                                <script>
+                                    function handleFileSelect (evt) {
+                                        // Loop through the FileList and render image files as thumbnails.
+                                        for (const file of evt.target.files) {
+                                            
+                                            // Delete preview if exists
+                                            try{
+                                                document.getElementById('image_preview').remove()
+                                            } catch(e){}
+                                            // Render thumbnail.
+                                            const span = document.createElement('span')
+                                            const src = URL.createObjectURL(file)
+                                            span.innerHTML =
+                                                `<img id="image_preview" style="height: 75px; border: 1px solid #000; margin: 5px"` +
+                                                `src="${src}" title="${escape(file.name)}">`
+
+                                            document.getElementById('list').insertBefore(span, null)
+                                        }
+                                    }
+
+                                    document.getElementById('id_client_logo').addEventListener('change', handleFileSelect, false);
+                                </script>
+                            </div>
+                            <hr>
+                            
+                            
+                            <div class="d-flex flex-row">
+                                <a role="button" class="btn btn-primary" style="margin-right: 5%;" href="{% host_url 'menuAdmin' host 'custom_host' domain %}">{% translate "← Voltar" %}</a>
+                                <button type="submit" id="enviar_form_pessoa" class="btn btn-primary">{% translate "Criar coworking" %}</button>
+                            </div>
+
+                            
+                            
+                        </form>
+
+                    </div>
+                    
+                {% endif %}
+                
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<!-- Mask JS Files -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+{% endblock %}

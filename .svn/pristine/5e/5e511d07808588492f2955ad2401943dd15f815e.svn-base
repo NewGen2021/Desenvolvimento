@@ -1,0 +1,66 @@
+{% extends base_template %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Listar Reservas" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>
+        AAAAAAAAAA
+    </h2>
+</div>
+<!-- <script src="{% static 'js/instascan.min.js' %}"></script> -->
+<script src='https://rawgit.com/schmich/instascan-builds/master/instascan.min.js'></script>
+<video autoplay id="preview"></video>
+<script>
+    // let scanner = new Instascan.Scanner(
+    //     {
+    //         video: document.getElementById('preview')
+    //     }
+    // );
+    //  let scnqr = "{{ qrcode }}";
+
+    //  scanner.addListener('scan', function(content){
+    //     alert('Escaneou o conteúdo' + content);
+
+    //     let qrcodeList = scnqr.split("//");
+    //     console.log(qrcodeList)
+
+    //     if(qrcodeList == content){
+    //         bootbox.alert('Valido')
+    //     }
+    //     else{
+    //         bootbox.alert('Invalido')
+    //     }
+    //  });
+
+    //  Instascan.Camera.getCameras().then(cameras =>{
+    //      if(cameras.length > 0){
+    //          scanner.start(cameras[1]);
+    //      } else {
+    //          console.error("Não existe camera no dispositivo");
+    //      }
+        
+    //  });
+
+    console.log('PASSO 1');
+  let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+  console.log('PASSO 2');
+  console.log(scanner);
+  console.log(Instascan);
+  Instascan.Camera.getCameras().then(cameras => {
+    scanner.camera = cameras[cameras.length - 1];
+    scanner.start();
+    console.log('PASSO 4');
+  }).catch(console.error);
+
+  scanner.addListener('scan', content => {
+    scanner.stop();
+    console.log('PASSO 3');
+    try { window.location.hash = new URL(content).hash; console.log('PASSO 5'); } catch (e) { console.log(e); console.log('PASSO 6');}
+  });
+
+</script>
+<!--Fim agendamento-->
+{% endblock content %}

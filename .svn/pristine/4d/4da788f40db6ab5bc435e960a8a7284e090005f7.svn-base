@@ -1,0 +1,64 @@
+N = Not null
+C = can be null
+
+tb advertencias
+fk id_reserva int N
+rc reserva.id_reserva 
+fk id_funcionario int N
+rc funcionarios
+
+tb convidados
+fk id_reserva int N
+rc reserva.id_reserva
+fk id_cliente int C
+rc cliente.id_cliente
+
+tb espacos
+fk id_tipo_espaco int N
+rc tipoEspaco.id_tipoEspaco
+fk ultima_alteracao int C(id_funcionario)
+rc funcionarios.id_funcionario
+
+tb equipamentos
+fk ultima_alteracao int C(id_funcionario)
+rc funcionarios.id_funcionario
+
+tb equipamentoReserva
+fk id_reserva int N
+rc reserva.id_reserva
+fk id_equipamento int N
+rc equipamentos.id_equipamento
+fk id_pagamento int C
+rc pagamento.id_pagamento
+
+tb pacoteHoras
+fk id_cliente int N
+rc cliente.id_cliente
+fk id_empresa int C(id_cliente)
+rc cliente.id_cliente
+
+tb pagamento
+fk id_reserva int C
+rc reserva.id_reserva
+fk id_equipamento int C
+rc equipamentos.id_equipamento
+
+tb reserva
+fk id_cliente int N
+rc cliente.id_cliente
+fk id_pagamento int C
+rc pagamento.id_pagamento
+fk id_espaco int N
+rc espacos.id_espaco
+fk id_pacote_horas C
+rc pacoteHoras.id_pacote_horas
+
+tb tipoEspaco
+fk ultima_alteracao int C(id_funcionario)
+rc funcionarios.id_funcionario
+
+
+MODIFICAÇÕES:
+ultima_alteracao -> id_funcionario
+
+retirada múltipla primary key da tabela Equipamentoreserva

@@ -1,0 +1,32 @@
+<div class="container d-flex align-items-center">
+
+    <div class="logo me-auto">
+    <h1><a href="{% host_url 'menuFunc' host 'custom_host' domain %}">{% translate "Coworking" %}</a></h1>
+    </div>
+    {% if user.is_authenticated %}
+    
+    <nav id="navbar" class="navbar">
+    <ul>
+        <li class="dropdown">
+        <a href="{% host_url 'loginSystem' host 'custom_host' domain %}" 
+        class="btn-get-started animate__animated animate__fadeInUp scrollto" 
+        id="loggedAs">Olá {{ user.first_name }}</a>
+        <ul>
+            <li><a href="{% host_url 'index' host 'custom_host' domain %}">{% translate "Ir para Site" %}</a></li>
+            <li><a href="/logout" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Deslogar" %}</a></li>
+        </ul>
+        </li>
+        
+    {% else %}
+        <li>
+        <a href="{% host_url 'loginSystem' host 'custom_host' domain %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">{% translate "Login" %}</a>
+        </li>
+        
+    {% endif %}
+        </li>
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+    </nav><!-- .navbar -->
+
+</div>
+
