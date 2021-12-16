@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<django-objects version="1.0"><object model="cria_coworking.administrador" pk="12"><field name="nome" type="CharField">Coworking</field><field name="cnpj" type="CharField">84584110000138</field><field name="email" type="CharField">juliacarvalhomelo@dayrep.com.br</field><field name="telefone" type="CharField">(11) 97786-6159</field><field name="cep" type="CharField">29030-035</field><field name="logradouro" type="CharField">

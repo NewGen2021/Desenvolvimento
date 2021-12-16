@@ -4,7 +4,7 @@ files:
   - source: /Desenvolvimento
     destination: /var/www/html
 permissions:
-  - object: /var/www/ 
+  - object: /var/www/
     owner: root
     group: root
     mode: 777

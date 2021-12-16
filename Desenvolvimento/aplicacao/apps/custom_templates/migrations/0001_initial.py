@@ -2,36 +2,16 @@
 
 from django.db import migrations, models
 import django.db.models.deletion
-from django.conf import settings
-from django.core.serializers import base, python
-from django.core.management import call_command
 
 
-def load_fixture(apps, schema_editor):
-    # Save the old _get_model() function
-    old_get_model = python._get_model
+class Migration(migrations.Migration):
 
-    # Define new _get_model() function here, which utilizes the apps argument to
-    # get the historical version of a model. This piece of code is directly stolen
-    # from django.core.serializers.python._get_model, unchanged. However, here it
-    # has a different context, specifically, the apps variable.
-    def _get_model(model_identifier):
-        try:
-            return apps.get_model(model_identifier)
-        except (LookupError, TypeError):
-            raise base.DeserializationError("Invalid model identifier: '%s'" % model_identifier)
+    initial = True
 
-    # Replace the _get_model() function on the module, so loaddata can utilize it.
-    python._get_model = _get_model
+    dependencies = [
+        ('cria_coworking', '0001_manual_migration'),
+    ]
 
-    try:
-        # Call loaddata command
-        call_command('loaddata', 'tests/fixures/custom_templates.json')
-    finally:
-        # Restore old _get_model() function
-        python._get_model = old_get_model
-
-def get_operations():
     operations = [
         migrations.CreateModel(
             name='ResourceButtons',
@@ -99,20 +79,3 @@ def get_operations():
             },
         ),
     ]
-    if settings.AUTOMATIC_TEST:
-        operations.append(migrations.RunPython(load_fixture))
-    return operations
-
-class Migration(migrations.Migration):
-
-    initial = True
-
-    dependencies = [
-        ('cria_coworking', '0001_manual_migration'),
-    ]
-    operations = get_operations()
-
-    
-
-# if settings.AUTOMATIC_TEST:
-#     call_command('loaddata', 'tests/fixures/custom_templates.json')

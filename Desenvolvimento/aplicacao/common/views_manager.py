@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.conf import settings
 from django.utils.translation import gettext as _
 from functools import wraps
-from cria_coworking.models import Administrador
 from common.selectors import get_administrador_by_request, get_button_by_administrador
 import sys
 
@@ -52,10 +51,7 @@ def verify_view(request, criaCoworking: bool, adm_page: bool, func_page: bool):
         response['render'] = render(request, 'erros/erroGenerico.html', response['context'])
         return response
     
-    if not settings.AUTOMATIC_TEST:
-        adm = get_administrador_by_request(request)
-    else:
-        adm = Administrador.objects.all()[0]
+    adm = get_administrador_by_request(request)
     
     if request.user.is_authenticated:
         name = request.user.first_name
