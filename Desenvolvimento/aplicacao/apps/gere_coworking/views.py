@@ -1,7 +1,6 @@
 import copy
 from django import template
 from django.conf import settings
-from django.conf import settings
 import datetime
 import hashlib
 import os
@@ -297,10 +296,7 @@ def assinatura(request, context):
 # @csrf_protect
 @m.verificador()
 def index(request, context):
-    if not settings.AUTOMATIC_TEST:
-        id_adm = common_selectors.get_administrador_by_request(request).id
-    else:
-        id_adm = 12
+    id_adm = common_selectors.get_administrador_by_request(request).id
     # return render(request, 'gere/template1/cliente/apresentacao/index.html', context)
     return render(request, f'instances/{id_adm}/cliente/apresentacao/index.html', context)
 
@@ -750,8 +746,8 @@ def gerar_qrcode(request, context, id_reserva):
     img = qr.make_image(fill_color="black", back_color="white")
     img.save(f'static/media/qrcode{id_reserva}.png')
 
-    email = request.user.email
-    #email = 'brunaoliveiraweb@gmail.com'
+    #email = request.user.email
+    email = 'brunaoliveiraweb@gmail.com'
     host = settings.EMAIL_HOST
     port = settings.EMAIL_PORT
     login = settings.EMAIL_HOST_USER

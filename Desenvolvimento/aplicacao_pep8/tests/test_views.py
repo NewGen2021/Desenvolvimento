@@ -91,8 +91,7 @@ class TestViews_gere_coworking(TestCase):
         response = self.client.get(reverse('escolherCadastro'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'gere/template1/cliente/cadastro_e_login/escolherCadastro.html')
-
-
+    
     @selecionar_app(app='gere_coworking')
     def test_registrar_usuario_GET(self):
         response = self.client.get(reverse('registrarUsuario'))

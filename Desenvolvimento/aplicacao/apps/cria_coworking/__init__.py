@@ -3,7 +3,6 @@ from newgen import settings
 from django.apps import apps as django_apps
 
 
-
 def get_user_model():
     """
     Return the User model that is active in this project.

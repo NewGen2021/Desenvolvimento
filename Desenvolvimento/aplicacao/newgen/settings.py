@@ -28,32 +28,6 @@ DEBUG = True #QUANDO FOR SUBIR NO SVN E/OU GITHUB, DEIXE COMO "FALSE" PARA O DEP
 # ALLOWED_HOSTS = ['127.0.0.1', 'newgenapp.link', 'www.newgenapp.link', 'testtest.com', 'www.testtest.com', 'main.testtest.com']
 ALLOWED_HOSTS = ['*']
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '{levelname} {asctime} {module} {process:d} {thread:d} {message}',
-            'style': '{',
-        }
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'newgen/relatorio.log'),
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
-
 
 # Application definition
 
@@ -226,5 +200,3 @@ EMAIL_HOST_PASSWORD = "jchxwrmlxaypxgei"
 # env.read_env(str(BASE_DIR / ".env"))
 MERCADO_PAGO_PUBLIC_KEY = "TEST-3857db53-06c2-4bfc-a9a5-bec2dd9d1579"
 MERCADO_PAGO_ACCESS_TOKEN = "TEST-3187563733455134-101000-ca1efb8cc24fb6c2fe39239b997dde91-378451579"
-
-FIXTURE_DIRS = [os.path.join(BASE_DIR, '/tests/fixures/')]

@@ -20,15 +20,15 @@ def get_button_by_request(request) -> str:
 
 def get_button_by_administrador(administrador) -> str:
     configs = InstanceConfig.objects.get(client_id=administrador).color_palette
-    # print('-- config --')
-    # print(configs)
+    print('-- config --')
+    print(configs)
     button = json.loads(configs.replace("'", "\""))['button']
     return button
 
 def get_button_by_administrador(adm: Administrador) -> str:
     configs = InstanceConfig.objects.get(client_id=adm).color_palette
-    # print('-- config --')
-    # print(configs)
+    print('-- config --')
+    print(configs)
     button = json.loads(configs.replace("'", "\""))['button']
     return button
 
