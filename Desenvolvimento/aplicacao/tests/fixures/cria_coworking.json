@@ -1,0 +1,302 @@
+[
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 12,
+        "fields": {
+            "nome": "Coworking",
+            "cnpj": "84584110000138",
+            "email": "juliacarvalhomelo@dayrep.com.br",
+            "telefone": "(11) 97786-6159",
+            "cep": "29030-035",
+            "logradouro": "Rua Santo Ant_ni",
+            "numero": 561,
+            "bairro": "S_o Pedro",
+            "cidade": "Vit_ria",
+            "estado": "ES",
+            "database": "db_cowork_6d3cf8b2",
+            "domain": 2,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 13,
+        "fields": {
+            "nome": "YourJob",
+            "cnpj": "61658871000191",
+            "email": "fernow10@gmail.com",
+            "telefone": "(11) 95483-6882",
+            "cep": "02039-020",
+            "logradouro": "Rua fulano de tall",
+            "numero": 199,
+            "bairro": "pirituba",
+            "cidade": "s_o paulo",
+            "estado": "SP",
+            "database": "db_yourjo_9eba02a4",
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 14,
+        "fields": {
+            "nome": "TesteCoworking",
+            "cnpj": "64687797000120",
+            "email": "daniellerdonahue@armyspy.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "01532-030",
+            "logradouro": "Rua J_piter",
+            "numero": 175,
+            "bairro": "Aclima__o",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": "db_testec_efe0d583",
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 15,
+        "fields": {
+            "nome": "Bruna Castilho",
+            "cnpj": "53878066000145",
+            "email": "bruna_rodriguesoliver@hotmail.com",
+            "telefone": "(11) 96437-8445",
+            "cep": "09781-220",
+            "logradouro": "Rua Tiradentes",
+            "numero": 1234,
+            "bairro": "Santa Terezinha",
+            "cidade": "S_o Bernardo do Campo",
+            "estado": "SP",
+            "database": "db_brunac_15564d15",
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 21,
+        "fields": {
+            "nome": "Novo adm",
+            "cnpj": "53307484000182",
+            "email": "brenocorreiapinto@gmaaail.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "01014-010",
+            "logradouro": "Rua Jo_o Br_cola",
+            "numero": 151,
+            "bairro": "Centro",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": "Plano B_sico",
+            "validade_plano": "2021-12-27T12:48:15.892Z"
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 22,
+        "fields": {
+            "nome": "Criativa Coworking",
+            "cnpj": "83432419000140",
+            "email": "criativa.coworking@gmail.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "88064-002",
+            "logradouro": "Rua Baldicero Filomeno",
+            "numero": 151,
+            "bairro": "Ribeir_o da Ilha",
+            "cidade": "Florian_polis",
+            "estado": "SC",
+            "database": null,
+            "domain": null,
+            "plano": "Plano B_sico",
+            "validade_plano": "2021-12-28T03:49:51.493Z"
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 23,
+        "fields": {
+            "nome": "Non Coworking",
+            "cnpj": "98251472000111",
+            "email": "nonworking@gmail.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "14406-136",
+            "logradouro": "Rua Ant_nio Albino da Silva",
+            "numero": 176,
+            "bairro": "Parque das Esmeraldas",
+            "cidade": "Franca",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": "Plano B_sico",
+            "validade_plano": "2021-12-28T06:45:46.287Z"
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 24,
+        "fields": {
+            "nome": "Empresa Nova",
+            "cnpj": "26754796000161",
+            "email": "jacquelynjhenson@armyspy.com",
+            "telefone": "11977866159",
+            "cep": "02039020",
+            "logradouro": "Rua Pelio Jos_ Gianelli",
+            "numero": 151,
+            "bairro": "Santana",
+            "cidade": "Sao Paulo",
+            "estado": "SP",
+            "database": "db_empres_9869e377",
+            "domain": null,
+            "plano": "Plano B_sico",
+            "validade_plano": "2022-01-03T00:34:47.889Z"
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 25,
+        "fields": {
+            "nome": "Daniel Morais",
+            "cnpj": "00854826000118",
+            "email": "daniel.morais@ifsp.edu.br",
+            "telefone": "(11) 98765-4321",
+            "cep": "01310-100",
+            "logradouro": "Av Paulista",
+            "numero": 1000,
+            "bairro": "Bela Vista",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 26,
+        "fields": {
+            "nome": "Braz CoWorking",
+            "cnpj": "49749430000108",
+            "email": "jose.ba@ifsp.edu.br",
+            "telefone": "11987654321",
+            "cep": "01109-010",
+            "logradouro": "Rua Pedro Vicente",
+            "numero": 625,
+            "bairro": "Canind_",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 27,
+        "fields": {
+            "nome": "Eu Mesmo",
+            "cnpj": "68456845000120",
+            "email": "ivanfm@ifsp.edu.br",
+            "telefone": "+5511991111111",
+            "cep": "05547000",
+            "logradouro": "Rua Pedro Vicente",
+            "numero": 625,
+            "bairro": "Caninde",
+            "cidade": "SP",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 28,
+        "fields": {
+            "nome": "Braz CoWorking2",
+            "cnpj": "55565331000160",
+            "email": "jbraz@ig.com.br",
+            "telefone": "11987654321",
+            "cep": "01109-010",
+            "logradouro": "Rua Pedro Vicente",
+            "numero": 625,
+            "bairro": "Canind_",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 29,
+        "fields": {
+            "nome": "Bruna Coworking",
+            "cnpj": "26398380000158",
+            "email": "coworking@gmail.com",
+            "telefone": "(11) 96476-2073",
+            "cep": "09781-220",
+            "logradouro": "Rua Tiradentes",
+            "numero": 1837,
+            "bairro": "Santa Terezinha",
+            "cidade": "S_o Bernardo do Campo",
+            "estado": "SP",
+            "database": "db_newcow_b68741e3",
+            "domain": null,
+            "plano": "Plano B_sico",
+            "validade_plano": "2022-01-12T00:19:15.784Z"
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 30,
+        "fields": {
+            "nome": "Non Coworkinga",
+            "cnpj": "36328984000181",
+            "email": "nonworkinga@gmail.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "14406-136",
+            "logradouro": "Rua Ant_nio Albino da Silva",
+            "numero": 981,
+            "bairro": "Parque das Esmeraldas",
+            "cidade": "Franca",
+            "estado": "SP",
+            "database": null,
+            "domain": null,
+            "plano": null,
+            "validade_plano": null
+        }
+    },
+    {
+        "model": "cria_coworking.administrador",
+        "pk": 31,
+        "fields": {
+            "nome": "Empresa teste",
+            "cnpj": "85380863000194",
+            "email": "x.gabriel12@gmail.com",
+            "telefone": "(11) 97786-6159",
+            "cep": "01014-010",
+            "logradouro": "Rua Jo_o Br_cola",
+            "numero": 98,
+            "bairro": "Centro",
+            "cidade": "S_o Paulo",
+            "estado": "SP",
+            "database": "db_sowork_798a6c93",
+            "domain": 4,
+            "plano": "Plano B_sico",
+            "validade_plano": "2022-01-15T06:52:45.484Z"
+        }
+    }
+]
