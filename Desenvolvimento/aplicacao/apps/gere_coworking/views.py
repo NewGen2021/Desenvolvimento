@@ -686,7 +686,7 @@ def criar_tipo_espaco(request, context):
                 return redirect('listar_espacos')
     else:
         context['form'] = TipoespacoLabelsForm
-        return render(request, 'gere/template1/adm/espacos/criar_tipo_espaco.html', context)
+    return render(request, 'gere/template1/adm/espacos/criar_tipo_espaco.html', context)
 
 
 @m.verificador()
@@ -699,7 +699,7 @@ def criar_espaco(request, context):
     else:
         context['form'] = EspacosLabelsForm
         context['existe_tipos_espacos'] = TipoespacoModel.objects.count()
-        return render(request, 'gere/template1/adm/espacos/criar_espaco.html', context)
+    return render(request, 'gere/template1/adm/espacos/criar_espaco.html', context)
 
 
 @m.verificador()

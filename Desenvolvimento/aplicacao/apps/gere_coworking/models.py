@@ -99,6 +99,17 @@ class TipoespacoModel(models.Model):
             preco_formatado = f"{self.preco:.2f}".replace('.', ',')
             return f"{preco_formatado:>13}"
         return f"{'-':>13}"
+    
+    def get_image_url(self):
+        try:
+            if not self.imagem:
+                return '/static/img/sem_foto.png'
+            return self.imagem.url
+        except AttributeError:
+            """'bytes' object has no attribute 'url'"""
+            if self.imagem == b'':
+                return '/static/img/sem_foto.png'
+            return "%s%s" %(settings.MEDIA_URL, self.imagem.decode('utf-8'))
         
     
     def get_compartilhado(self):
