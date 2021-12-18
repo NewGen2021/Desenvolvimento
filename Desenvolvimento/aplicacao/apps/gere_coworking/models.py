@@ -79,10 +79,14 @@ class TipoespacoModel(models.Model):
         db_table = 'tipoEspaco'
     
     def get_descricao_breve(self):
-        TAMANHO_MAX_DESCRICAO: int = 70
-        return f"{self.descricao[:TAMANHO_MAX_DESCRICAO]}..." if len(self.descricao) >= TAMANHO_MAX_DESCRICAO else self.descricao
+        if self.descricao:
+            TAMANHO_MAX_DESCRICAO: int = 70
+            return f"{self.descricao[:TAMANHO_MAX_DESCRICAO]}..." if len(self.descricao) >= TAMANHO_MAX_DESCRICAO else self.descricao
+        return 'Sem descrição'
     
     def get_tempo_limpeza(self):
+        if self.tempo_limpeza is None:
+            return '0 segs'
         if self.tempo_limpeza >= datetime.time(1, 0, 0):
             return _(f"%s hr{'s' if self.tempo_limpeza.hour != 1 else ''}") % self.tempo_limpeza.hour
         elif self.tempo_limpeza >= datetime.time(0, 1, 0):
@@ -91,8 +95,11 @@ class TipoespacoModel(models.Model):
             return _(f"%s seg{'s' if self.tempo_limpeza.second != 1 else ''}") % self.tempo_limpeza.second
     
     def get_preco(self):
-        preco_formatado = f"{self.preco:.2f}".replace('.', ',')
-        return f"{preco_formatado:>13}"
+        if self.preco:
+            preco_formatado = f"{self.preco:.2f}".replace('.', ',')
+            return f"{preco_formatado:>13}"
+        return f"{'-':>13}"
+        
     
     def get_compartilhado(self):
         return _("SIM") if self.compartilhado else _("NÃO")

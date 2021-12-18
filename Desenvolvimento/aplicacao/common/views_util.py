@@ -98,17 +98,23 @@ def get_url_without_langcode(request):
 
 
 def isAdministrator(request):
-    grupo = getGrupoDoUsuario(request)
-    if grupo == 'administrador':
-        return True
-    return False
+    try:
+        grupo = getGrupoDoUsuario(request)
+        if grupo == 'administrador':
+            return True
+        return False
+    except IndexError:
+        return False
 
 
 def isFuncionario(request):
-    grupo = getGrupoDoUsuario(request)
-    if grupo == 'funcionario':
-        return True
-    return False
+    try:
+        grupo = getGrupoDoUsuario(request)
+        if grupo == 'funcionario':
+            return True
+        return False
+    except IndexError:
+        return False
 
 
 # Confere se o tempo 2 está dentro do tempo 1

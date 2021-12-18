@@ -12,6 +12,8 @@ from django.urls import clear_url_caches
 from tests.conf_tests import selecionar_app, reload_urlconf
 from gere_coworking.models import ClienteModel, FuncionariosModel
 from gere_coworking.services.cadastro import configuraGrupoUsuario
+from cria_coworking.models import Administrador
+from custom_templates.models import InstanceConfig
 import datetime
 
 
@@ -58,7 +60,8 @@ class TestViews_gere_coworking(TestCase):
     def test_index_GET(self):
         response = self.client.get(reverse('index'))
         self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
+        #self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
+        self.assertTemplateUsed(response, 'instances/12/cliente/apresentacao/index.html')
     
     # LOGAR!
     @selecionar_app(app='gere_coworking')
@@ -104,11 +107,11 @@ class TestViews_gere_coworking(TestCase):
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'gere/template1/funcionario/regEmployee.html')
     
-    @selecionar_app(app='gere_coworking')
-    def test_index_GET(self):
-        response = self.client.get(reverse('index'))
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
+    # @selecionar_app(app='gere_coworking')
+    # def test_index_GET(self):
+    #     response = self.client.get(reverse('index'))
+    #     self.assertEquals(response.status_code, 200)
+    #     self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
     
     @selecionar_app(app='gere_coworking')
     def test_registrar_administrador_GET(self):
@@ -117,11 +120,12 @@ class TestViews_gere_coworking(TestCase):
         self.assertTemplateUsed(response, 'cria/regAdministrator.html')
     
     # LOGAR!
-    @selecionar_app(app='gere_coworking')
-    def test_agendamento_GET(self):
-        response = self.client.get(reverse('index'))
-        self.assertEquals(response.status_code, 200)
-        self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
+    # @selecionar_app(app='gere_coworking')
+    # def test_agendamento_GET(self):
+    #     response = self.client.get(reverse('index'))
+    #     self.assertEquals(response.status_code, 200)
+    #     #self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
+    #     self.assertTemplateUsed(response, 'gere/template1/cliente/apresentacao/index.html')
     
     # DEPRECATED!
     @selecionar_app(app='gere_coworking')
@@ -276,7 +280,7 @@ class TestViews_cria_coworking(TestCase):
 
     @selecionar_app(app='cria_coworking')
     def test_index_GET(self):
-        response = self.client.get(reverse('index'))
+        response = self.client.get(reverse('index_cria'))
         self.assertEquals(response.status_code, 200)
         self.assertTemplateUsed(response, 'cria/index.html')
     

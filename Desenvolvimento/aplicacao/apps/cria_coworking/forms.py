@@ -31,7 +31,8 @@ class RegistrarAdministradorForm(forms.ModelForm):
     nome = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'maxlength': "70"}), label=_("Razão social"))
     senha = forms.CharField(widget=forms.PasswordInput(
-        attrs={'required': 'true', 'minlength': '6', 'maxlength': "40"}))
+        attrs={'required': 'true', 'minlength': '8', 'maxlength': "40",
+                'data-toggle':"tooltip", 'data-placement':"top", 'title':"A senha deve ter no máximo 8 caracteres"}))
     cnpj = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'data-mask': "00.000.000/0000-00"}), label=_("CNPJ"))
     email = forms.EmailField(widget=forms.EmailInput(
@@ -81,11 +82,11 @@ class RegistrarAdministradorForm(forms.ModelForm):
     def clean_telefone(self):
         return h.validate(self.cleaned_data.get("telefone"), "telefone")
 
-    def clean_cep(self):
-        return h.validate(self.cleaned_data.get("cep"), "cep")
+    # def clean_cep(self):
+    #     return h.validate(self.cleaned_data.get("cep"), "cep")
 
-    def clean_nome(self):
-        return h.validate(self.cleaned_data.get("nome"), "nome_empresa")
+    # def clean_nome(self):
+    #     return h.validate(self.cleaned_data.get("nome"), "nome_empresa")
 
     def clean_numero(self):
         return h.validate(self.cleaned_data.get("numero"), "numero_endereco")
@@ -101,7 +102,9 @@ class RegistrarAdministradorInfosPessoaisForm(forms.ModelForm):
     nome = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'maxlength': "70"}), label=_("Razão social"))
     senha = forms.CharField(widget=forms.PasswordInput(
-        attrs={'required': 'true', 'minlength': '6', 'maxlength': "40"}))
+        attrs={'required': 'true', 'minlength': '8', 'maxlength': "40", 'id': 'input_senha',
+                'data-toggle':"tooltip", 'data-placement':"top", 'title':_("A senha deve ter no mínimo 8 caracteres")}),
+                label=_("Senha (mínimo 8 caracteres)"))
     cnpj = forms.CharField(widget=forms.TextInput(
         attrs={'required': 'true', 'data-mask': "00.000.000/0000-00"}), label=_("CNPJ"))
     email = forms.EmailField(widget=forms.EmailInput(
@@ -149,11 +152,11 @@ class RegistrarAdministradorInfosPessoaisForm(forms.ModelForm):
     def clean_telefone(self):
         return h.validate(self.cleaned_data.get("telefone"), "telefone")
 
-    def clean_cep(self):
-        return h.validate(self.cleaned_data.get("cep"), "cep")
+    # def clean_cep(self):
+    #     return h.validate(self.cleaned_data.get("cep"), "cep")
 
-    def clean_nome(self):
-        return h.validate(self.cleaned_data.get("nome"), "nome_empresa")
+    # def clean_nome(self):
+    #     return h.validate(self.cleaned_data.get("nome"), "nome_empresa")
     
     def clean_email(self):
         email = self.cleaned_data.get("email")

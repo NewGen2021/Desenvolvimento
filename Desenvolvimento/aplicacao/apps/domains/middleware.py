@@ -68,20 +68,24 @@ class CurrentDomainMiddleware(MiddlewareMixin):
         from .models import Domain
 
         if settings.AUTOMATIC_TEST:
-            create_simple_domains_for_test()
+            # create_simple_domains_for_test()
             from tests.conf_tests import tests_local as tl
             if hasattr(tl, 'current_app'):
                 if tl.current_app == 'gere_coworking':
-                    request.domain['domain'] = Domain.objects.get(name="coworking")
+                    # request.domain['domain'] = Domain.objects.get(name="coworking")
+                    request.domain['domain'] = Domain.objects.get(domain="newgenapp.link")
                     request.domain['isActive'] = True
                     return
                 if tl.current_app == 'cria_coworking':
-                    request.domain['domain'] = Domain.objects.get(name="newgen")
+                    # request.domain['domain'] = Domain.objects.get(domain="newgen")
+                    request.domain['domain'] = Domain.objects.get(domain="milleniacoworking.mooo.com")
                     request.domain['isActive'] = True
                     return
 
-            request.domain['domain'] = None
-            request.domain['isActive'] = False
+            # request.domain['domain'] = None
+            # request.domain['isActive'] = False
+            request.domain['domain'] = Domain.objects.get(domain="milleniacoworking.mooo.com")
+            request.domain['isActive'] = True
             return
 
         # request.domain['domain'] = Domain.objects.get_current(request)

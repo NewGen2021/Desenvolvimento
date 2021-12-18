@@ -22,7 +22,7 @@
       </div>
       
       <div id="BodyRegister">
-        <form method="POST" class="form-group">
+        <form method="POST" class="form-group" id="formulario">
           {% csrf_token %}
           {{ administradorForm|crispy }}
           <button type="submit" class="btn btn-primary" id="enviar_form_administrador">{% translate "Registrar" %}</button>           
@@ -38,6 +38,22 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
+
+<script>
+  let botao = document.getElementById('enviar_form_administrador');
+  botao.onclick = function(){
+    let input_senha = document.getElementById('input_senha');
+    if(input_senha.value.length < 8){
+      alert('{% translate "Insira uma senha com pelo menos 8 caracteres" %}');
+      input_senha.focus();
+    }
+    else
+    document.getElementById('formulario').submit();
+    
+
+  };
+  // el.addEventListener("click", modifyText, false);
+</script>
 
 <!-- Cep validator -->
 <script src="{% static 'js/cep_verifier.js' %}"></script>

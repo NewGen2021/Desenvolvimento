@@ -1,0 +1,242 @@
+{% extends base_template %}
+
+
+
+
+{% block title %}
+{% load i18n %}
+{% translate "Início" %}
+{% endblock %}
+
+{% block content %}
+<!-- ======= Hero Section ======= -->
+<section id="hero">
+  <div class="hero-container">
+    <div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+      {% load client_translation %}
+      <div class="carousel-inner" role="listbox">
+        
+        <div class="carousel-item active" style="background-image: url(/media/template_index/default/slide-1.jpg);">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animate__animated animate__fadeInDown">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Networking and Saving&quot;, &quot;description&quot;: &quot;Reducing costs for your company and providing mutual collaboration.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Networking e Economia&quot;, &quot;description&quot;: &quot;Reduzindo custos para sua empresa e proporcionando colabora\u00e7\u00e3o m\u00fatua.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}</h2>
+              <p class="animate__animated animate__fadeInUp">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Networking and Saving&quot;, &quot;description&quot;: &quot;Reducing costs for your company and providing mutual collaboration.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Networking e Economia&quot;, &quot;description&quot;: &quot;Reduzindo custos para sua empresa e proporcionando colabora\u00e7\u00e3o m\u00fatua.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}</p>
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item " style="background-image: url(/media/template_index/default/slide-2.jpg);">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animate__animated animate__fadeInDown">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Online Scheduling&quot;, &quot;description&quot;: &quot;Find the best space to work.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Agendamento On-line&quot;, &quot;description&quot;: &quot;Encontre o melhor espa\u00e7o para voc\u00ea trabalhar.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}</h2>
+              <p class="animate__animated animate__fadeInUp">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Online Scheduling&quot;, &quot;description&quot;: &quot;Find the best space to work.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Agendamento On-line&quot;, &quot;description&quot;: &quot;Encontre o melhor espa\u00e7o para voc\u00ea trabalhar.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}</p>
+              
+               
+              {% if "en" == request.LANGUAGE_CODE %}
+                  
+                    <a href="reserva"
+                      class="btn {{ button_color }} animate__animated animate__fadeInUp scrollto">
+                      Make your appointment
+                    </a>
+                  
+              {% endif %}  
+               
+              {% if "pt-br" == request.LANGUAGE_CODE %}
+                  
+                    <a href="reserva"
+                      class="btn {{ button_color }} animate__animated animate__fadeInUp scrollto">
+                      Faça seu agendamento
+                    </a>
+                  
+              {% endif %}  
+              
+              
+                
+              
+            </div>
+          </div>
+        </div>
+        
+        <div class="carousel-item " style="background-image: url(/media/template_index/default/slide-3.jpg);">
+          <div class="carousel-container">
+            <div class="carousel-content container">
+              <h2 class="animate__animated animate__fadeInDown">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Infrastructure&quot;, &quot;description&quot;: &quot;The elaborate Coworking is the perfect place for you to network to the fullest.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Infraestrutura&quot;, &quot;description&quot;: &quot;O Coworking elaborado \u00e9 o lugar perfeito para voc\u00ea reder ao m\u00e1ximo.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}</h2>
+              <p class="animate__animated animate__fadeInUp">{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Infrastructure&quot;, &quot;description&quot;: &quot;The elaborate Coworking is the perfect place for you to network to the fullest.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Infraestrutura&quot;, &quot;description&quot;: &quot;O Coworking elaborado \u00e9 o lugar perfeito para voc\u00ea reder ao m\u00e1ximo.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}</p>
+              
+            </div>
+          </div>
+        </div>
+        
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+  </div>
+</section><!-- End Hero -->
+
+<main id="main">
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row no-gutters">
+        <div class="col-lg-6 video-box">
+          <img src="/media/client_logo/logo.jpg" class="img-fluid" alt="">
+        </div>
+
+        <div class="col-lg-6 d-flex flex-column justify-content-center about-content">
+
+          <div class="section-title">
+            <h2>{% translate "Sobre Nós" %}</h2>
+            <p id="valor_sobre">
+              {{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;About us&quot;, &quot;description&quot;: &quot;We are more than a simple coworking, we were born with a much greater purpose, that of supporting small and medium entrepreneurs, self-employed professionals, entrepreneurs, startups and all those dreamers who deserve a space with all the necessary infrastructure for their project to take off.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Sobre N\u00f3s&quot;, &quot;description&quot;: &quot;Somos mais que um simples coworking, nascemos com um prop\u00f3sito muito maior, o de apoiar pequenos e m\u00e9dios empres\u00e1rios, profissionais aut\u00f4nomos, empreendedores, startup e todos aqueles sonhadores que merecem um espa\u00e7o com toda infra estrutura necess\u00e1ria para seu projeto decolar.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% translate "Serviços" %}</h2>
+      </div>
+
+      <div class="row align-items-center justify-content-center">
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" >
+          <div class="icon"><i class="bi bi-easel"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Auditorium&quot;, &quot;description&quot;: &quot;The perfect space for your lectures or training to be a success!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Audit\u00f3rio&quot;, &quot;description&quot;: &quot;O espa\u00e7o perfeito para as suas palestras ou treinamentos serem um sucesso!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Auditorium&quot;, &quot;description&quot;: &quot;The perfect space for your lectures or training to be a success!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Audit\u00f3rio&quot;, &quot;description&quot;: &quot;O espa\u00e7o perfeito para as suas palestras ou treinamentos serem um sucesso!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"  data-aos-delay="100" >
+          <div class="icon"><i class="bi bi-people-fill"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Work stations&quot;, &quot;description&quot;: &quot;Reduce costs wisely! Discover our workstations and join the team.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Esta\u00e7\u00f5es de Trabalho&quot;, &quot;description&quot;: &quot;Reduza os custos com sabedoria! Conhe\u00e7a as nossas esta\u00e7\u00f5es de trabalho e fa\u00e7a parte do time.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Work stations&quot;, &quot;description&quot;: &quot;Reduce costs wisely! Discover our workstations and join the team.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Esta\u00e7\u00f5es de Trabalho&quot;, &quot;description&quot;: &quot;Reduza os custos com sabedoria! Conhe\u00e7a as nossas esta\u00e7\u00f5es de trabalho e fa\u00e7a parte do time.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"  data-aos-delay="200" >
+          <div class="icon"><i class="bi bi-door-open"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Executive Rooms&quot;, &quot;description&quot;: &quot;Ample space for your events or meetings in great demand.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Salas Executivas&quot;, &quot;description&quot;: &quot;Amplo espa\u00e7o para os seus eventos ou reuni\u00f5es com uma grande demanda.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Executive Rooms&quot;, &quot;description&quot;: &quot;Ample space for your events or meetings in great demand.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Salas Executivas&quot;, &quot;description&quot;: &quot;Amplo espa\u00e7o para os seus eventos ou reuni\u00f5es com uma grande demanda.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"  data-aos-delay="300" >
+          <div class="icon"><i class="bi bi-shield-check"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Exclusive meeting rooms&quot;, &quot;description&quot;: &quot;Wishing a little more privacy for your meetings? We have the solution!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Salas de reuni\u00f5es exclusivas&quot;, &quot;description&quot;: &quot;Desejando um pouco mais de privacidade para as suas reuni\u00f5es? N\u00f3s temos a solu\u00e7\u00e3o!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Exclusive meeting rooms&quot;, &quot;description&quot;: &quot;Wishing a little more privacy for your meetings? We have the solution!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Salas de reuni\u00f5es exclusivas&quot;, &quot;description&quot;: &quot;Desejando um pouco mais de privacidade para as suas reuni\u00f5es? N\u00f3s temos a solu\u00e7\u00e3o!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"  data-aos-delay="400" >
+          <div class="icon"><i class="bi bi-person-circle"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Shared Secretary&quot;, &quot;description&quot;: &quot;Leave the convenience to us! We have a qualified reception team.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Secret\u00e1ria compartilhada&quot;, &quot;description&quot;: &quot;Deixe a comodidade conosco! Contamos com uma equipe capacitada para a recep\u00e7\u00e3o.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Shared Secretary&quot;, &quot;description&quot;: &quot;Leave the convenience to us! We have a qualified reception team.&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Secret\u00e1ria compartilhada&quot;, &quot;description&quot;: &quot;Deixe a comodidade conosco! Contamos com uma equipe capacitada para a recep\u00e7\u00e3o.&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+        <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up"  data-aos-delay="500" >
+          <div class="icon"><i class="bi bi-geo-alt"></i></div>
+          <h4 class="title">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Tax and business address&quot;, &quot;description&quot;: &quot;Whether you are starting or not, we give you the help you need!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Endere\u00e7o fiscal e comercial&quot;, &quot;description&quot;: &quot;Seja para quem est\u00e1 come\u00e7ando ou n\u00e3o, n\u00f3s te damos o aux\u00edlio que voc\u00ea precisa!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'title' }}
+          </h4>
+          <p class="description">
+{{ "&amp;#x7B;&quot;en&quot;: &amp;#x7B;&quot;title&quot;: &quot;Tax and business address&quot;, &quot;description&quot;: &quot;Whether you are starting or not, we give you the help you need!&quot;&amp;#x7D;, &quot;pt-br&quot;: &amp;#x7B;&quot;title&quot;: &quot;Endere\u00e7o fiscal e comercial&quot;, &quot;description&quot;: &quot;Seja para quem est\u00e1 come\u00e7ando ou n\u00e3o, n\u00f3s te damos o aux\u00edlio que voc\u00ea precisa!&quot;&amp;#x7D;&amp;#x7D;" | custom_template_translate_json:request.LANGUAGE_CODE | custom_template_translate_json:'description' }}
+        </p>
+        </div>
+        
+      </div>
+      
+
+    </div>
+  </section><!-- End Services Section -->
+
+  <!-- ======= Contact Us Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>{% translate "Entre e contato" %}</h2>
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>{% translate "Endereço" %}</h3>
+            <p>Rua Tiradentes, 1837, Santa Terezinha, São Bernardo do Campo - SP, 09781-220 </p>
+          </div>
+        </div>
+
+        <div class="col-lg-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>{% translate "Email" %}</h3>
+            <p>coworking@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="col-lg-12" data-aos="fade-up" data-aos-delay="300">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-lg-6 form-group">
+                <input data-tag ="nome" type="text" name="name" class="form-control" id="name" placeholder="{% translate 'Nome' %}" required>
+              </div>
+              <div class="col-lg-6 form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="{% translate 'Email' %}" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="{% translate 'Assunto' %}" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" name="message" rows="5" placeholder="{% translate 'Messagem' %}" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">{% translate "Carregando" %}</div>
+              <div class="error-message"></div>
+              <div class="sent-message">{% translate "Sua mensagem foi enviada. Obrigado!" %}</div>
+            </div>
+            <div class="text-center"><a type="submit" id="enviar_form_pessoa" class="btn {{ button_color }}">{% translate "Enviar Mensagem" %}</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section><!-- End Contact Us Section -->
+
+</main><!-- End #main -->
+{% endblock content %}

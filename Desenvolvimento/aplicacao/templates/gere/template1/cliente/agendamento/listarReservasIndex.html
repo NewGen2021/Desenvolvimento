@@ -55,7 +55,7 @@
       {% for item in reservas %}
         <tr> 
           <td>{{ item.data_reserva }}</td>
-          <td>{{ item.hora_entrada }}</td>
+          <td>{{ item.hora_entrada }} - {{ item.hora_saida }}</td>
           <td>{{ item.id_espaco.id_tipo_espaco.nome }}</td>
           <td>{{ item.id_cliente.nome }}</td>
           {% if item.is_aluguel == 1 %}

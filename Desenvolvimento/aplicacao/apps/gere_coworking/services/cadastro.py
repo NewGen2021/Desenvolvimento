@@ -5,11 +5,14 @@
 
 from sys import stderr
 from django.contrib.auth.models import Group, User
-
+import datetime
 import common.views_util as h
+import common.selectors as selector
 import newgen.databases as d
 from cria_coworking.models import Administrador
+from gere_coworking.models import FuncionariosModel
 from domains.models import Domain
+from django.db import connection
 
 def configura_banco_e_dominio(data: dict) -> dict:
     nomedb = h.gera_nome_banco(data['nome'])
@@ -32,10 +35,12 @@ def configuraGrupoUsuario(usuario, tipo, banco: str=None):
     else:
         raise ValueError('Função configuraGrupoUsuario não reconhece o tipo "' + tipo + '"')
     if banco:
-        my_group = Group.objects.using(banco).get(name=name)
+        group = Group.objects.using(banco).get(name=name)
+        cursor = connection.cursor()
+        cursor.execute('''INSERT %s.auth_user_groups SET user_id=%s, group_id=%s''' %(banco, usuario.id, group.id))
     else:
         my_group = Group.objects.get(name=name)
-    my_group.user_set.add(usuario)
+        my_group.user_set.add(usuario)
 
 
 def escreveNaTabelaUser(json, pessoa=True, administrador=False, banco: str=None) -> User:
@@ -152,8 +157,27 @@ def writeAdministradorInCriaCoworking(formAdministrador, data) -> User:
 
 def writeAdministradorInGereCoworking(data, banco) -> User:
     user = escreveNaTabelaUser(json=data, pessoa=False, administrador=True, banco=banco)
-    configuraGrupoUsuario(user, tipo='administrador')    
+    configuraGrupoUsuario(user, tipo='administrador', banco=banco)
     # adm = Administrador.objects.get(cnpj=data['cnpj'])
     # adm.database = data['database']
     # adm.save()
+    # funcionario = formFuncionario.save(commit=False)  # Salva na tabela cliente
+    # funcionario.user = user
+    # funcionario.save()
+    maindb_adm = Administrador.objects.using('default').get(cnpj=data['cnpj'])
+    func = FuncionariosModel.objects.using(banco).create(
+        user = user,
+        nome = maindb_adm.nome,
+        cpf_cnpj = maindb_adm.cnpj,
+        data_nascimento = datetime.datetime.today(),
+        email = maindb_adm.email,
+        telefone = maindb_adm.telefone,
+        logradouro = maindb_adm.logradouro,
+        numero = maindb_adm.numero,
+        bairro = maindb_adm.bairro,
+        cidade = maindb_adm.cidade,
+        estado = maindb_adm.estado,
+        cep = maindb_adm.cep
+    )
+    
     return user

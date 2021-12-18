@@ -78,4 +78,20 @@
 <!-- Cep validator -->
 <script src="{% static 'js/cep_verifier.js' %}"></script>
 
+<!-- Adaptive mask -->
+<script>
+    $(document).ready(function(){
+      
+      $("#id_username").mask("000.000.000-00999")
+      
+      $("#id_username").change(function(event){
+        if ($(this).val().length > 14){
+          $("#id_username").mask("00.000.000/0009-99")
+        }else{
+          $("#id_username").mask("000.000.000-00999")
+        }
+      })
+    })
+</script>
+
 {% endblock js %}

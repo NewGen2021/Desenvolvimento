@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('home', home, name='home'),
+    # path('home', home, name='home'),
     path('', include('django.contrib.auth.urls')),
     path('', index, name="index"),
     path('accounts/escolherCadastro', escolherCadastro, name='escolherCadastro'),
